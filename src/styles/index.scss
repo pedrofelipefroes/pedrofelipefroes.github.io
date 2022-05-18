@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'), url("https://use.typekit.net/wgk2aix.css");
+
+@import "./variables.scss", "./function.scss", "./mixins.scss";
+
+:root {
+    --ls-base-size: .75;
+    --ms-base-size: 1;
+    --ms-ratio: 1.5;
+
+    @include at-breakpoint('desktop') {
+        --ms-base-size: 1.125;
+        --ls-base-size: .9375;
+    }
+}
+
+body {
+    font-family: $body-font;
+    text-rendering: optimizeLegibility;
+}
+
+@each $level,
+$properties in $modular-scale {
+    #{$level} {
+        font-size: modular-scale(nth($properties, 1));
+        line-height: leading-scale(nth($properties, 2));
+    }
+}
+
+h1,
+h2,
+h3 {
+    font-family: $headings-font;
+    font-feature-settings: "dlig", "onum";
+    font-variant-numeric: oldstyle-nums;
+}
+
+h1 {
+    @include at-breakpoint('desktop') {
+        line-height: leading-scale(7); // optical adjusment
+    }
+}
+
+h2 {
+    @include at-breakpoint('desktop') {
+        font-size: calc(modular-scale(2) - .375rem); // optical adjusment
+    }
+}
