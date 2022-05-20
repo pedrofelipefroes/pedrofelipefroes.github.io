@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'), url("https://use.typekit.net/wgk2aix.css");
 
-@import "./variables.scss", "./function.scss", "./mixins.scss";
+@import "./reset.scss", "./variables.scss", "./function.scss", "./mixins.scss";
 
 :root {
     --ls-base-size: .75;
