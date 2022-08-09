@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[678],{6558:function(e,t,a){a.r(t);var l=a(7294);a(1597);t.default=function(){return l.createElement(l.Fragment,null,l.createElement("h1",{className:"text-title-1"},"New portfolio.",l.createElement("br",null),"Soon.  "),l.createElement("br",null),l.createElement("p",{className:"text-body"},"Froes © 2022."))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-f2f88b5da638f3a0f936.js.map
