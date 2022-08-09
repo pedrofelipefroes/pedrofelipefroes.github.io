@@ -1,5 +1,7 @@
 @import url("https://use.typekit.net/wgk2aix.css");
-@import "./reset.scss", "./variables.scss", "./functions.scss", "./mixins.scss", "fonts/fonts.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..400&display=swap');
+
+@import "./reset.scss", "./variables.scss", "./functions.scss", "./mixins.scss";
 
 :root {
     --color-bg: #f6f6f5;
@@ -42,7 +44,8 @@ body {
     line-height: ss(5);
 
     &>em {
-        font-weight: 250;
+        font-weight: 300;
+        letter-spacing: -0.025em;
         text-transform: uppercase;
     }
 }
@@ -54,7 +57,8 @@ body {
     line-height: ss(3);
 
     &>em {
-        font-weight: 350;
+        font-weight: 400;
+        letter-spacing: 0;
         text-transform: uppercase;
     }
 }
