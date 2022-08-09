@@ -1,15 +1,8 @@
-$body-font: 'Inter', sans-serif;
-$headings-font: orpheuspro, serif;
-
 $breakpoints: (
-    desktop: 64em
+    sm: 40em,
+    md: 80em,
+    lg: 120em
 );
-
-$modular-scale: (
-    // tag: (modular scale value, default leading value)
-    h1: (4, 8),
-    h2: (2, 4),
-    h3: (1, 3),
-    p: (0, 2),
-    small: (-1, 1)
-);
+$font-body: neue-haas-unica, sans-serif;
+$font-headings: Inconsolata, monospace;
+$ms-ratio: 1.5;

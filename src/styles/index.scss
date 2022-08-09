@@ -1,47 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'), url("https://use.typekit.net/wgk2aix.css");
-
-@import "./reset.scss", "./variables.scss", "./function.scss", "./mixins.scss";
+@import url("https://use.typekit.net/wgk2aix.css");
+@import "./reset.scss", "./variables.scss", "./functions.scss", "./mixins.scss", "fonts/fonts.scss";
 
 :root {
-    --ls-base-size: .75;
-    --ms-base-size: 1;
-    --ms-ratio: 1.5;
+    --color-bg: #f6f6f5;
+    --color-label: #272527;
+    --spacing-base: .75rem;
+    --text-base: 1rem;
 
-    @include at-breakpoint('desktop') {
-        --ms-base-size: 1.125;
-        --ls-base-size: .9375;
+    @include breakpoint("sm") {
+        --spacing-base: .75rem * 1.0625; // base spacing size: 12.75px
+        --text-base: 1rem * 1.0625; // base text size: 17px
+    }
+
+    @include breakpoint("md") {
+        --spacing-base: .75rem * 1.125; // base spacing size: 13.5px
+        --text-base: 1rem * 1.125; // base text size: 18px
     }
 }
 
 body {
-    font-family: $body-font;
+    background-color: var(--color-bg);
+    color: var(--color-label);
+    font-family: $font-body;
+    font-variant-ligatures: common-ligatures;
+    -moz-font-feature-settings: "liga", "clig";
+    -webkit-font-feature-settings: "liga", "clig";
+    font-feature-settings: "liga", "clig";
     text-rendering: optimizeLegibility;
 }
 
-@each $level,
-$properties in $modular-scale {
-    #{$level} {
-        font-size: modular-scale(nth($properties, 1));
-        line-height: leading-scale(nth($properties, 2));
+.text-title-1,
+.text-title-2,
+.text-link {
+    font-family: $font-headings;
+}
+
+.text-title-1 {
+    font-size: ms(4);
+    font-weight: 200;
+    letter-spacing: -0.05em;
+    line-height: ss(5);
+
+    &>em {
+        font-weight: 250;
+        text-transform: uppercase;
     }
 }
 
-h1,
-h2,
-h3 {
-    font-family: $headings-font;
-    font-feature-settings: "dlig", "onum";
-    font-variant-numeric: oldstyle-nums;
-}
+.text-title-2 {
+    font-size: ms(1);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: ss(3);
 
-h1 {
-    @include at-breakpoint('desktop') {
-        line-height: leading-scale(7); // optical adjusment
+    &>em {
+        font-weight: 350;
+        text-transform: uppercase;
     }
 }
 
-h2 {
-    @include at-breakpoint('desktop') {
-        font-size: calc(modular-scale(2) - .375rem); // optical adjusment
-    }
+.text-body {
+    font-family: $font-body;
+    font-size: ms(0);
+    line-height: ss(2);
+}
+
+.text-link {
+    font-size: ms(0);
+    font-weight: 500;
+    letter-spacing: 0.075em;
+    line-height: ss(2);
+    text-transform: uppercase;
 }

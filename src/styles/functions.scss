@@ -1,0 +1,10 @@
+@use "sass:math";
+
+@function ms($n, $base: var(--text-base), $scale: $ms-ratio) {
+    $multiplier: math.pow($scale, $n);
+    @return (calc($multiplier*$base));
+}
+
+@function ss($n, $base: var(--spacing-base)) {
+    @return (calc($base*$n));
+}
