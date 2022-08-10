@@ -1,22 +1,22 @@
 @import url("https://use.typekit.net/wgk2aix.css");
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..400&display=swap');
 
-@import "./reset.scss", "./variables.scss", "./functions.scss", "./mixins.scss";
+@import "./reset.scss", "./variables.scss", "./functions.scss", "./mixins.scss", "./components.scss";
 
 :root {
     --color-bg: #f6f6f5;
     --color-label: #272527;
-    --spacing-base: .75rem;
-    --text-base: 1rem;
+    --spacing-base: .75rem; // base spacing size: 12px
+    --text-base: 1rem; // base text size: 16px
 
     @include breakpoint("sm") {
-        --spacing-base: .75rem * 1.0625; // base spacing size: 12.75px
-        --text-base: 1rem * 1.0625; // base text size: 17px
+        --spacing-base: .796875; // base spacing size: 12.75px
+        --text-base: 1.0625rem; // base text size: 17px
     }
 
     @include breakpoint("md") {
-        --spacing-base: .75rem * 1.125; // base spacing size: 13.5px
-        --text-base: 1rem * 1.125; // base text size: 18px
+        --spacing-base: .84375rem; // base spacing size: 13.5px
+        --text-base: 1.125rem; // base text size: 18px
     }
 }
 
