@@ -6,6 +6,8 @@ import { StaticImage } from "gatsby-plugin-image"
 // import Seo from "../components/seo"
 //import * as styles from "../components/index.module.css"
 
+import NavigationLink from "../components/navigation-link/navigation-link"
+
 const links = [
   {
     text: "Tutorial",
@@ -71,9 +73,10 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 
 const IndexPage = () => (
   <>
-    <h1 className="text-title-1">New portfolio.<br/>Soon.  </h1>
-    <br/>
+    <h1 className="text-title-1">New portfolio.<br />Soon.  </h1>
+    <br />
     <p className="text-body">Froes © 2022.</p>
+    <NavigationLink hasIcon to="https://froes.design">test</NavigationLink>
   </>
 )
 
