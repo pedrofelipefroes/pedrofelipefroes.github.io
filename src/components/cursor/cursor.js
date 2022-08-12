@@ -82,8 +82,6 @@ const Cursor = () => {
         }
 
         const handleTextMouseOver = ({ target }) => {
-            let rect = target.getBoundingClientRect()
-
             const lineHeight = getComputedStyle(target).lineHeight
 
             cursor.style.setProperty("--cursor-width", "0.15em");
