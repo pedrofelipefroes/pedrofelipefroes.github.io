@@ -10,7 +10,7 @@ const Cursor = () => {
 
         const handleMouseDown = () => {
             if (!cursorLocked) {
-                cursor.style.setProperty("--cursor-scale", .9)
+                cursor.style.setProperty("--cursor-scale", .5)
             }
         }
 

@@ -12,7 +12,7 @@
     pointer-events: none;
     top: var(--cursor-top);
     transform: translate(-50%, -50%) scale(var(--cursor-scale));
-    transition-property: width, height;
+    transition-property: height, transition, width;
     width: var(--cursor-width);
 
     &.is-locked {
