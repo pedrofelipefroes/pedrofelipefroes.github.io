@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 // import Seo from "../components/seo"
 //import * as styles from "../components/index.module.css"
 
+import Cursor from "../components/cursor/cursor"
 import NavigationLink from "../components/navigation-link/navigation-link"
 
 const links = [
@@ -73,10 +74,13 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 
 const IndexPage = () => (
   <>
-    <h1 className="text-title-1">New portfolio.<br />Soon.  </h1>
-    <br />
-    <p className="text-body">Froes © 2022.</p>
-    <NavigationLink hasIcon to="https://froes.design">test</NavigationLink>
+    <div style={{ padding: "1em" }}>
+      <h1 className="text-title-1">New portfolio.<br />Soon.  </h1>
+      <br />
+      <p className="text-body">Froes © 2022.</p>
+      <NavigationLink hasIcon to="https://froes.design">test</NavigationLink>
+    </div>
+    <Cursor />
   </>
 )
 
