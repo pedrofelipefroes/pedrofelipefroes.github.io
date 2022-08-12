@@ -1,5 +1,25 @@
 .c-navigation-link {
+    --cursor-scale: 1;
+    --cursor-translateX: 0;
+    --cursor-translateY: 0;
+
+    cursor: none;
     display: inline-flex;
+    position: relative;
+    transform: translate(var(--cursor-translateX), var(--cursor-translateY)) scale(var(--cursor-scale));
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+    transition-property: opacity;
+    z-index: 1;
+
+    &:active {
+        opacity: 0.5;
+        transform: translate(var(--cursor-translateX), var(--cursor-translateY)) scale(1);
+    }
+
+    &:not(:hover) {
+        transition-property: transform, opacity;
+    }
 
     &:visited {
         color: var(--color-label);

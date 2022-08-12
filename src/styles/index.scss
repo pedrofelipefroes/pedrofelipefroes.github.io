@@ -10,7 +10,7 @@
     --text-base: 1rem; // base text size: 16px
 
     @include breakpoint("sm") {
-        --spacing-base: .796875; // base spacing size: 12.75px
+        --spacing-base: .796875rem; // base spacing size: 12.75px
         --text-base: 1.0625rem; // base text size: 17px
     }
 
@@ -23,18 +23,26 @@
 body {
     background-color: var(--color-bg);
     color: var(--color-label);
+    cursor: none;
     font-family: $font-body;
     font-variant-ligatures: common-ligatures;
     -moz-font-feature-settings: "liga", "clig";
     -webkit-font-feature-settings: "liga", "clig";
     font-feature-settings: "liga", "clig";
     text-rendering: optimizeLegibility;
+    user-select: none;
 }
 
 .text-title-1,
 .text-title-2,
 .text-link {
     font-family: $font-headings;
+}
+
+.text-title-1,
+.text-title-2,
+.text-body {
+    user-select: text;
 }
 
 .text-title-1 {
