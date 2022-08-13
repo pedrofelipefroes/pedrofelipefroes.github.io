@@ -6,8 +6,9 @@
     overflow: hidden;
     position: fixed;
     transition-duration: 1s;
-    transition-property: background-color;
+    transition-property: background-color, top;
     transition-timing-function: $easing-out-expo;
+    top: ss(-8);
     width: 100%;
     z-index: 2;
 
@@ -15,6 +16,10 @@
         background-color: var(--color-bg);
         height: 100%;
         z-index: 3;
+    }
+
+    &--visible {
+        top: 0;
     }
 
     &__content,
