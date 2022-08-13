@@ -1,0 +1,111 @@
+.c-nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    position: fixed;
+    transition-duration: 1s;
+    transition-property: background-color;
+    transition-timing-function: $easing-out-expo;
+    width: 100%;
+
+    &--expanded {
+        background-color: var(--color-bg);
+        z-index: 2;
+    }
+
+    &__content,
+    &__footer,
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: ss(3);
+        width: 100%;
+    }
+
+    &__content,
+    &__footer {
+        opacity: 0;
+
+        .text-title-2,
+        .text-body {
+            opacity: 0;
+            position: relative;
+            transition-delay: 100ms;
+            transition-duration: 400ms;
+            transition-property: opacity transform;
+            transition-timing-function: $easing-out-back;
+        }
+
+        .text-title-2 {
+            transform: scale(2.5);
+        }
+
+        .text-body {
+            transform: scale(1.5);
+        }
+    }
+
+    &--expanded>&__content,
+    &--expanded>&__footer {
+        opacity: 1;
+
+        .text-title-2,
+        .text-body {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    &__content {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__content>.c-navigation-link:last-child {
+        margin-top: ss(3);
+    }
+
+    &__footer {
+        bottom: 0;
+    }
+
+    &__header {
+        background-color: var(--color-bg);
+    }
+
+    &__icon {
+        z-index: 3;
+
+        @include breakpoint("md") {
+            display: none;
+        }
+
+        line {
+            transition-duration: 600ms;
+            transition-timing-function: $easing-out-back;
+            transition-property: transform;
+            transform-origin: center;
+        }
+
+        &--expanded>line:first-child {
+            transform: rotate(20deg) translateY(2px);
+        }
+
+        &--expanded>line:last-child {
+            transform: rotate(-20deg) translateY(-2px);
+        }
+    }
+
+    &__items {
+        display: none;
+
+        *:last-child {
+            margin-left: ss(3);
+        }
+
+        @include breakpoint("md") {
+            display: flex;
+        }
+    }
+}
