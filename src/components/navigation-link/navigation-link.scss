@@ -7,8 +7,8 @@
     display: inline-flex;
     position: relative;
     transform: translate(var(--cursor-translateX), var(--cursor-translateY)) scale(var(--cursor-scale));
-    transition-duration: 0.1s;
-    transition-timing-function: ease-out;
+    transition-duration: 100ms;
+    transition-timing-function: $easing-out-back;
     transition-property: opacity;
     z-index: 1;
 
@@ -26,15 +26,14 @@
     }
 
     &__icon {
-        height: ss(2);
         margin-right: ss(1);
-        stroke: var(--color-label);
-        width: ss(2);
 
         .arrowhead {
             transform: scale(0);
             transform-origin: left center;
-            transition: transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition-duration: 600ms;
+            transition-timing-function: $easing-out-back;
+            transition-property: transform;
         }
     }
 
