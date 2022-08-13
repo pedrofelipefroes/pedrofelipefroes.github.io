@@ -81,17 +81,17 @@ const Cursor = () => {
             target.style.setProperty("--cursor-translateY", `${topOffset * 4}px`)
         }
 
-        const handleTextMouseOut = () => {
-            cursor.style.setProperty("--cursor-width", defaultCursorSize);
-            cursor.style.setProperty("--cursor-height", defaultCursorSize);
-        }
+        // const handleTextMouseOut = () => {
+        //     cursor.style.setProperty("--cursor-width", defaultCursorSize);
+        //     cursor.style.setProperty("--cursor-height", defaultCursorSize);
+        // }
 
-        const handleTextMouseOver = ({ target }) => {
-            const lineHeight = getComputedStyle(target).lineHeight
+        // const handleTextMouseOver = ({ target }) => {
+        //     const lineHeight = getComputedStyle(target).lineHeight
 
-            cursor.style.setProperty("--cursor-width", "0.15em");
-            cursor.style.setProperty("--cursor-height", "calc(" + lineHeight + " + 0.3em)");
-        }
+        //     cursor.style.setProperty("--cursor-width", "0.15em");
+        //     cursor.style.setProperty("--cursor-height", "calc(" + lineHeight + " + 0.3em)");
+        // }
 
         document.addEventListener("mousedown", handleMouseDown)
         document.addEventListener("mousemove", handleMouseMove)
@@ -103,10 +103,10 @@ const Cursor = () => {
             link.addEventListener("mousemove", handleLinkMouseMove, { passive: true })
         })
 
-        document.querySelectorAll(".text-title-1:not(.is-hidden), .text-title-2:not(.is-hidden), .text-body:not(.is-hidden)").forEach((text) => {
-            text.addEventListener("mouseout", handleTextMouseOut, { passive: true })
-            text.addEventListener("mouseover", handleTextMouseOver, { passive: true })
-        })
+        // document.querySelectorAll(".text-title-1:not(.is-hidden), .text-title-2:not(.is-hidden), .text-body:not(.is-hidden)").forEach((text) => {
+        //     text.addEventListener("mouseout", handleTextMouseOut, { passive: true })
+        //     text.addEventListener("mouseover", handleTextMouseOver, { passive: true })
+        // })
 
         return () => {
             document.removeEventListener("mousedown", handleMouseDown)
@@ -119,10 +119,10 @@ const Cursor = () => {
                 link.removeEventListener("mousemove", handleLinkMouseMove)
             })
 
-            document.querySelectorAll(".text-title-1:not(.is-hidden), .text-title-2:not(.is-hidden), .text-body:not(.is-hidden)").forEach((text) => {
-                text.removeEventListener("mouseout", handleTextMouseOut)
-                text.removeEventListener("mouseover", handleTextMouseOver)
-            })
+            // document.querySelectorAll(".text-title-1:not(.is-hidden), .text-title-2:not(.is-hidden), .text-body:not(.is-hidden)").forEach((text) => {
+            //     text.removeEventListener("mouseout", handleTextMouseOut)
+            //     text.removeEventListener("mouseover", handleTextMouseOver)
+            // })
         }
 
     }, [cursorLocked])
