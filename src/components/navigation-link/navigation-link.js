@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-const NavigationLink = ({ children, hasIcon, to, ...other }) => {
+const NavigationLink = ({ classNames, children, hasIcon, to, ...other }) => {
     const internal = /^\/(?!\/)/.test(to)
     const icon = hasIcon ?
         <svg className="icon c-navigation-link__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,13 +22,14 @@ const NavigationLink = ({ children, hasIcon, to, ...other }) => {
         )
     }
     return (
-        <a className="c-navigation-link text-link" href={to} {...other}>
+        <a className={classNames ? "c-navigation-link text-link " + classNames : "c-navigation-link text-link"} href={to} {...other}>
             {icon} {children}
         </a>
     )
 }
 
 NavigationLink.propTypes = {
+    classNames: PropTypes.string,
     children: PropTypes.node,
     icon: PropTypes.string,
     to: PropTypes.string.isRequired,

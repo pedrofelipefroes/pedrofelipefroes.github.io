@@ -1,17 +1,20 @@
 .c-nav {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: ss(8);
     justify-content: space-between;
+    overflow: hidden;
     position: fixed;
     transition-duration: 1s;
     transition-property: background-color;
     transition-timing-function: $easing-out-expo;
     width: 100%;
+    z-index: 2;
 
     &--expanded {
         background-color: var(--color-bg);
-        z-index: 2;
+        height: 100%;
+        z-index: 3;
     }
 
     &__content,
@@ -75,8 +78,6 @@
     }
 
     &__icon {
-        z-index: 3;
-
         @include breakpoint("md") {
             display: none;
         }

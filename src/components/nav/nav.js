@@ -21,12 +21,12 @@ const Nav = () => {
                 </div>
             </div>
             <div className="c-nav__content">
-                <NavigationLink to="#about"><h2 className="text-title-2">About</h2></NavigationLink>
-                <NavigationLink to="#contact"><h2 className="text-title-2">Contact</h2></NavigationLink>
+                <NavigationLink classNames={c({ "is-hidden": !expanded })} to="#about"><h2 className={c("text-title-2", { "is-hidden": !expanded })}>About</h2></NavigationLink>
+                <NavigationLink classNames={c({ "is-hidden": !expanded })} to="#contact"><h2 className={c("text-title-2", { "is-hidden": !expanded })}>Contact</h2></NavigationLink>
             </div>
             <div className="c-nav__footer">
-                <p className="text-body">São Paulo, Brazil.</p>
-                <p className="text-body">Froes © 2022.</p>
+                <p className={c("text-body", { "is-hidden": !expanded })}>São Paulo, Brazil.</p>
+                <p className={c("text-body", { "is-hidden": !expanded })}>Froes © 2022.</p>
             </div>
         </nav>
     )
