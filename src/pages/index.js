@@ -75,7 +75,15 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 
 const IndexPage = () => (
   <>
-    <Nav />
+    <header className="l-header">
+      <Nav />
+      <h1 className="l-header__headline text-title-2"><em>Froes</em> is a designer and computer engineer with a knack for systematic design.</h1>
+      <div className="l-header__links">
+        <NavigationLink to="#about">About</NavigationLink>
+        <br />
+        <NavigationLink to="#contact">Contact</NavigationLink>
+      </div>
+    </header>
     <div style={{ padding: "1em" }}>
       <h1 className="text-title-1">New portfolio.<br />Soon.  </h1>
       <br />

@@ -1,0 +1,25 @@
+.l-header {
+    padding-top: ss(8);
+
+    &__headline,
+    &__links {
+        padding-left: ss(3);
+        padding-right: ss(3);
+    }
+
+    &__headline>.text-title-2 {
+        display: inline-flex;
+    }
+
+    &__links {
+        margin-top: ss(3);
+
+        @include breakpoint("md") {
+            display: none;
+        }
+
+        .c-navigation-link:last-child {
+            margin-top: ss(1);
+        }
+    }
+}
