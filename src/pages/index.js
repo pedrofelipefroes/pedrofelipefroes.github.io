@@ -7,6 +7,7 @@ import { StaticImage } from "gatsby-plugin-image"
 //import * as styles from "../components/index.module.css"
 
 import Cursor from "../components/cursor/cursor"
+import Nav from "../components/nav/nav"
 import NavigationLink from "../components/navigation-link/navigation-link"
 
 const links = [
@@ -74,11 +75,19 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 
 const IndexPage = () => (
   <>
+    <Nav />
     <div style={{ padding: "1em" }}>
       <h1 className="text-title-1">New portfolio.<br />Soon.  </h1>
       <br />
       <p className="text-body">Froes © 2022.</p>
-      <NavigationLink hasIcon to="https://froes.design">test</NavigationLink>
+      <NavigationLink to="https://froes.design">Home</NavigationLink>
+      <p className="text-body" style={{ maxWidth: "512px" }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at laoreet nunc. Proin ut feugiat enim. Duis augue ipsum, auctor a lobortis sit amet, efficitur a augue. Aliquam dui ipsum, faucibus id lorem quis, pharetra accumsan velit. Nullam maximus elit scelerisque felis varius malesuada. Morbi euismod lectus eu consequat aliquet. Sed tempus, ante mollis fringilla tincidunt, ante lectus cursus sapien, eget egestas est velit quis risus. Ut cursus sapien vitae lorem egestas, et ultricies nisl lacinia.<br />
+        Sed dictum velit sit amet mattis suscipit. Quisque eget eleifend sapien. Aliquam nec ornare orci. Maecenas lobortis sollicitudin justo, sed sagittis augue fermentum iaculis. Praesent ante mauris, scelerisque vel nulla vel, dapibus pulvinar lectus. Duis luctus malesuada velit, a consequat purus ultrices interdum. Curabitur eu ultricies tortor, vitae viverra lacus. Ut vitae ex sollicitudin, sodales urna sed, auctor sapien. Suspendisse nec diam sit amet leo mattis hendrerit quis et odio. Donec venenatis est vitae nisi convallis, vel suscipit dolor euismod. Pellentesque quis nibh at nisl faucibus dignissim. Nam et augue odio.<br />
+        Vivamus venenatis, ipsum lacinia consequat tempor, nulla augue commodo dui, sit amet molestie neque nisi vel turpis. Nunc metus ligula, venenatis vel maximus et, molestie vulputate ex. Nulla rhoncus tortor a metus aliquam venenatis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer auctor justo ligula, quis sollicitudin tellus ultrices a. Etiam dui mi, imperdiet in viverra ac, vestibulum fermentum ipsum. Cras ligula nisi, vestibulum eu fermentum vel, malesuada non velit. In hac habitasse platea dictumst. Sed arcu ligula, volutpat eget metus nec, blandit faucibus mi. Pellentesque imperdiet cursus commodo. Integer ac felis eu nibh euismod fermentum non sit amet enim.<br />
+        Curabitur suscipit odio quis odio accumsan dignissim. Praesent et lobortis erat, non consectetur odio. Proin non neque vel lorem ultrices accumsan et ut risus. Suspendisse varius mauris in eros pretium bibendum. Aliquam varius, erat ac interdum imperdiet, mauris est lobortis risus, a viverra turpis odio id orci. Nullam congue ipsum eget massa fermentum, eu efficitur dolor egestas. Aenean eu odio condimentum, dignissim metus in, dignissim dolor. Nulla tempor massa sit amet libero vestibulum, in molestie ex posuere. Etiam finibus id sapien in dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vulputate nulla eget pretium efficitur.<br />
+        Mauris auctor vehicula elit id venenatis. Curabitur vestibulum vestibulum odio, laoreet mollis ligula consequat nec. In vel sollicitudin libero, sed euismod augue. Ut id mi ultrices, sodales felis sed, vestibulum enim. Ut luctus id neque ut luctus. Praesent quis ligula erat. In hac habitasse platea dictumst. Donec posuere libero justo, quis elementum enim rutrum sed. Donec cursus, velit a tincidunt placerat, mi urna lacinia eros, non tincidunt augue lacus ac dui.<br />
+      </p>
     </div>
     <Cursor />
   </>
