@@ -33,6 +33,12 @@ body {
     user-select: none;
 }
 
+.icon {
+    height: ss(2);
+    stroke: var(--color-label);
+    width: ss(2);
+}
+
 .text-title-1,
 .text-title-2,
 .text-link {
@@ -78,6 +84,7 @@ body {
 }
 
 .text-link {
+    color: var(--color-label);
     font-size: ms(0);
     font-weight: 500;
     letter-spacing: 0.075em;
