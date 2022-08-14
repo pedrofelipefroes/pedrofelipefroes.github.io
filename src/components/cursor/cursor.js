@@ -113,7 +113,7 @@ const Cursor = () => {
             document.removeEventListener("mousemove", handleMouseMove)
             document.removeEventListener("mouseup", handleMouseUp)
 
-            document.querySelectorAll(".text-link:not(.is-hidden)").forEach((link) => {
+            document.querySelectorAll(".text-link:not(.is-hidden), a").forEach((link) => {
                 link.removeEventListener("mouseenter", handleLinkMouseEnter)
                 link.removeEventListener("mouseleave", handleLinkMouseLeave)
                 link.removeEventListener("mousemove", handleLinkMouseMove)
