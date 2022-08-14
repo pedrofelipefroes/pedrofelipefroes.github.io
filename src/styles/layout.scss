@@ -2,6 +2,7 @@
     padding: ss(3);
 
     &__info {
+        align-items: flex-end;
         display: flex;
         justify-content: space-between;
 
@@ -68,4 +69,8 @@
             margin-top: ss(1);
         }
     }
+}
+
+.l-no-wrap {
+    white-space: nowrap;
 }

@@ -78,7 +78,7 @@ const IndexPage = () => (
     <header className="l-header">
       <Nav />
       <div className="l-golden-ratio">
-        <h1 className="l-header__headline text-title-2"><em>Froes</em> is a designer and computer engineer with a knack for systematic design.</h1>
+        <h1 className="l-header__headline text-title-2"><em>Froes</em> is a designer and computer engineer with a knack for <span className="l-no-wrap">systematic design.</span></h1>
         <div className="l-header__links">
           <NavigationLink to="#about">About</NavigationLink>
           <br />

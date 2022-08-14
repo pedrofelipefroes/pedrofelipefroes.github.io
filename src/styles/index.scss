@@ -36,7 +36,7 @@ body {
 a:not(.text-link) {
     cursor: none;
     text-decoration: underline;
-    white-space: pre;
+    white-space: nowrap;
 }
 
 .icon {
