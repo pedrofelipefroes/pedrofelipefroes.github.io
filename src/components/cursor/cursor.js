@@ -97,7 +97,7 @@ const Cursor = () => {
         document.addEventListener("mousemove", handleMouseMove)
         document.addEventListener("mouseup", handleMouseUp)
 
-        document.querySelectorAll(".text-link:not(.is-hidden)").forEach((link) => {
+        document.querySelectorAll(".text-link:not(.is-hidden), a").forEach((link) => {
             link.addEventListener("mouseenter", handleLinkMouseEnter, { passive: true })
             link.addEventListener("mouseleave", handleLinkMouseLeave, { passive: true })
             link.addEventListener("mousemove", handleLinkMouseMove, { passive: true })
