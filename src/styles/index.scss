@@ -33,6 +33,12 @@ body {
     width: 100%;
 }
 
+a:not(.text-link) {
+    cursor: none;
+    text-decoration: underline;
+    white-space: pre;
+}
+
 .icon {
     height: ss(2);
     stroke: var(--color-label);
