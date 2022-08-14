@@ -86,6 +86,15 @@ const IndexPage = () => (
         </div>
       </div>
     </header>
+    <section className="l-contact l-golden-ratio" id="#contact">
+      <div className="l-contact__links">
+        <NavigationLink hasIcon to="mailto:hello@froes.design">hello@froes.design</NavigationLink>
+        <br />
+        <NavigationLink hasIcon to="https://www.linkedin.com/in/froesdesign/">in/froesdesign</NavigationLink>
+        <br />
+        <NavigationLink hasIcon to="https://www.instagram.com/pedrofelipefroes/">@pedrofelipefroes</NavigationLink>
+      </div>
+    </section>
     <footer className="l-footer l-golden-ratio">
       <p className="l-footer__footnote text-body">This site was fully designed and developed by myself, coffee, and <a href="https://open.spotify.com/playlist/0fAnZehFEjglZCHOiGGNcY?si=dae1004bfdf44b20">a playlist filled with visual songs.</a></p>
       <div className="l-footer__info">

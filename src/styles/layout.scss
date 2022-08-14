@@ -1,5 +1,24 @@
+.l-contact,
 .l-footer {
-    padding: ss(3);
+    margin-top: ss(16);
+    padding-left: ss(3);
+    padding-right: ss(3);
+}
+
+.l-contact {
+    &__links {
+        @include breakpoint("sm") {
+            grid-column-start: 2;
+        }
+    }
+
+    &__links>.c-navigation-link:not(:first-child) {
+        margin-top: ss(1);
+    }
+}
+
+.l-footer {
+    padding-bottom: ss(3);
 
     &__info {
         align-items: flex-end;
@@ -59,10 +78,9 @@
     }
 
     &__links {
-        margin-top: ss(3);
-
         @include breakpoint("sm") {
             display: none;
+            margin-top: ss(3);
         }
 
         .c-navigation-link:last-child {
