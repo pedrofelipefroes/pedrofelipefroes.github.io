@@ -1,3 +1,4 @@
+.l-about,
 .l-contact,
 .l-footer {
     margin-top: ss(16);
@@ -5,6 +6,7 @@
     padding-right: ss(3);
 }
 
+.l-about,
 .l-contact {
     &__links {
         @include breakpoint("sm") {
@@ -55,6 +57,7 @@
 .l-golden-ratio {
     --layout-width: 100%;
 
+    align-items: end;
     display: grid;
     gap: ss(3);
     grid-template-columns: 1fr;

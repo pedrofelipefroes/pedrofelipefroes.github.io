@@ -86,6 +86,22 @@ const IndexPage = () => (
         </div>
       </div>
     </header>
+    <section className="l-about l-golden-ratio" id="#about"></section>
+    <section className="l-about l-golden-ratio" id="#about">
+      <h2 className="text-title-1">
+        Currently <em>Head of Design Systems</em> at Postclick developing a ML-powered design system. Former <em>Design Lead</em> at <span className="l-no-wrap">Avenue Code.</span>
+      </h2>
+      <div className="l-about__description">
+        <p className="text-body">I'm a designer and computer engineer with over six years of experience who really (really) enjoys a systematic approach <span className="l-no-wrap">to design.</span></p>
+        <p className="text-body">This means I'm right at home when dealing with design systems, developing CSS architectures, crafting typography scales, writing documentation, and finding <span className="l-no-wrap">patterns everywhere.</span></p>
+        <p className="text-body">Find below some work samples and <span className="l-no-wrap">experience information.</span></p>
+      </div>
+      <div className="l-about__links">
+        <NavigationLink hasIcon to="https://www.dropbox.com/s/qrps0a0p1zc745k/Froes%20%E2%80%94%20Design%20Portfolio.pdf?dl=0">Samples (WIP)</NavigationLink>
+        <br />
+        <NavigationLink hasIcon to="https://www.dropbox.com/s/s3ptwqbbnumlrn9/Designer_PedroFroes.pdf?dl=0">Resumé (WIP)</NavigationLink>
+      </div>
+    </section>
     <section className="l-contact l-golden-ratio" id="#contact">
       <div className="l-contact__links">
         <NavigationLink hasIcon to="mailto:hello@froes.design">hello@froes.design</NavigationLink>
