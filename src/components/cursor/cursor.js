@@ -10,6 +10,14 @@ const Cursor = () => {
         const cursor = ref.current
         const defaultCursorSize = "1em"
 
+        const handleScroll = () => {
+            cursor.style.setProperty("--cursor-scale", 0)
+
+            window.setTimeout(() => {
+                cursor.style.setProperty("--cursor-scale", 1)
+            }, 500)
+        }
+
         const handleMouseDown = () => {
             if (!cursorLocked) {
                 cursor.style.setProperty("--cursor-scale", .5)
@@ -93,6 +101,7 @@ const Cursor = () => {
         //     cursor.style.setProperty("--cursor-height", "calc(" + lineHeight + " + 0.3em)");
         // }
 
+        document.addEventListener("scroll", handleScroll)
         document.addEventListener("mousedown", handleMouseDown)
         document.addEventListener("mousemove", handleMouseMove)
         document.addEventListener("mouseup", handleMouseUp)
@@ -109,6 +118,7 @@ const Cursor = () => {
         // })
 
         return () => {
+            document.removeEventListener("scroll", handleScroll)
             document.removeEventListener("mousedown", handleMouseDown)
             document.removeEventListener("mousemove", handleMouseMove)
             document.removeEventListener("mouseup", handleMouseUp)
