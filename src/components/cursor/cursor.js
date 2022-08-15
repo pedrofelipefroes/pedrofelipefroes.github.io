@@ -32,24 +32,24 @@ const Cursor = () => {
             }
         }
 
-        const handleLinkMouseEnter = ({ target }) => {
+        const handleLinkMouseEnter = e => {
             setCursorLocked(true)
 
             document.removeEventListener("mousemove", handleMouseMove)
 
             cursor.classList.add("is-locked")
 
-            let rect = target.getBoundingClientRect()
+            let rect = e.target.getBoundingClientRect()
 
-            cursor.style.setProperty("--cursor-top", rect.top + rect.height / 2 + "px")
+            cursor.style.setProperty("--cursor-top", window.scrollY + rect.top + rect.height / 2 + "px")
             cursor.style.setProperty("--cursor-left", rect.left + rect.width / 2 + "px")
             cursor.style.setProperty("--cursor-width", "calc(" + rect.width + "px + 1.2em)")
             cursor.style.setProperty("--cursor-height", "calc(" + rect.height + "px + .8em)")
 
-            target.style.setProperty("--cursor-scale", 1.05)
+            e.target.style.setProperty("--cursor-scale", 1.05)
         }
 
-        const handleLinkMouseLeave = ({ target }) => {
+        const handleLinkMouseLeave = e => {
             setCursorLocked(false)
 
             document.addEventListener("mousemove", handleMouseMove)
@@ -61,24 +61,24 @@ const Cursor = () => {
             cursor.style.setProperty("--cursor-translateX", 0)
             cursor.style.setProperty("--cursor-translateY", 0)
 
-            target.style.setProperty("--cursor-translateX", 0)
-            target.style.setProperty("--cursor-translateY", 0)
-            target.style.setProperty("--cursor-scale", 1)
+            e.target.style.setProperty("--cursor-translateX", 0)
+            e.target.style.setProperty("--cursor-translateY", 0)
+            e.target.style.setProperty("--cursor-scale", 1)
         }
 
-        const handleLinkMouseMove = ({ target, x, y }) => {
-            let rect = target.getBoundingClientRect()
+        const handleLinkMouseMove = e => {
+            let rect = e.target.getBoundingClientRect()
 
             const halfHeight = rect.height / 2
-            const topOffset = (y - rect.top - halfHeight) / halfHeight
+            const topOffset = (e.y - rect.top - halfHeight) / halfHeight
             const halfWidth = rect.width / 2
-            const leftOffset = (x - rect.left - halfWidth) / halfWidth
+            const leftOffset = (e.x - rect.left - halfWidth) / halfWidth
 
             cursor.style.setProperty("--cursor-translateX", `${leftOffset * 3}px`)
             cursor.style.setProperty("--cursor-translateY", `${topOffset * 3}px`)
 
-            target.style.setProperty("--cursor-translateX", `${leftOffset * 6}px`)
-            target.style.setProperty("--cursor-translateY", `${topOffset * 4}px`)
+            e.target.style.setProperty("--cursor-translateX", `${leftOffset * 6}px`)
+            e.target.style.setProperty("--cursor-translateY", `${topOffset * 4}px`)
         }
 
         // const handleTextMouseOut = () => {
