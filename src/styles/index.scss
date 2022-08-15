@@ -33,6 +33,11 @@ body {
     width: 100%;
 }
 
+main {
+    margin: 0 auto;
+    max-width: map-get($breakpoints, "lg");
+}
+
 a:not(.text-link) {
     cursor: none;
     text-decoration: underline;
