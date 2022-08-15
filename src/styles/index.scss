@@ -87,6 +87,10 @@ a:not(.text-link) {
     font-family: $font-body;
     font-size: ms(0);
     line-height: ss(2);
+
+    &+& {
+        margin-top: ss(1);
+    }
 }
 
 .text-link {
