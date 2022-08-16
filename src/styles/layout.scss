@@ -93,5 +93,7 @@
 }
 
 .l-no-wrap {
-    white-space: nowrap;
+    @include breakpoint("xs") {
+        white-space: nowrap;
+    }
 }
