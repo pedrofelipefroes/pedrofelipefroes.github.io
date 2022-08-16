@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react"
 
 const Cursor = () => {
-    let x = typeof window ? window.innerWidth / 2 : null
-    let y = typeof window ? window.innerHeight / 2 : null
-    
+    const isBrowser = typeof window !== "undefined"
+
+    let x = isBrowser ? window.innerWidth / 2 : null
+    let y = isBrowser ? window.innerHeight / 2 : null
+
     const ref = useRef(null)
     const endX = useRef(x)
     const endY = useRef(y)
