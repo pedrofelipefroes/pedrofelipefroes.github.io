@@ -49,8 +49,8 @@ const Nav = () => {
                 </div>
             </div>
             <div className="c-nav__content">
-                <NavigationLink classNames={c({ "is-hidden": !expanded })} to="#about"><h2 className={c("text-title-2", { "is-hidden": !expanded })}>About</h2></NavigationLink>
-                <NavigationLink classNames={c({ "is-hidden": !expanded })} to="#contact"><h2 className={c("text-title-2", { "is-hidden": !expanded })}>Contact</h2></NavigationLink>
+                <NavigationLink classNames={c({ "is-hidden": !expanded })} to="#about" onClick={handleClick}><h2 className={c("text-title-1", { "is-hidden": !expanded })}>About</h2></NavigationLink>
+                <NavigationLink classNames={c({ "is-hidden": !expanded })} to="#contact" onClick={handleClick}><h2 className={c("text-title-1", { "is-hidden": !expanded })}>Contact</h2></NavigationLink>
             </div>
             <div className="c-nav__footer">
                 <p className={c("text-body", { "is-hidden": !expanded })}>São Paulo, Brazil.</p>
