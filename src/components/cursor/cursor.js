@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from "react"
 
 const Cursor = () => {
+    let x = typeof window ? window.innerWidth / 2 : null
+    let y = typeof window ? window.innerHeight / 2 : null
+    
     const ref = useRef(null)
-    const endX = useRef(null)
-    const endY = useRef(null)
+    const endX = useRef(x)
+    const endY = useRef(y)
     const [cursorLocked, setCursorLocked] = useState(false)
 
     useEffect(() => {
         const cursor = ref.current
         const defaultCursorSize = "1em"
-
-        endX.current = window.innerWidth / 2
-        endY.current = window.innerHeight / 2
 
         const handleScroll = () => {
             cursor.style.setProperty("--cursor-scale", 0)
