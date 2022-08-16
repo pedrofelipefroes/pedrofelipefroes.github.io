@@ -1,4 +1,5 @@
 $breakpoints: (
+    xs: 30em,
     sm: 60em,
     md: 80em,
     lg: 120em
@@ -7,5 +8,5 @@ $golden-ratio: 1.6180339887498948482;
 $easing-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
 $easing-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 $font-body: neue-haas-unica, sans-serif;
-$font-headings: 'Inconsolata', monospace;
+$font-headings: 'Space Grotesk', sans-serif;
 $ms-ratio: 1.5;
