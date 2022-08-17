@@ -10,7 +10,7 @@ const IndexPage = () => (
       <header className="l-header">
         <Nav />
         <div className="l-golden-ratio">
-          <h1 className="l-header__headline text-title-2"><em>Froes</em> is a designer and computer engineer with a knack for <span className="l-no-wrap">systematic design.</span></h1>
+          <h1 className="l-header__headline text-title-2"><em>Froes</em> is a designer and computer engineer with a knack for <span className="type-nowrap">systematic design.</span></h1>
           <div className="l-header__links">
             <NavigationLink to="#about">About</NavigationLink>
             <br />
@@ -20,12 +20,12 @@ const IndexPage = () => (
       </header>
       <section className="l-about l-golden-ratio" id="#about">
         <h2 className="text-title-1">
-          Currently <em>Head of Design Systems</em> at Postclick developing a ML-powered design system. Former <em>Design Lead</em> at <span className="l-no-wrap">Avenue Code.</span>
+          Currently the <em>Head of Design Systems</em> at Postclick developing a <span className="type-smcp">ML</span>-powered design system. Former <em>Design Lead</em> at <span className="type-nowrap">Avenue Code.</span>
         </h2>
         <div className="l-about__description">
-          <p className="text-body">I'm a designer and computer engineer with over six years of experience who really (really) enjoys a systematic approach <span className="l-no-wrap">to design.</span></p>
-          <p className="text-body">This means I'm right at home when dealing with design systems, developing CSS architectures, crafting typography scales, writing documentation, and finding <span className="l-no-wrap">patterns everywhere.</span></p>
-          <p className="text-body">Find below some work samples and <span className="l-no-wrap">experience information.</span></p>
+          <p className="text-body">I'm a designer and computer engineer with over six years of experience who really (really) enjoys a systematic approach <span className="type-nowrap">to design.</span></p>
+          <p className="text-body">This means I'm right at home when dealing with design systems, developing <span className="type-smcp">CSS</span> architectures, crafting typography scales, writing documentation, and finding <span className="type-nowrap">patterns everywhere.</span></p>
+          <p className="text-body">Find below some work samples and <span className="type-nowrap">experience information.</span></p>
         </div>
         <div className="l-about__links">
           <NavigationLink hasIcon to="https://www.dropbox.com/s/qrps0a0p1zc745k/Froes%20%E2%80%94%20Design%20Portfolio.pdf?dl=0">Samples (WIP)</NavigationLink>
