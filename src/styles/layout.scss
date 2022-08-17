@@ -2,8 +2,8 @@
 .l-contact,
 .l-footer {
     margin-top: ss(16);
-    padding-left: ss(3);
-    padding-right: ss(3);
+    padding-left: ss(4);
+    padding-right: ss(4);
 }
 
 .l-about,
@@ -16,6 +16,12 @@
 
     &__links>.c-navigation-link:not(:first-child) {
         margin-top: ss(1);
+    }
+}
+
+.l-about {
+    &__description>.text-body:last-child {
+        margin-bottom: ss(1);
     }
 }
 
@@ -59,7 +65,7 @@
 
     align-items: end;
     display: grid;
-    gap: ss(3);
+    gap: ss(4);
     grid-template-columns: 1fr;
 
     @include breakpoint("sm") {
@@ -72,8 +78,8 @@
 
     &__headline,
     &__links {
-        padding-left: ss(3);
-        padding-right: ss(3);
+        padding-left: ss(4);
+        padding-right: ss(4);
     }
 
     &__headline>.text-title-2 {
@@ -89,11 +95,5 @@
         .c-navigation-link:last-child {
             margin-top: ss(1);
         }
-    }
-}
-
-.l-no-wrap {
-    @include breakpoint("xs") {
-        white-space: nowrap;
     }
 }
