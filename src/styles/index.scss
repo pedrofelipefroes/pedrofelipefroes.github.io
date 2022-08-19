@@ -1,32 +1,16 @@
-@import url("https://use.typekit.net/wgk2aix.css");
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
-@import "./reset.scss", "./variables.scss", "./functions.scss", "./mixins.scss", "./layout.scss", "./components.scss";
+@import "./reset.scss", "./fonts/fonts.scss", "./variables.scss", "./functions.scss", "./mixins.scss", "./layout.scss", "./components.scss";
 
 :root {
     --color-bg: #f6f6f5;
-    --color-label-100: #272527;
-    --color-label-200: #888188;
-    --spacing-base: .75rem; // base spacing size: 12px
-    --text-base: 1rem; // base text size: 16px
-
-    @include breakpoint("sm") {
-        --spacing-base: .796875rem; // base spacing size: 12.75px
-        --text-base: 1.125rem; // base text size: 18px
-    }
-
-    @include breakpoint("md") {
-        --spacing-base: .84375rem; // base spacing size: 13.5px
-        --text-base: 1.25rem; // base text size: 20px
-    }
+    --color-on-bg: #272527;
+    --spacing-base: .9375rem; // base spacing size: 15px
+    --text-base: 1.125rem; // base text size: 18px
 }
 
 body {
     background-color: var(--color-bg);
-    color: var(--color-label-100);
     cursor: none;
-    font-family: $font-body;
-    font-feature-settings: "liga", "clig";
-    font-variant-ligatures: common-ligatures;
+    font-variant-ligatures: common-ligatures, contextual;
     height: 100%;
     text-rendering: optimizeLegibility;
     user-select: none;
@@ -34,11 +18,15 @@ body {
 }
 
 main {
+    border-left: var(--color-on-bg);
+    border-style: solid;
+    border-width: .0625rem;
     margin: 0 auto;
     max-width: map-get($breakpoints, "lg");
+    overflow-x: hidden;
 }
 
-a:not(.text-link) {
+a {
     cursor: none;
     text-decoration: underline;
 
@@ -47,72 +35,48 @@ a:not(.text-link) {
     }
 }
 
+.font-sans-serif,
+.font-monospace {
+    font-feature-settings: "case", "onum", "ss05";
+}
+
 .icon {
     height: ss(2);
-    stroke: var(--color-label-100);
-    stroke-width: 1.25;
+    stroke: var(--color-on-bg);
+    stroke-width: .078125rem;
     width: ss(2);
 }
 
-.text-title-1,
-.text-title-2 {
-    font-family: $font-headings;
-    font-weight: 400;
-    hyphens: auto;
-}
-
-.text-title-1,
-.text-title-2,
 .text-body {
-    user-select: text;
+    font-size: ms(0);
+    line-height: ss(2);
 }
 
-.text-title-1,
-.text-title-2 {
-    &>em {
-        color: var(--color-label-200);
-        font-style: italic;
-    }
+.text-caption {
+    font-size: ms(-1);
+    line-height: ss(2);
 }
 
 .text-title-1 {
     font-size: ms(3);
-    letter-spacing: -0.032em;
-    line-height: 1.05;
+    hyphens: auto;
+    line-height: ss(5);
 
     @include breakpoint("xs") {
-        font-size: clamp(ms(3), ms(4), ms(5));
+        hyphens: manual;
+        font-size: ms(4);
+        line-height: ss(7);
     }
 }
 
 .text-title-2 {
     font-size: ms(1);
-    letter-spacing: -0.04em;
     line-height: ss(3);
-
-    &>em {
-        letter-spacing: 0;
-        text-transform: uppercase;
-    }
 }
 
-.text-body {
-    font-size: ms(0);
-    font-weight: 300;
-    letter-spacing: 0.024em;
-    line-height: ss(2);
-
-    &+& {
-        margin-top: ss(1);
+@each $className,
+$value in $utilities {
+    .#{$className} {
+        #{nth($value, 1)}: nth($value, 2);
     }
-}
-
-.text-link {
-    color: var(--color-label-100);
-    font-size: calc(ms(-1) + 0.0125em);
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    line-height: ss(2);
-    text-transform: uppercase;
-    text-decoration: none;
 }
