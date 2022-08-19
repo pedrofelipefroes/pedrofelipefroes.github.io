@@ -1,4 +1,4 @@
-@import "./reset.scss", "./fonts/fonts.scss", "./variables.scss", "./functions.scss", "./mixins.scss", "./layout.scss", "./components.scss";
+@import "./reset.scss", "./fonts/fonts.scss", "./functions.scss", "./mixins.scss", "./variables.scss", "./layout.scss", "./components.scss";
 
 :root {
     --color-bg: #f6f6f5;
@@ -32,6 +32,35 @@ a {
 
     @include breakpoint("xs") {
         white-space: nowrap;
+    }
+}
+
+@each $className,
+$value in $utilities {
+    .#{$className} {
+        #{nth($value, 1)}: nth($value, 2);
+    }
+}
+
+.grid-golden-ratio {
+    --layout-width: 100%;
+
+    align-items: end;
+    display: grid;
+    gap: ss(3);
+    grid-template-columns: 1fr;
+
+    @include breakpoint("sm") {
+        gap: ss(4);
+        grid-template-columns: calc(var(--layout-width) / $layout-ratio) 1fr;
+
+        &--reverse {
+            grid-template-columns: 1fr / calc(var(--layout-width) / $layout-ratio);
+        }
+
+        &--column-end {
+            grid-column-start: 2;
+        }
     }
 }
 
@@ -72,11 +101,4 @@ a {
 .text-title-2 {
     font-size: ms(1);
     line-height: ss(3);
-}
-
-@each $className,
-$value in $utilities {
-    .#{$className} {
-        #{nth($value, 1)}: nth($value, 2);
-    }
 }
