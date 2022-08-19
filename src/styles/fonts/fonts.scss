@@ -1,8 +1,22 @@
 @font-face {
     font-family: "GT America LCG";
     font-style: normal;
+    font-weight: 300;
+    src: url("fonts/GT-America-LCGV-Standard-Light.woff2") format("woff2"), url("fonts/GT-America-LCGV-Standard-Light.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "GT America LCG";
+    font-style: normal;
     font-weight: 400;
     src: url("fonts/GT-America-LCGV-Standard-Regular.woff2") format("woff2"), url("fonts/GT-America-LCGV-Standard-Regular.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "GT America LCG";
+    font-style: normal;
+    font-weight: 500;
+    src: url("fonts/GT-America-LCGV-Standard-Medium.woff2") format("woff2"), url("fonts/GT-America-LCGV-Standard-Medium.ttf") format("ttf");
 }
 
 @font-face {
@@ -13,9 +27,31 @@
 }
 
 @font-face {
+    font-family: "GT America Mono LCG";
+    font-style: normal;
+    font-weight: 500;
+    src: url("fonts/GT-America-LCGV-Mono-Medium.woff2") format("woff2"), url("fonts/GT-America-LCGV-Mono-Medium.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "GT America Mono LCG";
+    font-style: normal;
+    font-weight: 700;
+    src: url("fonts/GT-America-LCGV-Mono-Bold.woff2") format("woff2"), url("fonts/GT-America-LCGV-Mono-Bold.ttf") format("ttf");
+}
+
+@font-face {
     font-family: "GT Super Display";
     font-style: normal;
     font-weight: 300;
     src: url("fonts/GT-Super-Display-Light.woff2") format("woff2"),
         url("fonts/GT-Super-Display-Light.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "GT Super Display";
+    font-style: italic;
+    font-weight: 500;
+    src: url("fonts/GT-Super-Display-Medium-Italic.woff2") format("woff2"),
+        url("fonts/GT-Super-Display-Medium-Italic.ttf") format("ttf");
 }
