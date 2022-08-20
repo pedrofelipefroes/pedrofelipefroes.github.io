@@ -1,0 +1,32 @@
+.footer {
+    border-top-color: var(--color-on-bg);
+    border-top-style: solid;
+    border-top-width: .09375rem;
+}
+
+.footer-notice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-notice svg {
+    fill: var(--color-on-bg);
+}
+
+.footer-notice>div {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 80em) {
+    .footer-notice {
+        flex-direction: row;
+    }
+
+    .footer-notice p {
+        text-align: center;
+        width: 100%;
+    }
+}
