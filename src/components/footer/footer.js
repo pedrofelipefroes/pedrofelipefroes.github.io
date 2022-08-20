@@ -21,10 +21,10 @@ const Footer = () => {
         <footer className={c(footer, "grid-golden-ratio font-sans-serif spacing-inset-squish-md text-body")}>
             <p>This site was fully designed and developed by myself, coffee, and <a href="https://open.spotify.com/playlist/0fAnZehFEjglZCHOiGGNcY?si=dae1004bfdf44b20">a playlist filled with visual songs.</a></p>
             <div className={footerNotice}>
-                <address className="spacing-inline-r-md">São Paulo, Brazil.</address>
+                <address className="spacing-inline-md">São Paulo, Brazil.</address>
                 <div>
-                    <p className="spacing-inline-r-md">Froes © 2022.</p>
-                    <figure className="height-ss-2">{signature}</figure>
+                    <p className="spacing-inline-md">Froes © 2022.</p>
+                    <figure className="height-2">{signature}</figure>
                 </div>
             </div>
         </footer>
