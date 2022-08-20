@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import { cursor, isLocked } from "./cursor.module.css"
 
 const Cursor = () => {
     const isBrowser = typeof window !== "undefined"
@@ -50,7 +51,7 @@ const Cursor = () => {
 
             document.removeEventListener("mousemove", handleMouseMove)
 
-            cursor.classList.add("is-locked")
+            cursor.classList.add(isLocked)
 
             let rect = e.target.getBoundingClientRect()
 
@@ -67,7 +68,7 @@ const Cursor = () => {
 
             document.addEventListener("mousemove", handleMouseMove)
 
-            cursor.classList.remove("is-locked");
+            cursor.classList.remove(isLocked);
 
             cursor.style.setProperty("--cursor-width", defaultCursorSize)
             cursor.style.setProperty("--cursor-height", defaultCursorSize)
@@ -143,8 +144,8 @@ const Cursor = () => {
     }, [cursorLocked])
 
     return (
-        <div className="c-cursor" ref={ref}>
-            <div className="c-cursor__content" />
+        <div className={cursor} ref={ref}>
+            <div />
         </div>
     )
 }
