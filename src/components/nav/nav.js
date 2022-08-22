@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import c from "classnames"
-
 import NavigationLink from "../navigation-link/navigation-link"
+import { nav, navContent, navFooter, navHeader, navIcon, navIsExpanded, navIsVisible, navLink } from "./nav.module.css"
+
 
 const Nav = () => {
     const [expanded, setExpanded] = useState(false)
@@ -16,6 +17,11 @@ const Nav = () => {
             document.querySelector("body").style.overflow = "hidden"
         }
     }
+
+    const menuIcon = <svg className={c(navIcon + " icon", { [navIsExpanded]: expanded })} onClick={handleClick} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1" y1="9.5" x2="23" y2="9.5" />
+        <line x1="1" y1="13.5" x2="23" y2="13.5" />
+    </svg>
 
     useEffect(() => {
         const handleScroll = () => {
@@ -36,25 +42,26 @@ const Nav = () => {
     }, [scrolled])
 
     return (
-        <nav className={c("c-nav", { "c-nav--expanded": expanded, "c-nav--visible": visible })}>
-            <div className="c-nav__header">
+        <nav className={c(nav, { [navIsExpanded]: expanded, [navIsVisible]: visible })}>
+            <div className={c(navHeader, "color-bg height-8 spacing-inset-squish-md", { [navIsExpanded]: expanded })}>
                 <NavigationLink to="/">froes.design</NavigationLink>
-                <svg className={c("icon c-nav__icon", { "c-nav__icon--expanded": expanded })} onClick={handleClick} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="1" y1="9.5" x2="23" y2="9.5" />
-                    <line x1="1" y1="13.5" x2="23" y2="13.5" />
-                </svg>
-                <div className="c-nav__items">
-                    <NavigationLink to="#about">About</NavigationLink>
-                    <NavigationLink to="#contact">Contact</NavigationLink>
-                </div>
+                {menuIcon}
+                <ul>
+                    <li>
+                        <NavigationLink classNames="spacing-inline-md" to="#about">About</NavigationLink>
+                    </li>
+                    <li>
+                        <NavigationLink to="#contact">Contact</NavigationLink>
+                    </li>
+                </ul>
             </div>
-            <div className="c-nav__content">
-                <NavigationLink classNames={c({ "is-hidden": !expanded })} to="#about" onClick={handleClick}><h2 className={c("text-title-1", { "is-hidden": !expanded })}>About</h2></NavigationLink>
-                <NavigationLink classNames={c({ "is-hidden": !expanded })} to="#contact" onClick={handleClick}><h2 className={c("text-title-1", { "is-hidden": !expanded })}>Contact</h2></NavigationLink>
+            <div className={c(navContent, "spacing-inset-squish-md", { [navIsExpanded]: expanded })}>
+                <NavigationLink to="#about" onClick={handleClick}><h2 className={c(navLink, "text-title-1 spacing-stack-md", { [navIsExpanded]: expanded })}>About</h2></NavigationLink>
+                <NavigationLink to="#contact" onClick={handleClick}><h2 className={c(navLink, "text-title-1", { [navIsExpanded]: expanded })}>Contact</h2></NavigationLink>
             </div>
-            <div className="c-nav__footer">
-                <p className={c("text-body", { "is-hidden": !expanded })}>São Paulo, Brazil.</p>
-                <p className={c("text-body", { "is-hidden": !expanded })}>Froes © 2022.</p>
+            <div className={c(navFooter, "font-sans-serif text-body spacing-inset-squish-md", { [navIsExpanded]: expanded })}>
+                <p className={c({ [navIsExpanded]: expanded })}>São Paulo, Brazil.</p>
+                <p className={c("text-right", { [navIsExpanded]: expanded })}>Froes © 2022.</p>
             </div>
         </nav>
     )
