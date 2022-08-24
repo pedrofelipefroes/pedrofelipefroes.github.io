@@ -6,7 +6,9 @@ import { arrowhead, navigationLink } from "./navigation-link.module.css"
 
 const NavigationLink = ({ classNames, children, hasIcon, to, ...other }) => {
     const internal = /^\/(?!\/)/.test(to)
-    const className = c(navigationLink, "color-on-bg font-medium font-monospace text-caption text-uppercase tracking-wider")
+    const defaultClasses = "color-on-bg font-medium font-monospace text-caption text-uppercase tracking-wider"
+    const className = classNames ? c(navigationLink, classNames, defaultClasses) : c(navigationLink, defaultClasses)
+
     const icon = hasIcon ?
         <svg className="icon spacing-inline-sm" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="1" y1="11.5" x2="23" y2="11.5" />
@@ -26,7 +28,7 @@ const NavigationLink = ({ classNames, children, hasIcon, to, ...other }) => {
     }
 
     return (
-        <a className={classNames ? className + classNames : className} href={to} {...other}>
+        <a className={className} href={to} {...other}>
             {icon} {children}
         </a>
     )
