@@ -56,8 +56,8 @@ const Nav = () => {
                 </ul>
             </div>
             <div className={c(navContent, "height-full", { [navIsExpanded]: expanded })}>
-                <NavigationLink to="#about" onClick={handleClick}><h2 className={c(navLink, "height-full spacing-inset-squish-md text-center text-title-1 width-full", { [navIsExpanded]: expanded })}>About</h2></NavigationLink>
-                <NavigationLink to="#contact" onClick={handleClick}><h2 className={c(navLink, "height-full spacing-inset-squish-md text-center text-title-1 width-full", { [navIsExpanded]: expanded })}>Contact</h2></NavigationLink>
+                <NavigationLink to="#about" onClick={handleClick}><h2 className={c(navLink, "height-fulls text-center text-title-1 width-full", { [navIsExpanded]: expanded })}>About</h2></NavigationLink>
+                <NavigationLink to="#contact" onClick={handleClick}><h2 className={c(navLink, "height-full text-center text-title-1 width-full", { [navIsExpanded]: expanded })}>Contact</h2></NavigationLink>
             </div>
             <div className={c(navFooter, "font-sans-serif text-body spacing-inset-squish-md", { [navIsExpanded]: expanded })}>
                 <p className={c({ [navIsExpanded]: expanded })}>São Paulo, Brazil.</p>

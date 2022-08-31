@@ -9,6 +9,7 @@
     flex-direction: column;
     height: calc(8 * var(--spacing-base));
     justify-content: space-between;
+    max-width: calc(120em - .1875rem);
     overflow: hidden;
     position: fixed;
     transition-duration: 1s;
