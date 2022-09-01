@@ -18,7 +18,7 @@ const Contact = () => {
 
     return (
         <section className={c(contact, "grid-golden-ratio spacing-inset-squish-lg")}>
-            <h2 className="font-regular font-sans-serif text-large-title tracking-narrow">
+            <h2 className="font-light font-sans-serif text-large-title tracking-narrow">
                 {headlineParallax}
             </h2>
             <div>
