@@ -13,6 +13,8 @@ body {
     height: 100%;
     text-rendering: optimizeLegibility;
     width: 100%;
+
+
 }
 
 main {
@@ -82,8 +84,8 @@ $value in $utilities {
 }
 
 .text-large-title {
-    font-size: ms(6);
-    line-height: ss(6);
+    font-size: clamp(ms(3), 10vw, ms(6));
+    line-height: .8;
 }
 
 .text-title-1 {

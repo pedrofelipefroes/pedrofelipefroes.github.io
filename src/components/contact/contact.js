@@ -10,8 +10,8 @@ const Contact = () => {
 
     let headlineParallax = headlineCopy.split("").map((i) => {
         return (
-            <Parallax easing="easeOutQuad" shouldAlwaysCompleteAnimation translateX={[headlineCopy.indexOf(i) * -20 - 20, 0]}>
-                <span>{i}</span>
+            <Parallax easing="easeOutQuad" shouldAlwaysCompleteAnimation translateX={[(-headlineCopy.length * 20 + headlineCopy.indexOf(i) * 10), 0]}>
+                {headlineCopy.indexOf(i) === 5 ? <span>&nbsp;</span> : <span>{i}</span>}
             </Parallax>
         )
     })

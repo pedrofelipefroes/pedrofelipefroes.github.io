@@ -7,4 +7,11 @@
 
 .contact>h2 {
     display: flex;
+    margin-left: calc(-.25*var(--spacing-base));
+}
+
+@media screen and (min-width: 40em) {
+    .contact>h2 {
+        margin-left: unset;
+    }
 }
