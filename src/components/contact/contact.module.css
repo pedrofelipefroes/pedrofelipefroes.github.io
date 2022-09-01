@@ -1,0 +1,10 @@
+.contact {
+    align-items: center;
+    border-top-color: var(--color-on-bg);
+    border-top-style: solid;
+    border-top-width: .09375rem;
+}
+
+.contact>h2 {
+    display: flex;
+}
