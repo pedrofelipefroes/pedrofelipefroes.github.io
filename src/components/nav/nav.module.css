@@ -7,7 +7,7 @@
     border-bottom-width: .09375rem;
     display: flex;
     flex-direction: column;
-    height: calc(8 * var(--spacing-base));
+    height: calc(6 * var(--spacing-base));
     justify-content: space-between;
     max-width: calc(120em - .1875rem);
     overflow: hidden;
@@ -154,6 +154,10 @@
 }
 
 @media screen and (min-width: 60em) {
+    .nav {
+        height: calc(8 * var(--spacing-base));
+    }
+
     .nav-header>ul {
         display: flex;
     }
