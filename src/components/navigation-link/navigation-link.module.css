@@ -31,11 +31,3 @@
 .navigation-link:visited {
     color: var(--color-on-bg);
 }
-
-.arrowhead {
-    transform: scale(0);
-    transform-origin: left center;
-    transition-duration: 600ms;
-    transition-timing-function: var(--cursor-easing);
-    transition-property: transform;
-}
