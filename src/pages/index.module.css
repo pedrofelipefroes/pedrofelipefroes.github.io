@@ -1,0 +1,18 @@
+.index-about {
+  /* border-top-color: var(--color-on-bg);
+  border-top-style: solid;
+  border-top-width: .09375rem; */
+}
+
+.index-header>div:last-child {
+  padding-bottom: calc(var(--spacing-base)*8);
+  padding-left: calc(var(--spacing-base)*4);
+  padding-right: calc(var(--spacing-base)*4);
+  padding-top: calc(var(--spacing-base)*11);
+}
+
+@media screen and (min-width: 60em) {
+  .index-header-links {
+    display: none;
+  }
+}
