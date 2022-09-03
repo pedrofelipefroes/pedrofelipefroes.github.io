@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+
 import { cursor, isLocked } from "./cursor.module.css"
 
 const Cursor = () => {
@@ -112,7 +113,7 @@ const Cursor = () => {
         document.addEventListener("mousemove", handleMouseMove)
         document.addEventListener("mouseup", handleMouseUp)
 
-        document.querySelectorAll(".text-link:not(.is-hidden), a").forEach((link) => {
+        document.querySelectorAll(".js-hoverable-link:not(.is-hidden), a").forEach((link) => {
             link.addEventListener("mouseenter", handleLinkMouseEnter, { passive: true })
             link.addEventListener("mouseleave", handleLinkMouseLeave, { passive: true })
             link.addEventListener("mousemove", handleLinkMouseMove, { passive: true })
@@ -129,7 +130,7 @@ const Cursor = () => {
             document.removeEventListener("mousemove", handleMouseMove)
             document.removeEventListener("mouseup", handleMouseUp)
 
-            document.querySelectorAll(".text-link:not(.is-hidden), a").forEach((link) => {
+            document.querySelectorAll(".js-hoverable-link:not(.is-hidden), a").forEach((link) => {
                 link.removeEventListener("mouseenter", handleLinkMouseEnter)
                 link.removeEventListener("mouseleave", handleLinkMouseLeave)
                 link.removeEventListener("mousemove", handleLinkMouseMove)
