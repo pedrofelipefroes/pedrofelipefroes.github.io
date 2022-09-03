@@ -1,11 +1,4 @@
-@import "./reset.scss", "./fonts/fonts.scss", "./functions.scss", "./mixins.scss", "./variables.scss";
-
-:root {
-    --color-bg: #f6f6f5;
-    --color-on-bg: #272527;
-    --spacing-base: .9375rem;
-    --text-base: 1.125rem;
-}
+@import "./base.scss";
 
 body {
     background-color: var(--color-bg);
@@ -14,24 +7,22 @@ body {
     text-rendering: optimizeLegibility;
     width: 100%;
 
-    @include breakpoint("sm") {
+    @media screen and (min-width: map-get($bps, 992)), screen and (hover: hover) {
         cursor: none;
-        // user-select: none;
     }
 }
 
 main {
-    margin: 0 auto;
-    max-width: map-get($breakpoints, "lg");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     overflow-x: hidden;
 
-    @include breakpoint("lg") {
-        border-left-color: var(--color-on-bg);
-        border-left-style: solid;
-        border-left-width: .09375rem;
-        border-right-color: var(--color-on-bg);
-        border-right-style: solid;
-        border-right-width: .09375rem;
+    @include breakpoint(1920) {
+        border-color: var(--color-on-bg);
+        border-left-width: 0.09375rem;
+        border-right-width: 0.09375rem;
+        border-style: solid;
     }
 }
 
@@ -39,99 +30,9 @@ a {
     cursor: none;
     text-decoration: underline;
 
-    @include breakpoint("xs") {
+    @include breakpoint(768) {
         white-space: nowrap;
     }
 }
 
-@each $className,
-$value in $utilities {
-    .#{$className} {
-        #{nth($value, 1)}: nth($value, 2);
-    }
-}
-
-.grid-golden-ratio {
-    --layout-width: 100%;
-
-    align-items: end;
-    display: grid;
-    gap: ss(2);
-    grid-template-columns: 1fr;
-
-    @include breakpoint("sm") {
-        gap: ss(4);
-        grid-template-columns: calc(var(--layout-width) / $layout-ratio) 1fr;
-
-        &--reverse {
-            grid-template-columns: 1fr / calc(var(--layout-width) / $layout-ratio);
-        }
-
-        &--column-end {
-            grid-column-start: 2;
-        }
-    }
-}
-
-.font-sans-serif,
-.font-monospace {
-    font-feature-settings: "case", "onum", "ss05";
-}
-
-.icon {
-    height: ss(2);
-    stroke: var(--color-on-bg);
-    stroke-width: .078125rem;
-    width: ss(2);
-}
-
-.text-body {
-    font-size: ms(0);
-    line-height: ss(2);
-}
-
-.text-caption {
-    font-size: ms(-1);
-    line-height: ss(2);
-}
-
-.text-large-title {
-    font-size: clamp(ms(3), 10vw, ms(6));
-    font-weight: 400;
-    line-height: .8;
-
-    @include breakpoint("md") {
-        font-weight: 300;
-    }
-}
-
-.text-title-1 {
-    font-size: clamp(ms(3), 10vw, ms(4));
-    line-height: 1.05;
-    hyphens: auto;
-
-    @include breakpoint("xs") {
-        hyphens: manual;
-    }
-}
-
-.text-title-2 {
-    font-size: ms(1);
-    line-height: ss(3);
-}
-
-.spacing-inset-squish-md {
-    padding: ss(2);
-
-    @include breakpoint("sm") {
-        padding: ss(3) ss(4);
-    }
-}
-
-.spacing-inset-squish-lg {
-    padding: ss(6) ss(2);
-
-    @include breakpoint("sm") {
-        padding: ss(8) ss(4);
-    }
-}
+@import "./utilities.scss";

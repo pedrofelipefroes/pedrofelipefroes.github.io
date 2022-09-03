@@ -1,0 +1,113 @@
+.divider {
+    border-bottom-color: var(--color-on-bg);
+    border-bottom-style: solid;
+    border-bottom-width: 0.09375rem;
+}
+
+.font-400 {
+    font-weight: 400;
+    font-variation-settings: "wght" 400;
+}
+
+.font-500 {
+    font-weight: 500;
+    font-variation-settings: "wght" 500;
+}
+
+.font-monospace {
+    font-family: $font-monospace;
+    font-feature-settings: "pnum" on, "lnum" on;
+}
+
+.font-sans-serif {
+    font-family: $font-sans-serif;
+    font-feature-settings: "pnum" on, "lnum" on;
+}
+
+.grid-golden-ratio {
+    align-items: end;
+    display: grid;
+    gap: ss(2);
+    grid-template-columns: 1fr;
+
+    @include breakpoint(1366) {
+        gap: ss(4);
+        grid-template-columns: calc(100% / $golden-ratio) 1fr;
+    }
+}
+
+.icon {
+    height: ss(2);
+    stroke: var(--color-on-bg);
+    stroke-width: 0.09375rem;
+    width: ss(2);
+}
+
+.sp-inset-x {
+    padding-left: var(--sp-base);
+    padding-right: var(--sp-base);
+
+    @include breakpoint(375) {
+        padding-left: calc(var(--sp-base) * 2);
+        padding-right: calc(var(--sp-base) * 2);
+    }
+}
+
+.sp-stack-xs {
+    margin-bottom: calc(var(--sp-base) * 2);
+}
+
+.sp-stack-sm {
+    margin-bottom: calc(var(--sp-base) * 3);
+}
+
+.sp-stack-md {
+    margin-bottom: calc(var(--sp-base) * 6);
+}
+
+.sp-stack-lg {
+    margin-bottom: calc(var(--sp-base) * 10);
+}
+
+.text-ms-1-neg {
+    font-size: ms(-1);
+    line-height: ss(2);
+}
+
+.text-ms-0 {
+    font-size: ms(0);
+    line-height: ss(2);
+}
+
+.text-ms-1 {
+    font-size: ms(1);
+    line-height: ss(3);
+}
+
+.text-ms-2 {
+    font-size: ms(2);
+    line-height: ss(5);
+
+    @include breakpoint(992) {
+        font-size: ms(3);
+        line-height: ss(7);
+    }
+}
+
+.text-ms-3 {
+    font-size: ms(3);
+    line-height: ss(7);
+
+    @include breakpoint(992) {
+        font-size: ms(4);
+        line-height: ss(8);
+    }
+}
+
+.w-max-container {
+    max-width: map-get($bps, 1512);
+}
+
+.w-max-golden-ratio {
+    max-width: calc(100% / $golden-ratio);
+}
