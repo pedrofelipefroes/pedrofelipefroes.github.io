@@ -1,31 +1,31 @@
 import * as React from "react"
 import c from "classnames"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
-import { arrowhead, navigationLink } from "./navigation-link.module.css"
 
-const NavigationLink = ({ classNames, children, to, ...other }) => {
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+
+import { navigationLink } from "./navigation-link.module.css"
+
+const NavigationLink = ({ children, to, ...other }) => {
     const internal = /^\/(?!\/)/.test(to)
-    const defaultClasses = "color-on-bg font-medium font-monospace text-caption text-uppercase tracking-wider"
-    const className = classNames ? c(navigationLink, classNames, defaultClasses) : c(navigationLink, defaultClasses)
+    const classNames = c(navigationLink, "font-500 font-monospace js-hoverable-link text-ms-1neg text-uppercase")
 
     if (internal) {
         return (
-            <Link className={className} to={to} {...other}>
+            <AnchorLink className={classNames} to={to} {...other}>
                 {children}
-            </Link>
+            </AnchorLink>
         )
     }
 
     return (
-        <a className={className} href={to} {...other}>
+        <a className={classNames} href={to} {...other}>
             {children}
         </a>
     )
 }
 
 NavigationLink.propTypes = {
-    classNames: PropTypes.string,
     children: PropTypes.node,
     to: PropTypes.string.isRequired,
 }
