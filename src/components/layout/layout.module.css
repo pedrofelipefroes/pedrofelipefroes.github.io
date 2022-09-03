@@ -1,0 +1,15 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 120em) {
+  .layout {
+    border-color: var(--color-on-bg);
+    border-left-width: 0.09375rem;
+    border-right-width: 0.09375rem;
+    border-style: solid;
+  }
+}
