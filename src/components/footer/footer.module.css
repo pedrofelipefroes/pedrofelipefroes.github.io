@@ -1,7 +1,7 @@
 .footer {
-    border-top-color: var(--color-on-bg);
-    border-top-style: solid;
-    border-top-width: .09375rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-top: calc(5 * var(--sp-base));
 }
 
 .footer-notice {
@@ -10,17 +10,17 @@
     justify-content: space-between;
 }
 
-.footer-notice svg {
-    fill: var(--color-on-bg);
-}
-
 .footer-notice>div {
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
 }
 
-@media screen and (min-width: 80em) {
+.footer-notice>div div {
+    flex-shrink: 0;
+}
+
+@media screen and (min-width: 80rem) {
     .footer-notice {
         flex-direction: row;
     }
@@ -28,5 +28,11 @@
     .footer-notice p {
         text-align: center;
         width: 100%;
+    }
+}
+
+@media screen and (min-width: 85.375rem) {
+    .footer {
+        padding-top: calc(2 * var(--sp-base));
     }
 }
