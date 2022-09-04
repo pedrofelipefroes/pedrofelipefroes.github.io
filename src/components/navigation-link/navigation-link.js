@@ -6,9 +6,9 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import { navigationLink } from "./navigation-link.module.css"
 
-const NavigationLink = ({ children, to, ...other }) => {
+const NavigationLink = ({ children, className, to, ...other }) => {
     const internal = /^\/(?!\/)/.test(to)
-    const classNames = c(navigationLink, "font-500 font-monospace js-interactable-link text-ms-1neg text-uppercase")
+    const classNames = c(navigationLink, className, "font-500 font-monospace js-interactable-link text-ms-1neg text-uppercase")
 
     if (internal) {
         return (
@@ -27,6 +27,7 @@ const NavigationLink = ({ children, to, ...other }) => {
 
 NavigationLink.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
     to: PropTypes.string.isRequired,
 }
 
