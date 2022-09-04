@@ -41,6 +41,16 @@
     width: ss(2);
 }
 
+.is-hidden {
+    display: none;
+
+    &-768 {
+        @include breakpoint(768) {
+            display: none;
+        }
+    }
+}
+
 .js-interactable-link {
     --cursor-scale: 1;
     --cursor-translateX: 0;
@@ -103,32 +113,46 @@
 
 .text-ms-0 {
     font-size: ms(0);
+    font-weight: 350;
     line-height: ss(2);
 }
 
 .text-ms-1 {
     font-size: ms(1);
+    font-stretch: 96%;
+    font-weight: 450;
     line-height: ss(3);
-}
-
-.text-ms-2 {
-    font-size: ms(2);
-    line-height: ss(5);
-
-    @include breakpoint(992) {
-        font-size: ms(3);
-        line-height: ss(7);
-    }
 }
 
 .text-ms-3 {
     font-size: ms(3);
-    line-height: ss(7);
+    font-stretch: 92%;
+    font-weight: 450;
+    line-height: ss(5);
 
     @include breakpoint(992) {
         font-size: ms(4);
+        line-height: ss(7);
+    }
+}
+
+.text-ms-4 {
+    font-size: ms(4);
+    line-height: ss(7);
+
+    @include breakpoint(992) {
+        font-size: ms(5);
         line-height: ss(8);
     }
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.text-smcps {
+    font-variant: all-small-caps;
+    font-weight: 500;
 }
 
 .text-uppercase {
