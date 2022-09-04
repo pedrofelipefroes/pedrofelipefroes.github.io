@@ -1,8 +1,7 @@
 .layout {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   overflow-x: hidden;
+  margin: 0 auto;
+  max-width: 120em;
 }
 
 @media screen and (min-width: 120em) {
