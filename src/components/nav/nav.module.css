@@ -2,7 +2,6 @@
     --link-easing: cubic-bezier(.64, -1.01, .43, 1.83);
     --nav-easing: cubic-bezier(0.16, 1, 0.3, 1);
 
-    background-color: var(--color-bg);
     display: flex;
     flex-direction: column;
     max-width: 120em;
@@ -13,6 +12,7 @@
     transition-property: background-color, border-bottom-color, height, top;
     transition-timing-function: var(--nav-easing);
     width: 100%;
+    z-index: 10;
 }
 
 .nav.nav-is-expanded {
@@ -40,7 +40,7 @@
 }
 
 .nav-body>div {
-    height: calc(50% - calc(5 * var(--sp-base)));
+    height: calc(0.375rem + calc(50% - calc(5 * var(--sp-base))));
     justify-content: center;
     position: fixed;
     top: -100%;
@@ -103,6 +103,10 @@
 
 @media screen and (min-width: 48em) {
     .nav {
+        top: calc(-6 * var(--sp-base));
+    }
+
+    .nav-header {
         height: calc(6 * var(--sp-base));
     }
 
