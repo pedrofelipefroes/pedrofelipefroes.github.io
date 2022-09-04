@@ -113,10 +113,14 @@ const Cursor = () => {
         document.addEventListener("mousemove", handleMouseMove)
         document.addEventListener("mouseup", handleMouseUp)
 
-        document.querySelectorAll(".js-interactable-link:not(.is-hidden)").forEach((link) => {
-            link.addEventListener("mouseenter", handleLinkMouseEnter, { passive: true })
-            link.addEventListener("mouseleave", handleLinkMouseLeave, { passive: true })
-            link.addEventListener("mousemove", handleLinkMouseMove, { passive: true })
+        document.querySelectorAll(".js-interactable-link").forEach((link) => {
+            const isHidden = getComputedStyle(link).display === "none"
+
+            if (!isHidden) {
+                link.addEventListener("mouseenter", handleLinkMouseEnter, { passive: true })
+                link.addEventListener("mouseleave", handleLinkMouseLeave, { passive: true })
+                link.addEventListener("mousemove", handleLinkMouseMove, { passive: true })
+            }
         })
 
         // document.querySelectorAll(".text-title-1:not(.is-hidden), .text-title-2:not(.is-hidden), .text-body:not(.is-hidden)").forEach((text) => {
@@ -130,10 +134,14 @@ const Cursor = () => {
             document.removeEventListener("mousemove", handleMouseMove)
             document.removeEventListener("mouseup", handleMouseUp)
 
-            document.querySelectorAll(".js-interactable-link:not(.is-hidden)").forEach((link) => {
-                link.removeEventListener("mouseenter", handleLinkMouseEnter)
-                link.removeEventListener("mouseleave", handleLinkMouseLeave)
-                link.removeEventListener("mousemove", handleLinkMouseMove)
+            document.querySelectorAll(".js-interactable-link").forEach((link) => {
+                const isHidden = getComputedStyle(link).display === "none"
+
+                if (!isHidden) {
+                    link.removeEventListener("mouseenter", handleLinkMouseEnter)
+                    link.removeEventListener("mouseleave", handleLinkMouseLeave)
+                    link.removeEventListener("mousemove", handleLinkMouseMove)
+                }
             })
 
             // document.querySelectorAll(".text-title-1:not(.is-hidden), .text-title-2:not(.is-hidden), .text-body:not(.is-hidden)").forEach((text) => {
