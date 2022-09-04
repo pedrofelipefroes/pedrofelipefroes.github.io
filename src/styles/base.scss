@@ -111,10 +111,6 @@ section {
     display: block;
 }
 
-body {
-    line-height: 1;
-}
-
 ol,
 ul {
     list-style: none;
@@ -169,7 +165,6 @@ table {
     --color-bg: #fff;
     --color-on-bg: #000;
     --sp-base: 0.9375rem;
-    --ms-base: 1.25rem;
 }
 
 // SCSS VARIABLES
@@ -186,6 +181,7 @@ $bps: (
 $font-monospace: "GT America Mono LCG", monospace;
 $font-sans-serif: "Helvetica Now", sans-serif;
 $golden-ratio: 1.6180339887498948482;
+$ms-base: 1.25rem;
 $ms-ratio: 1.5;
 
 // SCSS MIXINS
@@ -202,9 +198,9 @@ $ms-ratio: 1.5;
 
 // SCSS FUNCTIONS
 
-@function ms($n, $base: var(--ms-base), $scale: $ms-ratio) {
+@function ms($n, $base: $ms-base, $scale: $ms-ratio) {
     $multiplier: math.pow($scale, $n);
-    @return (calc($multiplier * $base));
+    @return $multiplier * $base;
 }
 
 @function ss($n, $base: var(--sp-base)) {

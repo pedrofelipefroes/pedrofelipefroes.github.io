@@ -2,27 +2,15 @@
 
 body {
     background-color: var(--color-bg);
-    font-variant-ligatures: common-ligatures, contextual;
+    color: var(--color-on-bg);
+    font-family: $font-sans-serif;
+    font-feature-settings: "pnum" on, "lnum" on;
     height: 100%;
     text-rendering: optimizeLegibility;
     width: 100%;
 
-    @media screen and (min-width: map-get($bps, 992)), screen and (hover: hover) {
+    @media screen and (hover: hover) {
         cursor: none;
-    }
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow-x: hidden;
-
-    @include breakpoint(1920) {
-        border-color: var(--color-on-bg);
-        border-left-width: 0.09375rem;
-        border-right-width: 0.09375rem;
-        border-style: solid;
     }
 }
 
