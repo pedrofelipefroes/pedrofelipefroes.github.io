@@ -22,7 +22,7 @@ const Nav = () => {
         }
     }
 
-    const icon = <svg className={c(navIcon, "icon js-hoverable-link", { [navIsExpanded]: expanded })} onClick={handleClick} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    const icon = <svg className={c(navIcon, "icon js-interactable-link", { [navIsExpanded]: expanded })} onClick={handleClick} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="5" y1="12.5" x2="25" y2="12.5" />
         <line x1="5" y1="16.5" x2="25" y2="16.5" />
     </svg>
