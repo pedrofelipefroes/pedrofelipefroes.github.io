@@ -1,9 +1,10 @@
 {
-  "name": "gatsby-starter-default",
+  "homepage": "https://froes.design",
+  "name": "froesdesign",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Froes is a designer and engineer with a knack for systematic design. This is his portfolio.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Froes <hello@froes.design>",
   "dependencies": {
     "classnames": "^2.3.1",
     "gatsby": "^4.13.1",
@@ -44,9 +45,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://pedrofelipefroes.github.io/froesdesign"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://pedrofelipefroes.github.io/froesdesign"
   }
 }
