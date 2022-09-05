@@ -10,7 +10,7 @@ const Contact = () => {
     const splitWord = (word, phrase) => {
         return word.split("").map((i) => {
             return (
-                <Parallax easing="easeOutQuad" shouldAlwaysCompleteAnimation translateX={[(-20 * phrase.length + 10 * word.indexOf(i)), 0]}>
+                <Parallax key={"word-" + word.indexOf(i)} easing="easeOutQuad" shouldAlwaysCompleteAnimation translateX={[(-20 * phrase.length + 10 * word.indexOf(i)), 0]}>
                     <span>{i}</span>
                 </Parallax>
             )
