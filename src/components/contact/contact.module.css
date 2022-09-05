@@ -9,7 +9,6 @@
 
 .contact-headline {
     display: flex;
-    margin-left: calc(-.42*var(--sp-base));
 }
 
 .contact-headline:last-child {
