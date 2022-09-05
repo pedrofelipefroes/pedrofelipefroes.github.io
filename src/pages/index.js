@@ -1,11 +1,11 @@
-import * as React from "react"
 import c from "classnames"
+import * as React from "react"
 import { Parallax } from "react-scroll-parallax"
 
-import Contact from "../components/contact/contact"
 import Layout from "../components/layout/layout"
-import NavigationLink from "../components/navigation-link/navigation-link"
 import Seo from "../components/seo/seo"
+import NavigationLink from "../components/navigation-link/navigation-link"
+import Contact from "../components/contact/contact"
 
 import { indexAbout, indexHeader } from "./index.module.css"
 
