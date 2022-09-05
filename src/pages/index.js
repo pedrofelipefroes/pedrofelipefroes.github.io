@@ -12,7 +12,7 @@ import { indexAbout, indexHeader } from "./index.module.css"
 const IndexPage = () => (
   <>
     <Layout>
-      <Seo title="FROES.DESIGN" />
+      <Seo title=" " />
       <header className={c(indexHeader, "grid-golden-ratio sp-inset-x sp-inset-stack-lg")}>
         <h1 className="text-ms-1">
           Froes is a designer and engineer with a knack for <span className="text-nowrap">systematic design.</span>
