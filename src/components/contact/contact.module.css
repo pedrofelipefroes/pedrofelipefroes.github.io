@@ -1,17 +1,27 @@
 .contact {
     align-items: center;
-    border-top-color: var(--color-on-bg);
-    border-top-style: solid;
-    border-top-width: .09375rem;
+    padding-top: calc(6 * var(--sp-base));
 }
 
 .contact>h2 {
-    display: flex;
-    margin-left: calc(-.25*var(--spacing-base));
+    line-height: calc(6 * var(--sp-base));
 }
 
-@media screen and (min-width: 40em) {
+.contact-headline {
+    display: flex;
+    margin-left: calc(-.42*var(--sp-base));
+}
+
+.contact-headline:last-child {
+    justify-content: flex-end;
+}
+
+@media screen and (min-width: 31.625rem) {
     .contact>h2 {
-        margin-left: unset;
+        display: flex;
+    }
+
+    .contact-headline:last-child {
+        margin-left: .16em;
     }
 }
