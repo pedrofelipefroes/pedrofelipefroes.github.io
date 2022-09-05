@@ -23,7 +23,7 @@ const IndexPage = () => (
           <NavigationLink to="/#contact">Contact</NavigationLink>
         </div>
       </header>
-      <section id="#about" className={c(indexAbout, "divider grid-golden-ratio sp-inset-x sp-inset-stack-md")}>
+      <section id="about" className={c(indexAbout, "divider grid-golden-ratio sp-inset-x sp-inset-stack-md")}>
         <Parallax speed={-5}>
           <h2 className="text-ms-3">Current Head of Design Systems at Postclick. Former Design Lead at Avenue Code.</h2>
         </Parallax>

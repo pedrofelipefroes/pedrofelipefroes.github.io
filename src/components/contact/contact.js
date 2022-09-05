@@ -27,7 +27,7 @@ const Contact = () => {
     </>
 
     return (
-        <section id="#contact" className={c(contact, "divider grid-golden-ratio sp-inset-x sp-inset-stack-md")}>
+        <section id="contact" className={c(contact, "divider grid-golden-ratio sp-inset-x sp-inset-stack-md")}>
             <h2 className="text-ms-4">
                 {headlineParallax}
             </h2>
