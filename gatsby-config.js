@@ -31,5 +31,5 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
   ],
-  pathPrefix: "/froesdesign",
+  pathPrefix: "/",
 }
