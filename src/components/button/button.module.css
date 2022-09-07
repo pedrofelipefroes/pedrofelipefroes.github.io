@@ -1,0 +1,53 @@
+.button {
+    --button-easing: cubic-bezier(0.16, 1, 0.3, 1);
+
+    align-items: center;
+    background-color: transparent;
+    border-color: var(--color-on-bg);
+    border-radius: calc(2 * var(--sp-base));
+    border-style: solid;
+    border-width: 0.09375rem;
+    cursor: none;
+    display: inline-flex;
+    height: calc(3 * var(--sp-base));
+    justify-content: center;
+    padding-bottom: 0;
+    padding-top: 0;
+    transition-duration: 300ms;
+    transition-property: color;
+    transition-timing-function: var(--button-easing);
+    width: calc(13 * var(--sp-base));
+}
+
+.button:hover {
+    color: var(--color-bg);
+}
+
+.button::before {
+    background-color: var(--color-on-bg);
+    border-radius: calc(2 * var(--sp-base));
+    content: "";
+    height: 0;
+    padding: 0;
+    position: absolute;
+    transition-delay: 100ms, 100ms, 0ms;
+    transition-duration: 500ms, 500ms, 600ms;
+    transition-property: height, width, padding;
+    transition-timing-function: var(--button-easing);
+    width: 0;
+    z-index: -1;
+}
+
+.button:hover::before {
+    height: calc(3 * var(--sp-base));
+    padding: 0 calc(5 * var(--sp-base));
+    transition-delay: 0ms, 0ms, 100ms;
+    transition-duration: 200ms, 200ms, 600ms;
+    transition-property: height, width, padding;
+    transition-timing-function: var(--button-easing);
+    width: calc(3 * var(--sp-base));
+}
+
+.button>span {
+    text-align: center;
+}
