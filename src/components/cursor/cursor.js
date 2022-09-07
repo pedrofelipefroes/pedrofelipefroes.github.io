@@ -96,6 +96,38 @@ const Cursor = () => {
             e.target.style.setProperty("--cursor-translateY", `${topOffset * 4}px`)
         }
 
+        const handleButtonMouseEnter = e => {
+            setCursorLocked(true)
+
+            document.removeEventListener("mousemove", handleMouseMove)
+
+            cursor.classList.add(isLocked)
+            cursor.classList.add("js-has-button-breathe")
+
+            let rect = e.target.getBoundingClientRect()
+
+            cursor.style.setProperty("--cursor-top", window.scrollY + rect.top + rect.height / 2 + "px")
+            cursor.style.setProperty("--cursor-left", rect.left + rect.width / 2 + "px")
+            cursor.style.setProperty("--cursor-width", "calc(" + rect.width + "px + .8em)")
+            cursor.style.setProperty("--cursor-height", "calc(" + rect.height + "px + .8em)")
+            cursor.style.setProperty("--cursor-radius", "4em")
+        }
+
+        const handleButtonMouseLeave = e => {
+            setCursorLocked(false)
+
+            document.addEventListener("mousemove", handleMouseMove)
+
+            cursor.classList.remove(isLocked);
+            cursor.classList.remove("js-has-button-breathe")
+
+            cursor.style.setProperty("--cursor-width", defaultCursorSize)
+            cursor.style.setProperty("--cursor-height", defaultCursorSize)
+            cursor.style.setProperty("--cursor-translateX", 0)
+            cursor.style.setProperty("--cursor-translateY", 0)
+            cursor.style.setProperty("--cursor-radius", "0.6em")
+        }
+
         // const handleTextMouseOut = () => {
         //     cursor.style.setProperty("--cursor-width", defaultCursorSize);
         //     cursor.style.setProperty("--cursor-height", defaultCursorSize);
@@ -123,6 +155,15 @@ const Cursor = () => {
             }
         })
 
+        document.querySelectorAll(".js-interactable-button").forEach((button) => {
+            const isHidden = getComputedStyle(button).display === "none"
+
+            if (!isHidden) {
+                button.addEventListener("mouseenter", handleButtonMouseEnter, { passive: true })
+                button.addEventListener("mouseleave", handleButtonMouseLeave, { passive: true })
+            }
+        })
+
         // document.querySelectorAll(".text-title-1:not(.is-hidden), .text-title-2:not(.is-hidden), .text-body:not(.is-hidden)").forEach((text) => {
         //     text.addEventListener("mouseout", handleTextMouseOut, { passive: true })
         //     text.addEventListener("mouseover", handleTextMouseOver, { passive: true })
@@ -141,6 +182,15 @@ const Cursor = () => {
                     link.removeEventListener("mouseenter", handleLinkMouseEnter)
                     link.removeEventListener("mouseleave", handleLinkMouseLeave)
                     link.removeEventListener("mousemove", handleLinkMouseMove)
+                }
+            })
+
+            document.querySelectorAll(".js-interactable-button").forEach((button) => {
+                const isHidden = getComputedStyle(button).display === "none"
+
+                if (!isHidden) {
+                    button.removeEventListener("mouseenter", handleButtonMouseEnter)
+                    button.removeEventListener("mouseleave", handleButtonMouseLeave)
                 }
             })
 

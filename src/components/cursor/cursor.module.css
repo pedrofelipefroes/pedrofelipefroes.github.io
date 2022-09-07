@@ -4,6 +4,7 @@
     .cursor {
         --cursor-height: 1em;
         --cursor-left: -1em;
+        --cursor-radius: 0.6em;
         --cursor-scale: 1;
         --cursor-top: -1em;
         --cursor-translateX: 0;
@@ -29,7 +30,7 @@
 
     .cursor>div {
         background-color: var(--color-on-bg);
-        border-radius: 0.6em;
+        border-radius: var(--cursor-radius);
         bottom: 0;
         left: 0;
         opacity: 0.24;
