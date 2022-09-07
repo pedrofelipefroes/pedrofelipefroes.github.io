@@ -6,6 +6,10 @@
   padding-top: calc(10 * var(--sp-base));
 }
 
+.index-about>div:last-child {
+  text-align: right;
+}
+
 @media screen and (min-width: 31.625rem) {
   .index-about>div:last-child {
     max-width: calc(100% - calc(100% / 1.6180339887498948482));

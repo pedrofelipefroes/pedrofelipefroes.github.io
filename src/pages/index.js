@@ -5,6 +5,7 @@ import { Parallax } from "react-scroll-parallax"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo/seo"
 import NavigationLink from "../components/navigation-link/navigation-link"
+import Button from "../components/button/button"
 import Contact from "../components/contact/contact"
 
 import { indexAbout, indexHeader } from "./index.module.css"
@@ -32,7 +33,9 @@ const IndexPage = () => (
           <p>This means I'm right at home when dealing with design systems, developing <span className="text-smcps">CSS</span> architectures, crafting typography scales, writing documentation, and finding <span className="text-nowrap">patterns everywhere.</span></p>
         </div>
         <div>
-          <NavigationLink to="https://www.dropbox.com/s/qrps0a0p1zc745k/Froes%20%E2%80%94%20Design%20Portfolio.pdf?dl=0">Work Samples (WIP)</NavigationLink>
+          <Button>
+            <span>More Info</span>
+          </Button>
         </div>
       </section>
       <Contact />
