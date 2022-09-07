@@ -10,7 +10,7 @@ import { notFound } from "../pages/not-found.module.css"
 const NotFoundPage = () => (
   <Layout>
     <Seo title="404: Not Found" />
-    <section className={c(notFound, "divider grid-golden-ratio sp-inset-x sp-inset-stack-md")}>
+    <section className={c(notFound, "align-items-end divider grid-golden-ratio sp-inset-x sp-inset-stack-md")}>
       <div>
         <h1 className="sp-stack-xs text-ms-4">Not all those who wander are lost.</h1>
         <p className="text-ms-1">
