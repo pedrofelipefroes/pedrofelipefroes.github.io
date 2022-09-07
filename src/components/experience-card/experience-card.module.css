@@ -1,0 +1,13 @@
+.experience-card>h3 {
+    line-height: calc(2 * var(--sp-base));
+}
+
+.experience-card:not(:first-child) {
+    margin-top: var(--sp-base);
+}
+
+@media screen and (min-width: 85.375rem) {
+    .experience-card:not(:first-child) {
+        margin-top: unset;
+    }
+}
