@@ -7,7 +7,6 @@ import NavigationLink from "../navigation-link/navigation-link"
 
 import { nav, navBody, navFooter, navHeader, navIcon, navIsExpanded, navIsVisible } from "./nav.module.css"
 
-
 const Nav = () => {
     const [expanded, setExpanded] = useState(false)
     const [scrolled, setScrolled] = useState(null)
