@@ -161,7 +161,9 @@ table {
 
 // ROOT CUSTOM PROPERTIES
 
-:root {
+:root,
+::after,
+::before {
     --color-bg: #fff;
     --color-on-bg: #000;
     --sp-base: 0.9375rem;
