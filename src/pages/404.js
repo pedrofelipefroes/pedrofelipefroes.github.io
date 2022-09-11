@@ -5,7 +5,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo/seo"
 
-import { notFound } from "../pages/not-found.module.css"
+import { notFound } from "../pages/404.module.css"
 
 const NotFoundPage = () => (
   <Layout>
