@@ -36,3 +36,14 @@
         padding-top: calc(2 * var(--sp-base));
     }
 }
+
+@media screen and (min-width: 120rem) {
+    .footer {
+        border-left-color: var(--color-on-bg);
+        border-left-style: solid;
+        border-left-width: 0.09375rem;
+        border-right-color: var(--color-on-bg);
+        border-right-style: solid;
+        border-right-width: 0.09375rem;
+    }
+}
