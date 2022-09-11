@@ -2,7 +2,7 @@
     --button-easing: cubic-bezier(0.16, 1, 0.3, 1);
 
     align-items: center;
-    background-color: transparent;
+    background-color: var(--color-bg);
     border-color: var(--color-on-bg);
     border-radius: calc(2 * var(--sp-base));
     border-style: solid;
@@ -13,10 +13,12 @@
     justify-content: center;
     padding-bottom: 0;
     padding-top: 0;
+    position: relative;
     transition-duration: 300ms;
     transition-property: color;
     transition-timing-function: var(--button-easing);
     width: calc(13 * var(--sp-base));
+    z-index: 5;
 }
 
 .button:hover {
@@ -24,6 +26,8 @@
 }
 
 .button::before {
+    --button-easing: cubic-bezier(0.16, 1, 0.3, 1);
+
     background-color: var(--color-on-bg);
     border-radius: calc(2 * var(--sp-base));
     content: "";
@@ -35,7 +39,7 @@
     transition-property: height, width, padding;
     transition-timing-function: var(--button-easing);
     width: 0;
-    z-index: -1;
+    z-index: 6;
 }
 
 .button:hover::before {
@@ -48,6 +52,12 @@
     width: calc(3 * var(--sp-base));
 }
 
-.button>span {
+.button>a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.button>span, .button>a {
     text-align: center;
+    z-index: 7;
 }
