@@ -3,11 +3,13 @@
 body {
     background-color: var(--color-bg);
     color: var(--color-on-bg);
+    direction: ltr;
     font-family: $font-sans-serif;
     font-feature-settings: "pnum" on, "lnum" on;
     height: 100%;
     text-rendering: optimizeLegibility;
     width: 100%;
+    writing-mode: horizontal-tb;
 
     @media screen and (hover: hover) {
         cursor: none;
