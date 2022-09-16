@@ -23,9 +23,9 @@
 }
 
 .divider {
-    border-bottom-color: var(--color-on-bg);
-    border-bottom-style: solid;
-    border-bottom-width: 0.09375rem;
+    border-block-end-color: var(--color-on-bg);
+    border-block-end-style: solid;
+    border-block-end-width: 0.09375rem;
 }
 
 .font-400 {
@@ -126,38 +126,44 @@
     justify-self: flex-end;
 }
 
+.sp-inline-xs {
+    margin-right: ss(1);
+}
+
 .sp-inline-md {
     margin-right: ss(3);
 }
 
 .sp-inset-x {
-    padding-left: var(--sp-base);
-    padding-right: var(--sp-base);
+    padding-inline: var(--sp-base);
 
     @include breakpoint(375) {
-        padding-left: calc(var(--sp-base) * 2);
-        padding-right: calc(var(--sp-base) * 2);
+        padding-inline: calc(var(--sp-base) * 2);
     }
 }
 
 .sp-inset-stack-xs {
-    padding-bottom: ss(2);
+    padding-block-end: ss(2);
 }
 
 .sp-inset-stack-md {
-    padding-bottom: ss(6);
+    padding-block-end: ss(6);
 }
 
 .sp-inset-stack-lg {
-    padding-bottom: ss(10);
+    padding-block-end: ss(10);
 }
 
 .sp-stack-xxs {
-    margin-bottom: ss(1);
+    margin-block-end: ss(1);
 }
 
 .sp-stack-xs {
-    margin-bottom: ss(2);
+    margin-block-end: ss(2);
+}
+
+.text-break-word {
+    word-break: break-word;
 }
 
 .text-decoration-none {
@@ -185,7 +191,7 @@
 .text-ms-3 {
     font-size: ms(3);
     font-stretch: 92%;
-    font-weight: 450;
+    font-weight: 525;
     line-height: ss(5);
 
     @include breakpoint(992) {
@@ -194,10 +200,29 @@
     }
 }
 
+.text-ms-3to4 {
+    font-size: ms(3);
+    font-stretch: 92%;
+    font-weight: 525;
+    line-height: ss(4);
+
+    @include breakpoint(414) {
+        font-size: ms(4);
+        font-stretch: 90%;
+        font-weight: 475;
+        line-height: ss(5);
+    }
+
+    @include breakpoint(992) {
+        font-size: ms(5);
+        line-height: ss(9);
+    }
+}
+
 .text-ms-4 {
     font-size: ms(4);
-    font-stretch: 92%;
-    font-weight: 360;
+    font-stretch: 90%;
+    font-weight: 475;
     letter-spacing: -0.02em;
     line-height: ss(6);
 
