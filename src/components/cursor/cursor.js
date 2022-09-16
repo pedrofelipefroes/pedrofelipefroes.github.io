@@ -165,7 +165,7 @@ const Cursor = () => {
             }
         })
 
-        document.querySelectorAll("[class*=\"text-ms-\"]:not(.is-hidden)").forEach((text) => {
+        document.querySelectorAll("[class*=\"text-ms-0\"]:not(.is-hidden, .js-interactable-button), [class*=\"text-ms-1\"]:not(.is-hidden, .js-interactable-button)").forEach((text) => {
             text.addEventListener("mouseout", handleTextMouseOut, { passive: true })
             text.addEventListener("mouseover", handleTextMouseOver, { passive: true })
         })
@@ -195,7 +195,7 @@ const Cursor = () => {
                 }
             })
 
-            document.querySelectorAll("[class*=\"text-ms-\"]:not(.is-hidden)").forEach((text) => {
+            document.querySelectorAll("[class*=\"text-ms-0\"]:not(.is-hidden, .js-interactable-button), [class*=\"text-ms-1\"]:not(.is-hidden, .js-interactable-button)").forEach((text) => {
                 text.removeEventListener("mouseout", handleTextMouseOut)
                 text.removeEventListener("mouseover", handleTextMouseOver)
             })
