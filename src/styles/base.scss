@@ -169,6 +169,18 @@ table {
     --sp-base: 0.9375rem;
 }
 
+::selection {
+    background-color: var(--color-on-bg);
+    color: var(--color-bg);
+}
+
+// @media (prefers-color-scheme: dark) {
+//     :root {
+//         --color-bg: #000;
+//         --color-on-bg: #fff;
+//     }
+// }
+
 // SCSS VARIABLES
 
 $bps: (
