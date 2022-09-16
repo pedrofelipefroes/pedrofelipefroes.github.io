@@ -185,6 +185,7 @@ table {
 
 $bps: (
     375: 23.4375rem,
+    414: 25.875rem,
     768: 48rem,
     992: 62rem,
     1366: 85.375rem,
@@ -218,5 +219,5 @@ $ms-ratio: 1.5;
 }
 
 @function ss($n, $base: var(--sp-base)) {
-    @return (calc($base * $n));
+    @return (calc($n * $base));
 }
