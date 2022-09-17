@@ -1,12 +1,19 @@
 .cover {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 2 / 1;
 }
 
-.selected-work>div small {
-    line-height: var(--sp-base);
+.selected-work:last-of-type {
+    margin-block-end: calc(10 * var(--sp-base));
 }
 
-.selected-work>div small:not(:last-of-type)::after {
+.selected-work>div:last-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(4 * var(--sp-base));
+}
+
+.selected-work>div:last-of-type small:not(:last-of-type)::after {
     content: " • ";
+    margin-inline-end: .5em;
     position: relative;
 }
