@@ -1,0 +1,12 @@
+.cover {
+    aspect-ratio: 1 / 1;
+}
+
+.selected-work>div small {
+    line-height: var(--sp-base);
+}
+
+.selected-work>div small:not(:last-of-type)::after {
+    content: " • ";
+    position: relative;
+}
