@@ -2,6 +2,14 @@
   padding-top: calc(10 * var(--sp-base));
 }
 
+.btn-group {
+  z-index: 1;
+}
+
+.btn-group>div:last-child {
+  display: none;
+}
+
 .exp {
   display: none;
 }
@@ -22,10 +30,6 @@
   justify-self: end;
 }
 
-.summary>div:last-child>button {
-  display: none;
-}
-
 .summary p:first-of-type {
   margin-top: calc(2 * var(--sp-base));
 }
@@ -44,6 +48,11 @@
   .about>div:not(:first-child) {
     display: flex;
     width: 200vw;
+  }
+
+  .btn-group {
+    align-self: flex-start;
+    grid-column-start: 2;
   }
 
   .exp, .summary {
@@ -75,40 +84,38 @@
     padding-bottom: calc(2 * var(--sp-base));
   }
 
-  .summary>div:last-child {
-    align-self: flex-start;
-    grid-column-start: 2;
-  }
-
-  .summary button:first-of-type {
+  .btn-group>div:first-child {
     display: none;
   }
 
-  .summary button:last-of-type {
+  .btn-group>div:last-child {
     --button-easing: cubic-bezier(.98, -0.01, .39, 1.01);
 
     display: inline-flex;
-    overflow: hidden;
     transition-duration: 2000ms;
     transition-property: left;
     transition-timing-function: var(--button-easing);
     left: 0;
   }
 
-  .summary button:last-of-type>span::before, .summary button:last-of-type>span::after {
+  .btn-group>div button {
+    overflow: hidden;
+  }
+
+  .btn-group>div:last-child span::before, .btn-group>div:last-child span::after {
     transition-duration: 2000ms;
     transition-property: bottom;
     transition-timing-function: var(--button-easing);
   }
 
-  .summary button:last-of-type>span::before {
+  .btn-group>div:last-child span::before {
     bottom: 0;
     content: "More";
     left: -5.5%;
     position: relative;
   }
 
-  .summary button:last-of-type>span::after {
+  .btn-group>div:last-child span::after {
     bottom: calc(-3 * var(--sp-base));
     content: "Less";
     left: 28.5%;
