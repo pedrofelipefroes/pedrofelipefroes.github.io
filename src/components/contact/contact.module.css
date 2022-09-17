@@ -1,12 +1,17 @@
+#contact>div:first-child h2 {
+    padding-block-end: calc(1 * var(--sp-base));
+    padding-block-start: 0;
+    padding-inline: 0;
+}
+
 .contact {
     align-items: center;
     overflow-x: hidden;
-    padding-top: calc(6 * var(--sp-base));
 }
 
 .contact>div:last-child {
     justify-self: end;
-    margin-right: var(--sp-base);
+    margin-block-start: var(--sp-base);
 }
 
 .contact>h2 {
@@ -32,7 +37,7 @@
 }
 
 @media screen and (min-width: 85.375rem) {
-    .contact>div:last-child {
+    .contact>div:last-of-type {
         justify-self: initial;
     }
 }
