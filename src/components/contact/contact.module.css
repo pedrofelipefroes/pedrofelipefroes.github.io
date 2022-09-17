@@ -37,6 +37,10 @@
 }
 
 @media screen and (min-width: 85.375rem) {
+    .contact {
+        padding-block-end: calc(11 * var(--sp-base));
+    }
+
     .contact>div:last-of-type {
         justify-self: initial;
     }
