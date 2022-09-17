@@ -1,3 +1,7 @@
+.about {
+  padding-top: calc(10 * var(--sp-base));
+}
+
 .exp {
   display: none;
 }
@@ -18,7 +22,7 @@
   justify-self: end;
 }
 
-.summary button:last-of-type {
+.summary>div:last-child>button {
   display: none;
 }
 
@@ -37,7 +41,7 @@
     overflow: hidden;
   }
 
-  .about>div {
+  .about>div:not(:first-child) {
     display: flex;
     width: 200vw;
   }
