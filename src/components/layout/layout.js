@@ -1,28 +1,26 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { ParallaxProvider } from "react-scroll-parallax"
+import * as React from "react";
+import PropTypes from "prop-types";
+import { ParallaxProvider } from "react-scroll-parallax";
 
-import Cursor from "../cursor/cursor"
-import Footer from "../footer/footer"
-import Nav from "../nav/nav"
+import Cursor from "../cursor/cursor";
+import Footer from "../footer/footer";
+import Nav from "../nav/nav";
 
-import { layout } from "./layout.module.css"
+import { layout } from "./layout.module.css";
 
 const Layout = ({ children }) => {
-  return (
-    <ParallaxProvider>
-      <Nav />
-      <main className={layout}>
-        {children}
-      </main>
-      <Footer />
-      <Cursor />
-    </ParallaxProvider>
-  )
-}
+	return (
+		<ParallaxProvider>
+			<Nav />
+			<main className={layout}>{children}</main>
+			<Footer />
+			<Cursor />
+		</ParallaxProvider>
+	);
+};
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+	children: PropTypes.node.isRequired,
+};
 
-export default Layout
+export default Layout;
