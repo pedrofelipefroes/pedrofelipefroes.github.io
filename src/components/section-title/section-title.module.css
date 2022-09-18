@@ -1,1 +1,3 @@
-.section-title {}
+.section-title {
+    display: inline-block;
+}

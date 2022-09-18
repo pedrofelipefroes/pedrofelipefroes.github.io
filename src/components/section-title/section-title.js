@@ -12,8 +12,8 @@ const SectionTitle = ({ label, spEnd, spStart }) => {
 				className={c(
 					sectionTitle,
 					"font-monospace sp-inset-inline text-ms-0 text-uppercase",
-					`sp-inset-block-end-${spEnd}`,
-					`sp-inset-block-start-${spStart}`
+					`sp-block-end-${spEnd}`,
+					`sp-block-start-${spStart}`
 				)}
 			>
 				{label}
