@@ -86,7 +86,7 @@
 
     &-768 {
         @include breakpoint(768) {
-            display: none;
+            display: none !important;
         }
     }
 }
@@ -138,6 +138,10 @@
     margin-block-end: ss(3);
 }
 
+.sp-block-end-md {
+    margin-block-end: ss(6);
+}
+
 .sp-block-end-lg {
     margin-block-end: ss(10);
 }
@@ -164,6 +168,14 @@
 
 .sp-inset-block-end-lg {
     padding-block-end: ss(10);
+}
+
+.sp-inset-block-start-xs {
+    padding-block-start: calc(2 * var(--sp-base));
+}
+
+.sp-inset-block-start-sm {
+    padding-block-start: calc(3 * var(--sp-base));
 }
 
 .sp-inset-block-start-md {
@@ -230,7 +242,7 @@
     font-weight: 525;
     line-height: ss(4);
 
-    @include breakpoint(414) {
+    @include breakpoint(506) {
         font-size: ms(4);
         font-stretch: 90%;
         font-weight: 475;
@@ -271,4 +283,16 @@
 
 .w-max-container {
     max-width: map-get($bps, 1920);
+}
+
+.w-max-txt {
+    max-width: min(100%, 48rem);
+
+    @include breakpoint(992) {
+        max-width: calc(100% / $golden-ratio);
+    }
+
+    @include breakpoint(1366) {
+        max-width: unset;
+    }
 }
