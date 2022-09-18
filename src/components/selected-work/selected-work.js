@@ -23,7 +23,7 @@ const SelectedWork = ({ description, img, rotation, tags, title, url }) => {
 			<Parallax speed={-5} className="sp-block-end-sm">
 				<h3 className="text-ms-3to4">{title}</h3>
 			</Parallax>
-			<Parallax rotateX={rotation.x} rotateY={rotation.y} rotateZ={rotation.z}>
+			<Parallax rotateZ={rotation.z} scale={[1.174, 1]} speed={5}>
 				<ParallaxBanner className={cover}>
 					<ParallaxBannerLayer image={img} speed={-5} />
 				</ParallaxBanner>

@@ -1,8 +1,7 @@
 .cover {
     aspect-ratio: 16 / 9;
     float: right;
-    perspective: 48rem;
-    perspective-origin: center;
+    z-index: 1;
 }
 
 .info div {
@@ -22,6 +21,16 @@
     --golden-ratio-percentage: calc(100% / var(--golden-ratio));
 }
 
+.selected-work>div:nth-child(2) div:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+.selected-work>div:nth-child(2) div:last-child {
+    position: relative;
+    z-index: 0;
+}
+
 .selected-work h3 {
     hyphens: auto;
     word-break: break-word;
@@ -38,6 +47,10 @@
 }
 
 @media screen and (min-width: 31.625rem) {
+    .cover {
+        transform: scale(1);
+    }
+
     .selected-work h3 {
         hyphens: none;
         word-break: initial;
@@ -49,9 +62,7 @@
         margin-block-start: calc(-4 * var(--sp-base));
         max-width: 80%;
     }
-}
 
-@media screen and (min-width: 48rem) {
     .selected-work:nth-child(2n) .info, .selected-work:nth-child(2n)>div:last-child {
         justify-self: start;
     }
@@ -80,14 +91,11 @@
 
     .selected-work:nth-child(2n) {
         grid-template-columns: 1fr var(--golden-ratio-percentage);
-    }
-
-    .selected-work:nth-child(2n) .cover {
-        transform-origin: center left;
-    }
-
-    .selected-work>div:nth-child(1), .selected-work>div:nth-child(3) {
         z-index: 1;
+    }
+
+    .selected-work:nth-child(2n) .cover, .selected-work:nth-child(2n) .cover-shadow {
+        transform-origin: center left;
     }
 
     .selected-work:nth-child(2n)>div:nth-child(1) {
@@ -113,11 +121,30 @@
 
     .selected-work:nth-child(2) .cover, .selected-work:nth-child(3) .cover {
         /* Targets BDS & PDS cases */
-        margin-block-start: 0;
-        top: 45px;
+        margin-block-start: calc(9 * var(--sp-base));
+        top: calc(-3 * var(--sp-base));
+    }
+
+    .selected-work:nth-child(2) .cover-shadow, .selected-work:nth-child(3) .cover-shadow {
+        /* Targets BDS & PDS cases */
+        margin-block-start: calc(10 * var(--sp-base));
     }
 
     .selected-work>div:last-child {
         justify-self: start;
+    }
+}
+
+@media screen and (min-width: 120rem) {
+    .cover {
+        transform: scale(1.154);
+    }
+
+    .selected-work {
+        margin-block-end: calc(25 * var(--sp-base));
+    }
+
+    .selected-work:nth-child(2) .info {
+        margin-block-start: calc(-9 * var(--sp-base));
     }
 }
