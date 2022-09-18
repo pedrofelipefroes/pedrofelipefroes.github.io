@@ -5,20 +5,22 @@ import { Link } from "gatsby";
 
 import Layout from "../components/layout/layout";
 import Seo from "../components/seo/seo";
+import ExperienceCard from "../components/experience-card/experience-card";
 import SectionTitle from "../components/section-title/section-title";
 import SelectedWork from "../components/selected-work/selected-work";
 import NavigationLink from "../components/navigation-link/navigation-link";
 import Button from "../components/button/button";
-import ExperienceCard from "../components/experience-card/experience-card";
 import Contact from "../components/contact/contact";
 
 import {
 	about,
+	btnGroup,
 	exp,
 	expIsExpanded,
 	header,
 	summary,
 	summaryIsHidden,
+	work,
 } from "./index.module.css";
 
 import coverBDS from "../images/selected-work/bds/cover.jpg";
@@ -36,32 +38,52 @@ const IndexPage = () => {
 	const selectedWorkData = [
 		{
 			title: "Postclick Block Design System",
+			url: "/about",
 			img: coverBDS,
-			rotation: [-15, 30],
+			rotation: {
+				x: [0, 0],
+				y: [0, 0],
+				z: [0, 0],
+			},
 			description:
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			tags: ["Design System", "Front-end", "Marketing Design"],
 		},
 		{
 			title: "Rebranding Postclick Design System",
+			url: "/about",
 			img: coverPDS,
-			rotation: [15, -60],
+			rotation: {
+				x: [0, 0],
+				y: [0, 0],
+				z: [0, 0],
+			},
 			tags: ["Design System"],
 			description:
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		},
 		{
 			title: "Rebranding Avenue Code",
+			url: "/about",
 			img: coverACR,
-			rotation: [-45, 90],
+			rotation: {
+				x: [0, 0],
+				y: [0, 0],
+				z: [0, 0],
+			},
 			tags: ["Branding", "Marketing Design"],
 			description:
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		},
 		{
-			title: "Responsiveness at Sephora",
+			title: "Responsive Design at Sephora",
+			url: "/about",
 			img: coverSEP,
-			rotation: [60, -120],
+			rotation: {
+				x: [0, 0],
+				y: [0, 0],
+				z: [0, 0],
+			},
 			tags: ["Front-end", "UX Research"],
 			description:
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -72,11 +94,12 @@ const IndexPage = () => {
 		return (
 			<SelectedWork
 				key={e.title}
+				description={e.description}
 				img={e.img}
 				rotation={e.rotation}
 				tags={e.tags}
 				title={e.title}
-				description={e.description}
+				url={e.url}
 			/>
 		);
 	});
@@ -95,19 +118,24 @@ const IndexPage = () => {
 					<span className="text-nowrap">systematic design.</span>
 				</h1>
 				<div>
-					<NavigationLink to="/#about" className="sp-block-end-xs">
+					<NavigationLink
+						to="/#about"
+						className="is-hidden-768 sp-block-end-xs"
+					>
 						About
 					</NavigationLink>
 					<br />
-					<NavigationLink to="/#contact">Contact</NavigationLink>
+					<NavigationLink to="/#contact" className="is-hidden-768">
+						Contact
+					</NavigationLink>
 				</div>
 			</header>
-			<section id="selected-work" className="divider sp-inset-block-end-lg">
+			<section id="work" className={c(work, "sp-inset-block-end-lg")}>
 				<SectionTitle label="Selected Work" />
 				{selectedWork}
 			</section>
-			<section id="about" className={c(about, "divider")}>
-				<SectionTitle label="About" />
+			<section id="about" className={about}>
+				<SectionTitle label="About" spEnd="xs" />
 				<div>
 					<div
 						className={c(
@@ -117,12 +145,12 @@ const IndexPage = () => {
 						)}
 					>
 						<Parallax speed={-5}>
-							<h2 className="text-ms-3">
+							<h3 className="text-ms-3">
 								Current Head of Design Systems at Postclick. Former Design Lead
 								at Avenue Code.
-							</h2>
+							</h3>
 						</Parallax>
-						<div className="justify-self-end text-ms-0">
+						<div className="justify-self-end text-ms-0 w-max-txt">
 							<p className="sp-inset-block-end-xs">
 								I'm a designer and computer engineer with over six years of
 								experience who really (<em>really</em>) enjoys working in the
@@ -139,15 +167,20 @@ const IndexPage = () => {
 								<span className="text-nowrap">design and code.</span>
 							</p>
 						</div>
-						<div>
+						<div className={btnGroup}>
 							<Parallax shouldAlwaysCompleteAnimation translateX={[50, 0]}>
 								<Button>
 									<Link to="/about">More Info</Link>
 								</Button>
 							</Parallax>
-							<Button onClick={handleClick}>
-								<span>Info</span>
-							</Button>
+							<Parallax
+								translateX={isExpanded ? [-50, 0] : [50, 0]}
+								onClick={handleClick}
+							>
+								<Button>
+									<span>Info</span>
+								</Button>
+							</Parallax>
 						</div>
 					</div>
 					<div
@@ -159,9 +192,9 @@ const IndexPage = () => {
 					>
 						<div>
 							<Parallax speed={2.5}>
-								<h2 className="sp-block-end-xs text-ms-3">
+								<h3 className="sp-block-end-xs text-ms-3">
 									Skillset &amp; Experi&shy;ence
-								</h2>
+								</h3>
 							</Parallax>
 							<Parallax speed={5}>
 								<p className="text-ms-1">
