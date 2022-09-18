@@ -5,7 +5,7 @@ import { Parallax } from "react-scroll-parallax";
 import SectionTitle from "../section-title/section-title";
 import NavigationLink from "../navigation-link/navigation-link";
 
-import { contact, contactHeadline } from "./contact.module.css";
+import { contact, container, headline } from "./contact.module.css";
 
 const Contact = () => {
 	const splitWord = (word, phrase) => {
@@ -23,29 +23,29 @@ const Contact = () => {
 		});
 	};
 
-	const headline = "Reach Out";
-	const headlineStart = headline.split(" ")[0];
-	const headlineEnd = headline.split(" ")[1];
+	const headlineCopy = "Reach Out";
+	const headlineStart = headlineCopy.split(" ")[0];
+	const headlineEnd = headlineCopy.split(" ")[1];
 
 	const headlineParallax = (
 		<>
-			<div className={contactHeadline}>
-				{splitWord(headlineStart, headline)}
-			</div>
-			<div className={contactHeadline}>{splitWord(headlineEnd, headline)}</div>
+			<div className={headline}>{splitWord(headlineStart, headlineCopy)}</div>
+			<div className={headline}>{splitWord(headlineEnd, headlineCopy)}</div>
 		</>
 	);
 
 	return (
-		<section id="contact">
-			<SectionTitle label="Contact" spEnd="xs" spStart="md" />
+		<section id={contact}>
+			<SectionTitle label="Contact" spStart="md" />
 			<div
 				className={c(
-					contact,
+					container,
 					"align-items-end divider grid-golden-ratio sp-inset-inline sp-inset-block-end-md"
 				)}
 			>
-				<h2 className="text-ms-4">{headlineParallax}</h2>
+				<h3 className="sp-inset-block-start-xs text-ms-4">
+					{headlineParallax}
+				</h3>
 				<div className="sp-inline-end-xs">
 					<Parallax
 						easing="easeOutQuad"
