@@ -6,13 +6,15 @@ import Cursor from "../cursor/cursor";
 import Footer from "../footer/footer";
 import Nav from "../nav/nav";
 
-import { layout } from "./layout.module.css";
+import { container, layout } from "./layout.module.css";
 
 const Layout = ({ children }) => {
 	return (
 		<ParallaxProvider>
 			<Nav />
-			<main className={layout}>{children}</main>
+			<main className={layout}>
+				<div className={container}>{children}</div>
+			</main>
 			<Footer />
 			<Cursor />
 		</ParallaxProvider>
