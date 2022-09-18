@@ -245,12 +245,13 @@
     @include breakpoint(506) {
         font-size: ms(4);
         font-stretch: 90%;
-        font-weight: 475;
+        font-weight: 425;
         line-height: ss(6);
     }
 
     @include breakpoint(992) {
         font-size: ms(5);
+        font-weight: 475;
         line-height: ss(9);
     }
 }
@@ -258,7 +259,7 @@
 .text-ms-4 {
     font-size: ms(4);
     font-stretch: 90%;
-    font-weight: 475;
+    font-weight: 425;
     letter-spacing: -0.02em;
     line-height: ss(6);
 
