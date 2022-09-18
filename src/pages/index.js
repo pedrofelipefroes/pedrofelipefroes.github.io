@@ -41,22 +41,18 @@ const IndexPage = () => {
 			url: "/about",
 			img: coverBDS,
 			rotation: {
-				x: [0, 0],
-				y: [0, 0],
-				z: [0, 0],
+				z: [-5, 5],
 			},
+			tags: ["Design System", "Front-end", "Marketing Design"],
 			description:
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			tags: ["Design System", "Front-end", "Marketing Design"],
 		},
 		{
 			title: "Rebranding Postclick Design System",
 			url: "/about",
 			img: coverPDS,
 			rotation: {
-				x: [0, 0],
-				y: [0, 0],
-				z: [0, 0],
+				z: [-8, 2],
 			},
 			tags: ["Design System"],
 			description:
@@ -67,9 +63,7 @@ const IndexPage = () => {
 			url: "/about",
 			img: coverACR,
 			rotation: {
-				x: [0, 0],
-				y: [0, 0],
-				z: [0, 0],
+				z: [-7, 2],
 			},
 			tags: ["Branding", "Marketing Design"],
 			description:
@@ -80,9 +74,7 @@ const IndexPage = () => {
 			url: "/about",
 			img: coverSEP,
 			rotation: {
-				x: [0, 0],
-				y: [0, 0],
-				z: [0, 0],
+				z: [7, -2],
 			},
 			tags: ["Front-end", "UX Research"],
 			description:

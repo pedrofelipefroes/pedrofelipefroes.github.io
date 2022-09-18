@@ -15,7 +15,7 @@
 }
 
 .header {
-  padding-top: calc(4 * var(--sp-base));
+  margin-block-start: calc(4 * var(--sp-base));
 }
 
 .summary {
@@ -154,6 +154,10 @@
 @media screen and (min-width: 120rem) {
   .exp-is-expanded {
     left: -120rem;
+  }
+
+  .header {
+    margin-block-start: calc(10 * var(--sp-base));
   }
 
   .summary-is-hidden {
