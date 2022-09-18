@@ -1,19 +1,123 @@
 .cover {
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 16 / 9;
+    float: right;
+    perspective: 48rem;
+    perspective-origin: center;
+}
+
+.info div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(1 * var(--sp-base));
+}
+
+.info small:not(:last-of-type)::after {
+    content: " • ";
+    margin-inline-end: .5em;
+    position: relative;
+}
+
+.selected-work {
+    --golden-ratio: 1.6180339887498948482;
+    --golden-ratio-percentage: calc(100% / var(--golden-ratio));
+}
+
+.selected-work h2 {
+    hyphens: auto;
+    word-break: break-word;
 }
 
 .selected-work:last-of-type {
     margin-block-end: calc(10 * var(--sp-base));
 }
 
-.selected-work>div:last-of-type {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: calc(4 * var(--sp-base));
+@media screen and (hover: hover) {
+    .selected-work>div:last-child button {
+        display: none;
+    }
 }
 
-.selected-work>div:last-of-type small:not(:last-of-type)::after {
-    content: " • ";
-    margin-inline-end: .5em;
-    position: relative;
+@media screen and (min-width: 31.625rem) {
+    .selected-work h2 {
+        hyphens: none;
+        word-break: initial;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .cover {
+        margin-block-start: calc(-4 * var(--sp-base));
+        max-width: 80%;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .selected-work:nth-child(2n) .info, .selected-work:nth-child(2n)>div:last-child {
+        justify-self: start;
+    }
+
+    .selected-work:nth-child(2n)>div:last-child {
+        margin-inline-start: calc(var(--golden-ratio-percentage) - calc(13 * var(--sp-base)));
+    }
+}
+
+@media screen and (min-width: 85.375rem) {
+    .cover {
+        position: relative;
+        max-width: initial;
+        transform: scale(1.309);
+        transform-origin: center right;
+    }
+
+    .info {
+        margin-block-start: calc(-3 * var(--sp-base));
+        max-width: var(--golden-ratio-percentage);
+    }
+
+    .selected-work {
+        margin-block-end: calc(20 * var(--sp-base));
+    }
+
+    .selected-work:nth-child(2n) {
+        grid-template-columns: 1fr var(--golden-ratio-percentage);
+    }
+
+    .selected-work:nth-child(2n) .cover {
+        transform-origin: center left;
+    }
+
+    .selected-work>div:nth-child(1), .selected-work>div:nth-child(3) {
+        z-index: 1;
+    }
+
+    .selected-work:nth-child(2n)>div:nth-child(1) {
+        order: 2;
+    }
+
+    .selected-work:nth-child(2n)>div:nth-child(2) {
+        order: 1;
+    }
+
+    .selected-work:nth-child(2n)>div:nth-child(3) {
+        order: 4;
+    }
+
+    .selected-work:nth-child(2n)>div:nth-child(4) {
+        order: 3;
+    }
+
+    .selected-work:nth-child(2n)>div:last-child {
+        justify-self: end;
+        margin-inline-start: 0;
+    }
+
+    .selected-work:nth-child(2) .cover, .selected-work:nth-child(3) .cover {
+        /* Targets BDS & PDS cases */
+        margin-block-start: 0;
+        top: 45px;
+    }
+
+    .selected-work>div:last-child {
+        justify-self: start;
+    }
 }

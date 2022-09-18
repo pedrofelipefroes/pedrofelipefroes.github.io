@@ -7,30 +7,45 @@ import {
 	ParallaxBannerLayer,
 } from "react-scroll-parallax";
 
-import { cover, selectedWork } from "./selected-work.module.css";
+import Button from "../button/button";
 
-const SelectedWork = ({ description, img, rotation, tags, title }) => {
+import { cover, info, selectedWork } from "./selected-work.module.css";
+import { Link } from "gatsby";
+
+const SelectedWork = ({ description, img, rotation, tags, title, url }) => {
 	return (
-		<div className={c(selectedWork, "sp-inset-inline sp-block-end-xl")}>
+		<div
+			className={c(
+				selectedWork,
+				"grid-golden-ratio sp-inset-inline sp-block-end-xl"
+			)}
+		>
 			<Parallax speed={-5} className="sp-block-end-sm">
-				<h2 className="text-break-word text-hyphenate text-ms-3to4">{title}</h2>
+				<h3 className="text-ms-3to4">{title}</h3>
 			</Parallax>
-			<Parallax rotateY={[0, 360]} rotateZ={rotation}>
+			<Parallax rotateX={rotation.x} rotateY={rotation.y} rotateZ={rotation.z}>
 				<ParallaxBanner className={cover}>
 					<ParallaxBannerLayer image={img} speed={-5} />
 				</ParallaxBanner>
 			</Parallax>
-			<div className="sp-block-end-xxs">
-				{tags.map((item) => (
-					<small
-						key={item}
-						className="font-500 font-monospace text-ms-1neg text-nowrap text-uppercase"
-					>
-						{item}
-					</small>
-				))}
+			<div className={c(info, "justify-self-end w-max-txt")}>
+				<div className="sp-block-end-xxs">
+					{tags.map((item) => (
+						<small
+							key={item}
+							className="font-500 font-monospace text-ms-1neg text-nowrap text-uppercase"
+						>
+							{item}
+						</small>
+					))}
+				</div>
+				<p className="text-ms-0">{description}</p>
 			</div>
-			<p className="text-ms-0">{description}</p>
+			<Parallax className="justify-self-end" speed={-2.5}>
+				<Button>
+					<Link to={url}>See Case</Link>
+				</Button>
+			</Parallax>
 		</div>
 	);
 };
@@ -38,9 +53,10 @@ const SelectedWork = ({ description, img, rotation, tags, title }) => {
 SelectedWork.propTypes = {
 	description: PropTypes.string.isRequired,
 	img: PropTypes.string.isRequired,
-	rotation: PropTypes.array.isRequired,
+	rotation: PropTypes.object.isRequired,
 	tags: PropTypes.array.isRequired,
 	title: PropTypes.string.isRequired,
+	url: PropTypes.string.isRequired,
 };
 
 export default SelectedWork;
