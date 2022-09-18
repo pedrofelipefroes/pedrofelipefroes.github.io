@@ -22,7 +22,7 @@
     --golden-ratio-percentage: calc(100% / var(--golden-ratio));
 }
 
-.selected-work h2 {
+.selected-work h3 {
     hyphens: auto;
     word-break: break-word;
 }
@@ -38,7 +38,7 @@
 }
 
 @media screen and (min-width: 31.625rem) {
-    .selected-work h2 {
+    .selected-work h3 {
         hyphens: none;
         word-break: initial;
     }
