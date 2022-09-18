@@ -77,6 +77,9 @@ const Nav = () => {
 				{icon}
 				<ul>
 					<li className="sp-inline-end-sm">
+						<NavigationLink to="/#work">Work</NavigationLink>
+					</li>
+					<li className="sp-inline-end-sm">
 						<NavigationLink to="/#about">About</NavigationLink>
 					</li>
 					<li>
@@ -85,6 +88,14 @@ const Nav = () => {
 				</ul>
 			</div>
 			<div className={c(navBody, { [navIsExpanded]: expanded })}>
+				<div className="divider sp-inset-inline">
+					<AnchorLink
+						to="/#work"
+						className="color-on-bg text-decoration-none text-ms-3"
+					>
+						<span onClick={handleClick}>Work</span>
+					</AnchorLink>
+				</div>
 				<div className="divider sp-inset-inline">
 					<AnchorLink
 						to="/#about"
