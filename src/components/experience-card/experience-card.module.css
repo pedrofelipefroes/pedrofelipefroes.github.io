@@ -1,5 +1,6 @@
-.experience-card>h3 {
+.experience-card h3 {
     line-height: calc(2 * var(--sp-base));
+    min-height: calc(4 * var(--sp-base));
 }
 
 .experience-card:not(:first-child) {
