@@ -28,6 +28,15 @@
     border-block-end-width: 0.09375rem;
 }
 
+.dropcap {
+    float: left;
+    font-size: ms(4);
+    font-stretch: 92%;
+    font-weight: 525;
+    line-height: ss(6);
+    padding-inline-end: ss(0.5);
+}
+
 .font-400 {
     font-weight: 400;
     font-variation-settings: "wght" 400;
@@ -91,6 +100,31 @@
     }
 }
 
+.is-invisible {
+    --opacity-easing: cubic-bezier(0, 0.55, 0.45, 1);
+
+    opacity: 0;
+    transition-duration: 900ms;
+    transition-property: opacity;
+    transition-timing-function: var(--opacity-easing);
+}
+
+.is-visible {
+    opacity: 1;
+}
+
+.is-visible--speed-1 {
+    transition-duration: 600ms;
+}
+
+.is-visible--speed-2 {
+    transition-duration: 2400ms;
+}
+
+.is-visible--speed-3 {
+    transition-duration: 3100ms;
+}
+
 .js-has-button-breathe {
     animation-direction: alternate;
     animation-duration: 600ms;
@@ -124,6 +158,24 @@
 
 .justify-self-end {
     justify-self: flex-end;
+}
+
+.no-overflow {
+    overflow: hidden;
+}
+
+.project-body {
+    position: absolute;
+    margin-block-start: ss(2);
+    max-width: calc(100% - calc(100% / $golden-ratio) - ss(8));
+
+    @include breakpoint(1920) {
+        max-width: calc(120rem - calc(120rem / $golden-ratio) - ss(8));
+    }
+}
+
+.project-page {
+    margin-block-start: ss(4);
 }
 
 .sp-block-end-xxs {
@@ -194,8 +246,32 @@
     }
 }
 
+.tag::after {
+    content: "•";
+    margin-inline-start: 0.5em;
+    margin-inline-end: 0.5em;
+    position: relative;
+}
+
+.tag:last-child::after {
+    content: "";
+}
+
 .text-break-word {
     word-break: break-word;
+}
+
+.text-col-3 {
+    column-gap: ss(2);
+    columns: 3;
+
+    p + p {
+        text-indent: ss(4.8);
+    }
+}
+
+.text-col-span-all {
+    column-span: all;
 }
 
 .text-decoration-none {
@@ -254,6 +330,14 @@
         font-weight: 475;
         line-height: ss(9);
     }
+
+    &--to-6 {
+        @include breakpoint(1366) {
+            font-size: ms(6);
+            font-weight: 475;
+            line-height: ss(13);
+        }
+    }
 }
 
 .text-ms-4 {
@@ -283,7 +367,7 @@
 }
 
 .w-max-container {
-    max-width: map-get($bps, 1920);
+    max-width: calc(120rem - ss(8) - 0.1875rem);
 }
 
 .w-max-txt {
