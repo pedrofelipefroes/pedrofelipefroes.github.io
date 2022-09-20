@@ -35,7 +35,7 @@ const Contact = () => {
 	);
 
 	return (
-		<section id={contact}>
+		<section id="contact" className={contact}>
 			<SectionTitle label="Contact" spStart="md" />
 			<div
 				className={c(
