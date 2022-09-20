@@ -5,7 +5,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    max-width: 120em;
+    max-width: calc(120rem - calc(8 * var(--sp-base)));
     overflow: hidden;
     position: fixed;
     top: calc(-5 * var(--sp-base));
@@ -82,7 +82,7 @@
     height: calc(5 * var(--sp-base));
     justify-content: space-between;
     position: relative;
-    z-index: 14;
+    z-index: 15;
 }
 
 .nav-header.nav-is-expanded {
@@ -131,7 +131,7 @@
         border-inline-color: transparent;
         border-inline-style: solid;
         border-inline-width: 0.09375rem;
-        left: calc(50vw - 60em);
+        left: calc(50vw - calc(60rem - calc(4 * var(--sp-base))));
         margin-block-start: calc(4 * var(--sp-base));
         top: calc(-10 * var(--sp-base));
     }

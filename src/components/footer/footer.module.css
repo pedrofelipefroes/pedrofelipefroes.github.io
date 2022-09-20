@@ -40,7 +40,7 @@
 
 @media screen and (min-width: 120rem) {
     .footer {
-        border-inline-color: var(--color-on-bg);
+        border-inline-color: transparent;
         border-inline-style: solid;
         border-inline-width: 0.09375rem;
         padding-block-end: calc(6 * var(--sp-base));
