@@ -4,12 +4,8 @@
   margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
-  max-width: 120rem;
+  max-width: calc(120rem - calc(8 * var(--sp-base)));
   padding-top: calc(5 * var(--sp-base));
-}
-
-.layout {
-  overflow-x: hidden;
 }
 
 @media screen and (min-width: 120rem) {
@@ -21,7 +17,6 @@
     border-top-style: solid;
     border-top-width: 0.09375rem;
     margin-block-start: calc(4 * var(--sp-base));
-    overflow-y: scroll;
   }
 
   .container::after, .container::before {
@@ -29,6 +24,7 @@
     content: "";
     height: calc(4 * var(--sp-base));
     position: fixed;
+    max-width: 120rem;
     width: 100%;
     z-index: 20;
   }
@@ -45,20 +41,20 @@
     background-color: var(--color-on-bg);
     content: "";
     height: calc(6 * var(--sp-base));
-    left: calc(50% - 60rem + 0.09375rem);
+    left: calc(50% - 60rem + calc(4 * var(--sp-base)) + .09375rem);
     position: fixed;
-    max-width: calc(120em - .1875rem);
+    max-width: calc(120em - calc(8 * var(--sp-base)) - .1875rem);
     width: 100%;
-    z-index: 21;
+    z-index: 20;
   }
 
   .layout::after {
-    clip-path: path("M90 0H0V90C0 62.0435 0 48.0653 4.56723 37.039C10.6569 22.3373 22.3373 10.6569 37.039 4.56723C48.0653 0 62.0435 0 90 0ZM1828.5 0C1856.46 0 1870.43 0 1881.46 4.56723C1896.16 10.6569 1907.84 22.3373 1913.93 37.039C1918.5 48.0653 1918.5 62.0435 1918.5 90V0H1828.5Z");
+    clip-path: path("M90 0H0V90C0 62.0435 0 48.0653 4.56723 37.039C10.6569 22.3373 22.3373 10.6569 37.039 4.56723C48.0653 0 62.0435 0 90 0ZM1707 0C1734.96 0 1748.93 0 1759.96 4.56723C1774.66 10.6569 1786.34 22.3373 1792.43 37.039C1797 48.0653 1797 62.0435 1797 90V0H1707Z");
     top: calc(4 * var(--sp-base));
   }
 
   .layout::before {
     bottom: calc(4 * var(--sp-base));
-    clip-path: path("M1918.5 90V0C1918.5 27.9565 1918.5 41.9347 1913.93 52.961C1907.84 67.6627 1896.16 79.3431 1881.46 85.4328C1870.43 90 1856.46 90 1828.5 90H1918.5ZM90 90C62.0435 90 48.0653 90 37.039 85.4328C22.3373 79.3431 10.6569 67.6627 4.56723 52.961C0 41.9347 0 27.9565 0 0V90H90Z");
+    clip-path: path("M1797 90V0C1797 27.9565 1797 41.9348 1792.43 52.961C1786.34 67.6627 1774.66 79.3431 1759.96 85.4328C1748.93 90 1734.96 90 1707 90H1797ZM90 90C62.0439 90 48.0654 90 37.0391 85.4328C22.3369 79.3431 10.6572 67.6627 4.56738 52.961C0 41.9348 0 27.9565 0 0V90H90Z");
   }
 }
