@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { cursor, isLocked } from "./cursor.module.css";
+import { cursor, isLocked, isLockedAtBtn } from "./cursor.module.css";
 
 const Cursor = () => {
 	const isBrowser = typeof window !== "undefined";
@@ -113,8 +113,7 @@ const Cursor = () => {
 
 			document.removeEventListener("mousemove", handleMouseMove);
 
-			cursor.classList.add(isLocked);
-			cursor.classList.add("js-has-button-breathe");
+			cursor.classList.add(isLocked, isLockedAtBtn, "js-has-button-breathe");
 
 			let rect = e.target.getBoundingClientRect();
 
@@ -142,8 +141,7 @@ const Cursor = () => {
 
 			document.addEventListener("mousemove", handleMouseMove);
 
-			cursor.classList.remove(isLocked);
-			cursor.classList.remove("js-has-button-breathe");
+			cursor.classList.remove(isLocked, isLockedAtBtn, "js-has-button-breathe");
 
 			cursor.style.setProperty("--cursor-width", defaultCursorSize);
 			cursor.style.setProperty("--cursor-height", defaultCursorSize);
