@@ -2,6 +2,7 @@
 
 @media screen and (hover: hover) {
     .cursor {
+        --cursor-border-width: 0.09375rem;
         --cursor-height: 1em;
         --cursor-left: -1em;
         --cursor-radius: 0.6em;
@@ -33,14 +34,14 @@
         border-color: var(--color-bg);
         border-radius: var(--cursor-radius);
         border-style: solid;
-        border-width: 0.09375rem;
+        border-width: var(--cursor-border-width);
         bottom: 0;
         left: 0;
         opacity: 1;
         right: 0;
         top: 0;
         transform: translate(var(--cursor-translateX), var(--cursor-translateY));
-        transition-property: opacity;
+        transition-property: opacity, border;
     }
 
     .cursor.is-locked {
