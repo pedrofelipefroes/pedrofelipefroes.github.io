@@ -14,6 +14,7 @@ const data = [
 		},
 		subhead:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		credit: "Produced at Postclick, from 2020 to\u00A02022.",
 	},
 	{
 		url: "/about",
@@ -25,17 +26,19 @@ const data = [
 		},
 		subhead:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		credit: "Produced at Postclick, 2022.",
 	},
 	{
 		url: "/project-acr",
 		title: "Rebranding Avenue Code",
 		tags: ["Branding", "Marketing\u00A0Design"],
-		subhead:
-			"Refreshing Avenue Code brand with diversity, cohesiveness, and\u00A0scalability in\u00A0mind.",
 		img: coverACR,
 		imgRotation: {
 			z: [-7, 2],
 		},
+		subhead:
+			"Refreshing Avenue Code brand with diversity, cohesiveness, and\u00A0scalability in\u00A0mind.",
+		credit: "Produced at Postclick, 2019.",
 	},
 	{
 		url: "/about",
@@ -47,6 +50,7 @@ const data = [
 		},
 		subhead:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		credit: "Produced at Sephora, 2018.",
 	},
 ];
 
