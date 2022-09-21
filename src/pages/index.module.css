@@ -67,7 +67,7 @@
     --button-easing: cubic-bezier(.98, -0.01, .39, 1.01);
 
     display: inline-flex;
-    transition-duration: 2000ms;
+    transition-duration: 2500ms;
     transition-property: left;
     transition-timing-function: var(--button-easing);
     left: 0;
@@ -78,7 +78,7 @@
   }
 
   .btn-group>div:last-child button span::before, .btn-group>div:last-child button span::after {
-    transition-duration: 2000ms;
+    transition-duration: 2500ms;
     transition-property: bottom;
     transition-timing-function: var(--button-easing);
   }
@@ -107,7 +107,7 @@
 
     box-sizing: border-box;
     position: relative;
-    transition-duration: 1500ms;
+    transition-duration: 2000ms;
     transition-property: left;
     transition-timing-function: var(--section-easing);
     width: 100vw;
@@ -152,15 +152,12 @@
 }
 
 @media screen and (min-width: 120rem) {
-  .exp-is-expanded {
-    left: -120rem;
+  .about>div:not(:first-child) {
+    display: flex;
+    width: calc(2 * calc(120rem - calc(8 * var(--sp-base)) - 0.1875rem));
   }
 
   .header {
     margin-block-start: calc(10 * var(--sp-base));
-  }
-
-  .summary-is-hidden {
-    left: -120rem;
   }
 }

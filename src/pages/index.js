@@ -7,7 +7,7 @@ import Layout from "../components/layout/layout";
 import Seo from "../components/seo/seo";
 import ExperienceCard from "../components/experience-card/experience-card";
 import SectionTitle from "../components/section-title/section-title";
-import SelectedWork from "../components/selected-work/selected-work";
+import ProjectSection from "../components/project-section/project-section";
 import NavigationLink from "../components/navigation-link/navigation-link";
 import Button from "../components/button/button";
 import Contact from "../components/contact/contact";
@@ -23,10 +23,7 @@ import {
 	work,
 } from "./index.module.css";
 
-import coverBDS from "../images/selected-work/bds/cover.jpg";
-import coverPDS from "../images/selected-work/pds/cover.jpg";
-import coverACR from "../images/selected-work/acr/cover.jpg";
-import coverSEP from "../images/selected-work/sep/cover.jpg";
+import { getAllProjects } from "../../project-data";
 
 const IndexPage = () => {
 	const [isExpanded, setIsExpanded] = useState(false);
@@ -35,63 +32,16 @@ const IndexPage = () => {
 		setIsExpanded(!isExpanded);
 	};
 
-	const selectedWorkData = [
-		{
-			title: "Postclick Block Design System",
-			url: "/about",
-			img: coverBDS,
-			rotation: {
-				z: [-5, 5],
-			},
-			tags: ["Design System", "Front-end", "Marketing Design"],
-			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		},
-		{
-			title: "Rebranding Postclick Design System",
-			url: "/about",
-			img: coverPDS,
-			rotation: {
-				z: [-8, 2],
-			},
-			tags: ["Design System"],
-			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		},
-		{
-			title: "Rebranding Avenue Code",
-			url: "/about",
-			img: coverACR,
-			rotation: {
-				z: [-7, 2],
-			},
-			tags: ["Branding", "Marketing Design"],
-			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		},
-		{
-			title: "Responsive Design at Sephora",
-			url: "/about",
-			img: coverSEP,
-			rotation: {
-				z: [7, -2],
-			},
-			tags: ["Front-end", "UX Research"],
-			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		},
-	];
-
-	const selectedWork = selectedWorkData.map((e) => {
+	const projectData = getAllProjects().map((project) => {
 		return (
-			<SelectedWork
-				key={e.title}
-				description={e.description}
-				img={e.img}
-				rotation={e.rotation}
-				tags={e.tags}
-				title={e.title}
-				url={e.url}
+			<ProjectSection
+				key={project.title}
+				img={project.img}
+				imgRotation={project.imgRotation}
+				subhead={project.subhead}
+				tags={project.tags}
+				title={project.title}
+				url={project.url}
 			/>
 		);
 	});
@@ -124,7 +74,7 @@ const IndexPage = () => {
 			</header>
 			<section id="work" className={c(work, "sp-inset-block-end-lg")}>
 				<SectionTitle label="Selected Work" />
-				{selectedWork}
+				{projectData}
 			</section>
 			<section id="about" className={about}>
 				<SectionTitle label="About" spEnd="xs" />
@@ -197,31 +147,61 @@ const IndexPage = () => {
 							</Parallax>
 						</div>
 						<div className="grid-3 sp-inset-block-end-md">
-							<ExperienceCard role="Head of Design Systems">
+							<ExperienceCard
+								role="Head of Design Systems"
+								className={c(
+									{ ["is-visible"]: isExpanded, ["is-invisible"]: !isExpanded },
+									"is-visible--speed-1"
+								)}
+							>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 								enim ad minim veniam, quis nostrud exercitation ullamco laboris
 								nisi ut aliquip ex ea commodo consequat.
 							</ExperienceCard>
-							<ExperienceCard role="Design Lead">
+							<ExperienceCard
+								role="Design Lead"
+								className={c(
+									{ ["is-visible"]: isExpanded, ["is-invisible"]: !isExpanded },
+									"is-visible--speed-2"
+								)}
+							>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 								enim ad minim veniam, quis nostrud exercitation ullamco laboris
 								nisi ut aliquip ex ea commodo consequat.
 							</ExperienceCard>
-							<ExperienceCard role="Marketing Designer">
+							<ExperienceCard
+								role="Marketing Designer"
+								className={c(
+									{ ["is-visible"]: isExpanded, ["is-invisible"]: !isExpanded },
+									"is-visible--speed-3"
+								)}
+							>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 								enim ad minim veniam, quis nostrud exercitation ullamco laboris
 								nisi ut aliquip ex ea commodo consequat.
 							</ExperienceCard>
-							<ExperienceCard role="Product Designer">
+							<ExperienceCard
+								role="Product Designer"
+								className={c(
+									{ ["is-visible"]: isExpanded, ["is-invisible"]: !isExpanded },
+									"is-visible--speed-1"
+								)}
+							>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 								enim ad minim veniam, quis nostrud exercitation ullamco laboris
 								nisi ut aliquip ex ea commodo consequat.
 							</ExperienceCard>
-							<ExperienceCard role="UI Engineer">
+							<ExperienceCard
+								role="UI Engineer"
+								className={c(
+									{ ["is-visible is-visible--speed-2"]: isExpanded },
+									"is-invisible"
+								)}
+							>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 								enim ad minim veniam, quis nostrud exercitation ullamco laboris
