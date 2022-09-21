@@ -1,0 +1,96 @@
+.cover {
+    position: relative;
+    order: 1;
+    top: calc(4 * var(--sp-base));
+    z-index: 1;
+}
+
+.cover>div:first-child {
+    aspect-ratio: 16 / 9;
+}
+
+.details {
+    order: 2;
+}
+
+.details p:first-child {
+    display: none;
+}
+
+.headline {
+    margin-block-end: calc(4 * var(--sp-base));
+}
+
+.project-header {
+    margin-block-start: calc(8 * var(--sp-base));
+    overflow: hidden;
+}
+
+.subhead {
+    margin-block-start: calc(2 * var(--sp-base));
+    order: 3;
+}
+
+@media screen and (min-width: 31.625rem) {
+    .cover {
+        transform: scale(1);
+    }
+}
+
+@media screen and (min-width: 62rem) {
+    .details, .subhead {
+        margin-inline-start: calc(100% - calc(100% / 1.6180339887498948482));
+    }
+
+    .subhead h2 {
+        max-width: unset;
+    }
+}
+
+@media screen and (min-width: 85.375rem) {
+    .cover {
+        margin-block-start: calc(-9 * var(--sp-base));
+        order: 2;
+    }
+
+    .details, .subhead {
+        margin-inline-start: unset;
+    }
+
+    .details {
+        align-self: end;
+        margin-bottom: calc(-17 * var(--sp-base));
+        order: 0;
+        position: sticky;
+        top: calc(8 * var(--sp-base));
+    }
+
+    .details p:first-child {
+        display: initial;
+    }
+
+    .headline {
+        order: 1;
+    }
+
+    .project-header {
+        overflow: unset;
+    }
+
+    .subhead {
+        margin-inline-end: calc(18 * var(--sp-base));
+        order: 3;
+    }
+}
+
+@media screen and (min-width: 120rem) {
+    .details {
+        top: calc(12 * var(--sp-base));
+    }
+
+    .subhead {
+        align-self: flex-end;
+        position: relative;
+        top: calc(3 * var(--sp-base));
+    }
+}
