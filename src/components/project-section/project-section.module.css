@@ -1,7 +1,6 @@
 .cover {
     aspect-ratio: 16 / 9;
     float: right;
-    z-index: 1;
 }
 
 .info div {
@@ -10,40 +9,25 @@
     margin-top: calc(1 * var(--sp-base));
 }
 
-.info small:not(:last-of-type)::after {
-    content: " • ";
-    margin-inline-end: .5em;
-    position: relative;
-}
-
-.selected-work {
+.project-section {
     --golden-ratio: 1.6180339887498948482;
     --golden-ratio-percentage: calc(100% / var(--golden-ratio));
+
+    color: var(--color-on-bg);
+    text-decoration: none;
 }
 
-.selected-work>div:nth-child(2) div:first-child {
-    position: relative;
-    z-index: 1;
+.project-section>div:nth-child(2) {
+    z-index: 2;
 }
 
-.selected-work>div:nth-child(2) div:last-child {
-    position: relative;
-    z-index: 0;
-}
-
-.selected-work h3 {
+.project-section h3 {
     hyphens: auto;
     word-break: break-word;
 }
 
-.selected-work:last-of-type {
+.project-section:last-of-type {
     margin-block-end: calc(10 * var(--sp-base));
-}
-
-@media screen and (hover: hover) {
-    .selected-work>div:last-child button {
-        display: none;
-    }
 }
 
 @media screen and (min-width: 31.625rem) {
@@ -51,7 +35,7 @@
         transform: scale(1);
     }
 
-    .selected-work h3 {
+    .project-section h3 {
         hyphens: none;
         word-break: initial;
     }
@@ -63,11 +47,15 @@
         max-width: 80%;
     }
 
-    .selected-work:nth-child(2n) .info, .selected-work:nth-child(2n)>div:last-child {
+    .project-section {
+        white-space: initial;
+    }
+
+    .project-section:nth-child(2n) .info, .project-section:nth-child(2n)>div:last-child {
         justify-self: start;
     }
 
-    .selected-work:nth-child(2n)>div:last-child {
+    .project-section:nth-child(2n)>div:last-child {
         margin-inline-start: calc(var(--golden-ratio-percentage) - calc(13 * var(--sp-base)));
     }
 }
@@ -85,52 +73,51 @@
         max-width: var(--golden-ratio-percentage);
     }
 
-    .selected-work {
+    .project-section {
         margin-block-end: calc(20 * var(--sp-base));
     }
 
-    .selected-work:nth-child(2n) {
+    .project-section:nth-child(2n) {
         grid-template-columns: 1fr var(--golden-ratio-percentage);
-        z-index: 1;
     }
 
-    .selected-work:nth-child(2n) .cover, .selected-work:nth-child(2n) .cover-shadow {
+    .project-section:nth-child(2n) .cover, .project-section:nth-child(2n) .cover-shadow {
         transform-origin: center left;
     }
 
-    .selected-work:nth-child(2n)>div:nth-child(1) {
+    .project-section:nth-child(2n)>div:nth-child(1) {
         order: 2;
     }
 
-    .selected-work:nth-child(2n)>div:nth-child(2) {
+    .project-section:nth-child(2n)>div:nth-child(2) {
         order: 1;
     }
 
-    .selected-work:nth-child(2n)>div:nth-child(3) {
+    .project-section:nth-child(2n)>div:nth-child(3) {
         order: 4;
     }
 
-    .selected-work:nth-child(2n)>div:nth-child(4) {
+    .project-section:nth-child(2n)>div:nth-child(4) {
         order: 3;
     }
 
-    .selected-work:nth-child(2n)>div:last-child {
+    .project-section:nth-child(2n)>div:last-child {
         justify-self: end;
         margin-inline-start: 0;
     }
 
-    .selected-work:nth-child(2) .cover, .selected-work:nth-child(3) .cover {
+    .project-section:nth-child(2) .cover, .project-section:nth-child(3) .cover {
         /* Targets BDS & PDS cases */
         margin-block-start: calc(9 * var(--sp-base));
         top: calc(-3 * var(--sp-base));
     }
 
-    .selected-work:nth-child(2) .cover-shadow, .selected-work:nth-child(3) .cover-shadow {
+    .project-section:nth-child(2) .cover-shadow, .project-section:nth-child(3) .cover-shadow {
         /* Targets BDS & PDS cases */
         margin-block-start: calc(10 * var(--sp-base));
     }
 
-    .selected-work>div:last-child {
+    .project-section>div:last-child {
         justify-self: start;
     }
 }
@@ -140,11 +127,15 @@
         transform: scale(1.154);
     }
 
-    .selected-work {
+    .project-section {
         margin-block-end: calc(25 * var(--sp-base));
     }
 
-    .selected-work:nth-child(2) .info {
-        margin-block-start: calc(-9 * var(--sp-base));
+    .project-section:nth-child(2)>div:first-child {
+        margin-block-start: calc(8 * var(--sp-base));
+    }
+
+    .project-section:nth-child(2) .info {
+        margin-block-start: calc(-4 * var(--sp-base));
     }
 }

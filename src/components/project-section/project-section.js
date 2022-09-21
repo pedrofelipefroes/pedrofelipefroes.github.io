@@ -6,24 +6,24 @@ import {
 	ParallaxBanner,
 	ParallaxBannerLayer,
 } from "react-scroll-parallax";
+import { Link } from "gatsby";
 
 import Button from "../button/button";
 
-import { cover, info, selectedWork } from "./selected-work.module.css";
-import { Link } from "gatsby";
+import { cover, info, projectSection } from "./project-section.module.css";
 
-const SelectedWork = ({ description, img, rotation, tags, title, url }) => {
+const ProjectSection = ({ img, imgRotation, subhead, tags, title, url }) => {
 	return (
 		<div
 			className={c(
-				selectedWork,
+				projectSection,
 				"grid-golden-ratio sp-inset-inline sp-block-end-xl"
 			)}
 		>
 			<Parallax speed={-5} className="sp-block-end-sm">
 				<h3 className="text-ms-3to4">{title}</h3>
 			</Parallax>
-			<Parallax rotateZ={rotation.z} scale={[1.174, 1]} speed={5}>
+			<Parallax rotateZ={imgRotation.z} scale={[1.164, 1]} speed={5}>
 				<ParallaxBanner className={cover}>
 					<ParallaxBannerLayer image={img} speed={-5} />
 				</ParallaxBanner>
@@ -33,13 +33,13 @@ const SelectedWork = ({ description, img, rotation, tags, title, url }) => {
 					{tags.map((item) => (
 						<small
 							key={item}
-							className="font-500 font-monospace text-ms-1neg text-nowrap text-uppercase"
+							className="font-500 font-monospace tag text-ms-1neg text-uppercase"
 						>
 							{item}
 						</small>
 					))}
 				</div>
-				<p className="text-ms-0">{description}</p>
+				<p className="text-ms-0">{subhead}</p>
 			</div>
 			<Parallax className="justify-self-end" speed={-2.5}>
 				<Button>
@@ -50,13 +50,13 @@ const SelectedWork = ({ description, img, rotation, tags, title, url }) => {
 	);
 };
 
-SelectedWork.propTypes = {
-	description: PropTypes.string.isRequired,
+ProjectSection.propTypes = {
 	img: PropTypes.string.isRequired,
-	rotation: PropTypes.object.isRequired,
+	imgRotation: PropTypes.object.isRequired,
+	subhead: PropTypes.string.isRequired,
 	tags: PropTypes.array.isRequired,
 	title: PropTypes.string.isRequired,
 	url: PropTypes.string.isRequired,
 };
 
-export default SelectedWork;
+export default ProjectSection;
