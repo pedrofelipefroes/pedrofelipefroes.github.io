@@ -31,10 +31,6 @@
 }
 
 @media screen and (min-width: 31.625rem) {
-    .cover {
-        transform: scale(1);
-    }
-
     .project-section h3 {
         hyphens: none;
         word-break: initial;
