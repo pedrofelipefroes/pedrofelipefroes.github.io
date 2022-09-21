@@ -164,33 +164,6 @@
     overflow: hidden;
 }
 
-.project-article {
-    column-gap: ss(2);
-    columns: 1;
-
-    p + p {
-        margin-block-start: ss(2);
-    }
-
-    @include breakpoint(506) {
-        columns: 2;
-
-        p + p {
-            margin-block-start: unset;
-            text-indent: ss(4.8);
-        }
-    }
-
-    @include breakpoint(992) {
-        columns: 3;
-    }
-
-    @include breakpoint(1366) {
-        margin-inline-start: calc(100% - calc(100% / $golden-ratio) - ss(2));
-        max-width: calc(calc(100% / $golden-ratio) - ss(2));
-    }
-}
-
 .sp-block-end-xxs {
     margin-block-end: ss(1);
 }
@@ -233,6 +206,10 @@
 
 .sp-inset-block-end-lg {
     padding-block-end: ss(10);
+}
+
+.sp-inset-block-end-xl {
+    padding-block-end: ss(20);
 }
 
 .sp-inset-block-start-xs {
