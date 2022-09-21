@@ -8,19 +8,20 @@ import {
 } from "react-scroll-parallax";
 
 import {
+	article,
 	cover,
 	details,
 	headline,
-	projectHeader,
+	projectBody,
 	subhead,
-} from "./project-header.module.css";
+} from "./project-body.module.css";
 
-const ProjectHeader = ({ data }) => {
+const ProjectBody = ({ children, data }) => {
 	return (
-		<section
+		<div
 			className={c(
-				projectHeader,
-				"align-items-start grid-golden-ratio grid-golden-ratio--reverse project-page sp-inset-inline sp-inset-block-end-md"
+				projectBody,
+				"align-items-start divider grid-golden-ratio grid-golden-ratio--reverse project-page sp-inset-block-end-xl sp-inset-inline"
 			)}
 		>
 			<Parallax
@@ -38,7 +39,7 @@ const ProjectHeader = ({ data }) => {
 					{data.title}
 				</h1>
 			</Parallax>
-			<div className={details}>
+			<section className={details}>
 				<p className="text-ms-1">{data.title}</p>
 				<div className="sp-block-end-xs">
 					{data.tags.map((item) => (
@@ -50,17 +51,31 @@ const ProjectHeader = ({ data }) => {
 						</small>
 					))}
 				</div>
-				<p className="text-ms-0">{data.credit}</p>
-			</div>
+				<p className="text-ms-0">{data.company}</p>
+			</section>
 			<Parallax className={subhead} speed={-5}>
-				<h2 className="text-ms-1 w-max-txt">{data.subhead}</h2>
+				<p className="text-ms-1">{data.subhead}</p>
 			</Parallax>
-		</section>
+			<section className={article}>
+				<article className="sp-inset-block-end-lg text-ms-0">
+					{children}
+				</article>
+				<h2 className="sp-block-end-xs text-ms-1">Summary</h2>
+				<ul className="sp-inset-block-end-md text-ms-0">
+					{data.summary.map((item) => (
+						<li>{item}</li>
+					))}
+				</ul>
+				<h2 className="sp-block-end-xs text-ms-1">Credits</h2>
+				<p className="sp-block-end-xxs text-ms-0">{data.role}</p>
+				<p className="text-ms-0">{data.team}</p>
+			</section>
+		</div>
 	);
 };
 
-ProjectHeader.propTypes = {
+ProjectBody.propTypes = {
 	data: PropTypes.object.isRequired,
 };
 
-export default ProjectHeader;
+export default ProjectBody;
