@@ -18,6 +18,10 @@
     align-items: start;
 }
 
+.aspect-16-9 {
+    aspect-ratio: 16 / 9;
+}
+
 .color-on-bg {
     color: var(--color-on-bg);
 }
@@ -45,6 +49,11 @@
 .font-500 {
     font-weight: 500;
     font-variation-settings: "wght" 500;
+}
+
+.font-600 {
+    font-weight: 600;
+    font-variation-settings: "wght" 600;
 }
 
 .font-monospace {
@@ -247,6 +256,28 @@
     content: "";
 }
 
+.text-1to3-col {
+    columns: 1;
+    column-gap: ss(2);
+
+    @include breakpoint(506) {
+        columns: 2;
+    }
+
+    @include breakpoint(992) {
+        columns: 3;
+    }
+}
+
+.text-1to3-col p + p {
+    margin-block-start: ss(2);
+
+    @include breakpoint(506) {
+        margin-block-start: unset;
+        text-indent: ss(2);
+    }
+}
+
 .text-break-word {
     word-break: break-word;
 }
@@ -336,7 +367,7 @@
 
 .text-smcps {
     font-variant: all-small-caps;
-    font-weight: 500;
+    font-weight: 515;
 }
 
 .text-uppercase {
