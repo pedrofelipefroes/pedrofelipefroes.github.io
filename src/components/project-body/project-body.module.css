@@ -13,10 +13,6 @@
     margin-block-end: var(--sp-base);
 }
 
-.article article p+p {
-    margin-block-start: calc(2 * var(--sp-base));
-}
-
 .cover {
     position: relative;
     order: 1;
@@ -32,8 +28,17 @@
     order: 2;
 }
 
-.details p:first-child {
+.details>p:first-child {
     display: none;
+}
+
+.details>p:last-child {
+    display: inline-block;
+}
+
+.details>div {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .headline {
@@ -57,25 +62,12 @@
 }
 
 @media screen and (min-width: 31.625rem) {
-    .article article {
-        columns: 2;
-    }
-
-    .article article p+p {
-        margin-block-start: unset;
-        text-indent: calc(2 * var(--sp-base));
-    }
-
     .cover {
         transform: scale(1);
     }
 }
 
 @media screen and (min-width: 62rem) {
-    .article article {
-        columns: 3;
-    }
-
     .details, .subhead {
         margin-inline-start: calc(100% - calc(100% / 1.6180339887498948482));
     }

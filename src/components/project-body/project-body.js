@@ -57,9 +57,7 @@ const ProjectBody = ({ children, data }) => {
 				<p className="text-ms-1">{data.subhead}</p>
 			</Parallax>
 			<section className={article}>
-				<article className="sp-inset-block-end-lg text-ms-0">
-					{children}
-				</article>
+				<article className="sp-inset-block-end-lg">{children}</article>
 				<h2 className="sp-block-end-xs text-ms-1">Summary</h2>
 				<ul className="sp-inset-block-end-md text-ms-0">
 					{data.summary.map((item) => (
