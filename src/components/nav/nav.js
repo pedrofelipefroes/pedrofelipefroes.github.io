@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import c from "classnames";
 
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-import { StaticImage } from "gatsby-plugin-image";
 import NavigationLink from "../navigation-link/navigation-link";
+import Signature from "../../images/signature.inline.svg";
 
 import {
 	nav,
-	navBody,
-	navFooter,
-	navHeader,
-	navIcon,
-	navIsExpanded,
-	navIsVisible,
+	body,
+	footer,
+	header,
+	icon,
+	isExpanded,
+	isVisible,
 } from "./nav.module.css";
 
 const Nav = () => {
@@ -29,10 +29,10 @@ const Nav = () => {
 		}
 	};
 
-	const icon = (
+	const menuIcon = (
 		<svg
-			className={c(navIcon, "icon js-interactable-link", {
-				[navIsExpanded]: expanded,
+			className={c(icon, "d-none--768 icon js-interactable-link", {
+				[isExpanded]: expanded,
 			})}
 			onClick={handleClick}
 			width="30"
@@ -45,6 +45,12 @@ const Nav = () => {
 			<line x1="5" y1="16.5" x2="25" y2="16.5" />
 		</svg>
 	);
+
+	const menuLinks = [
+		{ label: "Work", url: "/#work" },
+		{ label: "About", url: "/#about" },
+		{ label: "Contact", url: "/#contact" },
+	];
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -66,68 +72,63 @@ const Nav = () => {
 
 	return (
 		<nav
-			className={c(nav, { [navIsExpanded]: expanded, [navIsVisible]: visible })}
+			className={c(
+				nav,
+				{ ["h-100"]: expanded, [isExpanded]: expanded, [isVisible]: visible },
+				"l-overflow-hidden l-stack p-fixed u-border-box w-100 w-max-container"
+			)}
 		>
 			<div
-				className={c(navHeader, "divider sp-inset-inline", {
-					[navIsExpanded]: expanded,
-				})}
+				className={c(
+					header,
+					"d-flex p-relative s-inset-inline u-align-items-center u-border-box u-divider u-justify-content-space-between w-100",
+					{
+						[isExpanded]: expanded,
+					}
+				)}
 			>
 				<NavigationLink to="/">Froes.design</NavigationLink>
-				{icon}
-				<ul>
-					<li className="sp-inline-end-sm">
-						<NavigationLink to="/#work">Work</NavigationLink>
-					</li>
-					<li className="sp-inline-end-sm">
-						<NavigationLink to="/#about">About</NavigationLink>
-					</li>
-					<li>
-						<NavigationLink to="/#contact">Contact</NavigationLink>
-					</li>
+				{menuIcon}
+				<ul className="d-none d-flex--768">
+					{menuLinks.map((link, index) => (
+						<li
+							key={link.url}
+							className={index === menuLinks.length - 1 ? "" : "s-inline-3"}
+						>
+							<NavigationLink to={link.url}>{link.label}</NavigationLink>
+						</li>
+					))}
 				</ul>
 			</div>
-			<div className={c(navBody, { [navIsExpanded]: expanded })}>
-				<div className="divider sp-inset-inline">
-					<AnchorLink
-						to="/#work"
-						className="color-on-bg text-decoration-none text-ms-3"
+			<div
+				className={c(
+					body,
+					{ [isExpanded]: expanded },
+					"d-none--768 l-stack p-fixed w-100"
+				)}
+			>
+				{menuLinks.map((link) => (
+					<div
+						key={link.label}
+						className="d-flex p-fixed s-inset-inline u-align-items-center u-border-box u-divider u-justify-content-center w-100"
 					>
-						<span onClick={handleClick}>Work</span>
-					</AnchorLink>
-				</div>
-				<div className="divider sp-inset-inline">
-					<AnchorLink
-						to="/#about"
-						className="color-on-bg text-decoration-none text-ms-3"
-					>
-						<span onClick={handleClick}>About</span>
-					</AnchorLink>
-				</div>
-				<div className="divider sp-inset-inline">
-					<AnchorLink
-						to="/#contact"
-						className="color-on-bg text-decoration-none text-ms-3"
-					>
-						<span onClick={handleClick}>Contact</span>
-					</AnchorLink>
-				</div>
+						<AnchorLink to={link.url} className="txt-ms-3">
+							<span onClick={handleClick}>{link.label}</span>
+						</AnchorLink>
+					</div>
+				))}
 			</div>
 			<div
-				className={c(navFooter, "divider sp-inset-inline", {
-					[navIsExpanded]: expanded,
-				})}
+				className={c(
+					footer,
+					"d-flex d-none--768 p-fixed s-inset-inline u-align-items-center u-border-box u-divider u-justify-content-space-between w-100",
+					{
+						[isExpanded]: expanded,
+					}
+				)}
 			>
-				São Paulo, 2022.
-				<StaticImage
-					src="../../images/signature.png"
-					alt="Froes handwritten signature in black."
-					formats={["auto", "webp", "avif"]}
-					layout="fixed"
-					loading="eager"
-					quality={100}
-					width={58}
-				/>
+				<p className="txt-ms-0">São Paulo, 2022.</p>
+				<Signature />
 			</div>
 		</nav>
 	);
