@@ -31,7 +31,7 @@ const Nav = () => {
 
 	const menuIcon = (
 		<svg
-			className={c(icon, "d-none--768 icon js-interactable-link", {
+			className={c(icon, "c-icon d-none--768 js-interactable-link", {
 				[isExpanded]: expanded,
 			})}
 			onClick={handleClick}
