@@ -31,7 +31,7 @@
 
 @media screen and (min-width: 120rem) {
     .nav {
-        left: calc(50vw - var(--max-container-width) / 2);
+        left: calc(50vw - var(--max-page-width) / 2);
     }
 }
 
