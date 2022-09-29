@@ -1,22 +1,18 @@
 import * as React from "react";
 import c from "classnames";
 import PropTypes from "prop-types";
+
 import { Parallax } from "react-scroll-parallax";
 
 import { sectionTitle } from "./section-title.module.css";
 
-const SectionTitle = ({ label, spEnd, spStart }) => {
+const SectionTitle = ({ label, ...other }) => {
 	return (
-		<Parallax opacity={[1, 0]}>
+		<Parallax opacity={[0.5, 0]} {...other}>
 			<h2
-				className={c(
-					sectionTitle,
-					"font-monospace sp-inset-inline text-ms-0 text-uppercase",
-					`sp-block-end-${spEnd}`,
-					`sp-block-start-${spStart}`
-				)}
+				className={c(sectionTitle, "body d-flex txt-monospace txt-uppercase")}
 			>
-				{label}
+				&#35;{label}
 			</h2>
 		</Parallax>
 	);
@@ -24,13 +20,6 @@ const SectionTitle = ({ label, spEnd, spStart }) => {
 
 SectionTitle.propTypes = {
 	label: PropTypes.string.isRequired,
-	spEnd: PropTypes.string,
-	spStart: PropTypes.string,
-};
-
-SectionTitle.defaultProps = {
-	spEnd: "md",
-	spStart: "lg",
 };
 
 export default SectionTitle;
