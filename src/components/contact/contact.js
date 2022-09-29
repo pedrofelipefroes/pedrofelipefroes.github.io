@@ -22,7 +22,6 @@ const Contact = () => {
 					easing="easeOutQuad"
 					shouldAlwaysCompleteAnimation
 					translateX={[-20 * phrase.length + 10 * word.indexOf(i), 0]}
-					rotateY={[90, 0]}
 				>
 					<span>{i}</span>
 				</Parallax>
