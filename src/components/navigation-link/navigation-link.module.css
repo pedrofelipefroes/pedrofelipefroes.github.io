@@ -1,11 +1,12 @@
+/* navigationLink */
+
 .navigation-link {
     color: var(--color-on-bg);
     cursor: none;
-    display: inline-flex;
     letter-spacing: .1em;
-    position: relative;
+    line-height: calc(2 * var(--spacing));
     text-decoration: none;
-    z-index: 3;
+    z-index: var(--z-copy);
 }
 
 .navigation-link:visited {

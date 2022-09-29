@@ -11,7 +11,7 @@ const NavigationLink = ({ children, className, to, ...other }) => {
 	const classNames = c(
 		navigationLink,
 		className,
-		"font-500 font-monospace js-interactable-link text-ms-1neg text-uppercase"
+		"caption d-inline-flex js-interactable-link p-relative txt-500 txt-monospace txt-uppercase"
 	);
 
 	if (internal) {
