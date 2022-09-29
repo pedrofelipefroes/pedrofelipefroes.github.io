@@ -1,12 +1,12 @@
 /* legal */
 
-@media screen and (min-width: 80rem) {
+@media screen and (min-width: 31.625rem) {
     .legal {
         flex-direction: row;
     }
 
     .legal p {
         text-align: center;
-        width: 100%;
+        flex-grow: 1;
     }
 }

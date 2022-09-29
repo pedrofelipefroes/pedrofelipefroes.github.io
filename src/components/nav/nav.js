@@ -31,7 +31,7 @@ const Nav = () => {
 
 	const menuIcon = (
 		<svg
-			className={c(icon, "c-icon d-none--768 js-interactable-link", {
+			className={c(icon, "icon d-none--768 js-interactable-link", {
 				[isExpanded]: expanded,
 			})}
 			onClick={handleClick}
@@ -127,7 +127,7 @@ const Nav = () => {
 					}
 				)}
 			>
-				<p className="txt-ms-0">São Paulo, 2022.</p>
+				<p className="body">São Paulo, 2022.</p>
 				<Signature />
 			</div>
 		</nav>
