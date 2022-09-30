@@ -16,6 +16,14 @@ module.exports = {
 			},
 		},
 		`gatsby-transformer-sharp`,
+		{
+			resolve: "gatsby-plugin-react-svg",
+			options: {
+				rule: {
+					include: /\.inline\.svg$/,
+				},
+			},
+		},
 		`gatsby-plugin-sharp`,
 		{
 			resolve: `gatsby-plugin-manifest`,
