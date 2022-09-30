@@ -151,7 +151,7 @@ const Cursor = () => {
 		};
 
 		const handleTextMouseOut = () => {
-			cursor.style.setProperty("--cursor-border-width", "0.09375rem");
+			cursor.style.setProperty("--line-width", "0.09375rem");
 			cursor.style.setProperty("--cursor-width", defaultCursorSize);
 			cursor.style.setProperty("--cursor-height", defaultCursorSize);
 		};
@@ -159,7 +159,7 @@ const Cursor = () => {
 		const handleTextMouseOver = ({ target }) => {
 			const lineHeight = getComputedStyle(target).lineHeight;
 
-			cursor.style.setProperty("--cursor-border-width", "0");
+			cursor.style.setProperty("--line-width", "0");
 			cursor.style.setProperty("--cursor-width", "0.15em");
 			cursor.style.setProperty(
 				"--cursor-height",
