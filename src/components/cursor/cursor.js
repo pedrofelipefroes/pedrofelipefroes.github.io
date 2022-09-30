@@ -66,7 +66,7 @@ const Cursor = () => {
 			);
 			cursor.style.setProperty(
 				"--cursor-width",
-				"calc(" + rect.width + "px + 1.2em)"
+				"calc(" + rect.width + "px + 2.4em)"
 			);
 			cursor.style.setProperty(
 				"--cursor-height",
@@ -203,7 +203,7 @@ const Cursor = () => {
 
 		document
 			.querySelectorAll(
-				'[class*="text-ms-0"]:not(.font-monospace, .is-hidden, .js-interactable-button)'
+				'[class*="body"]:not([class*=d-none], .js-interactable-button, .txt-monospace)'
 			)
 			.forEach((text) => {
 				text.addEventListener("mouseout", handleTextMouseOut, {
@@ -241,7 +241,7 @@ const Cursor = () => {
 
 			document
 				.querySelectorAll(
-					'[class*="text-ms-0"]:not(.font-monospace, .is-hidden, .js-interactable-button)'
+					'[class*="body"]:not([class*=d-none], .js-interactable-button, .txt-monospace)'
 				)
 				.forEach((text) => {
 					text.removeEventListener("mouseout", handleTextMouseOut);
