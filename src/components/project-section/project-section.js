@@ -1,47 +1,58 @@
 import * as React from "react";
 import c from "classnames";
 import PropTypes from "prop-types";
+
 import {
 	Parallax,
 	ParallaxBanner,
 	ParallaxBannerLayer,
 } from "react-scroll-parallax";
 import { Link } from "gatsby";
-
 import Button from "../button/button";
 
-import { cover, info, projectSection } from "./project-section.module.css";
+import {
+	button,
+	cover,
+	headline,
+	info,
+	projectSection,
+} from "./project-section.module.css";
 
 const ProjectSection = ({ img, imgRotation, subhead, tags, title, url }) => {
 	return (
 		<div
 			className={c(
 				projectSection,
-				"grid-golden-ratio sp-inset-inline sp-block-end-xl"
+				"l-golden-ratio s-stack-10 s-stack-20--1366"
 			)}
 		>
-			<Parallax speed={-5} className="sp-block-end-sm">
-				<h3 className="text-ms-3to4">{title}</h3>
+			<Parallax speed={-4} className={c(headline, "s-stack-3")}>
+				<h3 className="title-1">{title}</h3>
 			</Parallax>
-			<Parallax rotateZ={imgRotation.z} scale={[1.164, 1]} speed={5}>
-				<ParallaxBanner className={cover}>
+			<Parallax
+				className={cover}
+				rotateZ={imgRotation.z}
+				scale={[1.164, 1]}
+				speed={5}
+			>
+				<ParallaxBanner>
 					<ParallaxBannerLayer image={img} speed={-5} />
 				</ParallaxBanner>
 			</Parallax>
-			<div className={c(info, "justify-self-end w-max-txt")}>
-				<div className="sp-block-end-xxs">
+			<div className={c(info, "w-max-txt")}>
+				<div className="d-flex s-stack-1 u-wrap">
 					{tags.map((item) => (
 						<small
 							key={item}
-							className="font-500 font-monospace tag text-ms-1neg text-uppercase"
+							className="caption tag txt-500 txt-monospace txt-uppercase"
 						>
 							{item}
 						</small>
 					))}
 				</div>
-				<p className="text-ms-0">{subhead}</p>
+				<p className="body">{subhead}</p>
 			</div>
-			<Parallax className="justify-self-end" speed={-2.5}>
+			<Parallax className={button} speed={-2.5}>
 				<Button>
 					<Link to={url}>See Case</Link>
 				</Button>
