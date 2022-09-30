@@ -2,7 +2,6 @@
 
 @media screen and (hover: hover) {
     .cursor {
-        --cursor-border-width: 0.09375rem;
         --cursor-height: 1em;
         --cursor-left: -1em;
         --cursor-radius: 0.6em;
@@ -26,7 +25,7 @@
         position: absolute;
         transition-duration: 0.1s;
         transition-timing-function: ease-out;
-        z-index: 30;
+        z-index: var(--z-cursor);
     }
 
     .cursor>div {
@@ -34,7 +33,7 @@
         border-color: var(--color-bg);
         border-radius: var(--cursor-radius);
         border-style: solid;
-        border-width: var(--cursor-border-width);
+        border-width: var(--line-width);
         bottom: 0;
         left: 0;
         opacity: 1;
@@ -49,7 +48,7 @@
     }
 
     .cursor.is-locked.is-locked-at-btn {
-        z-index: 1;
+        z-index: var(--z-interaction);
     }
 
     .cursor.is-locked>div {
