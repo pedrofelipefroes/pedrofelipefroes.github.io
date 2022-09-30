@@ -34,7 +34,7 @@ const Contact = () => {
 	const headlineEnd = headlineCopy.split(" ")[1];
 
 	const headlineParallax = (
-		<h3 className={c(headline, "d-flex--506 text-ms-4")}>
+		<h3 className={c(headline, "d-flex--506 title-2")}>
 			<div className="d-flex s-inline-2--506">
 				{splitWord(headlineStart, headlineCopy)}
 			</div>

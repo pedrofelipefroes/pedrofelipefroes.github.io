@@ -112,7 +112,7 @@ const Nav = () => {
 						key={link.label}
 						className="d-flex p-fixed s-inset-inline u-align-items-center u-border-box u-divider u-justify-content-center w-100"
 					>
-						<AnchorLink to={link.url} className="txt-ms-3">
+						<AnchorLink to={link.url} className="title-3">
 							<span onClick={handleClick}>{link.label}</span>
 						</AnchorLink>
 					</div>
