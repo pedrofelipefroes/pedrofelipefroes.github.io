@@ -98,7 +98,7 @@
 /* footer */
 
 .footer {
-    height: calc(var(--h-nav) + var(--line-width));
+    height: calc(var(--h-nav) + 2 * var(--line-width));
     top: -100%;
     transition: background-color 2000ms, color 2000ms, top 2500ms;
     transition-timing-function: var(--ease-out-expo);
