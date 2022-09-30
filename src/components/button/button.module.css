@@ -1,24 +1,16 @@
-.button {
-    --button-easing: cubic-bezier(0.16, 1, 0.3, 1);
+/* button */
 
-    align-items: center;
+.button {
     background-color: var(--color-bg);
-    border-color: var(--color-on-bg);
-    border-radius: calc(2 * var(--sp-base));
-    border-style: solid;
-    border-width: 0.09375rem;
+    border-radius: calc(2 * var(--spacing));
+    border: solid var(--line-width) var(--color-on-bg);
     cursor: none;
-    display: inline-flex;
-    height: calc(3 * var(--sp-base));
-    justify-content: center;
+    height: calc(3 * var(--spacing));
     padding-bottom: 0;
     padding-top: 0;
-    position: relative;
-    transition-duration: 300ms;
-    transition-property: color;
-    transition-timing-function: var(--button-easing);
-    width: calc(13 * var(--sp-base));
-    z-index: 5;
+    transition-property: color 300ms var(--ease-out-expo);
+    width: calc(13 * var(--spacing));
+    z-index: var(--z-interaction);
 }
 
 .button:hover {
@@ -26,10 +18,8 @@
 }
 
 .button::before {
-    --button-easing: cubic-bezier(0.16, 1, 0.3, 1);
-
     background-color: var(--color-on-bg);
-    border-radius: calc(2 * var(--sp-base));
+    border-radius: calc(2 * var(--spacing));
     content: "";
     height: 0;
     padding: 0;
@@ -37,19 +27,19 @@
     transition-delay: 100ms, 100ms, 0ms;
     transition-duration: 500ms, 500ms, 600ms;
     transition-property: height, width, padding;
-    transition-timing-function: var(--button-easing);
+    transition-timing-function: var(--ease-out-expo);
     width: 0;
-    z-index: 6;
+    z-index: calc(var(--z-interaction) + 1);
 }
 
 .button:hover::before {
-    height: calc(3 * var(--sp-base));
-    padding: 0 calc(5 * var(--sp-base));
+    height: calc(3 * var(--spacing));
+    padding: 0 calc(5 * var(--spacing));
     transition-delay: 0ms, 0ms, 100ms;
     transition-duration: 200ms, 200ms, 600ms;
     transition-property: height, width, padding;
-    transition-timing-function: var(--button-easing);
-    width: calc(3 * var(--sp-base));
+    transition-timing-function: var(--ease-out-expo);
+    width: calc(3 * var(--spacing));
 }
 
 .button>a {
@@ -60,5 +50,5 @@
 
 .button>span, .button>a {
     text-align: center;
-    z-index: 7;
+    z-index: calc(var(--z-interaction) + 2);
 }
