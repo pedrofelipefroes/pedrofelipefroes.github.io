@@ -80,7 +80,7 @@
 /* cover */
 
 .cover {
-    z-index: 2;
+    z-index: var(--z-media);
 }
 
 .cover>div {
