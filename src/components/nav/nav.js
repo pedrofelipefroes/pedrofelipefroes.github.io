@@ -47,7 +47,7 @@ const Nav = () => {
 	);
 
 	const menuLinks = [
-		{ label: "Work", url: "/#work" },
+		{ label: "Projects", url: "/#projects" },
 		{ label: "About", url: "/#about" },
 		{ label: "Contact", url: "/#contact" },
 	];
