@@ -49,7 +49,7 @@ const Contact = () => {
 			id="contact"
 			className={c(
 				contact,
-				"s-inset-inline s-inset-stack-7 s-inset-stack-10--768 u-divider"
+				"section s-inset-inline s-inset-stack-7 s-inset-stack-10--768 u-divider"
 			)}
 		>
 			<SectionTitle label="Contact" className={c(title, "p-absolute")} />
