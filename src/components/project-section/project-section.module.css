@@ -37,15 +37,7 @@
 /* headline */
 
 .headline>h3 {
-    hyphens: auto;
-    word-break: break-word;
-}
-
-@media screen and (min-width: 31.625rem) {
-    .headline>h3 {
-        /* hyphens: none; */
-        /* word-break: initial; */
-    }
+    hyphens: manual;
 }
 
 /* info */
