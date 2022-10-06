@@ -51,9 +51,3 @@
 /* info */
 
 /* button */
-
-@media screen and (hover: hover) {
-    .button {
-        display: none;
-    }
-}

@@ -19,8 +19,7 @@ import {
 
 const ProjectSection = ({ subhead, tags, title, url }) => {
 	return (
-		<a
-			href={url}
+		<section
 			className={c(
 				projectSection,
 				"section js-project-section l-golden-ratio s-inline-auto s-inset-inline s-inset-stack-3 s-inset-stack-4--1366 u-align-items-end u-divider w-max-content"
@@ -50,7 +49,7 @@ const ProjectSection = ({ subhead, tags, title, url }) => {
 					</Button>
 				</Parallax>
 			</div>
-		</a>
+		</section>
 	);
 };
 
