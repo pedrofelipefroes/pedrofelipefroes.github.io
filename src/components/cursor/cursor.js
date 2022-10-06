@@ -108,47 +108,47 @@ const Cursor = () => {
 			e.target.style.setProperty("--cursor-translateY", `${topOffset * 4}px`);
 		};
 
-		const handleButtonMouseEnter = (e) => {
-			setCursorLocked(true);
+		// const handleButtonMouseEnter = (e) => {
+		// 	setCursorLocked(true);
 
-			document.removeEventListener("mousemove", handleMouseMove);
+		// 	document.removeEventListener("mousemove", handleMouseMove);
 
-			cursor.classList.add(isLocked, isLockedAtBtn, "js-has-button-breathe");
+		// 	cursor.classList.add(isLocked, isLockedAtBtn, "js-has-button-breathe");
 
-			let rect = e.target.getBoundingClientRect();
+		// 	let rect = e.target.getBoundingClientRect();
 
-			cursor.style.setProperty(
-				"--cursor-top",
-				window.scrollY + rect.top + rect.height / 2 + "px"
-			);
-			cursor.style.setProperty(
-				"--cursor-left",
-				rect.left + rect.width / 2 + "px"
-			);
-			cursor.style.setProperty(
-				"--cursor-width",
-				"calc(" + rect.width + "px + .8em)"
-			);
-			cursor.style.setProperty(
-				"--cursor-height",
-				"calc(" + rect.height + "px + .8em)"
-			);
-			cursor.style.setProperty("--cursor-radius", "4em");
-		};
+		// 	cursor.style.setProperty(
+		// 		"--cursor-top",
+		// 		window.scrollY + rect.top + rect.height / 2 + "px"
+		// 	);
+		// 	cursor.style.setProperty(
+		// 		"--cursor-left",
+		// 		rect.left + rect.width / 2 + "px"
+		// 	);
+		// 	cursor.style.setProperty(
+		// 		"--cursor-width",
+		// 		"calc(" + rect.width + "px + .8em)"
+		// 	);
+		// 	cursor.style.setProperty(
+		// 		"--cursor-height",
+		// 		"calc(" + rect.height + "px + .8em)"
+		// 	);
+		// 	cursor.style.setProperty("--cursor-radius", "4em");
+		// };
 
-		const handleButtonMouseLeave = (e) => {
-			setCursorLocked(false);
+		// const handleButtonMouseLeave = (e) => {
+		// 	setCursorLocked(false);
 
-			document.addEventListener("mousemove", handleMouseMove);
+		// 	document.addEventListener("mousemove", handleMouseMove);
 
-			cursor.classList.remove(isLocked, isLockedAtBtn, "js-has-button-breathe");
+		// 	cursor.classList.remove(isLocked, isLockedAtBtn, "js-has-button-breathe");
 
-			cursor.style.setProperty("--cursor-width", defaultCursorSize);
-			cursor.style.setProperty("--cursor-height", defaultCursorSize);
-			cursor.style.setProperty("--cursor-translateX", 0);
-			cursor.style.setProperty("--cursor-translateY", 0);
-			cursor.style.setProperty("--cursor-radius", "0.6em");
-		};
+		// 	cursor.style.setProperty("--cursor-width", defaultCursorSize);
+		// 	cursor.style.setProperty("--cursor-height", defaultCursorSize);
+		// 	cursor.style.setProperty("--cursor-translateX", 0);
+		// 	cursor.style.setProperty("--cursor-translateY", 0);
+		// 	cursor.style.setProperty("--cursor-radius", "0.6em");
+		// };
 
 		const handleTextMouseOut = () => {
 			cursor.style.setProperty("--line-width", "0.09375rem");
@@ -188,22 +188,22 @@ const Cursor = () => {
 			}
 		});
 
-		document.querySelectorAll(".js-interactable-button").forEach((button) => {
-			const isHidden = getComputedStyle(button).display === "none";
+		// document.querySelectorAll(".js-interactable-button").forEach((button) => {
+		// 	const isHidden = getComputedStyle(button).display === "none";
 
-			if (!isHidden) {
-				button.addEventListener("mouseenter", handleButtonMouseEnter, {
-					passive: true,
-				});
-				button.addEventListener("mouseleave", handleButtonMouseLeave, {
-					passive: true,
-				});
-			}
-		});
+		// 	if (!isHidden) {
+		// 		button.addEventListener("mouseenter", handleButtonMouseEnter, {
+		// 			passive: true,
+		// 		});
+		// 		button.addEventListener("mouseleave", handleButtonMouseLeave, {
+		// 			passive: true,
+		// 		});
+		// 	}
+		// });
 
 		document
 			.querySelectorAll(
-				'[class*="body"]:not([class*=d-none], .js-interactable-button, .txt-monospace)'
+				'[class*="body"]:not([class*=d-none], .js-interactable-button, .txt-monospace, .txt-serif)'
 			)
 			.forEach((text) => {
 				text.addEventListener("mouseout", handleTextMouseOut, {
@@ -230,18 +230,18 @@ const Cursor = () => {
 				}
 			});
 
-			document.querySelectorAll(".js-interactable-button").forEach((button) => {
-				const isHidden = getComputedStyle(button).display === "none";
+			// document.querySelectorAll(".js-interactable-button").forEach((button) => {
+			// 	const isHidden = getComputedStyle(button).display === "none";
 
-				if (!isHidden) {
-					button.removeEventListener("mouseenter", handleButtonMouseEnter);
-					button.removeEventListener("mouseleave", handleButtonMouseLeave);
-				}
-			});
+			// 	if (!isHidden) {
+			// 		button.removeEventListener("mouseenter", handleButtonMouseEnter);
+			// 		button.removeEventListener("mouseleave", handleButtonMouseLeave);
+			// 	}
+			// });
 
 			document
 				.querySelectorAll(
-					'[class*="body"]:not([class*=d-none], .js-interactable-button, .txt-monospace)'
+					'[class*="body"]:not([class*=d-none], .js-interactable-button, .txt-monospace, .txt-serif)'
 				)
 				.forEach((text) => {
 					text.removeEventListener("mouseout", handleTextMouseOut);

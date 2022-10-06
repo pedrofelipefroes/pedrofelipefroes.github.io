@@ -47,9 +47,9 @@
         transition-property: height, left, top, width;
     }
 
-    .cursor.is-locked.is-locked-at-btn {
+    /* .cursor.is-locked.is-locked-at-btn {
         z-index: var(--z-interaction);
-    }
+    } */
 
     .cursor.is-locked>div {
         opacity: 0.06;
