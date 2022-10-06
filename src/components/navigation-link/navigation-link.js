@@ -11,7 +11,7 @@ const NavigationLink = ({ children, className, to, ...other }) => {
 	const classNames = c(
 		navigationLink,
 		className,
-		"caption d-inline-flex js-interactable-link p-relative txt-500 txt-monospace txt-uppercase"
+		"caption d-inline-flex js-link p-relative txt-500 txt-monospace txt-uppercase"
 	);
 
 	if (internal) {
