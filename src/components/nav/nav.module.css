@@ -38,9 +38,14 @@
 /* header */
 
 .header {
+    border: solid var(--line-width) transparent;
     height: var(--h-nav);
     z-index: calc(5 + var(--z-nav));
-    transition: background-color 750ms, color 750ms;
+    transition: background-color 950ms, border 950ms, color 950ms;
+}
+
+.header.is-expanded {
+    border-bottom: solid var(--line-width) var(--color-on-bg);
 }
 
 /* icon */
@@ -68,7 +73,7 @@
     background-color: inherit;
     height: calc(var(--h-body) / 3);
     top: -100%;
-    transition: background-color 1000ms, color 1000ms, top 2000ms;
+    transition: background-color 950ms, color 950ms, top 2000ms;
     transition-timing-function: var(--ease-out-expo);
 }
 
@@ -79,19 +84,19 @@
 
 .body.is-expanded>div:nth-child(1) {
     top: var(--h-nav);
-    transition: background-color 950ms, color 950ms, top 600ms;
+    transition: background-color 950ms, color 950ms, top 500ms;
     z-index: calc(4 + var(--z-nav));
 }
 
 .body.is-expanded>div:nth-child(2) {
     top: calc(var(--h-nav) + var(--h-body) / 3);
-    transition: background-color 1200ms, color 1200ms, top 800ms;
+    transition: background-color 1200ms, color 1200ms, top 650ms;
     z-index: calc(3 + var(--z-nav));
 }
 
 .body.is-expanded>div:nth-child(3) {
     top: calc(var(--h-nav) + 2 * var(--h-body) / 3);
-    transition: background-color 1700ms, color 1700ms, top 1000ms;
+    transition: background-color 1700ms, color 1700ms, top 800ms;
     z-index: calc(2 + var(--z-nav));
 }
 
@@ -107,5 +112,5 @@
 
 .footer.is-expanded {
     top: calc(var(--h-nav) + var(--h-body) - var(--line-width));
-    transition: background-color 2000ms, color 2000ms, top 1200ms;
+    transition: background-color 2000ms, color 2000ms, top 1000ms;
 }

@@ -48,8 +48,8 @@ const Nav = () => {
 
 	const menuLinks = [
 		{ label: "Projects", url: "/#projects" },
+		{ label: "Artwork", url: "/#artwork" },
 		{ label: "About", url: "/#about" },
-		{ label: "Contact", url: "/#contact" },
 	];
 
 	useEffect(() => {
@@ -81,7 +81,7 @@ const Nav = () => {
 			<div
 				className={c(
 					header,
-					"d-flex p-relative s-inset-inline u-align-items-center u-border-box u-divider u-justify-content-space-between w-100",
+					"d-flex p-relative s-inline-auto s-inset-inline u-align-items-center u-border-box u-justify-content-space-between w-100 w-max-content",
 					{
 						[isExpanded]: expanded,
 					}
@@ -121,13 +121,14 @@ const Nav = () => {
 			<div
 				className={c(
 					footer,
-					"d-flex d-none--768 p-fixed s-inset-inline u-align-items-center u-border-box u-divider u-justify-content-space-between w-100",
+					"d-flex d-none--768 p-fixed s-inset-inline txt-sans-serif u-align-items-center u-border-box u-divider u-justify-content-space-between w-100",
 					{
 						[isExpanded]: expanded,
 					}
 				)}
 			>
-				<p className="body">São Paulo, 2022.</p>
+				<p className="caption txt-sans-serif">São Paulo Brazil</p>
+				<p className="caption txt-sans-serif">Froes © 2022</p>
 				<Signature />
 			</div>
 		</nav>
