@@ -10,7 +10,7 @@
     padding-top: 0;
     transition-property: color 300ms var(--ease-out-expo);
     width: calc(13 * var(--spacing));
-    z-index: var(--z-interaction);
+    z-index: var(--z-copy);
 }
 
 .button:hover {
@@ -29,7 +29,7 @@
     transition-property: height, width, padding;
     transition-timing-function: var(--ease-out-expo);
     width: 0;
-    z-index: calc(var(--z-interaction) + 1);
+    z-index: calc(var(--z-copy) + 1);
 }
 
 .button:hover::before {
@@ -50,5 +50,5 @@
 
 .button>span, .button>a {
     text-align: center;
-    z-index: calc(var(--z-interaction) + 2);
+    z-index: calc(var(--z-copy) + 2);
 }

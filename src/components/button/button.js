@@ -9,7 +9,7 @@ const Button = ({ children, ...props }) => {
 		<button
 			className={c(
 				button,
-				"body d-inline-flex js-interactable-button p-relative u-align-items-center u-justify-content-center"
+				"body d-inline-flex js-button p-relative u-align-items-center u-justify-content-center"
 			)}
 			{...props}
 		>
