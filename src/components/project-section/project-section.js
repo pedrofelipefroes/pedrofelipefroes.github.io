@@ -12,58 +12,49 @@ import Button from "../button/button";
 
 import {
 	button,
-	cover,
 	headline,
 	info,
 	projectSection,
 } from "./project-section.module.css";
 
-const ProjectSection = ({ img, imgRotation, subhead, tags, title, url }) => {
+const ProjectSection = ({ subhead, tags, title, url }) => {
 	return (
-		<div
+		<a
+			href={url}
 			className={c(
 				projectSection,
-				"l-golden-ratio s-stack-10 s-stack-20--1366"
+				"section js-project-section l-golden-ratio s-inline-auto s-inset-inline s-inset-stack-3 s-inset-stack-4--1366 u-align-items-end u-divider w-max-content"
 			)}
 		>
-			<Parallax speed={-4} className={c(headline, "s-stack-3")}>
-				<h3 className="title-1">{title}</h3>
-			</Parallax>
 			<Parallax
-				className={cover}
-				rotateZ={imgRotation.z}
-				scale={[1.164, 1]}
-				speed={5}
+				translateY={[55, 0]}
+				className={c(headline, "s-stack-5 s-stack-6--992 s-stack-4--1366")}
 			>
-				<ParallaxBanner>
-					<ParallaxBannerLayer image={img} speed={-5} />
-				</ParallaxBanner>
+				<h3 className="title-1 txt-serif">{title}</h3>
 			</Parallax>
-			<div className={c(info, "w-max-txt")}>
+			<div className={info}>
 				<div className="d-flex s-stack-1 u-wrap">
 					{tags.map((item) => (
 						<small
 							key={item}
-							className="caption tag txt-500 txt-monospace txt-uppercase"
+							className="caption tag txt-monospace txt-uppercase"
 						>
 							{item}
 						</small>
 					))}
 				</div>
-				<p className="body">{subhead}</p>
+				<p className="body s-stack-3 txt-sans-serif w-max-txt">{subhead}</p>
+				<Parallax className={button} speed={-2.5}>
+					<Button>
+						<Link to={url}>See Case</Link>
+					</Button>
+				</Parallax>
 			</div>
-			<Parallax className={button} speed={-2.5}>
-				<Button>
-					<Link to={url}>See Case</Link>
-				</Button>
-			</Parallax>
-		</div>
+		</a>
 	);
 };
 
 ProjectSection.propTypes = {
-	img: PropTypes.string.isRequired,
-	imgRotation: PropTypes.object.isRequired,
 	subhead: PropTypes.string.isRequired,
 	tags: PropTypes.array.isRequired,
 	title: PropTypes.string.isRequired,
