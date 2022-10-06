@@ -30,10 +30,8 @@
 
     .cursor>div {
         background-color: var(--color-on-bg);
-        border-color: var(--color-bg);
+        border: solid var(--line-width) var(--color-bg);
         border-radius: var(--cursor-radius);
-        border-style: solid;
-        border-width: var(--line-width);
         bottom: 0;
         left: 0;
         opacity: 1;
@@ -47,9 +45,9 @@
         transition-property: height, left, top, width;
     }
 
-    /* .cursor.is-locked.is-locked-at-btn {
-        z-index: var(--z-interaction);
-    } */
+    .cursor.is-locked.is-locked-at-btn {
+        z-index: var(--z-backdrop);
+    }
 
     .cursor.is-locked>div {
         opacity: 0.06;

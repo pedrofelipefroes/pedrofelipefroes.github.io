@@ -13,17 +13,65 @@ const Cursor = () => {
 	const endY = useRef(y);
 	const [cursorLocked, setCursorLocked] = useState(false);
 
+	const elIsHidden = (el) => {
+		return getComputedStyle(el).display === "none";
+	};
+
 	useEffect(() => {
 		const cursor = ref.current;
 		const defaultCursorSize = "1em";
 
-		const handleScroll = () => {
-			cursor.style.setProperty("--cursor-scale", 0);
+		// UPDATING CURSOR UPON INTERACTION
 
-			window.setTimeout(() => {
-				cursor.style.setProperty("--cursor-scale", 1);
-			}, 500);
+		// Button
+
+		const handleButtonMouseEnter = (e) => {
+			setCursorLocked(true);
+
+			document.removeEventListener("mousemove", handleMouseMove);
+
+			cursor.classList.add(isLocked, isLockedAtBtn, "js-has-button-animation");
+
+			let rect = e.target.getBoundingClientRect();
+
+			cursor.style.setProperty(
+				"--cursor-top",
+				window.scrollY + rect.top + rect.height / 2 + "px"
+			);
+			cursor.style.setProperty(
+				"--cursor-left",
+				rect.left + rect.width / 2 + "px"
+			);
+			cursor.style.setProperty(
+				"--cursor-width",
+				"calc(" + rect.width + "px + .8em)"
+			);
+			cursor.style.setProperty(
+				"--cursor-height",
+				"calc(" + rect.height + "px + .8em)"
+			);
+			cursor.style.setProperty("--cursor-radius", "4em");
 		};
+
+		const handleButtonMouseLeave = (e) => {
+			setCursorLocked(false);
+
+			document.addEventListener("mousemove", handleMouseMove);
+
+			cursor.classList.remove(
+				isLocked,
+				isLockedAtBtn,
+				"js-has-button-animation"
+			);
+
+			cursor.style.setProperty("--cursor-width", defaultCursorSize);
+			cursor.style.setProperty("--cursor-height", defaultCursorSize);
+			cursor.style.setProperty("--cursor-translateX", 0);
+			cursor.style.setProperty("--cursor-translateY", 0);
+			cursor.style.setProperty("--cursor-radius", "0.6em");
+		};
+
+		// Cursor
 
 		const handleMouseDown = () => {
 			if (!cursorLocked) {
@@ -46,6 +94,8 @@ const Cursor = () => {
 				cursor.style.setProperty("--cursor-scale", 1);
 			}
 		};
+
+		// Link
 
 		const handleLinkMouseEnter = (e) => {
 			setCursorLocked(true);
@@ -108,47 +158,17 @@ const Cursor = () => {
 			e.target.style.setProperty("--cursor-translateY", `${topOffset * 4}px`);
 		};
 
-		// const handleButtonMouseEnter = (e) => {
-		// 	setCursorLocked(true);
+		// Scroll
 
-		// 	document.removeEventListener("mousemove", handleMouseMove);
+		const handleScroll = () => {
+			cursor.style.setProperty("--cursor-scale", 0);
 
-		// 	cursor.classList.add(isLocked, isLockedAtBtn, "js-has-button-breathe");
+			window.setTimeout(() => {
+				cursor.style.setProperty("--cursor-scale", 1);
+			}, 500);
+		};
 
-		// 	let rect = e.target.getBoundingClientRect();
-
-		// 	cursor.style.setProperty(
-		// 		"--cursor-top",
-		// 		window.scrollY + rect.top + rect.height / 2 + "px"
-		// 	);
-		// 	cursor.style.setProperty(
-		// 		"--cursor-left",
-		// 		rect.left + rect.width / 2 + "px"
-		// 	);
-		// 	cursor.style.setProperty(
-		// 		"--cursor-width",
-		// 		"calc(" + rect.width + "px + .8em)"
-		// 	);
-		// 	cursor.style.setProperty(
-		// 		"--cursor-height",
-		// 		"calc(" + rect.height + "px + .8em)"
-		// 	);
-		// 	cursor.style.setProperty("--cursor-radius", "4em");
-		// };
-
-		// const handleButtonMouseLeave = (e) => {
-		// 	setCursorLocked(false);
-
-		// 	document.addEventListener("mousemove", handleMouseMove);
-
-		// 	cursor.classList.remove(isLocked, isLockedAtBtn, "js-has-button-breathe");
-
-		// 	cursor.style.setProperty("--cursor-width", defaultCursorSize);
-		// 	cursor.style.setProperty("--cursor-height", defaultCursorSize);
-		// 	cursor.style.setProperty("--cursor-translateX", 0);
-		// 	cursor.style.setProperty("--cursor-translateY", 0);
-		// 	cursor.style.setProperty("--cursor-radius", "0.6em");
-		// };
+		// Text
 
 		const handleTextMouseOut = () => {
 			cursor.style.setProperty("--line-width", "0.09375rem");
@@ -167,15 +187,31 @@ const Cursor = () => {
 			);
 		};
 
-		document.addEventListener("scroll", handleScroll);
+		// ADDING EVENT LISTENERS
+
+		// Button
+
+		document.querySelectorAll(".js-button").forEach((button) => {
+			if (!elIsHidden(button)) {
+				button.addEventListener("mouseenter", handleButtonMouseEnter, {
+					passive: true,
+				});
+				button.addEventListener("mouseleave", handleButtonMouseLeave, {
+					passive: true,
+				});
+			}
+		});
+
+		// Cursor
+
 		document.addEventListener("mousedown", handleMouseDown);
 		document.addEventListener("mousemove", handleMouseMove);
 		document.addEventListener("mouseup", handleMouseUp);
 
-		document.querySelectorAll(".js-interactable-link").forEach((link) => {
-			const isHidden = getComputedStyle(link).display === "none";
+		// Link
 
-			if (!isHidden) {
+		document.querySelectorAll(".js-link").forEach((link) => {
+			if (!elIsHidden(link)) {
 				link.addEventListener("mouseenter", handleLinkMouseEnter, {
 					passive: true,
 				});
@@ -188,64 +224,66 @@ const Cursor = () => {
 			}
 		});
 
-		// document.querySelectorAll(".js-interactable-button").forEach((button) => {
-		// 	const isHidden = getComputedStyle(button).display === "none";
+		// Scroll
 
-		// 	if (!isHidden) {
-		// 		button.addEventListener("mouseenter", handleButtonMouseEnter, {
-		// 			passive: true,
-		// 		});
-		// 		button.addEventListener("mouseleave", handleButtonMouseLeave, {
-		// 			passive: true,
-		// 		});
-		// 	}
-		// });
+		document.addEventListener("scroll", handleScroll);
+
+		// Text
 
 		document
-			.querySelectorAll(
-				'[class*="body"]:not([class*=d-none], .js-interactable-button, .txt-monospace, .txt-serif)'
-			)
+			.querySelectorAll('[class*="body"]:not(.js-button)')
 			.forEach((text) => {
-				text.addEventListener("mouseout", handleTextMouseOut, {
-					passive: true,
-				});
-				text.addEventListener("mouseover", handleTextMouseOver, {
-					passive: true,
-				});
+				if (!elIsHidden(text)) {
+					text.addEventListener("mouseout", handleTextMouseOut, {
+						passive: true,
+					});
+					text.addEventListener("mouseover", handleTextMouseOver, {
+						passive: true,
+					});
+				}
 			});
 
 		return () => {
-			document.removeEventListener("scroll", handleScroll);
+			// REMOVING EVENT LISTENERS
+
+			// Button
+
+			document.querySelectorAll(".js-button").forEach((button) => {
+				if (!elIsHidden(button)) {
+					button.removeEventListener("mouseenter", handleButtonMouseEnter);
+					button.removeEventListener("mouseleave", handleButtonMouseLeave);
+				}
+			});
+
+			// Cursor
+
 			document.removeEventListener("mousedown", handleMouseDown);
 			document.removeEventListener("mousemove", handleMouseMove);
 			document.removeEventListener("mouseup", handleMouseUp);
 
-			document.querySelectorAll(".js-interactable-link").forEach((link) => {
-				const isHidden = getComputedStyle(link).display === "none";
+			// Link
 
-				if (!isHidden) {
+			document.querySelectorAll(".js-link").forEach((link) => {
+				if (!elIsHidden(link)) {
 					link.removeEventListener("mouseenter", handleLinkMouseEnter);
 					link.removeEventListener("mouseleave", handleLinkMouseLeave);
 					link.removeEventListener("mousemove", handleLinkMouseMove);
 				}
 			});
 
-			// document.querySelectorAll(".js-interactable-button").forEach((button) => {
-			// 	const isHidden = getComputedStyle(button).display === "none";
+			// Scroll
 
-			// 	if (!isHidden) {
-			// 		button.removeEventListener("mouseenter", handleButtonMouseEnter);
-			// 		button.removeEventListener("mouseleave", handleButtonMouseLeave);
-			// 	}
-			// });
+			document.removeEventListener("scroll", handleScroll);
+
+			// Text
 
 			document
-				.querySelectorAll(
-					'[class*="body"]:not([class*=d-none], .js-interactable-button, .txt-monospace, .txt-serif)'
-				)
+				.querySelectorAll('[class*="body"]:not(.js-button)')
 				.forEach((text) => {
-					text.removeEventListener("mouseout", handleTextMouseOut);
-					text.removeEventListener("mouseover", handleTextMouseOver);
+					if (!elIsHidden(text)) {
+						text.removeEventListener("mouseout", handleTextMouseOut);
+						text.removeEventListener("mouseover", handleTextMouseOver);
+					}
 				});
 		};
 	}, [cursorLocked]);
