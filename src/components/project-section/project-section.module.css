@@ -42,4 +42,8 @@
 
 /* info */
 
+.info>p {
+    bottom: calc(3 * var(--spacing));
+}
+
 /* button */
