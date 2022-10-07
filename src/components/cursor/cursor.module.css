@@ -1,6 +1,8 @@
 .is-locked {}
 
 @media screen and (hover: hover) {
+    /* cursor */
+
     .cursor {
         --cursor-height: 1em;
         --cursor-left: -1em;
@@ -30,7 +32,6 @@
 
     .cursor>div {
         background-color: var(--color-on-bg);
-        border: solid var(--line-width) var(--color-bg);
         border-radius: var(--cursor-radius);
         bottom: 0;
         left: 0;
@@ -41,15 +42,19 @@
         transition-property: opacity, border;
     }
 
+    /* isLocked */
+
     .cursor.is-locked {
         transition-property: height, left, top, width;
     }
 
-    .cursor.is-locked.is-locked-at-btn {
-        z-index: var(--z-backdrop);
-    }
-
     .cursor.is-locked>div {
         opacity: 0.06;
+    }
+
+    /* isLoackAtBtn */
+
+    .cursor.is-locked.is-locked-at-btn {
+        z-index: var(--z-copy);
     }
 }
