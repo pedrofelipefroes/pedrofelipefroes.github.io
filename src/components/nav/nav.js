@@ -60,7 +60,6 @@ const Nav = () => {
 			const currentScrollPos = window.pageYOffset;
 
 			setIsAtTop(currentScrollPos === 0);
-			console.log(isAtTop);
 			setVisible(previousScrollPos > currentScrollPos || currentScrollPos <= 0);
 			setScrolled(currentScrollPos);
 		};
