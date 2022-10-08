@@ -1,3 +1,20 @@
+/* footer */
+
+@media screen and (min-width: 62rem) {
+    .footer {
+        gap: calc(3 * var(--spacing));
+        grid-template-columns: calc(100% / var(--golden-ratio)) 1fr;
+    }
+}
+
+@media screen and (min-width: 120rem) {
+    .footer {
+        left: calc(50vw - var(--max-page-width) / 2);
+        max-width: var(--max-content-width);
+        position: relative;
+    }
+}
+
 /* legal */
 
 @media screen and (min-width: 31.625rem) {
