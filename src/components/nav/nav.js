@@ -10,6 +10,7 @@ import {
 	body,
 	footer,
 	header,
+	hasDivider,
 	icon,
 	isExpanded,
 	isVisible,
@@ -17,6 +18,7 @@ import {
 
 const Nav = () => {
 	const [expanded, setExpanded] = useState(false);
+	const [isAtTop, setIsAtTop] = useState(true);
 	const [scrolled, setScrolled] = useState(null);
 	const [visible, setVisible] = useState(true);
 
@@ -57,6 +59,8 @@ const Nav = () => {
 			const previousScrollPos = scrolled;
 			const currentScrollPos = window.pageYOffset;
 
+			setIsAtTop(currentScrollPos === 0);
+			console.log(isAtTop);
 			setVisible(previousScrollPos > currentScrollPos || currentScrollPos <= 0);
 			setScrolled(currentScrollPos);
 		};
@@ -74,7 +78,12 @@ const Nav = () => {
 		<nav
 			className={c(
 				nav,
-				{ ["h-100"]: expanded, [isExpanded]: expanded, [isVisible]: visible },
+				{
+					["h-100"]: expanded,
+					[isExpanded]: expanded,
+					[isVisible]: visible,
+					[hasDivider]: !isAtTop,
+				},
 				"l-overflow-hidden l-stack p-fixed u-border-box w-100 w-max-container"
 			)}
 		>
