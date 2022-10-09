@@ -16,7 +16,7 @@ const Footer = () => {
 		>
 			<div>
 				<p className="caption d-inline">
-					This site was fully designed and developed by myself.{" "}
+					This site was designed and developed by all by myself.{" "}
 					<Spotify className={spotify} />{" "}
 					<a
 						href="https://open.spotify.com/playlist/0fAnZehFEjglZCHOiGGNcY?si=dae1004bfdf44b20"
