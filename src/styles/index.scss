@@ -1,7 +1,7 @@
 @import "./base.scss";
 
 body {
-    background-color: var(--color-on-bg);
+    background-color: var(--color-bg);
     color: var(--color-on-bg);
     direction: ltr;
     font-family: $font-sans-serif;
@@ -17,13 +17,23 @@ body {
     }
 }
 
+body::after {
+    // Vertical rhythm grid — don't send to production unless the code below is commented
+
+    // background-image: repeating-linear-gradient(rgba(255, 0, 0, 0.125) 0 1px, transparent 1px 100%);
+    // background-size: var(--spacing) var(--spacing);
+    // content: "";
+    // height: 100%;
+    // position: fixed;
+    // top: 0;
+    // width: 100%;
+    // z-index: 100;
+}
+
 a {
+    color: inherit;
     cursor: none;
     text-decoration: underline;
-
-    @include breakpoint(768) {
-        white-space: nowrap;
-    }
 }
 
 em {

@@ -1,5 +1,6 @@
 // SCSS USE RULES
 
+@use "sass:list";
 @use "sass:math";
 
 // RESET
@@ -136,6 +137,8 @@ table {
 
 // FONTS
 
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@144,350&display=swap");
+
 @font-face {
     font-family: "GT America Mono LCG";
     font-style: normal;
@@ -159,52 +162,27 @@ table {
     src: url("./fonts/HelveticaNowVar-Italic.woff2") format("woff2-variations");
 }
 
-// ROOT CUSTOM PROPERTIES
-
-:root,
-::after,
-::before {
-    --color-bg: #fff;
-    --color-on-bg: #000;
-    --sp-base: 0.9375rem;
-}
-
-::selection {
-    background-color: var(--color-on-bg);
-    color: var(--color-bg);
-}
-
-// @media (prefers-color-scheme: dark) {
-//     :root {
-//         --color-bg: #000;
-//         --color-on-bg: #fff;
-//     }
-// }
-
 // SCSS VARIABLES
 
-$bps: (
-    375: 23.4375rem,
-    414: 25.875rem,
-    506: 31.625rem,
-    768: 48rem,
-    992: 62rem,
-    1366: 85.375rem,
-    1512: 94.5rem,
-    1920: 120rem,
-);
+$breakpoints: (375, 414, 506, 768, 992, 1366, 1512, 1600, 1920);
+$spacings: (0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 26, 30);
 
 $font-monospace: "GT America Mono LCG", monospace;
 $font-sans-serif: "Helvetica Now", sans-serif;
+$font-serif: "Fraunces", serif;
 $golden-ratio: 1.6180339887498948482;
 $ms-base: 1.25rem;
 $ms-ratio: 1.5;
+$spacing-base: 0.9375rem;
 
 // SCSS MIXINS
 
 @mixin breakpoint($value) {
-    @if map-has-key($map: $bps, $key: $value) {
-        @media screen and (min-width: map-get($bps, $value)) {
+    @if list.index($breakpoints, $value) {
+        $index: list.index($breakpoints, $value);
+        $breakpoint: math.div(list.nth($breakpoints, $index), 16) + "rem";
+
+        @media screen and (min-width: $breakpoint) {
             @content;
         }
     } @else {
@@ -219,6 +197,36 @@ $ms-ratio: 1.5;
     @return $multiplier * $base;
 }
 
-@function ss($n, $base: var(--sp-base)) {
-    @return (calc($n * $base));
+@function ss($n, $base: $spacing-base) {
+    @return $n * $base;
+}
+
+// ROOT CUSTOM PROPERTIES
+
+:root,
+::after,
+::before {
+    --color-bg: #fff;
+    --color-on-bg: #000;
+    --ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --golden-ratio: 1.6180339887498948482;
+    --line-width: 0.0625rem;
+    --max-content-width: 105.625rem;
+    --max-page-width: 120rem;
+    --spacing: 0.9375rem;
+    --z-backdrop: 0;
+    --z-copy: 10;
+    --z-media: 20;
+    --z-nav: 30;
+    --z-cursor: 40;
+
+    @include breakpoint(1920) {
+        --max-content-width: 110rem;
+    }
+}
+
+::selection {
+    background-color: var(--color-on-bg);
+    color: var(--color-bg);
 }
