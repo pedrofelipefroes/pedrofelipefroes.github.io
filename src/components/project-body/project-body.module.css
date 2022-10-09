@@ -1,4 +1,4 @@
-.article {
+/* .article {
     order: 4;
 }
 
@@ -95,27 +95,27 @@
     .details {
         align-self: end;
         /* margin-bottom: calc(-17 * var(--sp-base)); */
-        order: 0;
-        position: sticky;
-        top: calc(8 * var(--sp-base));
-    }
+order: 0;
+position: sticky;
+top: calc(8 * var(--sp-base));
+}
 
-    .details p:first-child {
-        display: initial;
-    }
+.details p:first-child {
+    display: initial;
+}
 
-    .headline {
-        order: 1;
-    }
+.headline {
+    order: 1;
+}
 
-    .project-body {
-        overflow: unset;
-    }
+.project-body {
+    overflow: unset;
+}
 
-    .subhead {
-        margin-inline-end: calc(18 * var(--sp-base));
-        order: 3;
-    }
+.subhead {
+    margin-inline-end: calc(18 * var(--sp-base));
+    order: 3;
+}
 }
 
 @media screen and (min-width: 120rem) {
@@ -129,3 +129,5 @@
         top: calc(3 * var(--sp-base));
     }
 }
+
+*/
