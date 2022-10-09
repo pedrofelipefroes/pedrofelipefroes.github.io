@@ -22,7 +22,7 @@ const ProjectSection = ({ subhead, tags, title, url }) => (
 	>
 		<Parallax
 			speed={2}
-			className={c(headline, "s-stack-5 s-stack-6--992 s-stack-4--1366")}
+			className={c(headline, "s-stack-1 s-stack-6--992 s-stack-4--1366")}
 		>
 			<h3 className="title-1 txt-serif">{title}</h3>
 		</Parallax>
