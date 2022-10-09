@@ -4,6 +4,10 @@
     text-decoration: none;
 }
 
+.project-section:not(:last-child) {
+    border-bottom: var(--line-width) solid var(--color-on-bg);
+}
+
 .project-section:nth-child(even) .headline {
     margin-inline-start: -0.4em;
 }
