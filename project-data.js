@@ -1,8 +1,3 @@
-import coverBDS from "./src/images/projects/bds/cover.jpg";
-import coverPDS from "./src/images/projects/pds/cover.jpg";
-import coverACR from "./src/images/projects/acr/cover.jpg";
-import coverSEP from "./src/images/projects/sep/cover.jpg";
-
 const data = [
 	// {
 	// 	url: "/project-bds",
