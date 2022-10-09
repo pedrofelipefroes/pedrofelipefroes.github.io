@@ -1,9 +1,10 @@
 import * as React from "react";
 import c from "classnames";
 
+import Spotify from "../../images/spotify.inline.svg";
 import Signature from "../../images/signature.inline.svg";
 
-import { footer, legal } from "./footer.module.css";
+import { footer, legal, spotify } from "./footer.module.css";
 
 const Footer = () => {
 	return (
@@ -16,11 +17,12 @@ const Footer = () => {
 			<div>
 				<p className="caption d-inline">
 					This site was fully designed and developed by myself.{" "}
+					<Spotify className={spotify} />{" "}
 					<a
 						href="https://open.spotify.com/playlist/0fAnZehFEjglZCHOiGGNcY?si=dae1004bfdf44b20"
-						className="js-link"
+						className="d-inline js-link"
 					>
-						This was playing in the&nbsp;background.
+						This was often playing in the&nbsp;background.
 					</a>
 				</p>
 			</div>
