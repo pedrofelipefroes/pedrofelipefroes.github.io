@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import c from "classnames";
 import PropTypes from "prop-types";
-import ScrollReveal from "scrollreveal";
 
 import { ParallaxProvider } from "react-scroll-parallax";
 import Nav from "../nav/nav";
@@ -10,9 +9,15 @@ import Cursor from "../cursor/cursor";
 
 import { layout } from "./layout.module.css";
 
+const ScrollReveal =
+	typeof window !== `undefined` ? require("scrollreveal") : null;
+
 const Layout = ({ children }) => {
 	useEffect(() => {
-		ScrollReveal().reveal(".artwork-piece", { delay: 400, reset: true });
+		ScrollReveal.default().reveal(".artwork-piece", {
+			delay: 400,
+			reset: true,
+		});
 	});
 
 	return (

@@ -1,4 +1,7 @@
 module.exports = {
+	flags: {
+		DEV_SSR: true,
+	},
 	siteMetadata: {
 		title: `FROES.DESIGN`,
 		description: `Froes is a designer and engineer with a knack for systematic design. This is his portfolio.`,
