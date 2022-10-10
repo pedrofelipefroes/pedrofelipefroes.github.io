@@ -6,7 +6,7 @@ import * as React from "react";
 // } from "react-scroll-parallax";
 // import { StaticImage } from "gatsby-plugin-image";
 
-import Layout from "../components/layout/layout";
+// import Layout from "../components/layout/layout";
 // import Seo from "../components/seo/seo";
 // import ProjectBody from "../components/project-body/project-body";
 // import ProjectProcess from "../components/project-process/project-process";
