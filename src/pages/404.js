@@ -1,48 +1,48 @@
 import * as React from "react";
 import c from "classnames";
-import { AnchorLink } from "gatsby-plugin-anchor-links";
 
-import Layout from "../components/layout/layout";
 import Seo from "../components/seo/seo";
+import Nav from "../components/nav/nav";
+import NavigationLink from "../components/navigation-link/navigation-link";
+import Footer from "../components/footer/footer";
+import Cursor from "../components/cursor/cursor";
 
-import { notFound } from "../pages/404.module.css";
+import Spotify from "../images/spotify.inline.svg";
+
+import { container, notFound } from "../pages/404.module.css";
 
 const NotFoundPage = () => (
-	<Layout>
+	<div className={c(notFound, "l-stack")}>
 		<Seo title="404: Not Found" />
-		<section
+		<Nav />
+		<main
 			className={c(
-				notFound,
-				"align-items-end divider grid-golden-ratio sp-inset-inline sp-inset-block-end-md"
+				container,
+				"d-flex s-inline-auto u-align-items-center u-border-box u-flex-grow-1 w-max-container"
 			)}
 		>
-			<div>
-				<h1 className="sp-block-end-xs text-ms-4">
-					Not all those who wander are lost.
-				</h1>
-				<p className="text-ms-1">
-					A lyric from an{" "}
-					<a
-						href="https://open.spotify.com/track/0Z3JiHn6mhcObPmKhV9WRW?si=DGv5aAaWQG6Vjr0DbF4VBw"
-						className="color-on-bg js-interactable-link text-nowrap"
-					>
-						homonymous song
-					</a>{" "}
-					from Lana Del Rey.
-				</p>
-			</div>
-			<p className="text-ms-0">
-				(But you are definetly lost.{" "}
-				<AnchorLink
-					to="/"
-					className="color-on-bg js-interactable-link text-nowrap"
-				>
-					Go back home.
-				</AnchorLink>
-				)
-			</p>
-		</section>
-	</Layout>
+			<section
+				className={c(
+					container,
+					"section l-stack s-inset-inline txt-align-center"
+				)}
+			>
+				<blockquote className="s-inset-stack-3">
+					<h1 className="large-title s-stack-4 txt-serif">
+						&ldquo;Not all those who wander are lost.&rdquo;
+					</h1>
+					<footer>
+						<NavigationLink to="https://open.spotify.com/track/0Z3JiHn6mhcObPmKhV9WRW?si=DGv5aAaWQG6Vjr0DbF4VBw">
+							&mdash;&thinsp;Lana Del Rey
+							<Spotify />
+						</NavigationLink>
+					</footer>
+				</blockquote>
+			</section>
+		</main>
+		<Footer />
+		<Cursor />
+	</div>
 );
 
 export default NotFoundPage;
