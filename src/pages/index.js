@@ -60,8 +60,10 @@ const IndexPage = () => {
 	};
 
 	const handleGreeting = () => {
-		let video = document.getElementById("greeting");
-		video.play();
+		if (window !== "undefined") {
+			let video = document.getElementById("greeting");
+			video.play();
+		}
 	};
 
 	return (
