@@ -11,7 +11,7 @@ const Footer = () => {
 		<footer
 			className={c(
 				footer,
-				"l-golden-ratio s-inline-auto s-inset-inline s-inset-stack-2 u-align-items-end u-border-box w-max-container"
+				"l-golden-ratio s-inline-auto s-inset-inline s-inset-stack-2 u-align-items-end u-border-box w-100 w-max-container"
 			)}
 		>
 			<div>
