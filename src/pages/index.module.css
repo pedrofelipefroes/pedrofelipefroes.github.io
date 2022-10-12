@@ -219,6 +219,7 @@
 
 .profile {
   margin-inline: calc(-1 * var(--spacing));
+  overflow-y: hidden;
 }
 
 .profile>figure {
@@ -261,7 +262,7 @@
 
 @media screen and (min-width: 62rem) {
   .profile {
-    margin-top: calc(10 * var(--spacing));
+    padding-block-start: calc(10 * var(--spacing));
   }
 
   .profile>video {
@@ -279,6 +280,6 @@
 
 @media screen and (min-width: 85.375rem) {
   .profile {
-    margin-top: calc(13 * var(--spacing));
+    padding-block-start: calc(13 * var(--spacing));
   }
 }

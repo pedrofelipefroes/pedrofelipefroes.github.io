@@ -45,16 +45,13 @@ const IndexPage = () => {
 			));
 		} else {
 			return (
-				<Parallax
-					speed={-3}
-					className="section s-inset-inline s-inset-stack-10"
-				>
+				<div className="section s-inset-inline s-inset-stack-10">
 					<h3 className="large-title txt-serif">
 						Comming
 						<br />
-						Soon.
+						Soon
 					</h3>
-				</Parallax>
+				</div>
 			);
 		}
 	};
@@ -297,7 +294,7 @@ const IndexPage = () => {
 				<SectionTitle label={"About"} className="s-stack-4" />
 				<div className={c(aboutContainer, "l-stack s-stack-4")}>
 					<h3 className="title-1 s-inline-3--768 s-stack-2 s-stack-0--768 txt-serif txt-uppercase">
-						<Parallax speed={-2.1}>Now</Parallax>
+						Now
 					</h3>
 					<div>
 						<p className="body body--sparse d-inline txt-sans-serif">
@@ -310,7 +307,7 @@ const IndexPage = () => {
 				</div>
 				<div className={c(aboutContainer, "l-stack s-stack-4")}>
 					<h3 className="title-1 s-stack-2 s-stack-0--768 txt-align-right txt-serif txt-uppercase">
-						<Parallax speed={-1.1}>Skills</Parallax>
+						Skills
 					</h3>
 					<div>
 						<p className="body body--sparse d-inline s-inline-3--768 txt-sans-serif">
@@ -325,7 +322,7 @@ const IndexPage = () => {
 				</div>
 				<div className={c(aboutContainer, "l-stack s-stack-4")}>
 					<h3 className="title-1 s-inline-3--768 s-stack-2 s-stack-0--992 u-flex-grow-1 txt-align-right txt-serif txt-uppercase">
-						<Parallax speed={-0.5}>Contact</Parallax>
+						Contact
 					</h3>
 					<ul className="l-stack txt-align-right u-justify-content-space-between">
 						<li className="s-stack-1 s-stack-0--768">
@@ -345,10 +342,7 @@ const IndexPage = () => {
 								shouldAlwaysCompleteAnimation
 								translateY={[81, 0]}
 							>
-								<NavigationLink
-									to="https://www.linkedin.com/in/
-							froesdesign/"
-								>
+								<NavigationLink to="https://www.linkedin.com/in/froesdesign/">
 									LinkedIn/froesdesign
 								</NavigationLink>
 							</Parallax>
@@ -359,7 +353,7 @@ const IndexPage = () => {
 								shouldAlwaysCompleteAnimation
 								translateY={[131, 0]}
 							>
-								<NavigationLink to="mailto:hello@froes.design">
+								<NavigationLink to="https://www.instagram.com/pedrofelipefroes/">
 									@pedrofelipefroes
 								</NavigationLink>
 							</Parallax>
