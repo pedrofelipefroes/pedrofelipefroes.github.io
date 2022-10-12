@@ -382,7 +382,7 @@ const IndexPage = () => {
 							/>
 						</Parallax>
 					</figure>
-					<video id="greeting" className="p-absolute w-100" muted>
+					<video id="greeting" className="p-absolute w-100" playsinline muted>
 						<source src={greeting} type="video/mp4" />
 					</video>
 				</div>
