@@ -6,6 +6,7 @@ import Seo from "../components/seo/seo";
 import NavigationLink from "../components/navigation-link/navigation-link";
 import SectionTitle from "../components/section-title/section-title";
 import ProjectSection from "../components/project-section/project-section";
+import Figure from "../components/figure/figure";
 import { StaticImage } from "gatsby-plugin-image";
 import { Parallax } from "react-scroll-parallax";
 
@@ -135,31 +136,31 @@ const IndexPage = () => {
 							label={"Artwork"}
 							className="p-relative txt-align-center"
 						/>
-						<figure className="artwork-piece">
+						<Figure>
 							<StaticImage
 								alt="Pencil drawing featuring model Aline Weber holding a cigar."
 								aspectRatio={16 / 9}
 								layout="fullWidth"
 								src={"../images/artwork/1.jpg"}
 							/>
-						</figure>
+						</Figure>
 					</div>
-					<figure className="s-inline-10 s-inline-0--1366">
+					<Figure className="s-inline-10 s-inline-0--1366">
 						<StaticImage
 							alt="Poster inspired by Lana Del Rey's song 'Cherry' with its song title filled with a pink and orange-ish artwork of singer Lana Del Rey in the background."
 							aspectRatio={3 / 4}
 							layout="fullWidth"
 							src={"../images/artwork/2.jpg"}
 						/>
-					</figure>
-					<figure className="artwork-piece">
+					</Figure>
+					<Figure>
 						<StaticImage
 							alt="Poster inspired by Frank Ocean's song 'Sweet Life' with multi-colored popsicles shaping the song title against a black background."
 							aspectRatio={3 / 4}
 							layout="fullWidth"
 							src={"../images/artwork/3.jpg"}
 						/>
-					</figure>
+					</Figure>
 					<div
 						className={c(
 							innerGrid,
@@ -167,31 +168,31 @@ const IndexPage = () => {
 						)}
 					>
 						<div className="u-align-items-end">
-							<figure className="artwork-piece">
+							<Figure>
 								<StaticImage
 									alt="Colored drawing of Kurt Cobain holding a cigar."
 									aspectRatio={1 / 1}
 									layout="fullWidth"
 									src={"../images/artwork/5.jpg"}
 								/>
-							</figure>
-							<figure className="u-align-self-end--768">
+							</Figure>
+							<Figure className="u-align-self-end--768">
 								<StaticImage
 									alt="Poster inspired by Weyes Blood's song 'Andromeda' with a man falling into a yellow-ish capital 'a' against a sea green background."
 									aspectRatio={3 / 4}
 									layout="fullWidth"
 									src={"../images/artwork/4.jpg"}
 								/>
-							</figure>
+							</Figure>
 						</div>
-						<figure className="s-inline-4--768 s-inline-0--1366">
+						<Figure className="s-inline-4--768 s-inline-0--1366">
 							<StaticImage
 								alt="Slide created for Postclick with big words 'design and development' in white against a sea green background."
 								aspectRatio={16 / 9}
 								layout="fullWidth"
 								src={"../images/artwork/6.jpg"}
 							/>
-						</figure>
+						</Figure>
 					</div>
 					<div
 						className={c(
@@ -200,22 +201,22 @@ const IndexPage = () => {
 							"u-align-self-start--768  u-align-self-end--1366 u-align-items-end--1366"
 						)}
 					>
-						<figure className="s-inline-10 s-inline-0--768">
+						<Figure className="s-inline-10 s-inline-0--768">
 							<StaticImage
 								alt="Poster inspired by Madonna's song 'Vogue' with serif lyrics of the song against a digital painting of the singer in light pink and golden tones."
 								aspectRatio={3 / 4}
 								layout="fullWidth"
 								src={"../images/artwork/7.jpg"}
 							/>
-						</figure>
-						<figure className="d-none--768 d-initial--1366">
+						</Figure>
+						<Figure className="d-none--768 d-initial--1366">
 							<StaticImage
 								alt="Poster inspired by Robyn's song 'Call Your Girlfriend' with three repeated artworks featuring sans-serif words with the song lyrics in pastel tones."
 								aspectRatio={16 / 9}
 								layout="fullWidth"
 								src={"../images/artwork/8.jpg"}
 							/>
-						</figure>
+						</Figure>
 					</div>
 					<div
 						className={c(
@@ -224,47 +225,50 @@ const IndexPage = () => {
 						)}
 					>
 						<div className={c(sideGrid, sideGridLeft)}>
-							<figure className="artwork-piece">
+							<Figure>
 								<StaticImage
 									alt="Slide with big words 'tips to improve your work from home experience' decorated with emojis on a black background."
 									aspectRatio={16 / 9}
 									layout="fullWidth"
 									src={"../images/artwork/9.jpg"}
 								/>
-							</figure>
-							<figure className="artwork-piece">
+							</Figure>
+
+							<Figure>
 								<StaticImage
 									alt="Photo with a woman holding her hair in a sporty outfit against a white background."
 									aspectRatio={1 / 1}
 									layout="fullWidth"
 									src={"../images/artwork/10.jpg"}
 								/>
-							</figure>
+							</Figure>
 						</div>
-						<figure className="artwork-piece">
+						<Figure>
 							<StaticImage
 								alt="Poster inspired by Lana Del Rey's song 'Get Free' with 3D blue text with the words 'into the blue' decorated with reddish lines against a yellow background."
 								aspectRatio={4 / 3}
 								layout="fullWidth"
 								src={"../images/artwork/11.jpg"}
 							/>
-						</figure>
-						<figure className="artwork-piece">
+						</Figure>
+						<Figure>
 							<StaticImage
 								alt="Poster inspired by Duda Beat's song 'Meu Pisêro' with its lyrics featured in white-colored words overlapping each other against a black background."
 								aspectRatio={3 / 4}
 								layout="fullWidth"
 								src={"../images/artwork/12.jpg"}
 							/>
-						</figure>
-						<figure className="s-inline-2--1366">
-							<StaticImage
-								alt="Grayscale photo with a woman wearing a fashionable outfit against a plain background."
-								aspectRatio={1 / 1}
-								layout="fullWidth"
-								src={"../images/artwork/13.jpg"}
-							/>
-						</figure>
+						</Figure>
+						<div className="s-inline-2--1366">
+							<Figure>
+								<StaticImage
+									alt="Grayscale photo with a woman wearing a fashionable outfit against a plain background."
+									aspectRatio={1 / 1}
+									layout="fullWidth"
+									src={"../images/artwork/13.jpg"}
+								/>
+							</Figure>
+						</div>
 					</div>
 					<div
 						className={c(
