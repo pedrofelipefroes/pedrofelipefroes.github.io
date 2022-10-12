@@ -252,11 +252,11 @@
 @media screen and (min-width: 48rem) {
   .profile>video {
     margin-inline-start: calc(21 * var(--spacing));
-    margin-top: calc(-8 * var(--spacing));
+    margin-top: calc(-10 * var(--spacing));
   }
 
   .profile>figure {
-    top: calc(3 * var(--spacing))
+    top: calc(1 * var(--spacing))
   }
 }
 
@@ -273,7 +273,7 @@
   .profile>figure {
     left: calc(4 * var(--spacing));
     right: 0;
-    top: calc(-2 * var(--spacing));
+    top: calc(-3 * var(--spacing));
     transform: scale(1);
   }
 }
@@ -281,5 +281,9 @@
 @media screen and (min-width: 85.375rem) {
   .profile {
     padding-block-start: calc(13 * var(--spacing));
+  }
+
+  .profile>figure {
+    top: calc(-4 * var(--spacing))
   }
 }
