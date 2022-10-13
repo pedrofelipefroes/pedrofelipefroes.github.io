@@ -3,6 +3,7 @@ import c from "classnames";
 import PropTypes from "prop-types";
 
 import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 import { navigationLink } from "./navigation-link.module.css";
 
@@ -23,9 +24,9 @@ const NavigationLink = ({ children, className, to, ...other }) => {
 	}
 
 	return (
-		<a className={classNames} href={to} {...other}>
+		<OutboundLink className={classNames} href={to} {...other}>
 			{children}
-		</a>
+		</OutboundLink>
 	);
 };
 
