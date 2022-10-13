@@ -9,6 +9,15 @@ module.exports = {
 		siteUrl: `https://froes.design/`,
 	},
 	plugins: [
+		{
+			resolve: `gatsby-plugin-google-gtag`,
+			options: {
+				trackingIds: ["G-D758YV2LPX"],
+				pluginConfig: {
+					head: true,
+				},
+			},
+		},
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-image`,
 		{
