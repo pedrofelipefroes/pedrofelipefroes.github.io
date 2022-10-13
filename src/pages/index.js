@@ -28,7 +28,8 @@ import {
 
 import { getAllProjects } from "../../project-data";
 
-import greeting from "../images/greeting.mp4";
+import greetingMp4 from "../images/greeting.mp4";
+import greetingWebm from "../images/greeting.webm";
 
 const IndexPage = () => {
 	const projectData = () => {
@@ -383,7 +384,8 @@ const IndexPage = () => {
 						</Parallax>
 					</figure>
 					<video id="greeting" className="p-absolute w-100" playsinline muted>
-						<source src={greeting} type="video/mp4" />
+						<source src={greetingWebm} type="video/webm" />
+						<source src={greetingMp4} type="video/mp4" />
 					</video>
 				</div>
 			</section>
