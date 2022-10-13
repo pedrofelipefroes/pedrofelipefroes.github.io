@@ -42,7 +42,7 @@
 
 .artwork-container {
   display: grid;
-  gap: var(--spacing);
+  gap: calc(var(--spacing) / 5);
   grid-template: repeat(6, auto) / 1fr;
   position: relative;
   overflow: visible;
@@ -50,6 +50,7 @@
 
 @media screen and (min-width: 48rem) {
   .artwork-container {
+    gap: calc(var(--spacing) / 3);
     grid-template: repeat(4, auto) / repeat(2, 1fr);
   }
 
@@ -60,6 +61,7 @@
 
 @media screen and (min-width: 85.375rem) {
   .artwork-container {
+    gap: var(--spacing);
     grid-template: repeat(2, auto) / 16.9375% 14.6875% 1fr 22.25% 19.0625%;
   }
 
@@ -120,13 +122,13 @@
 
 .inner-grid, .side-grid {
   display: grid;
-  gap: var(--spacing);
+  gap: inherit;
   grid-template: repeat(2, auto) / 1fr;
 }
 
 .inner-grid>div {
   display: grid;
-  gap: var(--spacing);
+  gap: inherit;
   grid-template-columns: repeat(2, auto);
 }
 
