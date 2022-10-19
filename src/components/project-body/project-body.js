@@ -7,7 +7,7 @@ import { details } from "./project-body.module.css";
 const ProjectBody = ({ children, company, subhead, tags, title }) => (
 	<div className="l-golden-ratio l-golden-ratio--reverse">
 		<div className={c(details, "h-100")}>
-			<div>
+			<div className="s-stack-10 s-stack-0--1366">
 				<p className="headline headline--dense d-none d-flex--1366 s-stack-2 txt-sans-serif">
 					{title}
 				</p>
