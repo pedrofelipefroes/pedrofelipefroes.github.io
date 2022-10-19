@@ -1,0 +1,45 @@
+import * as React from "react";
+import c from "classnames";
+import PropTypes from "prop-types";
+
+import { projectFooter, title } from "./project-footer.module.css";
+
+const ProjectFooter = ({ credits, summary }) => (
+	<footer
+		className={c(projectFooter, "l-golden-ratio l-golden-ratio--reverse")}
+	>
+		<div className="l-2col l-column-start-2--1366 s-inset-stack-10 u-divider">
+			<div className={c(title, "h-100")}>
+				<h2 className="title-3 s-stack-2 txt-serif">Summary</h2>
+			</div>
+			<ul className="list l-stack">
+				{summary.map((item) => (
+					<li key={item} className="s-stack-2">
+						<p className="body d-inline txt-sans-serif">{item}</p>
+					</li>
+				))}
+			</ul>
+		</div>
+		<div className="l-2col l-column-start-2--1366 s-inset-stack-10">
+			<div className={c(title, "h-100")}>
+				<h2 className="title-3 s-stack-2 txt-serif">Credits</h2>
+			</div>
+			<div className="l-stack">
+				{credits.map((item) => (
+					<div className="s-stack-2">
+						<p key={item} className="body d-inline txt-sans-serif">
+							{item}
+						</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</footer>
+);
+
+ProjectFooter.propTypes = {
+	credits: PropTypes.array.isRequired,
+	summary: PropTypes.array.isRequired,
+};
+
+export default ProjectFooter;

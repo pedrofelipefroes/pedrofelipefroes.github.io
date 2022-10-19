@@ -1,0 +1,13 @@
+/* projectFooter */
+
+.project-footer {
+    row-gap: 0;
+}
+
+/* title */
+
+.title h2 {
+    position: sticky;
+    top: calc(7 * var(--spacing));
+    will-change: transform;
+}
