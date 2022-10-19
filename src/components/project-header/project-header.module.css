@@ -1,5 +1,11 @@
 /* projectHeader */
 
 .project-header {
-    margin-top: calc(9 * var(--spacing));
+    margin-top: calc(13 * var(--spacing));
+}
+
+@media screen and (min-width: 48em) {
+    .project-header {
+        margin-top: calc(20 * var(--spacing));
+    }
 }
