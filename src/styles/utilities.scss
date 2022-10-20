@@ -1,5 +1,13 @@
 // ELEMENTS
 
+.article {
+    padding-block-end: ss(15);
+
+    @include breakpoint(1366) {
+        padding-block-end: ss(25);
+    }
+}
+
 .body {
     font-size: ms(0);
     font-weight: 350;
@@ -87,6 +95,21 @@
         font-weight: 475;
         line-height: ss(13);
     }
+
+    @include breakpoint(1920) {
+        font-size: ms(7);
+        font-weight: 350;
+        line-height: ss(19);
+    }
+}
+
+.list {
+    padding-left: 0;
+    list-style-position: outside;
+
+    @include breakpoint(375) {
+        list-style: disc;
+    }
 }
 
 .media {
@@ -119,19 +142,6 @@
 
 .tag:last-child::after {
     content: "";
-}
-
-.title-2 {
-    font-size: ms(4);
-    font-stretch: 90%;
-    font-weight: 425;
-    letter-spacing: -0.02em;
-    line-height: ss(6);
-
-    @include breakpoint(992) {
-        font-size: ms(5);
-        line-height: ss(8);
-    }
 }
 
 .title-3 {
@@ -211,6 +221,25 @@
 
 // LAYOUT
 
+.l-2col {
+    display: grid;
+    gap: ss(2);
+    grid-template-columns: 1fr;
+
+    @include breakpoint(768) {
+        gap: ss(3);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.l-column-start-2 {
+    @include breakpoint(1366) {
+        &--1366 {
+            grid-column-start: 2;
+        }
+    }
+}
+
 .l-golden-ratio {
     display: grid;
     gap: ss(2);
@@ -241,6 +270,26 @@
 
 // MISC
 
+.u-align-items-center {
+    align-items: center;
+}
+
+.u-align-items-end {
+    align-items: end;
+}
+
+.u-align-items-start {
+    align-items: start;
+}
+
+.u-align-self-end {
+    align-self: end;
+}
+
+.u-align-self-start {
+    align-self: start;
+}
+
 .u-border-box {
     box-sizing: border-box;
 }
@@ -257,45 +306,45 @@
     flex-shrink: 0;
 }
 
+.u-justify-content-end {
+    justify-content: end;
+}
+
+.u-justify-content-center {
+    justify-content: center;
+}
+
+.u-justify-content-space-between {
+    justify-content: space-between;
+}
+
 .u-wrap {
     flex-wrap: wrap;
 }
 
-@each $value in (center, end, space-between, start) {
-    .u-align-items-#{$value} {
-        align-items: $value;
+@include breakpoint(768) {
+    .align-items-start--768 {
+        align-items: start;
     }
 
-    .u-align-self-#{$value} {
-        align-self: $value;
-    }
-
-    .u-justify-content-#{$value} {
-        justify-content: $value;
-    }
-
-    .u-justify-self-#{$value} {
-        justify-self: $value;
+    .align-self-start--768 {
+        align-self: start;
     }
 }
 
-@each $breakpoint in $breakpoints {
-    @each $value in (center, end, space-between, start) {
-        .u-align-items-#{$value}--#{$breakpoint} {
-            align-items: $value;
-        }
+@include breakpoint(992) {
+    .u-justify-content-end--992 {
+        justify-content: end;
+    }
+}
 
-        .u-align-self-#{$value}--#{$breakpoint} {
-            align-self: $value;
-        }
+@include breakpoint(1366) {
+    .u-align-items-end--1366 {
+        align-items: end;
+    }
 
-        .u-justify-content-#{$value}--#{$breakpoint} {
-            justify-content: $value;
-        }
-
-        .u-justify-self-#{$value}--#{$breakpoint} {
-            justify-self: $value;
-        }
+    .align-self-start--1366 {
+        align-self: start;
     }
 }
 
@@ -457,6 +506,10 @@
     margin-bottom: ss(10);
 }
 
+.s-stack-15 {
+    margin-bottom: ss(15);
+}
+
 .s-stack-26 {
     margin-bottom: ss(26);
 }
@@ -464,6 +517,10 @@
 @include breakpoint(768) {
     .s-stack-0--768 {
         margin-bottom: ss(0);
+    }
+
+    .s-stack-20--768 {
+        margin-bottom: ss(20);
     }
 
     .s-stack-26--768 {
@@ -482,6 +539,10 @@
 }
 
 @include breakpoint(1366) {
+    .s-stack-0--1366 {
+        margin-bottom: ss(0);
+    }
+
     .s-stack-4--1366 {
         margin-bottom: ss(4);
     }
@@ -493,6 +554,10 @@
 
 .s-inset-stack-3 {
     padding-block: ss(3);
+}
+
+.s-inset-stack-8 {
+    padding-block: ss(8);
 }
 
 .s-inset-stack-10 {
