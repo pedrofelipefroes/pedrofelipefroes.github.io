@@ -8,7 +8,7 @@ const ProjectFooter = ({ credits, summary }) => (
 	<div className={projectFooter}>
 		<div className="l-2col l-column-start-2--1366 s-inset-stack-10 u-divider">
 			<div className={c(title, "h-100")}>
-				<h2 className="title-3 s-stack-2 txt-serif">Summary</h2>
+				<h2 className="title-3 s-stack-2 s-stack-0--768 txt-serif">Summary</h2>
 			</div>
 			<ul className="list l-stack">
 				{summary.map((item) => (
@@ -20,7 +20,7 @@ const ProjectFooter = ({ credits, summary }) => (
 		</div>
 		<div className="l-2col l-column-start-2--1366 s-inset-stack-10">
 			<div className={c(title, "h-100")}>
-				<h2 className="title-3 s-stack-2 txt-serif">Credits</h2>
+				<h2 className="title-3 s-stack-2 s-stack-0--768 txt-serif">Credits</h2>
 			</div>
 			<div className="l-stack">
 				{credits.map((item) => (
