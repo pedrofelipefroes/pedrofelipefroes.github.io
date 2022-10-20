@@ -1,0 +1,9 @@
+/* nextProject */
+
+.next-project {
+    margin-top: calc(4 * var(--spacing));
+}
+
+.next-project>p {
+    top: calc(2 * var(--spacing));
+}
