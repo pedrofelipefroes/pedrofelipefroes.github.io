@@ -112,6 +112,10 @@
     }
 }
 
+.list > li:last-child {
+    margin-bottom: 0;
+}
+
 .media {
     position: relative;
     z-index: var(--z-media);
