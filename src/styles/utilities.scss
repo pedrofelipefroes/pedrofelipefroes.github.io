@@ -2,6 +2,7 @@
 
 .article {
     padding-block-end: ss(15);
+    z-index: var(--z-copy);
 
     @include breakpoint(1366) {
         padding-block-end: ss(25);
@@ -99,6 +100,7 @@
     @include breakpoint(1920) {
         font-size: ms(7);
         font-weight: 350;
+        letter-spacing: -0.03em;
         line-height: ss(19);
     }
 }
