@@ -329,11 +329,11 @@
 }
 
 @include breakpoint(768) {
-    .align-items-start--768 {
+    .u-align-items-start--768 {
         align-items: start;
     }
 
-    .align-self-start--768 {
+    .u-align-self-start--768 {
         align-self: start;
     }
 }
@@ -349,7 +349,7 @@
         align-items: end;
     }
 
-    .align-self-start--1366 {
+    .u-align-self-start--1366 {
         align-self: start;
     }
 }
