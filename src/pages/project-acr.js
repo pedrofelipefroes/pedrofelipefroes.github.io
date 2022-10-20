@@ -24,9 +24,10 @@ const ProjectACRPage = () => (
 					<p className="body txt-sans-serif">
 						<span className="dropcap txt-serif">A</span>fter ten years in the
 						market, seven offices around the globe, and 400+ consultants, Avenue
-						Code — a San Francisco-based IT consultancy — sought to refresh its
-						brand to represent how diverse the company had become over the
-						years, both people and&nbsp;solution-wise.
+						Code&thinsp;&mdash;&thinsp;a San Francisco-based IT
+						consultancy&thinsp;&mdash;&thinsp;sought to refresh its brand to
+						represent how diverse the company had become over the years, both
+						people and&nbsp;solution-wise.
 					</p>
 					<p className="body txt-sans-serif">
 						Opportunities to improve Avenue Code past brand identity were
@@ -98,9 +99,9 @@ const ProjectACRPage = () => (
 			</ProjectBody>
 		</article>
 		<NextProject
-			subhead={getProject("bds").subhead}
-			title={getProject("bds").title}
-			url={getProject("bds").url}
+			subhead={getProject("sep").subhead}
+			title={getProject("sep").title}
+			url={getProject("sep").url}
 		/>
 	</Layout>
 );
