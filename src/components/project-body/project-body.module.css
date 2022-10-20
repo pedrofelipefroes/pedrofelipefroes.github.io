@@ -1,7 +1,12 @@
 /* details */
 
+.details {
+    z-index: -1;
+}
+
 .details>div {
     position: sticky;
     top: calc(8 * var(--spacing));
     will-change: transform;
+    z-index: var(--z-copy);
 }
