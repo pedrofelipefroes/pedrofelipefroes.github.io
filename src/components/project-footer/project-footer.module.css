@@ -4,6 +4,10 @@
     row-gap: 0;
 }
 
+.project-footer>div:last-child {
+    padding-block-end: 0;
+}
+
 /* title */
 
 .title h2 {
