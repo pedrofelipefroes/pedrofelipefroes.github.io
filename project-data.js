@@ -6,28 +6,6 @@ const data = [
 		subhead:
 			"A conversion-driven landing page design system rooted in continuous optimization.",
 		company: "Produced at Postclick, from 2020 to\u00A02022.",
-		process: [
-			{
-				name: "Discover",
-				description:
-					"Understand the problem, develop POCs, and work with Machine Learning and Data Science teams to explore how to classify and store block\u00A0information.",
-			},
-			{
-				name: "Define",
-				description:
-					"Reduce scope from 400 to 18 blocks, capitalizing on styling interchangeability to deliver multiple visual outputs from a single\u00A0block.",
-			},
-			{
-				name: "Develop",
-				description:
-					"Designing and developing blocks, as well as updating platform tools to control block styling, versioning, and page\u00A0layout.",
-			},
-			{
-				name: "Deploy",
-				description:
-					"Make blocks available to create experiences and gather users' feedback, leading to the development of the 2nd version of the\u00A0system.",
-			},
-		],
 		summary: [
 			"Postclick wanted a dynamic landing page design system that would be continuously optimized to find better conversion\u00A0rates;",
 			"The Block Design System was born through a 4-stage approach, reducing a 400 static block scope to 18 dynamic ones in the\u00A0process;",
@@ -38,7 +16,7 @@ const data = [
 			"I was the leading designer of the project during its first and second versions, responsible for the blocks' design and consulting on its front-end\u00A0architecture. Ongoing collaboration with Vitória Feitosa (Product Design\u00A0Intern).",
 			"First version collaborators include Mike Perla (Head of Product Insights), Martin Lasarga (Group Product Manager), Uldis Leiterts (Chief Design Officer), Nathan Friemel (Tech Lead), Kelvin Campos (Scrum Master), and Matheus Garcia (Front-end Engineer). Feature development by Arcadio Quintero, Dawson Turechek, Jacob Trump, and Jonathan\u00A0 Rodrigues.",
 			"Second version collaborators include Diego Makarausky (Senior Product Manager), Evan Dierlam (Senior Product Manager), Nathan Wheeler (Tech Lead), and Adrian Haynes (Senior Front-end Engineer). Feature development by Emerson Silvério, Josh Mabry, Joel Corrales, Justin Green, and Matheus Franco. Quality assurance by Bruna Vaz and Murillo\u00A0Carvalho.",
-			"Ongoing collaboration with Postclick's Product Design team (led by Nicolai Doreng-Stearns, Director of Product Design) and Machine Learning and Data Science teams (led by Peter\u00A0Marcouillier). \u220E",
+			"Ongoing collaboration with Postclick's Product Design team (led by Nicolai Doreng-Stearns, Director of Product Design) and Machine Learning and Data Science teams. \u220E",
 		],
 	},
 	// {
@@ -60,23 +38,6 @@ const data = [
 		subhead:
 			"Refreshing Avenue Code brand with diversity, cohesiveness, and\u00A0scalability in\u00A0mind.",
 		company: "Produced at Avenue Code, 2019.",
-		process: [
-			{
-				name: "Inspiration",
-				description:
-					"Understand the company's history, brand, values, and pain points through interviews and secondary research to define goals and metrics.",
-			},
-			{
-				name: "Ideation",
-				description:
-					"Visual exploration to translate research findings into colors, typography, and themes to create a brand concept.",
-			},
-			{
-				name: "Implementation",
-				description:
-					"Create and scale brand guidelines to develop an identity system, roll out the new brand, and measure results.",
-			},
-		],
 		summary: [
 			"Avenue Code sought to refresh its brand as part of a business strategy to represent its position in the\u00A0market;",
 			"A brand refresh was done via a 3-stage process, which included research to understand pain points, concept exploration, and a rollout\u00A0campaign;",
@@ -90,25 +51,30 @@ const data = [
 			"Further brand scaling by Marina Ferreira. Landing pages and email development by Froes. Rollout campaign by Avenue Code Marketing and HR\u00A0teams. \u220E",
 		],
 	},
-	// {
-	// 	url: "/about",
-	// 	title: "Responsive\u00ADness at Sephora",
-	// 	tags: ["Front-end", "UX\u00A0Research"],
-	// 	img: coverSEP,
-	// 	imgRotation: {
-	// 		z: [7, -2],
-	// 	},
-	// 	subhead:
-	// 		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-	// 	credit: "Produced at Sephora, 2018.",
-	// },
+	{
+		url: "/project-sep",
+		title: "Responsive\u00ADness at Sephora",
+		tags: ["Front-end", "UX\u00A0Research"],
+		subhead:
+			"Researching how responsive design impacts Sephora's web experience.",
+		company: "Produced at Sephora, 2018. Employment via Avenue Code.",
+		summary: [
+			"Sephora wanted to research the value of transitioning from a separate URLs pattern to a responsive design\u00A0one;",
+			"Partnering up with Sephora's Director of Front-end Engineering, I researched responsiveness' impact on customer experience, performance, and \uA731\u1D07\u1D0F, as well as where Sephora stood when compared to its\u00A0competitors;",
+			"We delivered an interactive research deck detailing responsiveness impact considering Sephora's\u00A0context;",
+			"In addition, we designed a tentative strategy to transition to responsive design for Sephora's Design, Front-end, and Product\u00A0teams.",
+		],
+		credits: [
+			"I was the leading researcher of the project, responsible for collecting data, performing audits on websites, and designing the interactive deck. Ongoing collaboration with David Frick, Sephora's Director of Front-end\u00A0Engineering. \u220E",
+		],
+	},
 ];
 
 export const getProject = (id) => {
 	if (id === "bds") return data[0];
-	if (id === "pds") return data[2];
+	if (id === "pds") return data[3];
 	if (id === "acr") return data[1];
-	if (id === "sep") return data[3];
+	if (id === "sep") return data[2];
 };
 
 export const getAllProjects = () => {
