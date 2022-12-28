@@ -11,10 +11,6 @@ body {
     width: 100%;
     writing-mode: horizontal-tb;
     -webkit-font-smoothing: anti-aliased;
-
-    @media screen and (hover: hover) {
-        cursor: none;
-    }
 }
 
 body::after {

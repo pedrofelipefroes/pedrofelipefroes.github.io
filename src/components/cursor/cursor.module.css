@@ -6,7 +6,7 @@
     .cursor {
         --cursor-height: 1em;
         --cursor-left: -1em;
-        --cursor-radius: 0.6em;
+        --cursor-radius: 0.8em;
         --cursor-scale: 1;
         --cursor-top: -1em;
         --cursor-translateX: 0;
@@ -31,15 +31,10 @@
     }
 
     .cursor>div {
-        background-color: var(--color-on-bg);
-        border-radius: var(--cursor-radius);
         bottom: 0;
         left: 0;
-        opacity: 1;
         right: 0;
         top: 0;
-        transform: translate(var(--cursor-translateX), var(--cursor-translateY));
-        transition-property: opacity, border;
     }
 
     /* isLocked */
@@ -49,6 +44,8 @@
     }
 
     .cursor.is-locked>div {
+        background-color: var(--color-on-bg);
+        border-radius: var(--cursor-radius);
         opacity: 0.06;
     }
 
