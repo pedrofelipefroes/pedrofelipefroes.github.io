@@ -74,10 +74,12 @@ const IndexPage = () => {
 					"section l-stack s-inline-auto s-inset-inline s-stack-10 s-stack-26--768 w-max-content"
 				)}
 			>
-				<h1 className="headline s-stack-2 txt-sans-serif">
+				<h1 className="headline s-stack-2 txt-align-center--768 txt-sans-serif">
 					Froes is a designer and engineer
-					<br className="d-none d-initial--506" /> with a knack for
-					systematic&nbsp;design.
+					<br className="d-none d-initial--506" /> with a knack for systematic
+					design
+					<br className="d-none d-initial--506" />
+					and creative&nbsp;direction.
 				</h1>
 				<div className="d-none--768">
 					<NavigationLink to="/#artwork" className="d-none--768 s-stack-2">
@@ -88,7 +90,7 @@ const IndexPage = () => {
 						About
 					</NavigationLink>
 				</div>
-				<div className="d-none d-flex--768">
+				<div className="d-none d-flex--768 u-justify-content-center--768">
 					<NavigationLink
 						to="mailto:hello@froes.design"
 						className="d-flex--768 s-inline-4"
@@ -98,9 +100,15 @@ const IndexPage = () => {
 					<br />
 					<NavigationLink
 						to="https://www.linkedin.com/in/froesdesign/"
-						className="d-flex--768"
+						className="d-flex--768 s-inline-4"
 					>
 						LinkedIn/froesdesign
+					</NavigationLink>
+					<NavigationLink
+						to="https://www.instagram.com/in/pedrofelipefroes/"
+						className="d-flex--768"
+					>
+						@pedrofelipefroes
 					</NavigationLink>
 				</div>
 			</header>
@@ -146,7 +154,7 @@ const IndexPage = () => {
 							/>
 						</Figure>
 					</div>
-					<Figure className="s-inline-10 s-inline-0--1366">
+					<Figure className="s-inline-10 s-inline-0--1366 u-align-self-end--768">
 						<StaticImage
 							alt="Poster inspired by Lana Del Rey's song 'Cherry' with its song title filled with a pink and orange-ish artwork of singer Lana Del Rey in the background."
 							aspectRatio={3 / 4}
@@ -383,7 +391,7 @@ const IndexPage = () => {
 							/>
 						</Parallax>
 					</figure>
-					<video id="greeting" className="p-absolute w-100" playsinline muted>
+					<video id="greeting" className="p-absolute w-100" playsInline muted>
 						<source src={greetingWebm} type="video/webm" />
 						<source src={greetingMp4} type="video/mp4" />
 					</video>
