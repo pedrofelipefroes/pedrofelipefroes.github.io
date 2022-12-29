@@ -1,6 +1,8 @@
 @import "./base.scss";
 
 body {
+    --h-nav: calc(7 * var(--spacing));
+
     background-color: var(--color-bg);
     color: var(--color-on-bg);
     direction: ltr;
