@@ -1,13 +1,8 @@
 /* header */
 
 .header {
-  padding-block-start: calc(2 * var(--spacing));
-}
-
-@media screen and (min-width: 48rem) {
-  .header {
-    padding-block-start: calc(10 * var(--spacing));
-  }
+  min-height: calc(100vh - calc(2 * var(--h-nav)));
+  padding-block: calc(10 * var(--spacing));
 }
 
 /* projects */

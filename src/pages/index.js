@@ -71,43 +71,31 @@ const IndexPage = () => {
 			<header
 				className={c(
 					header,
-					"section l-stack s-inline-auto s-inset-inline s-stack-10 s-stack-26--768 w-max-content"
+					"section l-stack s-inline-auto s-inset-inline u-justify-content-center w-max-content"
 				)}
 			>
 				<h1 className="headline s-stack-2 txt-align-center--768 txt-sans-serif">
 					Froes is a designer and engineer
 					<br className="d-none d-initial--506" /> with a knack for systematic
-					design
-					<br className="d-none d-initial--506" />
+					design <br className="d-none d-initial--506" />
 					and creative&nbsp;direction.
 				</h1>
-				<div className="d-none--768">
-					<NavigationLink to="/#artwork" className="d-none--768 s-stack-2">
-						Artwork
-					</NavigationLink>
-					<br />
-					<NavigationLink to="/#about" className="d-none--768">
-						About
-					</NavigationLink>
-				</div>
-				<div className="d-none d-flex--768 u-justify-content-center--768">
+				<div className="d-flex--768 u-justify-content-center--768">
 					<NavigationLink
 						to="mailto:hello@froes.design"
-						className="d-flex--768 s-inline-4"
+						className="s-inline-4 s-stack-2 s-stack-0--768"
 					>
 						hello@froes.design
 					</NavigationLink>
 					<br />
 					<NavigationLink
 						to="https://www.linkedin.com/in/froesdesign/"
-						className="d-flex--768 s-inline-4"
+						className="s-inline-4 s-stack-2 s-stack-0--768"
 					>
 						LinkedIn/froesdesign
 					</NavigationLink>
-					<NavigationLink
-						to="https://www.instagram.com/in/pedrofelipefroes/"
-						className="d-flex--768"
-					>
+					<br />
+					<NavigationLink to="https://www.instagram.com/in/pedrofelipefroes/">
 						@pedrofelipefroes
 					</NavigationLink>
 				</div>
