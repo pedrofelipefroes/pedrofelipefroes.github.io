@@ -5,7 +5,7 @@ import Seo from "../components/seo/seo";
 const IndexPage = () => {
 	return (
 		<main className="viewport">
-			<Seo title="" />
+			<Seo title="Visual Systems, UI, Branding & Technology" />
 			<header className="header">
 				<h1 className="headline">
 					Froes is a seasoned designer with 7+ years of delivering solutions via
