@@ -31,7 +31,7 @@ const ProjectBody = ({ children, company, subhead, tags, title }) => (
 				</div>
 			</div>
 		</div>
-		<div>{children}</div>
+		<div className="l-stack">{children}</div>
 	</div>
 );
 

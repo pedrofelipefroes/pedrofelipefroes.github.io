@@ -4,6 +4,8 @@ import Layout from "../components/layout/layout";
 import Seo from "../components/seo/seo";
 import ProjectHeader from "../components/project-header/project-header";
 import ProjectBody from "../components/project-body/project-body";
+import Figure from "../components/figure/figure";
+import { StaticImage } from "gatsby-plugin-image";
 import ProjectFooter from "../components/project-footer/project-footer";
 
 import { getProject } from "../../project-data";
@@ -64,6 +66,62 @@ const ProjectACRPage = () => (
 						</p>
 					</div>
 				</div>
+				<Figure
+					animateOnce
+					animateOut=""
+					className="l-media-grid l-media-grid-1 s-stack-1"
+				>
+					<StaticImage
+						alt="The Avenue Code logo is featured on top of a black background."
+						src={"../images/projects/acr/inspiration-0.jpg"}
+					/>
+				</Figure>
+				<figure className="l-stack u-align-items-end">
+					<div className="l-media-grid l-media-grid-2 l-media-grid-4--506 s-stack-1 s-stack-2--992">
+						<Figure animateOnce animateOut="">
+							<StaticImage
+								alt="The Avenue Code logo is featured on top of a purple-filtered picture of San Francisco's Golden Gate bridge."
+								src={"../images/projects/acr/inspiration-1.jpg"}
+							/>
+						</Figure>
+						<Figure animateOnce animateOut="">
+							<StaticImage
+								alt="Avenue Code's old brand guidelines banner is divided into four sections: Voice, Logo, Font, and Colors, each against a different colored gradient."
+								src={"../images/projects/acr/inspiration-2.jpg"}
+							/>
+						</Figure>
+						<Figure animateOnce animateOut="">
+							<StaticImage
+								alt="The Avenue Code logo is followed by a headline decorated with the company's brand gradients and brush strokes featuring the copy '10 years.'"
+								src={"../images/projects/acr/inspiration-3.jpg"}
+							/>
+						</Figure>
+						<Figure animateOnce animateOut="">
+							<StaticImage
+								alt="Piece of social media using Avenue Code old brand gradients"
+								src={"../images/projects/acr/inspiration-4.jpg"}
+							/>
+						</Figure>
+					</div>
+					<figcaption className="caption caption--media l-stack u-border-box txt-sans-serif">
+						<span className="s-stack-1">
+							The previous branding featured a limited amount of
+							colors&thinsp;&mdash;&thinsp;each associated with an internal
+							squad&thinsp;&mdash;&thinsp;and Lato as its primary&nbsp;typeface.
+						</span>
+						<span className="s-stack-1">
+							Before ideating on Avenue Code's new brand looks, we interviewed
+							its leadership team to discover how they perceived the company and
+							the company's identity&nbsp;origins.
+						</span>
+						<span>
+							For example, the Avenue Code logo was something the CEO was very
+							fond of and wasn't open to changing&thinsp;&mdash;&thinsp;so we
+							sought a visual identity that could complement and strengthen the
+							logo's street art&nbsp;style.
+						</span>
+					</figcaption>
+				</figure>
 				<div className="l-2col s-inset-stack-8">
 					<div>
 						<small className="caption txt-monospace txt-uppercase">
@@ -77,6 +135,51 @@ const ProjectACRPage = () => (
 							typography, and themes to create a brand&nbsp;concept.
 						</p>
 					</div>
+				</div>
+				<Figure
+					animateOnce
+					animateOut=""
+					className="l-media-grid l-media-grid-1 s-stack-1"
+				>
+					<StaticImage alt="1" src={"../images/projects/acr/ideation-0.png"} />
+				</Figure>
+				<Figure
+					animateOnce
+					animateOut=""
+					className="l-media-grid l-media-grid-1 s-stack-1"
+				>
+					<StaticImage alt="1" src={"../images/projects/acr/ideation-1.jpg"} />
+				</Figure>
+				<Figure
+					animateOnce
+					animateOut=""
+					className="l-media-grid l-media-grid-1 s-stack-1"
+				>
+					<StaticImage alt="1" src={"../images/projects/acr/ideation-3.jpg"} />
+				</Figure>
+				<div className="d-flex">
+					<Figure
+						animateOnce
+						animateOut=""
+						className="l-media-grid l-media-grid-1 s-stack-1"
+					>
+						<StaticImage
+							alt="1"
+							src={"../images/projects/acr/ideation-4.jpg"}
+						/>
+					</Figure>
+					<figure className="l-stack">
+						<Figure
+							animateOnce
+							animateOut=""
+							className="l-media-grid l-media-grid-1 s-stack-1"
+						>
+							<StaticImage
+								alt="1"
+								src={"../images/projects/acr/ideation-5.jpg"}
+							/>
+						</Figure>
+					</figure>
 				</div>
 				<div className="l-2col s-inset-stack-8">
 					<div>

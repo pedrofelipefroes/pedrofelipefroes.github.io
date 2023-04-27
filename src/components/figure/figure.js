@@ -3,9 +3,13 @@ import PropTypes from "prop-types";
 
 import { AnimationOnScroll } from "react-animation-on-scroll";
 
-const Figure = ({ animateIn, animateOut, children, ...other }) => (
+const Figure = ({ animateIn, animateOnce, animateOut, children, ...other }) => (
 	<figure {...other}>
-		<AnimationOnScroll animateIn={animateIn} animateOut={animateOut}>
+		<AnimationOnScroll
+			animateIn={animateIn}
+			animateOnce={animateOnce}
+			animateOut={animateOut}
+		>
 			{children}
 		</AnimationOnScroll>
 	</figure>
@@ -13,12 +17,14 @@ const Figure = ({ animateIn, animateOut, children, ...other }) => (
 
 Figure.propTypes = {
 	animateIn: PropTypes.string,
+	animateOnce: PropTypes.bool,
 	animateOut: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
 
 Figure.defaultProps = {
 	animateIn: "animate__fadeIn",
+	animateOnce: false,
 	animateOut: "animate__fadeOut",
 };
 

@@ -13,6 +13,10 @@ body {
     width: 100%;
     writing-mode: horizontal-tb;
     -webkit-font-smoothing: anti-aliased;
+
+    @include breakpoint(768) {
+        --h-nav: calc(8 * var(--spacing));
+    }
 }
 
 body::after {

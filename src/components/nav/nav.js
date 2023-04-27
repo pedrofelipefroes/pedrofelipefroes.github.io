@@ -10,17 +10,13 @@ import {
 	body,
 	footer,
 	header,
-	hasDivider,
+	home,
 	icon,
 	isExpanded,
-	isVisible,
 } from "./nav.module.css";
 
 const Nav = () => {
 	const [expanded, setExpanded] = useState(false);
-	const [isAtTop, setIsAtTop] = useState(true);
-	const [scrolled, setScrolled] = useState(null);
-	const [visible, setVisible] = useState(true);
 
 	const handleClick = () => {
 		setExpanded(!expanded);
@@ -33,18 +29,18 @@ const Nav = () => {
 
 	const menuIcon = (
 		<svg
-			className={c(icon, "icon d-none--768 js-link", {
+			className={c(icon, "icon js-link", {
 				[isExpanded]: expanded,
 			})}
 			onClick={handleClick}
-			width="30"
+			width="60"
 			height="30"
-			viewBox="0 0 30 30"
+			viewBox="0 0 60 30"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<line x1="5" y1="12.5" x2="25" y2="12.5" />
-			<line x1="5" y1="16.5" x2="25" y2="16.5" />
+			<line x1="5" y1="10" x2="55" y2="10" />
+			<line x1="5" y1="19" x2="55" y2="19" />
 		</svg>
 	);
 
@@ -54,25 +50,6 @@ const Nav = () => {
 		{ label: "About", url: "/#about" },
 	];
 
-	useEffect(() => {
-		const handleScroll = () => {
-			const previousScrollPos = scrolled;
-			const currentScrollPos = window.pageYOffset;
-
-			setIsAtTop(currentScrollPos === 0);
-			setVisible(previousScrollPos > currentScrollPos || currentScrollPos <= 0);
-			setScrolled(currentScrollPos);
-		};
-
-		setScrolled(window.pageYOffset);
-
-		document.addEventListener("scroll", handleScroll, { passive: true });
-
-		return () => {
-			document.removeEventListener("scroll", handleScroll);
-		};
-	}, [scrolled]);
-
 	return (
 		<nav
 			className={c(
@@ -80,8 +57,6 @@ const Nav = () => {
 				{
 					["h-100"]: expanded,
 					[isExpanded]: expanded,
-					[isVisible]: visible,
-					[hasDivider]: !isAtTop,
 				},
 				"l-overflow-hidden l-stack p-fixed u-border-box w-100 w-max-container"
 			)}
@@ -95,18 +70,12 @@ const Nav = () => {
 					}
 				)}
 			>
-				<NavigationLink to="/">Froes.design</NavigationLink>
+				<NavigationLink className={home} to="/">
+					Froes·
+					<br />
+					design
+				</NavigationLink>
 				{menuIcon}
-				<ul className="d-none d-flex--768">
-					{menuLinks.map((link, index) => (
-						<li
-							key={link.url}
-							className={index === menuLinks.length - 1 ? "" : "s-inline-3"}
-						>
-							<NavigationLink to={link.url}>{link.label}</NavigationLink>
-						</li>
-					))}
-				</ul>
 			</div>
 			<div
 				className={c(

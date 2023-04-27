@@ -23,11 +23,12 @@ const ProjectFooter = ({ credits, summary }) => (
 				<h2 className="title-3 s-stack-2 s-stack-0--768 txt-serif">Credits</h2>
 			</div>
 			<div className="l-stack">
-				{credits.map((item) => (
-					<div className="s-stack-2">
-						<p key={item} className="body d-inline txt-sans-serif">
-							{item}
-						</p>
+				{credits.map((item, index) => (
+					<div
+						key={item}
+						className={credits.length - 1 === index ? "" : "s-stack-2"}
+					>
+						<p className="body d-inline txt-sans-serif">{item}</p>
 					</div>
 				))}
 			</div>

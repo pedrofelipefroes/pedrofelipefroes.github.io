@@ -56,7 +56,7 @@ const data = [
 		title: "Responsive\u00ADness at Sephora",
 		tags: ["Front-end", "UX\u00A0Research"],
 		subhead:
-			"Researching how responsive design impacts Sephora's web experience.",
+			"Researching how responsive design impacts Sephora's customer experience.",
 		company: "Produced at Sephora, 2018. Employment via Avenue Code.",
 		summary: [
 			"Sephora wanted to research the value of transitioning from a separate URLs pattern to a responsive design\u00A0one;",
