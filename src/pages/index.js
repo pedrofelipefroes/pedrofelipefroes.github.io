@@ -1,26 +1,31 @@
 import * as React from "react";
-import c from "classnames";
 
 import Seo from "../components/seo/seo";
 
 const IndexPage = () => {
 	return (
-		<main>
+		<main className="viewport">
 			<Seo title="FROES.DESIGN" />
-			<header>
-				<h1>
+			<header className="header">
+				<h1 className="headline">
 					Froes is a seasoned designer with 7+ years of delivering solutions via
 					systematic and detailed&nbsp;work.
 				</h1>
 			</header>
-			<footer>
-				<h2>Portfolio available here.</h2>
-				<div>
-					<span>(For now.)</span>
-					<span>
-						Say <a href="mailto:hello@froes.design">hello at froes.design</a> /{" "}
-						<a href="https://www.linkedin.com/in/froesdesign">LinkedIn</a>.
-					</span>
+			<footer className="footer">
+				<div className="footer__content">
+					<h2 className="headline">
+						<span>Portfolio</span> <a>available here</a>.
+					</h2>
+					<div className="links">
+						<span className="subhead">
+							Connect on{" "}
+							<a href="https://www.linkedin.com/in/froesdesign">LinkedIn</a>.
+						</span>
+						<span className="subhead">
+							Say <a href="mailto:hello@froes.design">hello at froes.design</a>.
+						</span>
+					</div>
 				</div>
 			</footer>
 		</main>

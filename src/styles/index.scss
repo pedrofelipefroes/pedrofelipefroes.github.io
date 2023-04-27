@@ -1,45 +1,134 @@
 @import "./base.scss";
 
 body {
-    --h-nav: calc(7 * var(--spacing));
-
     background-color: var(--color-bg);
-    color: var(--color-on-bg);
+    color: var(--color-on-bg-1);
     direction: ltr;
     font-family: $font-sans-serif;
-    font-feature-settings: "pnum" on, "lnum" on;
+    font-feature-settings: "pnum" on, "lnum" on, "ss01" on, "ss17" on, "case" on, "cpsp" on, "zero" on;
+    font-style: normal;
+    hanging-punctuation: first last;
     height: 100%;
     text-rendering: optimizeLegibility;
     width: 100%;
     writing-mode: horizontal-tb;
     -webkit-font-smoothing: anti-aliased;
-
-    @include breakpoint(768) {
-        --h-nav: calc(8 * var(--spacing));
-    }
-}
-
-body::after {
-    // Vertical rhythm grid — don't send to production unless the code below is commented
-
-    // background-image: repeating-linear-gradient(rgba(255, 0, 0, 0.125) 0 1px, transparent 1px 100%);
-    // background-size: var(--spacing) var(--spacing);
-    // content: "";
-    // height: 100%;
-    // position: fixed;
-    // top: 0;
-    // width: 100%;
-    // z-index: 100;
 }
 
 a {
     color: inherit;
-    cursor: none;
-    text-decoration: underline;
+    text-decoration: none;
+    transition: color 200ms ease-in-out;
 }
 
-em {
-    font-style: italic;
+a:hover {
+    color: var(--color-on-bg-2);
 }
 
-@import "./utilities.scss";
+// TYPOGRAPHY
+
+.headline {
+    font-size: toRem(41);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: ss(45);
+
+    @include breakpoint(1024) {
+        font-size: toRem(69);
+        font-weight: 450;
+        line-height: ss(75);
+    }
+
+    @include breakpoint(1920) {
+        font-size: toRem(95);
+        line-height: ss(105);
+    }
+}
+
+.subhead {
+    font-size: toRem(17);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: ss(15);
+
+    @include breakpoint(1024) {
+        font-size: toRem(28);
+        font-weight: 550;
+        line-height: ss(30);
+    }
+
+    @include breakpoint(1920) {
+        font-size: toRem(42);
+        line-height: ss(45);
+    }
+}
+
+// LAYOUT
+
+.footer {
+    align-self: end;
+    justify-self: end;
+
+    &__content {
+        padding: ss(30);
+
+        @include breakpoint(744) {
+            padding: ss(60);
+        }
+    }
+
+    &__content .headline {
+        display: inline-block;
+        margin-bottom: ss(15);
+    }
+
+    &__content .headline span {
+        display: block;
+
+        @include breakpoint(744) {
+            display: inline;
+        }
+    }
+
+    &__content .links {
+        align-items: end;
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(744) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__content .links span:first-child {
+        align-self: start;
+        margin-bottom: ss(15);
+
+        @include breakpoint(744) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+
+    .headline {
+        grid-column: 1 / span 7;
+        padding: ss(30);
+
+        @include breakpoint(744) {
+            padding: ss(60) 0 0 ss(60);
+        }
+    }
+}
+
+.viewport {
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr fit-content;
+    min-height: 100vh;
+}
