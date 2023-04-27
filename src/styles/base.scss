@@ -137,15 +137,6 @@ table {
 
 // FONTS
 
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@144,350&display=swap");
-
-@font-face {
-    font-family: "GT America Mono LCG";
-    font-style: normal;
-    font-weight: 500;
-    src: url("fonts/GT-America-LCGV-Mono-Medium.woff2") format("woff2");
-}
-
 @font-face {
     font-family: "Helvetica Now";
     font-stretch: 50% 100%;
@@ -164,15 +155,11 @@ table {
 
 // SCSS VARIABLES
 
-$breakpoints: (375, 414, 506, 768, 992, 1366, 1512, 1600, 1920);
-$spacings: (0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 26, 30);
+$breakpoints: (744, 1024, 1280, 1920, 2880);
+$spacings: (0, 1, 2, 4, 10);
 
-$font-monospace: "GT America Mono LCG", monospace;
 $font-sans-serif: "Helvetica Now", sans-serif;
-$font-serif: "Fraunces", serif;
-$golden-ratio: 1.6180339887498948482;
-$ms-base: 1.25rem;
-$ms-ratio: 1.5;
+$viewport-max-w: 180rem;
 $spacing-base: 0.9375rem;
 
 // SCSS MIXINS
@@ -192,13 +179,12 @@ $spacing-base: 0.9375rem;
 
 // SCSS FUNCTIONS
 
-@function ms($n, $base: $ms-base, $scale: $ms-ratio) {
-    $multiplier: math.pow($scale, $n);
-    @return $multiplier * $base;
+@function toRem($n) {
+    @return math.div($n, 16) * 1rem;
 }
 
 @function ss($n, $base: $spacing-base) {
-    @return $n * $base;
+    @return math.div($n, 15) * $base;
 }
 
 // ROOT CUSTOM PROPERTIES
@@ -206,24 +192,8 @@ $spacing-base: 0.9375rem;
 :root,
 ::after,
 ::before {
-    --color-bg: #fff;
-    --color-on-bg: #000;
-    --ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --golden-ratio: 1.6180339887498948482;
-    --line-width: 0.0625rem;
-    --max-content-width: 105.625rem;
-    --max-page-width: 120rem;
-    --spacing: 0.9375rem;
-    --z-backdrop: 0;
-    --z-copy: 10;
-    --z-media: 20;
-    --z-nav: 30;
-    --z-cursor: 40;
-
-    @include breakpoint(1920) {
-        --max-content-width: 110rem;
-    }
+    --color-bg: #f5f5f5;
+    --color-on-bg: #322a2a;
 }
 
 ::selection {
