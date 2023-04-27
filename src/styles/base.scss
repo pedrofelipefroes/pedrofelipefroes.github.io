@@ -197,6 +197,14 @@ $spacing-base: 0.9375rem;
     --color-on-bg-2: rgba(50, 42, 42, 0.64);
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: rgba(22, 19, 19, 1);
+        --color-on-bg-1: rgba(245, 245, 245, 1);
+        --color-on-bg-2: rgba(245, 245, 245, 0.32);
+    }
+}
+
 ::selection {
     background-color: var(--color-on-bg-1);
     color: var(--color-bg);
