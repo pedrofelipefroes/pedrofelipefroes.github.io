@@ -8,8 +8,8 @@ const IndexPage = () => {
 			<Seo title="Visual Systems, UI, Branding & Technology" />
 			<header className="header">
 				<h1 className="headline">
-					Froes is a seasoned designer with 7+ years of delivering solutions via
-					systematic and detailed&nbsp;work.
+					Froes is a seasoned designer with 7+ years of delivering creative
+					customer-facing solutions via systematic, detail-oriented&nbsp;work.
 				</h1>
 			</header>
 			<footer className="footer">
