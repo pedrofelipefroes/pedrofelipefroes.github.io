@@ -138,6 +138,13 @@ table {
 // FONTS
 
 @font-face {
+    font-family: "GT Maru Mono";
+    font-style: normal;
+    font-weight: 300 900;
+    src: url("./fonts/GT_Maru_Mono_VF.woff2");
+}
+
+@font-face {
     font-family: "Helvetica Now";
     font-stretch: 50% 100%;
     font-style: normal;
@@ -155,36 +162,43 @@ table {
 
 // SCSS VARIABLES
 
-$breakpoints: (744, 1024, 1280, 1920, 2880);
-$spacings: (0, 1, 2, 4, 10);
-
 $font-sans-serif: "Helvetica Now", sans-serif;
-$viewport-max-w: 180rem;
+$font-mono: "GT Maru Mono", monospace;
+$ms-ratio: 1.5;
 $spacing-base: 0.9375rem;
+$type-base: 0.75rem;
 
 // SCSS MIXINS
 
 @mixin breakpoint($value) {
-    @if list.index($breakpoints, $value) {
-        $index: list.index($breakpoints, $value);
-        $breakpoint: math.div(list.nth($breakpoints, $index), 16) + "rem";
-
-        @media screen and (min-width: $breakpoint) {
+    @if $value == landscape {
+        @media screen and (orientation: landscape) {
             @content;
         }
     } @else {
-        @error "Breakpoint value #{$value} not found in $bps map.";
+        @error "Breakpoint value #{$value} not supported.";
     }
 }
 
 // SCSS FUNCTIONS
 
-@function toRem($n) {
-    @return math.div($n, 16) * 1rem;
+@function ms($n, $base: $type-base) {
+    // $type-unitless: math.div($type-base, ($type-base * 0 + 1));
+    // $ms: math.pow($ms-ratio, $n) * $type-base;
+
+    @return math.pow($ms-ratio, $n) * $type-base;
 }
 
 @function ss($n, $base: $spacing-base) {
     @return math.div($n, 15) * $base;
+}
+
+@function toRem($n) {
+    @return math.div($n, 16) * 1rem;
+}
+
+@function toPx($n) {
+    @return math.multiply($n, 16) * 1rem;
 }
 
 // ROOT CUSTOM PROPERTIES
@@ -192,20 +206,13 @@ $spacing-base: 0.9375rem;
 :root,
 ::after,
 ::before {
-    --color-bg: rgba(245, 245, 245, 1);
-    --color-on-bg-1: rgba(50, 42, 42, 1);
-    --color-on-bg-2: rgba(50, 42, 42, 0.64);
+    --color-dark: 0, 0, 0;
+    --color-light: 245, 245, 245;
+    --spacing-base: 0.9375rem;
+    --type-base: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-bg: rgba(22, 19, 19, 1);
-        --color-on-bg-1: rgba(245, 245, 245, 1);
-        --color-on-bg-2: rgba(245, 245, 245, 0.32);
-    }
-}
-
-::selection {
-    background-color: var(--color-on-bg-1);
-    color: var(--color-bg);
-}
+// ::selection {
+//     background-color: var(--color-on-bg);
+//     color: var(--color-bg);
+// }
