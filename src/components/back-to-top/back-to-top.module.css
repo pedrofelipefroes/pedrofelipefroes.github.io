@@ -1,0 +1,70 @@
+.back-to-top {
+    background-color: transparent;
+    align-items: center;
+    bottom: var(--spacing-base);
+    border: 0;
+    display: flex;
+    height: calc(var(--spacing-base) * 3);
+    justify-content: center;
+    left: var(--spacing-base);
+    padding: calc(var(--spacing-base) * 0.5);
+    position: relative;
+    transition: all cubic-bezier(0.87, 0, 0.13, 1) 200ms;
+    width: calc(var(--spacing-base) * 3);
+}
+
+.back-to-top div {
+    align-items: center;
+    background-color: rgba(var(--color-dark), 1);
+    border-radius: 1.5rem;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.back-to-top span {
+    color: rgba(var(--color-light), 0.2);
+    position: absolute;
+    transition: all linear 400ms;
+}
+
+.back-to-top span::after, .back-to-top span::before {
+    content: "\2191";
+    color: rgba(var(--color-light), 1);
+    position: absolute;
+    left: 0%;
+}
+
+.back-to-top span::after {
+    top: 200%;
+}
+
+.back-to-top span::before {
+    color: red;
+    top: 400%;
+}
+
+.back-to-top:hover {
+    cursor: pointer;
+    padding: 0;
+}
+
+.back-to-top:hover span {
+    animation: back-to-top-marquee 400ms linear 400ms infinite normal none;
+    color: rgba(var(--color-light), 1);
+    font-size: calc(var(--type-base) * 1.5);
+    margin-top: -133.3333%;
+}
+
+@keyframes back-to-top-marquee {
+    from {
+        margin-top: 0;
+    }
+
+    to {
+        margin-top: -133.3333%;
+    }
+}
