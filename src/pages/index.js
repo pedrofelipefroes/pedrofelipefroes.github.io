@@ -48,7 +48,7 @@ const IndexPage = () => {
 			<Seo title="Visual Systems, UI, Branding & Technology" />
 			<div className="viewport">
 				<aside>
-					<div className="mono sidebar">
+					<div className="mono sidebar txt-light-primary">
 						<header>
 							<p>FROES.DESIGN</p>
 							<BackToTop />
@@ -58,13 +58,13 @@ const IndexPage = () => {
 								27 Days Until Lana Del Rey
 							</NavItem>
 							<NavItem id="trigger-bds" section="start-bds">
-								Postclick's Block Design System
+								Postclick{"\u2019"}s Block Design System
 							</NavItem>
 							<NavItem id="trigger-rac" section="start-rac">
 								Rebranding Avenue Code
 							</NavItem>
 							<NavItem id="trigger-cre" section="start-cre">
-								Condé Nast's Creative Direction
+								Condé Nast{"\u2019"}s Creative Direction
 							</NavItem>
 							<NavItem id="trigger-spt" section="start-spt">
 								Spotify Wrapped with AI
@@ -74,22 +74,34 @@ const IndexPage = () => {
 							</NavItem>
 						</menu>
 						<address>
-							<p>
-								<a href="https://linkedin.com/in/froesdesign">
-									LinkedIn{"\u2009"}
-									{"\u2197"}
-								</a>
-							</p>
-							<p>
-								<a href="mailto:hello@froes.design">hello@froes.design</a>
-							</p>
+							<a href="https://linkedin.com/in/froesdesign">
+								LinkedIn{"\u2009"}
+								{"\u2197"}
+							</a>
+							<a href="mailto:hello@froes.design">hello@froes.design</a>
 						</address>
 					</div>
 				</aside>
 				<main>
-					<div id="author-1" className="frame">
-						<p>Title</p>
-					</div>
+					<section
+						id="author-1"
+						className="frame frame--cover sans-serif txt-light-primary"
+					>
+						<div>
+							<h1>
+								The Aesthetic Adventures of Froes{" "}
+								<span className="txt-light-secondary">
+									{"\u0028"}or... {"\u201C"}Designer with 7+ years of experience
+									has some projects pictured below.{"\u201D"}
+									{"\u0029"}
+								</span>
+							</h1>
+						</div>
+						<div>
+							<h3>Written and designed by Froes</h3>
+							<h3>Director{"\u2019"}s Cut</h3>
+						</div>
+					</section>
 					<div id="author-2" className="frame">
 						<p>Author</p>
 					</div>

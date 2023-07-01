@@ -1,5 +1,4 @@
 @use "sass:math";
-
 @import "./base.scss";
 
 * {
@@ -8,7 +7,6 @@
 
 body {
     background-color: rgba(var(--color-dark), 1);
-    color: rgba(var(--color-light), 1);
     direction: ltr;
     hanging-punctuation: first last;
     text-rendering: optimizeLegibility;
@@ -18,22 +16,64 @@ body {
 
 // TYPOGRAPHY
 
-p,
-button {
-    font-size: ms(0);
-    line-height: ss(15);
+@each $level, $ratio in $type-hierarchy {
+    $max-font-size: $type-base * math.pow($ms-ratio, $ratio);
+    $max-font-size-unitless: math.div($max-font-size, $max-font-size * 0 + 1);
+    $fluid-reduction: if($ratio > 3, 0.5, 0.4);
+    $min-font-size: $max-font-size-unitless - ($fluid-reduction * $max-font-size-unitless);
+    $min-font-size: if($min-font-size > 0.75, $min-font-size, 0.75);
+    $fluid-scaler: ($max-font-size-unitless - $min-font-size) + 0.75vw;
+    $font-size: clamp(#{$min-font-size}rem, #{$fluid-scaler}, #{$max-font-size});
+    $leading: math.round(math.div(2ex, $spacing-base)) * 15;
+
+    #{$level},
+    .ms#{$ratio} {
+        font-size: $font-size;
+        line-height: 2ex;
+        overflow-wrap: break-word;
+        // hyphens: auto;
+    }
 }
 
 a {
     color: inherit;
     display: inline-block;
-    font-size: ms(0);
-    line-height: ss(15);
     text-decoration: none;
 
     &:hover {
         text-decoration: line-through;
     }
+}
+
+body,
+.ms0 {
+    font-weight: 300;
+}
+
+button {
+    font-size: ms(0);
+    line-height: ss(1);
+}
+
+h1,
+.ms5 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h3,
+.ms2 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.mono {
+    font-family: $font-mono;
+    font-feature-settings: "tnum" on, "lnum" on, "ss01" on, "ss17" on, "zero" on, "case" on, "cpsp" on, "ordn" on;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: ss(1);
+    text-transform: uppercase;
 }
 
 .sans-serif {
@@ -44,23 +84,20 @@ a {
     letter-spacing: 0;
 }
 
-.mono {
-    font-family: $font-mono;
-    font-feature-settings: "tnum" on, "lnum" on, "ss01" on, "ss17" on, "zero" on, "case" on, "cpsp" on, "ordn" on;
-    font-weight: 300;
-    letter-spacing: 0.01em;
-    line-height: ss(15);
-    text-transform: uppercase;
+.txt-dark-primary {
+    color: rgba(var(--color-dark), 1);
 }
 
-// DISPLAY
+.txt-dark-secondary {
+    color: rgba(var(--color-dark), 0.25);
+}
 
-.hide {
-    &-landscape {
-        @include breakpoint(landscape) {
-            display: none;
-        }
-    }
+.txt-light-primary {
+    color: rgba(var(--color-light), 0.85);
+}
+
+.txt-light-secondary {
+    color: rgba(var(--color-light), 0.15);
 }
 
 // LAYOUT
@@ -69,16 +106,16 @@ a {
     display: grid;
 
     @include breakpoint(landscape) {
-        column-gap: ss(30);
+        column-gap: ss(2);
         grid-template-columns: max(22.222222222%, 212px) 3.5fr;
-        padding: ss(30);
+        padding: ss(2);
 
         aside {
             display: grid;
-            column-gap: ss(30);
+            column-gap: ss(2);
             grid-template-columns: max(22.222222222%, 212px) 3.5fr;
-            margin-left: -1 * ss(30);
-            padding: 0 ss(30);
+            margin-left: -1 * ss(2);
+            padding: 0 ss(2);
             position: fixed;
             width: 100%;
         }
@@ -93,7 +130,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: ss(30);
+    padding: ss(2);
 
     address {
         display: flex;
@@ -104,42 +141,41 @@ a {
     header {
         display: flex;
         justify-content: space-between;
-        height: ss(15);
+        height: ss(1);
     }
 }
 
 .frame,
 .sidebar {
     background-color: rgba(var(--color-light), 0.05);
-    border-radius: ss(30);
+    border-radius: ss(2);
 
     @include breakpoint(landscape) {
-        height: calc(100vh - ss(60));
+        min-height: calc(100vh - ss(3));
     }
 }
 
 .frame {
     border-bottom: solid 0.125rem rgba(var(--color-dark), 1);
-}
 
-// PAGES
+    /* FRAME TYPE: COVER */
+    &--cover {
+        column-gap: ss(2);
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: fit-content fit-content;
 
-// Index
-
-.index {
-    &__figure {
-        aspect-ratio: 3 / 4;
-
-        @include breakpoint(landscape) {
-            aspect-ratio: 16 / 9;
+        div:first-child {
+            grid-column: 1 / span 6;
+            padding: ss(2) ss(3);
         }
-    }
 
-    &__outbound-links {
-        margin-top: 5.5ex;
-
-        @include breakpoint(landscape) {
-            margin-top: 0;
+        div:last-child {
+            align-self: flex-end;
+            grid-column: 1 / span 7;
+            display: flex;
+            justify-content: space-between;
+            padding: ss(3) ss(3);
         }
     }
 }

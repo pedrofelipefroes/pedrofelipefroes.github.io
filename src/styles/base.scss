@@ -165,8 +165,13 @@ table {
 $font-sans-serif: "Helvetica Now", sans-serif;
 $font-mono: "GT Maru Mono", monospace;
 $ms-ratio: 1.5;
-$spacing-base: 0.9375rem;
-$type-base: 0.75rem;
+$spacing-base: 2ex;
+$type-base: 1.0625rem;
+$type-hierarchy: (
+    "body": 0,
+    "h3": 2,
+    "h1": 5,
+);
 
 // SCSS MIXINS
 
@@ -183,22 +188,11 @@ $type-base: 0.75rem;
 // SCSS FUNCTIONS
 
 @function ms($n, $base: $type-base) {
-    // $type-unitless: math.div($type-base, ($type-base * 0 + 1));
-    // $ms: math.pow($ms-ratio, $n) * $type-base;
-
     @return math.pow($ms-ratio, $n) * $type-base;
 }
 
 @function ss($n, $base: $spacing-base) {
-    @return math.div($n, 15) * $base;
-}
-
-@function toRem($n) {
-    @return math.div($n, 16) * 1rem;
-}
-
-@function toPx($n) {
-    @return math.multiply($n, 16) * 1rem;
+    @return $n * $spacing-base;
 }
 
 // ROOT CUSTOM PROPERTIES
@@ -208,11 +202,6 @@ $type-base: 0.75rem;
 ::before {
     --color-dark: 0, 0, 0;
     --color-light: 245, 245, 245;
-    --spacing-base: 0.9375rem;
-    --type-base: 0.75rem;
+    --spacing-base: 2ex;
+    --type-base: 1.0625rem;
 }
-
-// ::selection {
-//     background-color: var(--color-on-bg);
-//     color: var(--color-bg);
-// }

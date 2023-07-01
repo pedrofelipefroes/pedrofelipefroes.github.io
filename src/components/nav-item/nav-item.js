@@ -5,6 +5,9 @@ import { navItem } from "./nav-item.module.css";
 
 const NavItem = ({ children, section, ...other }) => {
 	const isBrowser = typeof document !== "undefined";
+	const topOffset = isBrowser
+		? document.getElementsByTagName("aside")[0].getBoundingClientRect().top
+		: null;
 
 	const goToSection = (section) => {
 		const el = isBrowser ? document.getElementById(section) : null;
@@ -15,7 +18,7 @@ const NavItem = ({ children, section, ...other }) => {
 				top:
 					el.getBoundingClientRect().top -
 					document.body.getBoundingClientRect().top -
-					30,
+					topOffset,
 			});
 		}
 	};
