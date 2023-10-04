@@ -1,0 +1,35 @@
+.footer {
+    bottom: 0;
+    position: fixed;
+    width: 100vw;
+
+    address {
+        display: flex;
+        justify-content: space-between;
+        padding: ss(1) ss(1.5);
+
+        a + a {
+            margin-left: ss(1.5);
+        }
+
+        small:last-child {
+            display: none;
+
+            @media screen and (min-width: 375px) {
+                display: flex;
+            }
+        }
+
+        small:last-child span {
+            display: none;
+
+            @include breakpoint(landscape) {
+                display: block;
+            }
+        }
+
+        small + small {
+            margin-top: 0;
+        }
+    }
+}
