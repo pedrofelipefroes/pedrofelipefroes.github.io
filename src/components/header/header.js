@@ -3,42 +3,53 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import c from "classnames";
 import PropTypes from "prop-types";
 
-const Header = () => {
+const Header = ({ projects }) => {
 	const header = useRef(null);
 	const menu = useRef(null);
+	const wordmark = useRef(null);
 
 	const [expanded, setExpanded] = useState(false);
 	const [scrollPosition, setScrollPosition] = useState();
 
-	const goToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
-	};
+	// const goToTop = () => {
+	// 	window.scrollTo({
+	// 		top: 0,
+	// 		behavior: "smooth",
+	// 	});
+	// };
 
 	const onScroll = () => {
 		let headerTopPosition = header.current.getBoundingClientRect().top;
 
-		if (headerTopPosition === 0)
+		if (headerTopPosition === 0) {
 			menu.current.classList.add("toggle--is-visible");
-		else menu.current.classList.remove("toggle--is-visible");
+			wordmark.current.classList.add("wordmark--is-shifted");
+		} else {
+			menu.current.classList.remove("toggle--is-visible");
+			wordmark.current.classList.remove("wordmark--is-shifted");
+		}
 	};
 
 	const toggleMenu = () => {
-		document.querySelector("body").style.overflow = "revert";
+		let headerTopPosition = header.current.getBoundingClientRect().top;
 
-		menu.current.classList.add("toggle--is-visible");
+		if (headerTopPosition === 0) {
+			document.querySelector("body").style.overflow = "revert";
 
-		setExpanded(!expanded);
+			menu.current.classList.add("toggle--is-visible");
 
-		if (scrollPosition === undefined) {
-			window.scrollY = scrollPosition;
-		}
+			setExpanded(!expanded);
 
-		if (!expanded) {
-			document.querySelector("body").style.overflow = "hidden";
-			setScrollPosition(window.scrollY);
+			if (scrollPosition === undefined) {
+				window.scrollY = scrollPosition;
+			}
+
+			if (!expanded) {
+				document.querySelector("body").style.overflow = "hidden";
+				setScrollPosition(window.scrollY);
+			}
+		} else {
+			return;
 		}
 	};
 
@@ -55,10 +66,12 @@ const Header = () => {
 				["is-expanded"]: expanded,
 			})}
 		>
-			<nav className="top-navbar">
-				<p onClick={goToTop}>
-					<a href="/">Froes {"\u00B7"} Designs</a>
-				</p>
+			<nav
+				className={c("top-navbar", {
+					["top-navbar--toggle-is-visible"]: expanded,
+				})}
+			>
+				<small ref={wordmark}>Froes {"\u00B7"} Design</small>
 
 				<svg
 					ref={menu}
@@ -72,32 +85,50 @@ const Header = () => {
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 				>
-					<line x1="0" y1="12" x2="30" y2="12" />
-					<line x1="0" y1="18" x2="30" y2="18" />
+					<line x1="2" y1="15" x2="28" y2="15" />
+					<line x1="15" y1="2" x2="15" y2="28" />
 				</svg>
 			</nav>
 			<menu className={c("menu", { ["menu--is-visible"]: expanded })}>
-				<p>teste</p>
+				<ol>
+					{projects.map((item, index) => {
+						return (
+							<li>
+								<a href={item.id}>{item.name}</a>
+							</li>
+						);
+					})}
+				</ol>
 			</menu>
 			<address
 				className={c("contact-info", {
 					["contact-info--is-visible"]: expanded,
 				})}
 			>
-				<p>
-					<a href="mailto:hello@froes.design">
-						Email{"\u2009"}
-						{"\u2197"}
-					</a>
+				<small>
 					<a href="https://linkedin.com/in/froesdesign">
 						LinkedIn{"\u2009"}
 						{"\u2197"}
 					</a>
-				</p>
-				<p>São Paulo, 2023</p>
+					<a href="mailto:hello@froes.design">
+						hello@froes.design{"\u2009"}
+						{"\u2197"}
+					</a>
+				</small>
+				<small>
+					<span>São Paulo,{"\u00A0"}</span>2023
+				</small>
 			</address>
 		</header>
 	);
+};
+
+Header.defaultProps = {
+	projects: [],
+};
+
+Header.propTypes = {
+	projects: PropTypes.array.isRequired,
 };
 
 export default Header;
