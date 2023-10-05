@@ -62,13 +62,13 @@ const Header = ({ projects }) => {
 	return (
 		<header
 			ref={header}
-			className={c("header sans-serif txt-dark-primary", {
-				["is-expanded"]: expanded,
+			className={c("header", {
+				"is-expanded": expanded,
 			})}
 		>
 			<nav
 				className={c("top-navbar", {
-					["top-navbar--toggle-is-visible"]: expanded,
+					"top-navbar--toggle-is-visible": expanded,
 				})}
 			>
 				<small ref={wordmark}>Froes {"\u00B7"} Design</small>
@@ -76,7 +76,7 @@ const Header = ({ projects }) => {
 				<svg
 					ref={menu}
 					className={c("toggle", {
-						["toggle--off"]: expanded,
+						"toggle--off": expanded,
 					})}
 					onClick={toggleMenu}
 					width="2.5ex"
@@ -89,7 +89,7 @@ const Header = ({ projects }) => {
 					<line x1="15" y1="2" x2="15" y2="28" />
 				</svg>
 			</nav>
-			<menu className={c("menu", { ["menu--is-visible"]: expanded })}>
+			<menu className={c("menu", { "menu--is-visible": expanded })}>
 				<ol>
 					{projects.map((item, index) => {
 						return (
@@ -102,7 +102,7 @@ const Header = ({ projects }) => {
 			</menu>
 			<address
 				className={c("contact-info", {
-					["contact-info--is-visible"]: expanded,
+					"contact-info--is-visible": expanded,
 				})}
 			>
 				<small>
