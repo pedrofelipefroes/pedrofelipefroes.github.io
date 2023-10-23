@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 const Header = ({ projects }) => {
 	const header = useRef(null);
 	const menu = useRef(null);
+	const landscapeMenu = useRef(null);
 	const wordmark = useRef(null);
 
 	const [expanded, setExpanded] = useState(false);
@@ -24,9 +25,13 @@ const Header = ({ projects }) => {
 		if (headerTopPosition === 0) {
 			menu.current.classList.add("toggle--is-visible");
 			wordmark.current.classList.add("wordmark--is-shifted");
+
+			landscapeMenu.current.classList.add("landscape-menu--is-collapsed");
 		} else {
 			menu.current.classList.remove("toggle--is-visible");
 			wordmark.current.classList.remove("wordmark--is-shifted");
+
+			landscapeMenu.current.classList.remove("landscape-menu--is-collapsed");
 		}
 	};
 
@@ -35,10 +40,9 @@ const Header = ({ projects }) => {
 
 		if (headerTopPosition === 0) {
 			document.querySelector("body").style.overflow = "revert";
-
-			menu.current.classList.add("toggle--is-visible");
-
+			console.log(expanded);
 			setExpanded(!expanded);
+			menu.current.classList.add("toggle--is-visible");
 
 			if (scrollPosition === undefined) {
 				window.scrollY = scrollPosition;
@@ -66,17 +70,28 @@ const Header = ({ projects }) => {
 				"is-expanded": expanded,
 			})}
 		>
-			<nav
-				className={c("top-navbar", {
-					"top-navbar--toggle-is-visible": expanded,
-				})}
-			>
-				<small ref={wordmark}>Froes {"\u00B7"} Design</small>
+			<nav className="top-navbar">
+				<menu ref={landscapeMenu}>
+					<ol>
+						{projects.map((item, i) => {
+							return (
+								<li key={i}>
+									<a href={item.id}>{item.name}</a>
+								</li>
+							);
+						})}
+					</ol>
+				</menu>
+
+				<small ref={wordmark} className="wordmark">
+					Froes {"\u00B7"} Design
+				</small>
 
 				<svg
 					ref={menu}
 					className={c("toggle", {
 						"toggle--off": expanded,
+						"toggle-is-visible": expanded,
 					})}
 					onClick={toggleMenu}
 					width="2.5ex"
@@ -91,9 +106,9 @@ const Header = ({ projects }) => {
 			</nav>
 			<menu className={c("menu", { "menu--is-visible": expanded })}>
 				<ol>
-					{projects.map((item, index) => {
+					{projects.map((item, i) => {
 						return (
-							<li>
+							<li key={i}>
 								<a href={item.id}>{item.name}</a>
 							</li>
 						);
