@@ -18,9 +18,9 @@ const ProjectTitle = ({
 				<small>{subhead}</small>
 				<span>
 					<ul>
-						{tags.map((name) => {
+						{tags.map((name, i) => {
 							return (
-								<li>
+								<li key={i}>
 									<small>
 										{name}
 										{"\u2002"} {"\u00b7"} {"\u2002"}

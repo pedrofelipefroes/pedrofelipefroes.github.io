@@ -1,8 +1,8 @@
 .project-title {
-    margin: ss(9) ss(1.5) ss(5.5);
+    margin: ss(5.5) ss(1.5) ss(5.5);
 
     @include breakpoint(landscape) {
-        margin: ss(16) 0;
+        margin: ss(11) 0 ss(16);
 
         &--left .container {
             grid-column: 3 / span 12;
@@ -15,6 +15,7 @@
 
     span {
         display: flex;
+        flex-wrap: wrap;
 
         ul {
             display: flex;
@@ -24,6 +25,7 @@
     .container > small {
         margin-bottom: ss(1);
         margin-top: ss(2.75);
+        max-width: max(500px, var(--golden-ratio--smaller));
 
         @include breakpoint(landscape) {
             margin-top: ss(5.5);
