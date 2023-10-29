@@ -13,40 +13,27 @@
         }
 
         &:last-of-type h3 {
-            padding-top: ss(1);
-        }
-
-        &:last-of-type .label-2 {
             display: block;
+            padding-top: ss(1);
             text-align: center;
             text-align-last: right;
         }
 
         @include breakpoint(landscape) {
-            h3 {
-                display: grid;
-                grid-template-columns: repeat(18, 1fr);
-            }
-
-            &:last-of-type h3 {
-                padding-top: ss(1.125);
-            }
+            display: grid;
+            grid-template-columns: repeat(18, 1fr);
 
             &:last-of-type {
                 align-items: flex-end;
             }
 
-            &:first-of-type .label-1 {
-                grid-column: 3 / span 2;
+            &:first-of-type h3 {
+                grid-column: 3 / span 4;
             }
 
-            &:first-of-type .label-2,
-            &:last-of-type .label-1 {
-                grid-column: 5 / span 4;
-            }
-
-            &:last-of-type .label-2 {
+            &:last-of-type h3 {
                 grid-column: 10 / span 9;
+                padding-top: ss(1.125);
                 text-align: left;
                 text-align-last: left;
             }
