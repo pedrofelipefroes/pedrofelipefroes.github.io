@@ -20,11 +20,9 @@ const PageHeadline = () => {
 			</div>
 			<div className="page-headline__subtitle">
 				<h3>
-					<span className="label-1">For Concepts</span>
+					<span className="label-1">and Concepts</span>
 					<span className="label-2">
-						<span>Brands</span>
-						<span>Products</span>
-						<span>Systems</span>
+						for Brands, Products &{"\u00A0"}Systems
 					</span>
 				</h3>
 			</div>
