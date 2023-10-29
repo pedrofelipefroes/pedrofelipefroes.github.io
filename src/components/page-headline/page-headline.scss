@@ -28,6 +28,10 @@
                 grid-template-columns: repeat(18, 1fr);
             }
 
+            &:last-of-type h3 {
+                padding-top: ss(1.125);
+            }
+
             &:last-of-type {
                 align-items: flex-end;
             }
@@ -51,11 +55,18 @@
 
     &__title {
         @include breakpoint(landscape) {
+            display: grid;
+            grid-template-columns: repeat(18, 1fr);
             padding: 0 ss(1.5);
         }
+
         h1 {
             text-align: right;
             text-align-last: justify;
+
+            @include breakpoint(landscape) {
+                grid-column: 2 / span 18;
+            }
         }
     }
 }
