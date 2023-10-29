@@ -145,13 +145,17 @@
             z-index: 1;
 
             @media screen and (min-width: 1440px) {
-                display: block;
+                display: grid;
+                flex-grow: 1;
+                grid-template-columns: repeat(18, 1fr);
             }
 
             ol {
                 @extend small;
 
                 display: flex;
+                grid-column: 10 / span 10;
+                justify-content: space-between;
             }
 
             li {
