@@ -1,59 +1,43 @@
 .page-headline {
-    margin: ss(11) 0 ss(5.5);
-
     @include breakpoint(landscape) {
-        margin-bottom: ss(11);
-    }
-
-    &__subtitle {
-        padding: 0 ss(1.5);
-
-        &:first-of-type h3 {
-            padding-bottom: ss(0.75);
-        }
-
-        &:last-of-type h3 {
-            display: block;
-            padding-top: ss(1);
-            text-align: center;
-            text-align-last: right;
-        }
-
-        @include breakpoint(landscape) {
-            display: grid;
-            grid-template-columns: repeat(18, 1fr);
-
-            &:last-of-type {
-                align-items: flex-end;
-            }
-
-            &:first-of-type h3 {
-                grid-column: 3 / span 4;
-            }
-
-            &:last-of-type h3 {
-                grid-column: 10 / span 9;
-                padding-top: ss(1.125);
-                text-align: left;
-                text-align-last: left;
-            }
-        }
+        display: grid;
+        grid-template-columns: repeat(18, 1fr);
     }
 
     &__title {
+        padding: 0 ss(1.5);
+
         @include breakpoint(landscape) {
-            display: grid;
-            grid-template-columns: repeat(18, 1fr);
-            padding: 0 ss(1.5);
+            grid-column: 2 / span 16;
+            padding: 0;
+            text-align: center;
         }
 
         h1 {
-            text-align: right;
-            text-align-last: justify;
+            margin: ss(1.5) 0;
+        }
 
-            @include breakpoint(landscape) {
-                grid-column: 2 / span 18;
+        .stylized-letter {
+            color: rgb(var(--color-light));
+
+            .doodle-1 {
+                margin-left: -1.125em;
+                margin-top: 0.05em;
+                max-width: 0.9em;
+                position: absolute;
+            }
+
+            .doodle-2 {
+                margin-left: -1em;
+                margin-top: 0.1em;
+                max-width: 1.7em;
+                position: absolute;
             }
         }
+    }
+
+    .doodle-3 {
+        grid-column: 8 / span 4;
+        margin-bottom: ss(5);
     }
 }
