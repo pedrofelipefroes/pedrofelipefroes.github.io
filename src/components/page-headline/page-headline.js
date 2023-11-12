@@ -8,11 +8,10 @@ const PageHeadline = () => {
 				<h1>
 					Fr
 					<span className="stylized-letter">
-						o{" "}
-						<span>
+						o
+						<span className="doodle-1">
 							<StaticImage
 								alt="Hand drawn smiley to replace the letter 'o' from the name Froes."
-								className="doodle-1"
 								src="../../images/doodles/smile.png"
 							/>
 						</span>
@@ -22,10 +21,9 @@ const PageHeadline = () => {
 						{"\u00AD"}al
 						<span className="stylized-letter">
 							s
-							<span>
+							<span className="doodle-2">
 								<StaticImage
 									alt="Handwritten 's' to decorate the word 'visuals.'"
-									className="doodle-2"
 									src="../../images/doodles/s.png"
 								/>
 							</span>

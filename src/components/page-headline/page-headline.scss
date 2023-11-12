@@ -21,10 +21,14 @@
             color: rgb(var(--color-light));
 
             .doodle-1 {
-                margin-left: -1.125em;
+                margin-left: -0.9em;
                 margin-top: 0.05em;
                 max-width: 0.9em;
                 position: absolute;
+
+                @include breakpoint(landscape) {
+                    margin-left: -0.965em;
+                }
             }
 
             .doodle-2 {
@@ -32,12 +36,11 @@
                 margin-top: 0.1em;
                 max-width: 1.7em;
                 position: absolute;
+
+                @include breakpoint(landscape) {
+                    margin-left: -1.125em;
+                }
             }
         }
-    }
-
-    .doodle-3 {
-        grid-column: 8 / span 4;
-        margin-bottom: ss(5);
     }
 }
