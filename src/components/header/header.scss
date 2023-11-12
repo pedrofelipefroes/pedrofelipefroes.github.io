@@ -1,20 +1,19 @@
 .header {
-    background-color: transparent;
-    clip-path: polygon(0 0, 100vw 0, 100vw calc(2 * ss(1) + 2.5ex), 0 calc(2 * ss(1) + 2.5ex));
+    background-color: rgba(var(--color-light), 0);
+    // clip-path: polygon(0 0, 100vw 0, 100vw calc(2 * ss(1) + 2.5ex), 0 calc(2 * ss(1) + 2.5ex));
     height: calc(2 * ss(1) + 2.5ex);
     margin-top: -4.2ex;
     padding: 0 ss(1.5);
     position: sticky;
     text-transform: uppercase;
-    transition:
-        background-color 2s cubic-bezier(0.16, 1, 0.3, 1),
-        clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 1ms;
+    transition: background-color 400ms ease-out;
+    // clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 1ms;
     top: 0;
     z-index: 1;
 
     &--is-expanded {
-        background-color: rgb(var(--color-light));
-        clip-path: polygon(0 0, 100vw 0, 100vw 100vh, 0 100vh);
+        background-color: rgba(var(--color-light), 1);
+        // clip-path: polygon(0 0, 100vw 0, 100vw 100vh, 0 100vh);
         display: flex;
         flex-direction: column;
         height: 100vh;
@@ -23,7 +22,7 @@
         padding: 0 ss(1.5) ss(1);
         position: fixed;
         top: 0;
-        transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 1ms;
+        // transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 1ms;
         width: 100vw;
     }
 

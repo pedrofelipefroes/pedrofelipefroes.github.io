@@ -62,12 +62,13 @@ const Header = ({ projects }) => {
 				menu.current.classList.remove("toggle--is-visible");
 				wordmark.current.classList.remove("wordmark--is-shifted");
 				landscapeMenu.current.classList.remove("landscape-menu--is-collapsed");
+				setAtPageTop(true);
 			}
 
 			if (isScrollingUp && "UP") {
 				setVisible(true);
-				window.scrollY === 0 ? setAtPageTop(true) : setAtPageTop(false);
 			} else if (isScrollingDown && "DOWN") {
+				setAtPageTop(false);
 				setVisible(false);
 			}
 		};
