@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "sass:math";
 @import "./base.scss";
 
@@ -6,7 +7,18 @@
 }
 
 body {
-    background-color: rgba(var(--color-dark), 1);
+    background-color: rgb(var(--color-light));
+    color: rgb(var(--color-dark));
+    font-family: $typeface;
+    font-feature-settings:
+        "pnum" on,
+        "lnum" on,
+        "ss01" on,
+        "ss17" on,
+        "case" on,
+        "cpsp" on,
+        "zero" on;
+    font-style: normal;
     direction: ltr;
     hanging-punctuation: first last;
     text-rendering: optimizeLegibility;
@@ -17,21 +29,16 @@ body {
 // TYPOGRAPHY
 
 @each $level, $ratio in $type-hierarchy {
-    $max-font-size: $type-base * math.pow($ms-ratio, $ratio);
-    $max-font-size-unitless: math.div($max-font-size, $max-font-size * 0 + 1);
-    $fluid-reduction: if($ratio > 3, 0.5, 0.4);
-    $min-font-size: $max-font-size-unitless - ($fluid-reduction * $max-font-size-unitless);
-    $min-font-size: if($min-font-size > 0.75, $min-font-size, 0.75);
-    $fluid-scaler: ($max-font-size-unitless - $min-font-size) + 0.75vw;
-    $font-size: clamp(#{$min-font-size}rem, #{$fluid-scaler}, #{$max-font-size});
-    $leading: math.round(math.div(2ex, $spacing-base)) * 15;
-
-    #{$level},
-    .ms#{$ratio} {
-        font-size: $font-size;
-        line-height: 2ex;
+    #{$level} {
+        font-size: msSize($ratio);
+        line-height: 1.9ex;
         overflow-wrap: break-word;
-        // hyphens: auto;
+
+        @if list.length($ratio) > 1 {
+            @include breakpoint(landscape) {
+                font-size: msSize($ratio, 2);
+            }
+        }
     }
 }
 
@@ -41,141 +48,113 @@ a {
     text-decoration: none;
 
     &:hover {
-        text-decoration: line-through;
+        // text-decoration: line-through;
     }
 }
 
-body,
-.ms0 {
+small {
+    display: block;
     font-weight: 300;
-}
+    letter-spacing: 0.06em;
+    line-height: 3ex;
+    text-transform: uppercase;
 
-button {
-    font-size: ms(0);
-    line-height: ss(1);
+    & + & {
+        margin-top: 2.5ex;
+    }
 }
 
 h1,
-.ms5 {
-    font-weight: 700;
-    letter-spacing: -0.02em;
-}
-
-h3,
-.ms2 {
-    font-weight: 600;
-    letter-spacing: -0.01em;
-}
-
-.mono {
-    font-family: $font-mono;
-    font-feature-settings: "tnum" on, "lnum" on, "ss01" on, "ss17" on, "zero" on, "case" on, "cpsp" on, "ordn" on;
-    font-weight: 300;
-    letter-spacing: 0.01em;
-    line-height: ss(1);
+h2,
+h3 {
     text-transform: uppercase;
 }
 
-.sans-serif {
-    font-family: $font-sans-serif;
-    font-feature-settings: "pnum" on, "lnum" on, "ss01" on, "ss17" on, "case" on, "cpsp" on, "zero" on;
-    font-style: normal;
-    font-weight: 300;
-    letter-spacing: 0;
+h1 {
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 2.07ex;
+    hyphens: manual;
+
+    @include breakpoint(landscape) {
+        letter-spacing: 0.16em;
+    }
 }
 
-.txt-dark-primary {
-    color: rgba(var(--color-dark), 1);
+h2 {
+    font-weight: 650;
+    letter-spacing: 0.1em;
+    line-height: 1.88ex;
 }
 
-.txt-dark-secondary {
-    color: rgba(var(--color-dark), 0.25);
+h3 {
+    font-stretch: 100%;
+    font-weight: 550;
+    letter-spacing: 0.03em;
+    line-height: 2.2ex;
 }
 
-.txt-light-primary {
-    color: rgba(var(--color-light), 0.85);
+p {
+    font-weight: 200;
+    letter-spacing: 0em;
+    line-height: 3ex;
 }
 
-.txt-light-secondary {
-    color: rgba(var(--color-light), 0.15);
-}
+// COMPONENTS
+
+@import "../components/frame/frame.scss";
+@import "../components/footer/footer.scss";
+@import "../components/header/header.scss";
+@import "../components/page-headline/page-headline.scss";
+@import "../components/poster-carousel/poster-carousel.scss";
+@import "../components/project-description/project-description.scss";
 
 // LAYOUT
+
+.page {
+    margin: 0 auto;
+    max-width: $max-page-width;
+}
 
 .viewport {
     display: grid;
 
     @include breakpoint(landscape) {
-        column-gap: ss(2);
-        grid-template-columns: max(22.222222222%, 212px) 3.5fr;
-        padding: ss(2);
-
-        aside {
-            display: grid;
-            column-gap: ss(2);
-            grid-template-columns: max(22.222222222%, 212px) 3.5fr;
-            margin-left: -1 * ss(2);
-            padding: 0 ss(2);
-            position: fixed;
-            width: 100%;
-        }
-
-        main {
-            grid-column: 2 / span 1;
-        }
+        grid-template-columns: repeat(18, 1fr);
     }
 }
 
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: ss(2);
-
-    address {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    header {
-        display: flex;
-        justify-content: space-between;
-        height: ss(1);
+.viewport--fixed-height {
+    @include breakpoint(landscape) {
+        grid-template-rows: repeat(18, 1fr);
+        height: calc(2 / 3 * 100vw);
+        max-height: $max-frame-height;
     }
 }
 
-.frame,
-.sidebar {
-    background-color: rgba(var(--color-light), 0.05);
-    border-radius: ss(2);
+// INDEX PAGE SECTIONS
+
+.page-subhead {
+    margin: 0 ss(1.5) ss(5.5);
+
+    .subhead {
+        max-width: max(500px, var(--golden-ratio--smaller));
+    }
 
     @include breakpoint(landscape) {
-        min-height: calc(100vh - ss(3));
+        margin: 0;
+
+        .subhead {
+            grid-column: 3 / span 5;
+        }
     }
 }
 
-.frame {
-    border-bottom: solid 0.125rem rgba(var(--color-dark), 1);
-
-    /* FRAME TYPE: COVER */
-    &--cover {
-        column-gap: ss(2);
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        grid-template-rows: fit-content fit-content;
-
-        div:first-child {
-            grid-column: 1 / span 6;
-            padding: ss(2) ss(3);
-        }
-
-        div:last-child {
-            align-self: flex-end;
-            grid-column: 1 / span 7;
-            display: flex;
-            justify-content: space-between;
-            padding: ss(3) ss(3);
+.project-list-item {
+    @include breakpoint(landscape) {
+        .gatsby-image-wrapper {
+            grid-column: 3 / span 12;
+            grid-row: 3 / span 10;
         }
     }
 }

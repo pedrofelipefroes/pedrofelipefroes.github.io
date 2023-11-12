@@ -138,13 +138,6 @@ table {
 // FONTS
 
 @font-face {
-    font-family: "GT Maru Mono";
-    font-style: normal;
-    font-weight: 300 900;
-    src: url("./fonts/GT_Maru_Mono_VF.woff2");
-}
-
-@font-face {
     font-family: "Helvetica Now";
     font-stretch: 50% 100%;
     font-style: normal;
@@ -162,15 +155,29 @@ table {
 
 // SCSS VARIABLES
 
-$font-sans-serif: "Helvetica Now", sans-serif;
-$font-mono: "GT Maru Mono", monospace;
 $ms-ratio: 1.5;
+$max-frame-height: 80rem;
+$max-page-width: 120rem;
 $spacing-base: 2ex;
-$type-base: 1.0625rem;
+$typeface: "Helvetica Now", sans-serif;
+$type-base: 0.75rem;
 $type-hierarchy: (
-    "body": 0,
-    "h3": 2,
-    "h1": 5,
+    "small": (
+        0.25
+    ),
+    "p": (
+        1
+    ),
+    "h3": (
+        2
+    ),
+    "h2": (
+        3
+    ),
+    "h1": (
+        7,
+        4
+    )
 );
 
 // SCSS MIXINS
@@ -178,6 +185,10 @@ $type-hierarchy: (
 @mixin breakpoint($value) {
     @if $value == landscape {
         @media screen and (orientation: landscape) {
+            @content;
+        }
+    } @else if type-of($value) == number {
+        @media screen and (min-width: $value) {
             @content;
         }
     } @else {
@@ -191,6 +202,18 @@ $type-hierarchy: (
     @return math.pow($ms-ratio, $n) * $type-base;
 }
 
+@function msSize($ratio, $i: 1) {
+    $max-font-size: $type-base * math.pow($ms-ratio, list.nth($ratio, $i));
+    $max-font-size-unitless: math.div($max-font-size, $max-font-size * 0 + 1);
+    $fluid-reduction: if(list.nth($ratio, 1) > 3, 0.6, 0);
+    $min-font-size: $max-font-size-unitless - ($fluid-reduction * $max-font-size-unitless);
+    $min-font-size: if($min-font-size > 0.75, $min-font-size, 0.75);
+    $fluid-scaler: ($max-font-size-unitless - $min-font-size) + 0.75vw;
+    $fluid-scaler-landscape: ($max-font-size-unitless - $min-font-size) + 0.01vw;
+
+    @return clamp(#{$min-font-size}rem, #{$fluid-scaler}, #{$max-font-size});
+}
+
 @function ss($n, $base: $spacing-base) {
     @return $n * $spacing-base;
 }
@@ -201,7 +224,10 @@ $type-hierarchy: (
 ::after,
 ::before {
     --color-dark: 0, 0, 0;
-    --color-light: 245, 245, 245;
+    --color-light: 253, 253, 253;
+    --color-project-bds: #ff8841;
+    --golden-ratio--larger: calc(1 / 1.618033988749 * 100%);
+    --golden-ratio--smaller: calc(calc(1 - 1 / 1.618033988749) * 100%);
     --spacing-base: 2ex;
     --type-base: 1.0625rem;
 }
