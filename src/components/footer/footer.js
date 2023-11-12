@@ -10,7 +10,7 @@ const Footer = () => {
 						{"\u2197"}
 					</a>
 					<a href="mailto:hello@froes.design">
-						hello@froes.design{"\u2009"}
+						Email{"\u2009"}
 						{"\u2197"}
 					</a>
 				</small>
