@@ -1,7 +1,7 @@
 .footer {
     bottom: 0;
     position: fixed;
-    width: 100vw;
+    width: min(100vw, $max-page-width);
 
     address {
         display: flex;
@@ -10,6 +10,15 @@
 
         a + a {
             margin-left: ss(1.5);
+        }
+
+        small:first-child:hover {
+            color: rgba(var(--color-dark), 0.18);
+            transition: color ease-out 200ms;
+        }
+
+        small:first-child a:hover {
+            color: rgb(var(--color-dark)) !important;
         }
 
         small:last-child {
