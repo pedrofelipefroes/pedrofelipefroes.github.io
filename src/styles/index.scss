@@ -83,8 +83,8 @@ h1 {
 
 h2 {
     font-weight: 650;
-    letter-spacing: 0.1em;
-    line-height: 1.88ex;
+    letter-spacing: 0.12em;
+    line-height: 2.07ex;
 }
 
 h3 {
@@ -111,11 +111,6 @@ p {
 
 // LAYOUT
 
-.page {
-    margin: 0 auto;
-    max-width: $max-page-width;
-}
-
 .viewport {
     display: grid;
 
@@ -130,6 +125,11 @@ p {
         height: calc(2 / 3 * 100vw);
         max-height: $max-frame-height;
     }
+}
+
+.viewport--max-width {
+    margin: 0 auto;
+    max-width: $max-page-width;
 }
 
 // INDEX PAGE SECTIONS
@@ -150,11 +150,81 @@ p {
     }
 }
 
-.project-list-item {
+.project-list {
+    margin-top: ss(5.5);
+
     @include breakpoint(landscape) {
-        .gatsby-image-wrapper {
-            grid-column: 3 / span 12;
-            grid-row: 3 / span 10;
+        margin-top: ss(11);
+
+        &__item:nth-child(1) {
+            .gatsby-image-wrapper {
+                grid-column: 3 / span 12;
+                grid-row: 1 / span 12;
+            }
+
+            .project-description__title {
+                grid-column: 12 / span 2;
+                grid-row: 15 / span 3;
+            }
+
+            .project-description__subhead {
+                grid-column: 15 / span 4;
+                grid-row: 15 / span 3;
+            }
+        }
+
+        &__item:nth-child(2) {
+            .gatsby-image-wrapper {
+                grid-column: 7 / span 12;
+                grid-row: 3 / span 12;
+            }
+
+            .project-description__title {
+                grid-column: 7 / span 2;
+                grid-row: 16 / span 3;
+            }
+
+            .project-description__subhead {
+                grid-column: 3 / span 4;
+                grid-row: 16 / span 3;
+            }
+        }
+
+        &__item:nth-child(3) {
+            .gatsby-image-wrapper {
+                grid-column: 3 / span 12;
+                grid-row: 3 / span 12;
+            }
+
+            .project-description__title {
+                grid-column: 3 / span 2;
+                grid-row: 16 / span 3;
+            }
+
+            .project-description__subhead {
+                grid-column: 6 / span 4;
+                grid-row: 16 / span 3;
+            }
+        }
+
+        &__item:nth-child(4) {
+            margin: ss(11) 0;
+
+            .viewport {
+                @include breakpoint(landscape) {
+                    margin-top: ss(4);
+                }
+            }
+
+            .project-description__title {
+                grid-column: 11 / span 2;
+                grid-row: 16 / span 3;
+            }
+
+            .project-description__subhead {
+                grid-column: 7 / span 4;
+                grid-row: 16 / span 3;
+            }
         }
     }
 }
