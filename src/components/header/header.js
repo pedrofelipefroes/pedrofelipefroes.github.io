@@ -103,7 +103,7 @@ const Header = ({ projects }) => {
 			</div>
 			<header
 				ref={header}
-				className={c("header", {
+				className={c("viewport--max-width header", {
 					"header--is-expanded": expanded,
 				})}
 			>

@@ -3,6 +3,10 @@
     position: fixed;
     width: min(100vw, $max-page-width);
 
+    @include breakpoint(1920px) {
+        left: calc(calc(100vw - $max-page-width) / 2);
+    }
+
     address {
         display: flex;
         justify-content: space-between;
