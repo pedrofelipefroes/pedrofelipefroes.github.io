@@ -1,0 +1,29 @@
+.poster-carousel {
+    @extend small;
+
+    margin: 0 ss(0.75);
+
+    .slick-slide {
+        margin: 0 ss(0.75);
+    }
+
+    .slick-list {
+        margin: 0 ss(-0.75);
+    }
+
+    .slick-track {
+        display: flex;
+    }
+
+    @include breakpoint(1024px) {
+        margin: 0 ss(1);
+
+        .slick-slide {
+            margin: 0 ss(1);
+        }
+
+        .slick-list {
+            margin: 0 ss(-1);
+        }
+    }
+}

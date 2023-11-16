@@ -9,32 +9,29 @@ const PosterCarousel = () => {
 	const settings = {
 		arrows: false,
 		autoplay: true,
-		autoplaySpeed: 5000,
-		centerMode: true,
-		className: "center",
+		autoplaySpeed: 1,
 		dots: false,
 		infinite: true,
-		pauseOnHover: true,
+		speed: 120000,
+		cssEase: "linear",
 		responsive: [
 			{
-				breakpoint: 1024,
+				breakpoint: 1921,
 				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 3,
+					slidesToShow: 3,
+					slidesToScroll: -1,
 				},
 			},
 			{
-				breakpoint: 768,
+				breakpoint: 1281,
 				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 3,
+					slidesToShow: 2,
+					slidesToScroll: -1,
 				},
 			},
 		],
-		slidesToShow: 3,
-		slidesToScroll: 3,
-		speed: 3000,
-		cssEase: "cubic-bezier(0.16, 1, 0.3, 1)",
+		slidesToShow: 4,
+		slidesToScroll: -1,
 	};
 
 	return (
