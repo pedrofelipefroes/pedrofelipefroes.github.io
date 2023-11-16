@@ -2,8 +2,6 @@
     padding-top: ss(1.5);
 
     @include breakpoint(landscape) {
-        display: grid;
-        grid-template-columns: repeat(18, 1fr);
         padding-top: 0;
     }
 
@@ -21,8 +19,6 @@
         }
 
         .stylized-letter {
-            color: rgb(var(--color-light));
-
             .doodle-1 {
                 margin-left: -0.9em;
                 margin-top: 0.05em;

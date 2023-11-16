@@ -3,7 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const PageHeadline = () => {
 	return (
-		<section className="page-headline">
+		<section className="viewport viewport--max-width page-headline">
 			<div className="page-headline__title">
 				<h1>
 					Fr
