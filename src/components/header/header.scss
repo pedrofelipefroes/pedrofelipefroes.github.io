@@ -173,7 +173,7 @@
             }
 
             li + li {
-                margin-left: ss(1.5);
+                margin-left: 2em;
             }
 
             @for $i from 1 through $project-count {
@@ -263,7 +263,7 @@
     }
 
     small + small {
-        margin-left: 0.5em;
+        margin-left: 1em;
         margin-top: 0;
     }
 }
