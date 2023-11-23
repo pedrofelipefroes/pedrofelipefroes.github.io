@@ -6,8 +6,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const PosterCarousel = () => {
-	let autoplaySpeedValue = 2617;
-
 	const settings = {
 		arrows: false,
 		autoplay: true,
@@ -49,7 +47,7 @@ const PosterCarousel = () => {
 	};
 
 	const innerSlider = (
-		<Slider autoplaySpeed={autoplaySpeedValue} {...innerSliderSettings}>
+		<Slider {...innerSliderSettings}>
 			<div>
 				<StaticImage
 					src="../../images/artwork/poster_blue-banisters.jpg"
