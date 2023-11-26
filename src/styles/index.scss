@@ -32,7 +32,7 @@ body {
     #{$level} {
         font-size: msSize($ratio);
         line-height: 1.9ex;
-        overflow-wrap: break-word;
+        // overflow-wrap: break-word;
 
         @if list.length($ratio) > 1 {
             @include breakpoint(landscape) {
@@ -54,7 +54,7 @@ a {
 
 small {
     display: block;
-    font-weight: 300;
+    font-weight: 250;
     letter-spacing: 0.06em;
     line-height: 3ex;
     text-transform: uppercase;
@@ -98,6 +98,13 @@ p {
     font-weight: 200;
     letter-spacing: 0em;
     line-height: 3ex;
+}
+
+.display {
+    font-weight: 550;
+    letter-spacing: 0.08em;
+    line-height: 2.25ex;
+    // text-transform: initial;
 }
 
 // COMPONENTS
@@ -163,7 +170,7 @@ p {
             }
 
             .project-description__title {
-                grid-column: 12 / span 2;
+                grid-column: 12 / span 3;
                 grid-row: 15 / span 3;
             }
 
@@ -180,7 +187,7 @@ p {
             }
 
             .project-description__title {
-                grid-column: 7 / span 2;
+                grid-column: 7 / span 3;
                 grid-row: 16 / span 3;
             }
 
@@ -197,7 +204,7 @@ p {
             }
 
             .project-description__title {
-                grid-column: 3 / span 2;
+                grid-column: 3 / span 3;
                 grid-row: 16 / span 3;
             }
 
@@ -208,7 +215,7 @@ p {
         }
 
         &__item:nth-child(4) {
-            margin: ss(11) 0;
+            margin: ss(22) 0 0;
 
             .viewport {
                 @include breakpoint(landscape) {
@@ -217,7 +224,7 @@ p {
             }
 
             .project-description__title {
-                grid-column: 11 / span 2;
+                grid-column: 12 / span 3;
                 grid-row: 16 / span 3;
             }
 
@@ -225,6 +232,45 @@ p {
                 grid-column: 7 / span 4;
                 grid-row: 16 / span 3;
             }
+        }
+    }
+}
+
+// ABOUT
+
+.about {
+    padding: 0 ss(1.5);
+    grid-template-rows: repeat(4, auto);
+
+    &__headline {
+        grid-row: 1 / span 1;
+        margin: ss(5.5) 0;
+
+        @include breakpoint(landscape) {
+            grid-column: 3 / span 13;
+            margin-bottom: ss(9);
+            margin-top: ss(22);
+            text-align: justify;
+            text-align-last: justify;
+        }
+    }
+
+    &__body {
+        grid-row: 3 / span 1;
+        margin: ss(5.5) 0 ss(11);
+
+        @include breakpoint(landscape) {
+            grid-column: 12 / span 4;
+        }
+    }
+
+    &__footnote {
+        grid-row: 4 / span 1;
+        padding-bottom: ss(2) + 3ex;
+
+        @include breakpoint(landscape) {
+            grid-column: 12 / span 4;
+            padding-bottom: ss(1);
         }
     }
 }

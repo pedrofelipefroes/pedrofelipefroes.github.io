@@ -1,15 +1,36 @@
 import React, { useEffect } from "react";
 
-import BackToTop from "../components/back-to-top/back-to-top";
-import NavItem from "../components/nav-item/nav-item";
+import Frame from "../components/frame/frame";
+import Footer from "../components/footer/footer";
+import Header from "../components/header/header";
+import ProjectTitle from "../components/project-description/project-description";
 import Seo from "../components/seo/seo";
 
 import { navItemIsSelected } from "../components/nav-item/nav-item.module.css";
-
-import NavigationLink from "../components/navigation-link/navigation-link";
 import { StaticImage } from "gatsby-plugin-image";
+import PosterCarousel from "../components/poster-carousel/poster-carousel";
+import PageHeadline from "../components/page-headline/page-headline";
+import ProjectDescription from "../components/project-description/project-description";
+
+// import NavigationLink from "../components/navigation-link/navigation-link";
+// import { StaticImage } from "gatsby-plugin-image";
 
 const IndexPage = () => {
+	const projects = [
+		{
+			id: "pst",
+			name: "Poster Collection",
+			description:
+				"A collection of posters themed after diverse music artists and their inspiring\u00A0songs.",
+			tags: ["Art Direction", "Visual Design"],
+			start: 2020,
+			end: 2023,
+		},
+		{ id: "bds", name: "Block Design System" },
+		{ id: "acr", name: "Rebranding Avenue Code" },
+		{ id: "abt", name: "About Froes \u00B7 Design" },
+	];
+
 	useEffect(() => {
 		let observer = new IntersectionObserver(projectChange, {
 			rootMargin: "30px",
@@ -17,7 +38,7 @@ const IndexPage = () => {
 		});
 
 		function clearSelected() {
-			document.querySelectorAll("[id^=trigger]").forEach((item) => {
+			document.querySelectorAll("[id$=trigger]").forEach((item) => {
 				item.classList.remove(navItemIsSelected);
 			});
 		}
@@ -27,113 +48,155 @@ const IndexPage = () => {
 				if (entry.isIntersecting) {
 					clearSelected();
 
-					if (entry.target.id.includes("start-")) {
-						let id = "trigger-" + entry.target.id.split("start-")[1];
+					if (
+						entry.target.id.includes("start") ||
+						entry.target.id.includes("end")
+					) {
+						let id = entry.target.id.split("-")[0] + "-trigger";
 						let el = document.getElementById(id);
-						el.classList.add(navItemIsSelected);
+						if (el) el.classList.add(navItemIsSelected);
 					}
 				}
 			});
 		}
 
-		document.querySelectorAll("[id^=start], [id^=author]").forEach((item) => {
-			if (item) {
-				observer.observe(item);
-			}
-		});
+		document
+			.querySelectorAll('[id$="start"], [id$="end"], [id^="author"]')
+			.forEach((item) => {
+				if (item) {
+					observer.observe(item);
+				}
+			});
 	}, []);
 
 	return (
 		<>
-			<Seo title="Visual Systems, UI, Branding & Technology" />
-			<div className="viewport">
-				<aside>
-					<div className="mono sidebar txt-light-primary">
-						<header>
-							<p>FROES.DESIGN</p>
-							<BackToTop />
-						</header>
-						<menu>
-							<NavItem id="trigger-ldr" section="start-ldr">
-								27 Days Until Lana Del Rey
-							</NavItem>
-							<NavItem id="trigger-bds" section="start-bds">
-								Postclick{"\u2019"}s Block Design System
-							</NavItem>
-							<NavItem id="trigger-rac" section="start-rac">
-								Rebranding Avenue Code
-							</NavItem>
-							<NavItem id="trigger-cre" section="start-cre">
-								Condé Nast{"\u2019"}s Creative Direction
-							</NavItem>
-							<NavItem id="trigger-spt" section="start-spt">
-								Spotify Wrapped with AI
-							</NavItem>
-							<NavItem id="trigger-msc" section="start-msc">
-								The Year in Music
-							</NavItem>
-						</menu>
-						<address>
-							<a href="https://linkedin.com/in/froesdesign">
-								LinkedIn{"\u2009"}
-								{"\u2197"}
-							</a>
-							<a href="mailto:hello@froes.design">hello@froes.design</a>
-						</address>
-					</div>
-				</aside>
-				<main>
-					<section
-						id="author-1"
-						className="frame frame--cover sans-serif txt-light-primary"
-					>
-						<div>
-							<h1>
-								The Aesthetic Adventures of Froes{" "}
-								<span className="txt-light-secondary">
-									{"\u0028"}or... {"\u201C"}Designer with 7+ years of experience
-									has some projects pictured below.{"\u201D"}
-									{"\u0029"}
-								</span>
-							</h1>
+			<Seo title="Froes designs concepts and visuals for brands, products, and music" />
+			<main>
+				<PageHeadline />
+				<section className="page-subhead">
+					<div className="viewport viewport--max-width">
+						<div className="subhead">
+							<small>
+								Former Head of Design Systems at Instapage and Design Lead at
+								Avenue Code, now Founding Designer at{"\u00A0"}Perspective. 7+
+								years creating captivating, systematic, and detail-oriented user
+								{"\u00A0"}experiences.
+							</small>
 						</div>
-						<div>
-							<h3>Written and designed by Froes</h3>
-							<h3>Director{"\u2019"}s Cut</h3>
+					</div>
+				</section>
+				<Header projects={projects} />
+				<ul className="project-list">
+					<li className="project-list__item viewport viewport--max-width viewport--fixed-height">
+						<StaticImage
+							alt="teste"
+							src="../images/projects/bds/branded-landing-pages.jpg"
+						/>
+						<ProjectDescription
+							durationEnd={projects[0].end}
+							durationStart={projects[0].start}
+							subhead={projects[0].description}
+							title={projects[0].name}
+							tags={projects[0].tags}
+						/>
+					</li>
+					<li className="project-list__item viewport viewport--max-width viewport--fixed-height">
+						<StaticImage
+							alt="teste"
+							src="../images/projects/bds/branded-landing-pages.jpg"
+						/>
+						<ProjectDescription
+							durationEnd={projects[0].end}
+							durationStart={projects[0].start}
+							subhead={projects[0].description}
+							title={projects[0].name}
+							tags={projects[0].tags}
+						/>
+					</li>
+					<li className="project-list__item viewport viewport--max-width viewport--fixed-height">
+						<StaticImage
+							alt="teste"
+							src="../images/projects/bds/branded-landing-pages.jpg"
+						/>
+						<ProjectDescription
+							durationEnd={projects[0].end}
+							durationStart={projects[0].start}
+							subhead={projects[0].description}
+							title={projects[0].name}
+							tags={projects[0].tags}
+						/>
+					</li>
+					<li className="project-list__item">
+						<PosterCarousel />
+						<div className="viewport viewport--max-width">
+							<ProjectDescription
+								durationEnd={projects[0].end}
+								durationStart={projects[0].start}
+								subhead={projects[0].description}
+								title={projects[0].name}
+								tags={projects[0].tags}
+							/>
 						</div>
-					</section>
-					<div id="author-2" className="frame">
-						<p>Author</p>
+					</li>
+				</ul>
+				<section className="about viewport viewport--max-width">
+					<div className="about__headline">
+						<h2 className="display">
+							Froes de{"\u00AD"}signs vis{"\u00AD"}uals for prod{"\u00AD"}ucts,
+							brands, and
+							{"\u00A0"}mu{"\u00AD"}sic.
+						</h2>
 					</div>
-					<div id="author-3" className="frame">
-						<p>Author</p>
+					<div className="about__body">
+						<small>
+							I{"\u2019"}m a seasoned designer with 7+ years of experience
+							skilled at Visual Design, Product & UI Design, and design for
+							Digital Marketing.
+						</small>
+						<small>
+							Playing with typography and scaling visual systems are things I
+							{"\u2019"}m passionate about{"\u00A0"}
+							{"\u2661"}
+						</small>
+						<small>
+							I{"\u2019"}m currently based in São Paulo, Brazil, but open to
+							relocation. Reach out for a chat and let{"\u2019"}s explore how we
+							can collaborate.
+						</small>
+						<small>
+							Experience
+							<svg
+								width="2.5ex"
+								height="2.5ex"
+								viewBox="0 0 30 30"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<line x1="3" y1="15" x2="27" y2="15" />
+								<line x1="15" y1="3" x2="15" y2="27" />
+							</svg>
+						</small>
+						<small>
+							Education
+							<svg
+								width="2.5ex"
+								height="2.5ex"
+								viewBox="0 0 30 30"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<line x1="3" y1="15" x2="27" y2="15" />
+								<line x1="15" y1="3" x2="15" y2="27" />
+							</svg>
+						</small>
 					</div>
-					<div id="start-ldr" className="frame ldr">
-						<p>27 Days Until Lana Del Rey</p>
-					</div>
-					<div className="frame ldr">
-						<p>27 Days Until Lana Del Rey</p>
-					</div>
-					<div className="frame ldr">
-						<p>27 Days Until Lana Del Rey</p>
-					</div>
-					<div id="start-bds" className="frame">
-						<p>Postclick's Block Design System</p>
-					</div>
-					<div id="start-rac" className="frame">
-						<p>Rebranding Avenue Code</p>
-					</div>
-					<div id="start-cre" className="frame">
-						<p>Condé Nast's Creative Direction</p>
-					</div>
-					<div id="start-spt" className="frame">
-						<p>Spotify Wrapped with AI</p>
-					</div>
-					<div id="start-msc" className="frame">
-						<p>The Year in Music</p>
-					</div>
-				</main>
-			</div>
+					<small className="about__footnote">
+						Designed and developed by Froes.
+					</small>
+				</section>
+				<Footer />
+			</main>
 		</>
 	);
 };
