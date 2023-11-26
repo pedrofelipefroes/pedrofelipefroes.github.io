@@ -137,8 +137,8 @@ const Header = ({ projects }) => {
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
 					>
-						<line x1="2" y1="15" x2="28" y2="15" />
-						<line x1="15" y1="2" x2="15" y2="28" />
+						<line x1="3" y1="15" x2="27" y2="15" />
+						<line x1="15" y1="3" x2="15" y2="27" />
 					</svg>
 				</nav>
 				<menu className={c("menu", { "menu--is-visible": expanded })}>

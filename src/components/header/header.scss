@@ -2,7 +2,7 @@
     background-color: rgba(var(--color-light), 0);
     // clip-path: polygon(0 0, 100vw 0, 100vw calc(2 * ss(1) + 2.5ex), 0 calc(2 * ss(1) + 2.5ex));
     height: calc(2 * ss(1) + 2.5ex);
-    margin-top: -4.2ex;
+    margin-top: -4.2ex !important;
     padding: 0 ss(1.5);
     position: sticky;
     text-transform: uppercase;
@@ -100,7 +100,7 @@
 
     .toggle {
         box-sizing: content-box;
-        stroke-width: 0.125em;
+        stroke-width: 0.1em;
         margin-right: -1 * ss(1);
         opacity: 0;
         padding: ss(1) ss(1) ss(1) ss(0.5);
