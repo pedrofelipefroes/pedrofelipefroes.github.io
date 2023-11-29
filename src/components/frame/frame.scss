@@ -1,133 +1,57 @@
 .frame {
-    display: grid;
-}
+    &__content {
+        display: flex;
+        padding: ss(6) ss(1.5);
+    }
 
-.frame__landscape {
-    gap: ss(1);
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, auto);
-    padding: ss(1) ss(1.5);
-
-    @include breakpoint(landscape) {
-        gap: 0;
-        grid-template-columns: repeat(18, 1fr);
-        grid-template-rows: repeat(18, 1fr);
-        height: calc(2 / 3 * 100vw);
+    &--wide &__content {
         padding: 0;
     }
 
-    .major {
-        &--top-left,
-        &--top-right,
-        &--bottom-left,
-        &--bottom-right {
-            grid-column: 1 / span 1;
-            grid-row: 1 / span 1;
-        }
-
-        &--top-left {
-            @include breakpoint(landscape) {
-                grid-column: 3 / span 12;
-                grid-row: 3 / span 12;
-            }
-        }
-
-        &--top-right {
-            @include breakpoint(landscape) {
-                grid-column: 5 / span 12;
-                grid-row: 3 / span 12;
-            }
-        }
-
-        &--bottom-left {
-            @include breakpoint(landscape) {
-                grid-column: 3 / span 12;
-                grid-row: 5 / span 12;
-            }
-        }
-
-        &--bottom-right {
-            @include breakpoint(landscape) {
-                grid-column: 5 / span 12;
-                grid-row: 5 / span 12;
-            }
-        }
-    }
-
-    .minor {
-        &--apex-left,
-        &--apex-right,
-        &--base-left,
-        &--base-right {
+    @include breakpoint(landscape) {
+        &__content {
             display: flex;
-            flex-direction: column;
-
-            @include breakpoint(landscape) {
-                hyphens: auto;
-            }
+            padding: 0;
         }
 
-        &--base-left,
-        &--base-right {
-            justify-content: flex-end;
+        &--top &__content {
+            grid-row-start: 2;
         }
 
-        &--apex-left,
-        &--base-left {
-            @include breakpoint(landscape) {
-                grid-column: 1 / span 3;
-                grid-row: 3 / span 12;
-                padding-left: ss(3);
-            }
+        &--bottom &__content {
+            grid-row-start: 3;
         }
 
-        &--apex-right,
-        &--base-right {
-            @include breakpoint(landscape) {
-                grid-column: 16 / span 3;
-                grid-row: 3 / span 12;
-                padding-right: ss(3);
-            }
+        &--end &__content {
+            grid-column-start: 5;
         }
 
-        &--bottom-end,
-        &--bottom-start,
-        &--top-end,
-        &--top-start {
-            display: flex;
+        &--start &__content {
+            grid-column-start: 3;
         }
 
-        &--bottom-start {
-            @include breakpoint(landscape) {
-                grid-column: 3 / span 12;
-                grid-row: 16 / span 3;
-            }
+        &--regular &__content {
+            grid-column-end: span 12;
+            grid-row-end: span 6;
         }
 
-        &--bottom-end {
-            @include breakpoint(landscape) {
-                grid-column: 6 / span 12;
-                grid-row: 16 / span 3;
-            }
+        &--large &__content {
+            grid-column-end: span 15;
+            grid-row: 2 / span 7;
         }
 
-        &--top-end,
-        &--top-start {
-            padding-top: ss(3);
+        &--large.frame--end &__content {
+            grid-column-start: 2;
         }
 
-        &--top-start {
-            @include breakpoint(landscape) {
-                grid-column: 3 / span 12;
-                grid-row: 1 / span 3;
-            }
+        &--large.frame--start &__content {
+            grid-column-start: 1;
         }
 
-        &--top-end {
-            @include breakpoint(landscape) {
-                grid-column: 6 / span 12;
-                grid-row: 1 / span 3;
-            }
+        &--wide &__content {
+            grid-column: 1 / span 18;
+            grid-row: 1 / span 9;
+            padding: ss(1) ss(1.5);
         }
     }
 }
