@@ -141,7 +141,7 @@ const Header = ({ projects }) => {
 							"toggle--off": expanded,
 							"toggle-is-visible": expanded,
 						})}
-						onClick={toggleMenu}
+						// onClick={toggleMenu}
 						width="2.5ex"
 						height="2.5ex"
 						viewBox="0 0 30 30"
