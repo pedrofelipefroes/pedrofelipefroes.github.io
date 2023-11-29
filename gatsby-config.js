@@ -27,15 +27,6 @@ module.exports = {
 				path: `${__dirname}/src/images`,
 			},
 		},
-		`gatsby-transformer-sharp`,
-		{
-			resolve: "gatsby-plugin-react-svg",
-			options: {
-				rule: {
-					include: /\.inline\.svg$/,
-				},
-			},
-		},
 		`gatsby-plugin-sharp`,
 		{
 			resolve: `gatsby-plugin-manifest`,
@@ -49,7 +40,9 @@ module.exports = {
 				icon: `src/images/favicon.png`,
 			},
 		},
-		`gatsby-plugin-sass`,
+		{
+			resolve: `gatsby-plugin-sass`,
+		},
 	],
 	pathPrefix: "/",
 };

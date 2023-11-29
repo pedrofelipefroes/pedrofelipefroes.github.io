@@ -8,7 +8,7 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "classnames": "^2.3.1",
-    "gatsby": "^4.13.1",
+    "gatsby": "^5.0.0",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-gatsby-cloud": "^4.13.0",
     "gatsby-plugin-google-gtag": "^4.24.0",
@@ -16,22 +16,27 @@
     "gatsby-plugin-manifest": "^4.13.0",
     "gatsby-plugin-offline": "^5.13.0",
     "gatsby-plugin-react-helmet": "^5.13.0",
-    "gatsby-plugin-react-svg": "^3.1.0",
-    "gatsby-plugin-sass": "^5.13.0",
+    "gatsby-plugin-sass": "^6.12.3",
     "gatsby-plugin-sharp": "^4.13.0",
     "gatsby-source-filesystem": "^4.13.0",
     "gatsby-transformer-sharp": "^4.13.0",
+    "node-sass": "^9.0.0",
     "prop-types": "^15.8.1",
-    "react": "^17.0.1",
+    "react": "^18.0.0",
     "react-animation-on-scroll": "^5.1.0",
-    "react-dom": "^17.0.1",
+    "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
     "react-scroll-parallax": "^3.3.1",
-    "sass": "^1.51.0"
+    "react-slick": "^0.29.0",
+    "react-use-scroll-direction": "^0.1.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "gh-pages": "^4.0.0",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "webpack": "^5.89.0"
   },
   "keywords": [
     "gatsby"
@@ -40,7 +45,7 @@
   "scripts": {
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "develop": "gatsby develop",
+    "develop": "gatsby clean && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
