@@ -118,9 +118,14 @@ const Header = ({ projects }) => {
 								);
 							})} */}
 							<li>
+								<small>This portfolio is a WIP.</small>
+							</li>
+							<li>
 								<small>
-									This portfolio is a WIP. Complete portfolio available upon
-									request.
+									<a href="mailto:hello@froes.design?subject=Portfolio Request &body=Hey, Froes, I'd like to see your complete portfolio. (Context encouraged.)">
+										Complete portfolio available upon request{"\u2009"}
+										{"\u2197"}
+									</a>
 								</small>
 							</li>
 						</ol>

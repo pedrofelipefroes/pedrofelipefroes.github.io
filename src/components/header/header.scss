@@ -223,10 +223,12 @@
         }
 
         .wordmark--is-shifted {
-            margin-right: 0;
+            // margin-right: 0;
+            margin-right: ss(-2.25);
 
             @include breakpoint(landscape) {
-                margin-right: ss(2.25);
+                // margin-right: ss(2.25);
+                margin-right: 0;
                 opacity: 1;
             }
         }
