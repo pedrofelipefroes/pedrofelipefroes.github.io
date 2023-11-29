@@ -158,10 +158,10 @@
                 grid-column: 1 / span 18;
                 justify-content: flex-end;
 
-                &:hover li {
-                    color: rgba(var(--color-dark), 0.18);
-                    transition: color ease-in 200ms;
-                }
+                // &:hover li {
+                // color: rgba(var(--color-dark), 0.18);
+                // transition: color ease-in 200ms;
+                // }
             }
 
             li {
@@ -195,7 +195,7 @@
             }
 
             &.landscape-menu--is-collapsed li a {
-                pointer-events: none;
+                // pointer-events: none;
             }
 
             &.landscape-menu--is-collapsed li:last-child {
