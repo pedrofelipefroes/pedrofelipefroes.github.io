@@ -55,11 +55,11 @@ const Header = ({ projects }) => {
 			let headerTopPosition = header.current.getBoundingClientRect().top;
 
 			if (headerTopPosition === 0) {
-				menu.current.classList.add("toggle--is-visible");
+				// menu.current.classList.add("toggle--is-visible");
 				wordmark.current.classList.add("wordmark--is-shifted");
 				landscapeMenu.current.classList.add("landscape-menu--is-collapsed");
 			} else {
-				menu.current.classList.remove("toggle--is-visible");
+				// menu.current.classList.remove("toggle--is-visible");
 				wordmark.current.classList.remove("wordmark--is-shifted");
 				landscapeMenu.current.classList.remove("landscape-menu--is-collapsed");
 				setAtPageTop(true);
@@ -80,7 +80,7 @@ const Header = ({ projects }) => {
 
 	return (
 		<>
-			<div
+			{/* <div
 				className={c("mode", {
 					"mode--is-visible": visible,
 				})}
@@ -100,7 +100,7 @@ const Header = ({ projects }) => {
 				>
 					Dark
 				</small>
-			</div>
+			</div> */}
 			<header
 				ref={header}
 				className={c("viewport--max-width header", {
@@ -110,13 +110,19 @@ const Header = ({ projects }) => {
 				<nav className="top-navbar">
 					<menu ref={landscapeMenu}>
 						<ol>
-							{projects.map((item, i) => {
+							{/* {projects.map((item, i) => {
 								return (
 									<li key={i}>
 										<a href={item.id}>{item.name}</a>
 									</li>
 								);
-							})}
+							})} */}
+							<li>
+								<small>
+									This portfolio is a WIP. Complete portfolio available upon
+									request.
+								</small>
+							</li>
 						</ol>
 					</menu>
 
@@ -141,7 +147,7 @@ const Header = ({ projects }) => {
 						<line x1="15" y1="3" x2="15" y2="27" />
 					</svg>
 				</nav>
-				<menu className={c("menu", { "menu--is-visible": expanded })}>
+				{/* <menu className={c("menu", { "menu--is-visible": expanded })}>
 					<ol>
 						{projects.map((item, i) => {
 							return (
@@ -151,7 +157,7 @@ const Header = ({ projects }) => {
 							);
 						})}
 					</ol>
-				</menu>
+				</menu> */}
 				<address
 					className={c("contact-info", {
 						"contact-info--is-visible": expanded,
