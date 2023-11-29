@@ -49,8 +49,8 @@ const ProjectDescription = ({
 };
 
 ProjectDescription.propTypes = {
-	durationEnd: PropTypes.number.isRequired,
-	durationStart: PropTypes.number.isRequired,
+	durationEnd: PropTypes.string,
+	durationStart: PropTypes.string.isRequired,
 	subhead: PropTypes.string.isRequired,
 	tags: PropTypes.array.isRequired,
 	title: PropTypes.string.isRequired,
