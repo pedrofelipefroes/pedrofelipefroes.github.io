@@ -13,7 +13,7 @@
     }
 
     &__subhead {
-        padding: ss(2.75) ss(1.5) ss(11);
+        padding: ss(2.75) ss(1.5) ss(5.5);
 
         @include breakpoint(landscape) {
             padding: 0 ss(1.5) 0 0;
@@ -23,12 +23,17 @@
             margin-top: ss(1);
         }
 
-        ol {
-            display: flex;
+        & > small:first-child {
+            max-width: max(500px, var(--golden-ratio--smaller));
         }
 
-        li + li {
-            margin-left: 0.33em;
+        ol {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        li:not(:last-child) {
+            margin-right: 0.33em;
         }
     }
 }
