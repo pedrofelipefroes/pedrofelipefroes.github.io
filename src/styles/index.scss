@@ -128,7 +128,7 @@ p {
 
 .viewport--fixed-height {
     @include breakpoint(landscape) {
-        grid-template-rows: repeat(18, 1fr);
+        grid-template-rows: repeat(9, 1fr);
         height: calc(2 / 3 * 100vw);
         max-height: $max-frame-height;
     }
@@ -161,76 +161,115 @@ p {
     margin-top: ss(5.5);
 
     @include breakpoint(landscape) {
+        margin-top: ss(22);
+    }
+
+    &__item {
         margin-top: ss(11);
 
-        &__item:nth-child(1) {
-            .gatsby-image-wrapper {
-                grid-column: 3 / span 12;
-                grid-row: 1 / span 12;
-            }
-
-            .project-description__title {
-                grid-column: 12 / span 3;
-                grid-row: 15 / span 3;
-            }
-
-            .project-description__subhead {
-                grid-column: 15 / span 4;
-                grid-row: 15 / span 3;
-            }
+        figure {
+            max-width: 100vw;
+            overflow-x: clip;
         }
 
-        &__item:nth-child(2) {
-            .gatsby-image-wrapper {
-                grid-column: 7 / span 12;
-                grid-row: 3 / span 12;
-            }
-
-            .project-description__title {
-                grid-column: 7 / span 3;
-                grid-row: 16 / span 3;
-            }
-
-            .project-description__subhead {
-                grid-column: 3 / span 4;
-                grid-row: 16 / span 3;
-            }
+        figure .slick-slider {
+            overflow-x: visible;
+            width: 100%;
         }
 
-        &__item:nth-child(3) {
-            .gatsby-image-wrapper {
-                grid-column: 3 / span 12;
-                grid-row: 3 / span 12;
-            }
+        figure .slick-slide {
+            margin: ss(1.5) 0 0 ss(0.5);
+        }
+
+        figure .slick-track {
+            display: flex;
+        }
+
+        figure .slick-list {
+            overflow: visible;
+        }
+
+        figure .slick-dots {
+            max-width: $max-page-width;
+            padding-left: ss(1.5);
+            text-align: left;
+            top: ss(-1);
+        }
+
+        figure .slick-dots li {
+            margin-left: -0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        figure .slick-dots li button {
+            padding: 0;
+        }
+
+        figure .slick-dots li button::before {
+            color: rgb(var(--color-dark));
+            font-size: 0.25rem;
+        }
+
+        @include breakpoint(landscape) {
+            margin-top: ss(22);
 
             .project-description__title {
                 grid-column: 3 / span 3;
-                grid-row: 16 / span 3;
             }
 
             .project-description__subhead {
-                grid-column: 6 / span 4;
-                grid-row: 16 / span 3;
+                grid-column: 6 / span 12;
             }
-        }
 
-        &__item:nth-child(4) {
-            margin: ss(22) 0 0;
+            figure {
+                display: grid;
+                grid-template-columns: repeat(18, 1fr);
+            }
 
-            .viewport {
-                @include breakpoint(landscape) {
-                    margin-top: ss(4);
+            figure .slick-slider {
+                grid-column: 3 / span 18;
+            }
+
+            figure .slick-slider {
+                margin: ss(5.5) ss(-1);
+            }
+
+            figure .slick-slide {
+                margin-left: 0;
+                margin-right: ss(0.75);
+            }
+
+            figure .slick-dots {
+                padding-left: ss(1);
+                top: ss(-7);
+            }
+
+            figure .slick-dots li {
+                margin-right: 0.25rem;
+            }
+
+            @include breakpoint(1920px) {
+                margin-top: ss(33);
+
+                figure {
+                    display: block;
                 }
-            }
 
-            .project-description__title {
-                grid-column: 12 / span 3;
-                grid-row: 16 / span 3;
-            }
+                figure .slick-slider {
+                    margin-left: 0;
+                    margin-right: 0;
+                    padding-left: calc(calc(100vw - $max-page-width) / 2);
+                }
 
-            .project-description__subhead {
-                grid-column: 7 / span 4;
-                grid-row: 16 / span 3;
+                figure .slick-slide {
+                    margin-left: ss(12);
+                }
+
+                figure .slick-dots {
+                    margin-left: ss(11.5);
+                    padding-left: ss(1.5);
+                    top: ss(-7);
+                }
             }
         }
     }
@@ -260,7 +299,7 @@ p {
         margin: ss(5.5) 0 ss(11);
 
         @include breakpoint(landscape) {
-            grid-column: 12 / span 4;
+            grid-column: 11 / span 5;
         }
     }
 
@@ -269,7 +308,7 @@ p {
         padding-bottom: ss(2) + 3ex;
 
         @include breakpoint(landscape) {
-            grid-column: 12 / span 4;
+            grid-column: 11 / span 5;
             padding-bottom: ss(1);
         }
     }
