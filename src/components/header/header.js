@@ -1,4 +1,5 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+// import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 
 import { useScrollDirection } from "react-use-scroll-direction";
 import c from "classnames";
@@ -8,14 +9,14 @@ const Header = ({ projects }) => {
 	const header = useRef(null);
 	const landscapeMenu = useRef(null);
 	const menu = useRef(null);
-	const mode = useRef(null);
+	// const mode = useRef(null);
 	const wordmark = useRef(null);
 
 	const { isScrollingDown, isScrollingUp } = useScrollDirection();
-	const [atPageTop, setAtPageTop] = useState(true);
-	const [expanded, setExpanded] = useState(false);
-	const [visible, setVisible] = useState(true);
-	const [scrollPosition, setScrollPosition] = useState();
+	// const [atPageTop, setAtPageTop] = useState(true);
+	// const [expanded, setExpanded] = useState(false);
+	// const [visible, setVisible] = useState(true);
+	// const [scrollPosition, setScrollPosition] = useState();
 
 	// const goToTop = () => {
 	// 	window.scrollTo({
@@ -24,31 +25,31 @@ const Header = ({ projects }) => {
 	// 	});
 	// };
 
-	const toggleMenu = () => {
-		let headerTopPosition = header.current.getBoundingClientRect().top;
+	// const toggleMenu = () => {
+	// 	let headerTopPosition = header.current.getBoundingClientRect().top;
 
-		if (headerTopPosition === 0) {
-			document.querySelector("body").style.overflow = "revert";
-			setExpanded(!expanded);
-			menu.current.classList.add("toggle--is-visible");
+	// 	if (headerTopPosition === 0) {
+	// 		document.querySelector("body").style.overflow = "revert";
+	// 		setExpanded(!expanded);
+	// 		menu.current.classList.add("toggle--is-visible");
 
-			if (scrollPosition === undefined) {
-				window.scrollY = scrollPosition;
-			}
+	// 		if (scrollPosition === undefined) {
+	// 			window.scrollY = scrollPosition;
+	// 		}
 
-			if (expanded) {
-			}
+	// 		if (expanded) {
+	// 		}
 
-			if (!expanded) {
-				document.querySelector("body").style.overflow = "hidden";
-				setScrollPosition(window.scrollY);
-				setAtPageTop(true);
-				setVisible(true);
-			}
-		} else {
-			return;
-		}
-	};
+	// 		if (!expanded) {
+	// 			document.querySelector("body").style.overflow = "hidden";
+	// 			setScrollPosition(window.scrollY);
+	// 			setAtPageTop(true);
+	// 			setVisible(true);
+	// 		}
+	// 	} else {
+	// 		return;
+	// 	}
+	// };
 
 	useLayoutEffect(() => {
 		const onScroll = () => {
@@ -62,14 +63,14 @@ const Header = ({ projects }) => {
 				// menu.current.classList.remove("toggle--is-visible");
 				wordmark.current.classList.remove("wordmark--is-shifted");
 				landscapeMenu.current.classList.remove("landscape-menu--is-collapsed");
-				setAtPageTop(true);
+				// setAtPageTop(true);
 			}
 
 			if (isScrollingUp && "UP") {
-				setVisible(true);
+				// setVisible(true);
 			} else if (isScrollingDown && "DOWN") {
-				setAtPageTop(false);
-				setVisible(false);
+				// setAtPageTop(false);
+				// setVisible(false);
 			}
 		};
 
@@ -104,7 +105,7 @@ const Header = ({ projects }) => {
 			<header
 				ref={header}
 				className={c("viewport--max-width header", {
-					"header--is-expanded": expanded,
+					// "header--is-expanded": expanded,
 				})}
 			>
 				<nav className="top-navbar">
@@ -138,8 +139,8 @@ const Header = ({ projects }) => {
 					<svg
 						ref={menu}
 						className={c("toggle", {
-							"toggle--off": expanded,
-							"toggle-is-visible": expanded,
+							// "toggle--off": expanded,
+							// "toggle-is-visible": expanded,
 						})}
 						// onClick={toggleMenu}
 						width="2.5ex"
@@ -165,7 +166,7 @@ const Header = ({ projects }) => {
 				</menu> */}
 				<address
 					className={c("contact-info", {
-						"contact-info--is-visible": expanded,
+						// "contact-info--is-visible": expanded,
 					})}
 				>
 					<small>

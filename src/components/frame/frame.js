@@ -25,7 +25,7 @@ Frame.defaultProps = {
 };
 
 Frame.propTypes = {
-	justify: PropTypes.string,
+	align: PropTypes.string,
 	children: PropTypes.node.isRequired,
 	justify: PropTypes.string,
 	size: PropTypes.string,

@@ -14,7 +14,7 @@ const ProjectDescription = ({
 			<div className="project-description__title">
 				<h2 className="label">
 					{title.split(" ").map((word) => (
-						<span>{word}</span>
+						<span key={word}>{word}</span>
 					))}
 					{/* <span>{"\u2197"}</span> */}
 				</h2>
@@ -24,11 +24,11 @@ const ProjectDescription = ({
 				<ol>
 					{tags.map((item, i) => {
 						return i === tags.length - 1 ? (
-							<li key={i}>
+							<li key={title + item}>
 								<small>{item}</small>
 							</li>
 						) : (
-							<li key={i}>
+							<li key={title + item}>
 								<small>
 									{item} {"\u00B7"}
 								</small>
