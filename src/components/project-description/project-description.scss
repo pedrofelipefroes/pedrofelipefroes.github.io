@@ -13,7 +13,7 @@
     }
 
     &__subhead {
-        padding: ss(2.75) ss(1.5) ss(5.5);
+        padding: ss(2.75) ss(1.5) ss(2.75);
 
         @include breakpoint(landscape) {
             padding: 0 ss(1.5) 0 0;
