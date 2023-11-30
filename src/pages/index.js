@@ -1,5 +1,6 @@
 // import React, { useEffect } from "react";
-import React from "react";
+import React, { useState } from "react";
+import c from "classnames";
 import Slider from "react-slick";
 
 // import Frame from "../components/frame/frame";
@@ -64,7 +65,18 @@ const IndexPage = () => {
 		},
 	];
 
+	const [grayscale, setGrayscale] = useState(true);
+
+	const removeBlendMode = (current) => {
+		if (current !== 0) {
+			setGrayscale(false);
+		} else {
+			setGrayscale(true);
+		}
+	};
+
 	const projectCarouselSettings = {
+		afterChange: (current) => removeBlendMode(current),
 		arrows: true,
 		centerMode: true,
 		centerPadding: "2ex",
@@ -106,7 +118,7 @@ const IndexPage = () => {
 								tags={projects[0].tags}
 							/>
 						</div>
-						<figure>
+						<figure className={c({ "slider--is-grayscale": grayscale })}>
 							<Slider {...projectCarouselSettings}>
 								<StaticImage alt="teste" src="../images/mvp/postclick-4.png" />
 								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
