@@ -23,14 +23,11 @@ const ProjectDescription = ({
 				<small>{subhead}</small>
 				<ol>
 					{tags.map((item, i) => {
-						return i === tags.length - 1 ? (
-							<li key={title + item}>
-								<small>{item}</small>
-							</li>
-						) : (
+						return (
 							<li key={title + item}>
 								<small>
-									{item} {"\u00B7"}
+									{item}
+									{i === tags.length - 1 ? "" : " \u00B7"}
 								</small>
 							</li>
 						);
