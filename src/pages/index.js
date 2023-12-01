@@ -76,7 +76,7 @@ const IndexPage = () => {
 	};
 
 	const projectCarouselSettings = {
-		afterChange: (current) => removeBlendMode(current),
+		// afterChange: (current) => this.removeBlendMode(current),
 		arrows: true,
 		centerMode: true,
 		centerPadding: "2ex",
@@ -120,11 +120,39 @@ const IndexPage = () => {
 						</div>
 						<figure className={c({ "slider--is-grayscale": grayscale })}>
 							<Slider {...projectCarouselSettings}>
+								<div className="cover">
+									<h2>{projects[0].name}</h2>
+									<div className="cover__subhead">
+										<small>{projects[0].description}</small>
+										<ol>
+											{projects[0].tags.map((item, i) => {
+												return (
+													<li key={projects[0].name + item}>
+														<small>
+															{item}
+															{i === projects[0].tags.length - 1
+																? ""
+																: " \u00B7"}
+														</small>
+													</li>
+												);
+											})}
+										</ol>
+										<small>
+											{projects[0].start}
+											{"\u2009"}
+											{"\u2e3a"}
+											{"\u2009"}
+											{projects[0].end}
+										</small>
+									</div>
+								</div>
+								<StaticImage alt="teste" src="../images/mvp/postclick-1.png" />
+								<StaticImage alt="teste" src="../images/mvp/postclick-2.png" />
+								<StaticImage alt="teste" src="../images/mvp/postclick-3.png" />
 								<StaticImage alt="teste" src="../images/mvp/postclick-4.png" />
 								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-9.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-4.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
+								<StaticImage alt="teste" src="../images/mvp/postclick-6.png" />
 							</Slider>
 						</figure>
 					</li>
@@ -138,11 +166,11 @@ const IndexPage = () => {
 								tags={projects[1].tags}
 							/>
 						</div>
-						<figure>
+						<figure className={c({ "slider--is-grayscale": grayscale })}>
 							<Slider {...projectCarouselSettings}>
-								<StaticImage alt="teste" src="../images/mvp/avenuecode-1.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-9.png" />
+								<StaticImage alt="teste" src="../images/mvp/postclick-1.png" />
+								<StaticImage alt="teste" src="../images/mvp/postclick-2.png" />
+								<StaticImage alt="teste" src="../images/mvp/postclick-3.png" />
 								<StaticImage alt="teste" src="../images/mvp/postclick-4.png" />
 								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
 							</Slider>
@@ -158,13 +186,13 @@ const IndexPage = () => {
 								tags={projects[2].tags}
 							/>
 						</div>
-						<figure>
+						<figure className={c({ "slider--is-grayscale": grayscale })}>
 							<Slider {...projectCarouselSettings}>
 								<StaticImage alt="teste" src="../images/mvp/avenuecode-1.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-9.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-4.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
+								<StaticImage alt="teste" src="../images/mvp/avenuecode-2.png" />
+								<StaticImage alt="teste" src="../images/mvp/avenuecode-3.png" />
+								<StaticImage alt="teste" src="../images/mvp/avenuecode-4.png" />
+								<StaticImage alt="teste" src="../images/mvp/avenuecode-5.png" />
 							</Slider>
 						</figure>
 					</li>
@@ -178,7 +206,7 @@ const IndexPage = () => {
 								tags={projects[3].tags}
 							/>
 						</div>
-						<figure>
+						<figure className={c({ "slider--is-grayscale": grayscale })}>
 							<Slider {...projectCarouselSettings}>
 								<StaticImage alt="teste" src="../images/mvp/avenuecode-1.png" />
 								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
@@ -198,13 +226,24 @@ const IndexPage = () => {
 								tags={projects[4].tags}
 							/>
 						</div>
-						<figure>
+						<figure className={c({ "slider--is-grayscale": grayscale })}>
 							<Slider {...projectCarouselSettings}>
-								<StaticImage alt="teste" src="../images/mvp/avenuecode-1.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-9.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-4.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
+								<StaticImage
+									alt="teste"
+									src="../images/mvp/poster-collection-2.png"
+								/>
+								<StaticImage
+									alt="teste"
+									src="../images/mvp/poster-collection-3.png"
+								/>
+								<StaticImage
+									alt="teste"
+									src="../images/mvp/poster-collection-4.png"
+								/>
+								<StaticImage
+									alt="teste"
+									src="../images/mvp/poster-collection-5.png"
+								/>
 							</Slider>
 						</figure>
 					</li>
