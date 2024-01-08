@@ -8,39 +8,27 @@
     &__title {
         padding: 0 ss(1.5);
 
-        @include breakpoint(landscape) {
-            grid-column: 2 / span 16;
-            padding: 0;
-            text-align: center;
-        }
-
         h1 {
             margin: ss(1.5) 0;
         }
 
-        .stylized-letter {
-            color: rgb(var(--color-light));
+        @include breakpoint(landscape) {
+            display: none;
+        }
 
-            .doodle-1 {
-                margin-left: -0.9em;
-                margin-top: 0.05em;
-                max-width: 0.9em;
-                position: absolute;
+        &--landscape {
+            display: none;
 
-                @include breakpoint(landscape) {
-                    margin-left: -0.965em;
-                }
+            @include breakpoint(landscape) {
+                display: initial;
+                grid-column: 1 / span 18;
+                padding: ss(1);
+                text-align: center;
             }
 
-            .doodle-2 {
-                margin-left: -1em;
-                margin-top: 0.1em;
-                max-width: 1.7em;
-                position: absolute;
-
-                @include breakpoint(landscape) {
-                    margin-left: -1.125em;
-                }
+            h1 {
+                display: flex;
+                justify-content: space-between;
             }
         }
     }

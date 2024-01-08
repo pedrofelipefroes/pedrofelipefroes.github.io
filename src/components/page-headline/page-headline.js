@@ -2,33 +2,22 @@ import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
 const PageHeadline = () => {
+	let headline = ["Froes", "\u2003", "Designs", "\u2003", "Visuals"];
+
 	return (
 		<section className="viewport viewport--max-width page-headline">
 			<div className="page-headline__title">
 				<h1>
-					Fr
-					<span className="stylized-letter">
-						o
-						<span className="doodle-1">
-							<StaticImage
-								alt="Hand drawn smiley to replace the letter 'o' from the name Froes."
-								src="../../images/doodles/smile.png"
-							/>
-						</span>
-					</span>
-					{"\u00AD"}es De{"\u00AD"}signs Vis{"\u00AD"}u
-					<span>
-						{"\u00AD"}al
-						<span className="stylized-letter">
-							s
-							<span className="doodle-2">
-								<StaticImage
-									alt="Handwritten 's' to decorate the word 'visuals.'"
-									src="../../images/doodles/s.png"
-								/>
-							</span>
-						</span>
-					</span>
+					Fro{"\u00AD"}es De{"\u00AD"}signs Vis{"\u00AD"}u{"\u00AD"}als
+				</h1>
+			</div>
+			<div className="page-headline__title page-headline__title--landscape">
+				<h1>
+					{headline.map((word) => {
+						return word.split("").map((letter, i) => {
+							return <span key={i}>{letter}</span>;
+						});
+					})}
 				</h1>
 			</div>
 		</section>
