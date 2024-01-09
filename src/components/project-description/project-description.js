@@ -21,18 +21,19 @@ const ProjectDescription = ({
 			</div>
 			<div className="project-description__subhead">
 				<small>{subhead}</small>
+			</div>
+			<div className="project-description__tags">
 				<ol>
-					{tags.map((item, i) => {
+					{tags.map((item) => {
 						return (
 							<li key={title + item}>
-								<small>
-									{item}
-									{i === tags.length - 1 ? "" : " \u00B7"}
-								</small>
+								<small>{item}</small>
 							</li>
 						);
 					})}
 				</ol>
+			</div>
+			<div className="project-description__duration">
 				<small>
 					{durationStart}
 					{"\u2009"}

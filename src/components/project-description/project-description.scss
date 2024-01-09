@@ -3,7 +3,8 @@
         padding: ss(5.5) ss(1.5) 0;
 
         @include breakpoint(landscape) {
-            padding: 0;
+            grid-column: 1 / span 6;
+            padding: 0 ss(1.5);
         }
 
         .label {
@@ -16,24 +17,31 @@
         padding: ss(2.75) ss(1.5) ss(2.75);
 
         @include breakpoint(landscape) {
+            grid-column: 7 / span 6;
+            padding: 0;
+        }
+    }
+
+    &__tags {
+        display: none;
+
+        @include breakpoint(landscape) {
+            display: initial;
+            grid-column: 14 / span 2;
+        }
+    }
+
+    &__duration {
+        padding-top: ss(5.5);
+        position: absolute;
+        right: ss(1.5);
+
+        @include breakpoint(landscape) {
+            grid-column: 17 / span 2;
+            text-align: right;
             padding: 0 ss(1.5) 0 0;
-        }
-
-        & > * + * {
-            margin-top: ss(1);
-        }
-
-        & > small:first-child {
-            max-width: max(500px, var(--golden-ratio--smaller));
-        }
-
-        ol {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        li:not(:last-child) {
-            margin-right: 0.33em;
+            position: initial;
+            right: initial;
         }
     }
 }
