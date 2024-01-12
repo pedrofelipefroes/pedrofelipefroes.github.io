@@ -4,7 +4,7 @@
 
         @include breakpoint(landscape) {
             grid-column: 1 / span 6;
-            padding: 0 ss(1.5);
+            padding: ss(1.5) 0;
         }
 
         .label {
@@ -14,11 +14,11 @@
     }
 
     &__subhead {
-        padding: ss(2.75) ss(1.5) ss(2.75);
+        padding: ss(1.5) ss(1.5) ss(1);
 
         @include breakpoint(landscape) {
             grid-column: 7 / span 6;
-            padding: 0;
+            padding: ss(3) 0 0 0;
         }
     }
 
@@ -28,18 +28,17 @@
         @include breakpoint(landscape) {
             display: initial;
             grid-column: 14 / span 2;
+            padding-top: ss(3);
         }
     }
 
     &__duration {
-        padding-top: ss(5.5);
-        position: absolute;
-        right: ss(1.5);
+        padding: 0 ss(1.5);
 
         @include breakpoint(landscape) {
             grid-column: 17 / span 2;
             text-align: right;
-            padding: 0 ss(1.5) 0 0;
+            padding: ss(3) ss(1.5) 0 0;
             position: initial;
             right: initial;
         }

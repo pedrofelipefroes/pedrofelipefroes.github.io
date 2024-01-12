@@ -2,23 +2,9 @@ import * as React from "react";
 
 import PropTypes from "prop-types";
 
-const ProjectDescription = ({
-	durationEnd,
-	durationStart,
-	subhead,
-	tags,
-	title,
-}) => {
+const ProjectDescription = ({ durationEnd, durationStart, subhead, tags }) => {
 	return (
 		<>
-			<div className="project-description__title">
-				<h2 className="label">
-					{title.split(" ").map((word) => (
-						<span key={word}>{word}</span>
-					))}
-					{/* <span>{"\u2197"}</span> */}
-				</h2>
-			</div>
 			<div className="project-description__subhead">
 				<small>{subhead}</small>
 			</div>
@@ -26,7 +12,7 @@ const ProjectDescription = ({
 				<ol>
 					{tags.map((item) => {
 						return (
-							<li key={title + item}>
+							<li key={item}>
 								<small>{item}</small>
 							</li>
 						);
@@ -51,7 +37,6 @@ ProjectDescription.propTypes = {
 	durationStart: PropTypes.string.isRequired,
 	subhead: PropTypes.string.isRequired,
 	tags: PropTypes.array.isRequired,
-	title: PropTypes.string.isRequired,
 };
 
 export default ProjectDescription;
