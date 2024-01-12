@@ -1,35 +1,37 @@
 .page-headline {
-    padding-top: ss(1.5);
+    padding: ss(11) ss(1.5);
 
     @include breakpoint(landscape) {
-        padding-top: 0;
+        padding: calc(ss(5.5) - 2 * ss(1) - 2.5ex) 0 ss(11);
     }
 
-    &__title {
-        padding: 0 ss(1.5);
+    &__subhead {
+        @include breakpoint(landscape) {
+            grid-column: 7 / span 6;
+        }
+    }
 
-        h1 {
-            margin: ss(1.5) 0;
+    &__menu {
+        ol {
+            @extend small;
+
+            counter-reset: item;
+            margin-top: ss(5.5);
+
+            @include breakpoint(landscape) {
+                margin-top: 0;
+            }
+        }
+
+        li::before {
+            content: "0" counter(item);
+            counter-increment: item;
+            display: inline-block;
+            width: ss(2.75);
         }
 
         @include breakpoint(landscape) {
-            display: none;
-        }
-
-        &--landscape {
-            display: none;
-
-            @include breakpoint(landscape) {
-                display: initial;
-                grid-column: 1 / span 18;
-                padding: ss(1);
-                text-align: center;
-            }
-
-            h1 {
-                display: flex;
-                justify-content: space-between;
-            }
+            grid-column: 14 / span 5;
         }
     }
 }

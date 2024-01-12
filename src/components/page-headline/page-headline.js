@@ -1,25 +1,32 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 
 const PageHeadline = () => {
-	let headline = ["Froes", "\u2003", "Designs", "\u2003", "Visuals"];
-
 	return (
 		<section className="viewport viewport--max-width page-headline">
-			<div className="page-headline__title">
-				<h1>
-					Fro{"\u00AD"}es De{"\u00AD"}signs Vis{"\u00AD"}u{"\u00AD"}als
-				</h1>
+			<div className="page-headline__subhead">
+				<small>
+					Former Head of Design Systems at Instapage and Design Lead at Avenue
+					Code, now Founding Designer at{"\u00A0"}Perspective. 7+ years creating
+					captivating, systematic, and detail-oriented user{"\u00A0"}
+					experiences.
+				</small>
 			</div>
-			<div className="page-headline__title page-headline__title--landscape">
-				<h1>
-					{headline.map((word) => {
-						return word.split("").map((letter, i) => {
-							return <span key={i}>{letter}</span>;
-						});
-					})}
-				</h1>
-			</div>
+			<menu className="page-headline__menu">
+				<ol>
+					<li>
+						<a href="/#poster-gallery">Poster Gallery</a>
+					</li>
+					<li>
+						<a href="/#design-work">Design Work</a>
+					</li>
+					<li>
+						<a href="/#courswork">Coursework</a>
+					</li>
+					<li>
+						<a href="/#about">About</a>
+					</li>
+				</ol>
+			</menu>
 		</section>
 	);
 };
