@@ -15,7 +15,7 @@ const Footer = () => {
 					</a>
 				</small>
 				<small>
-					<span>São Paulo,{"\u00A0"}</span>2023
+					<span>São Paulo,{"\u00A0"}</span>2024
 				</small>
 			</address>
 		</footer>
