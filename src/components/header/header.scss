@@ -1,19 +1,21 @@
 .header {
     background-color: rgba(var(--color-light), 0);
-    // clip-path: polygon(0 0, 100vw 0, 100vw calc(2 * ss(1) + 2.5ex), 0 calc(2 * ss(1) + 2.5ex));
     height: calc(2 * ss(1) + 2.5ex);
-    margin-top: -4.2ex !important;
+    margin-top: 100px;
     padding: 0 ss(1.5);
     position: sticky;
     text-transform: uppercase;
     transition: background-color 400ms ease-out;
-    // clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 1ms;
     top: 0;
+    width: min(100vw, $max-page-width);
     z-index: 1;
+
+    @include breakpoint(1920px) {
+        left: calc(calc(100vw - $max-page-width) / 2);
+    }
 
     &--is-expanded {
         background-color: rgba(var(--color-light), 1);
-        // clip-path: polygon(0 0, 100vw 0, 100vw 100vh, 0 100vh);
         display: flex;
         flex-direction: column;
         height: 100vh;
@@ -22,8 +24,11 @@
         padding: 0 ss(1.5) ss(1);
         position: fixed;
         top: 0;
-        // transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 1ms;
-        width: 100vw;
+        width: min(100vw, $max-page-width);
+
+        @include breakpoint(1920px) {
+            left: calc(calc(100vw - $max-page-width) / 2);
+        }
     }
 
     .contact-info {
@@ -100,16 +105,15 @@
 
     .toggle {
         box-sizing: content-box;
+        cursor: pointer;
+        margin-right: ss(-0.5);
+        position: sticky;
         stroke-width: 0.1em;
-        margin-right: -1 * ss(1);
-        opacity: 0;
-        padding: ss(1) ss(1) ss(1) ss(0.5);
-        position: relative;
         transition:
             opacity 1s cubic-bezier(0.34, 1.56, 0.64, 1),
-            stroke 750ms cubic-bezier(0.34, 1.56, 0.64, 1),
             transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
         transform-origin: center;
+        top: 0;
         width: auto;
         z-index: 1;
 
@@ -120,152 +124,51 @@
         &--off {
             transform: rotate(45deg) translateY(4px);
         }
-
-        &--is-visible {
-            opacity: 1;
-        }
-
-        &--is-visible:hover {
-            cursor: pointer;
-        }
     }
 
     .top-navbar {
-        align-items: center;
         display: flex;
         justify-content: flex-end;
+        padding: ss(1) 0;
 
-        menu {
-            $project-count: 4;
+        .title {
+            left: ss(1.5);
+            position: fixed;
+            top: ss(5.5);
 
-            display: none;
-            margin-right: ss(-1.75);
-            position: relative;
-            z-index: 1;
-
-            @include breakpoint(1440px) {
-                // display: grid;
-                // flex-grow: 1;
-                // grid-template-columns: repeat(18, 1fr);
-                display: inline-flex;
-                justify-self: flex-end;
+            @include breakpoint(1920px) {
+                left: calc(calc(100vw - $max-page-width) / 2 + ss(1.5));
             }
 
-            ol {
-                @extend small;
-
-                display: flex;
-                grid-column: 1 / span 18;
-                justify-content: flex-end;
-
-                // &:hover li {
-                // color: rgba(var(--color-dark), 0.18);
-                // transition: color ease-in 200ms;
-                // }
+            .froes::after {
+                content: "\00B7";
+                display: inline-block;
+                left: -1ex;
+                margin-left: ss(0.2);
+                position: relative;
+                transform: scale(0);
+                transform-origin: center;
+                transition: all ease-out 200ms;
             }
 
-            li {
+            .s {
+                left: 0;
                 opacity: 1;
+                position: relative;
+                transition: all ease-out 200ms;
+            }
 
-                &:hover {
-                    color: rgba(var(--color-dark), 1) !important;
+            &--is-wordmark {
+                .froes::after {
+                    left: 0;
+                    transform: scale(1.25);
+                }
+
+                .s {
+                    left: -15%;
+                    opacity: 0;
                 }
             }
-
-            li + li {
-                margin-left: 2em;
-            }
-
-            @for $i from 1 through $project-count {
-                li:nth-child(#{$i}) {
-                    transition-duration: calc($i * 200ms);
-                    transition-property: opacity;
-                    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-                }
-            }
-
-            li:last-child {
-                transition:
-                    margin-right 800ms cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 800ms cubic-bezier(0.16, 1, 0.3, 1);
-            }
-
-            &.landscape-menu--is-collapsed li {
-                opacity: 0;
-            }
-
-            &.landscape-menu--is-collapsed li a {
-                // pointer-events: none;
-            }
-
-            &.landscape-menu--is-collapsed li:last-child {
-                margin-right: ss(2.25);
-                opacity: 0;
-                transition: 800ms cubic-bezier(0.16, 1, 0.3, 1);
-            }
         }
-
-        .wordmark {
-            margin-right: ss(-2.25);
-            transition: margin-right 800ms cubic-bezier(0.16, 1, 0.3, 1);
-
-            @include breakpoint(1440px) {
-                opacity: 0;
-            }
-
-            @include breakpoint(landscape) {
-                margin-right: 0;
-                position: absolute;
-                transition:
-                    opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
-                    margin-right 800ms cubic-bezier(0.16, 1, 0.3, 1);
-            }
-        }
-
-        .wordmark--is-shifted {
-            // margin-right: 0;
-            margin-right: ss(-2.25);
-
-            @include breakpoint(landscape) {
-                // margin-right: ss(2.25);
-                margin-right: 0;
-                opacity: 1;
-            }
-        }
-    }
-}
-
-.mode {
-    color: rgba(var(--color-dark), 0.18);
-    display: flex;
-    position: fixed;
-    z-index: 1;
-    top: ss(1);
-    margin-left: ss(1.5);
-    opacity: 0;
-    transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 2;
-
-    &--is-visible {
-        opacity: 1;
-    }
-
-    &:hover small {
-        color: rgba(var(--color-dark), 0.18);
-        transition: color ease-in 200ms;
-    }
-
-    &--at-page-top,
-    &--is-selected {
-        color: rgba(var(--color-dark), 1);
-    }
-
-    small:hover {
-        color: rgba(var(--color-dark), 1) !important;
-    }
-
-    small + small {
-        margin-left: 1em;
-        margin-top: 0;
     }
 }

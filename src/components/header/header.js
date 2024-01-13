@@ -1,159 +1,92 @@
-// import React, { useLayoutEffect, useRef, useState } from "react";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import { useScrollDirection } from "react-use-scroll-direction";
 import c from "classnames";
 import PropTypes from "prop-types";
 
 const Header = ({ projects }) => {
 	const header = useRef(null);
-	const landscapeMenu = useRef(null);
-	const menu = useRef(null);
-	// const mode = useRef(null);
-	const wordmark = useRef(null);
+	const title = useRef(null);
 
-	const { isScrollingDown, isScrollingUp } = useScrollDirection();
-	// const [atPageTop, setAtPageTop] = useState(true);
-	// const [expanded, setExpanded] = useState(false);
-	// const [visible, setVisible] = useState(true);
-	// const [scrollPosition, setScrollPosition] = useState();
+	const [expanded, setExpanded] = useState(false);
+	const [wordmark, setWorkmark] = useState(true);
 
-	// const goToTop = () => {
-	// 	window.scrollTo({
-	// 		top: 0,
-	// 		behavior: "smooth",
-	// 	});
-	// };
+	const handleScroll = () => {
+		const titlePosition = title.current.getBoundingClientRect().bottom;
+		let projectCoverPositions =
+			document.getElementsByClassName("project-cover");
 
-	// const toggleMenu = () => {
-	// 	let headerTopPosition = header.current.getBoundingClientRect().top;
-
-	// 	if (headerTopPosition === 0) {
-	// 		document.querySelector("body").style.overflow = "revert";
-	// 		setExpanded(!expanded);
-	// 		menu.current.classList.add("toggle--is-visible");
-
-	// 		if (scrollPosition === undefined) {
-	// 			window.scrollY = scrollPosition;
-	// 		}
-
-	// 		if (expanded) {
-	// 		}
-
-	// 		if (!expanded) {
-	// 			document.querySelector("body").style.overflow = "hidden";
-	// 			setScrollPosition(window.scrollY);
-	// 			setAtPageTop(true);
-	// 			setVisible(true);
-	// 		}
-	// 	} else {
-	// 		return;
-	// 	}
-	// };
-
-	useLayoutEffect(() => {
-		const onScroll = () => {
-			let headerTopPosition = header.current.getBoundingClientRect().top;
-
-			if (headerTopPosition === 0) {
-				// menu.current.classList.add("toggle--is-visible");
-				wordmark.current.classList.add("wordmark--is-shifted");
-				landscapeMenu.current.classList.add("landscape-menu--is-collapsed");
+		for (let project of projectCoverPositions) {
+			if (
+				titlePosition >= project.getBoundingClientRect().top &&
+				titlePosition <= project.getBoundingClientRect().bottom
+			) {
+				title.current.classList.remove("title--is-wordmark");
+				return;
 			} else {
-				// menu.current.classList.remove("toggle--is-visible");
-				wordmark.current.classList.remove("wordmark--is-shifted");
-				landscapeMenu.current.classList.remove("landscape-menu--is-collapsed");
-				// setAtPageTop(true);
+				title.current.classList.add("title--is-wordmark");
 			}
+		}
+	};
 
-			if (isScrollingUp && "UP") {
-				// setVisible(true);
-			} else if (isScrollingDown && "DOWN") {
-				// setAtPageTop(false);
-				// setVisible(false);
+	const toggleMenu = () => {
+		let headerTopPosition = header.current.getBoundingClientRect().top;
+
+		if (headerTopPosition === 0) {
+			document.querySelector("body").style.overflow = "revert";
+			setExpanded(!expanded);
+
+			if (!expanded) {
+				document.querySelector("body").style.overflow = "hidden";
 			}
+		} else {
+			return;
+		}
+	};
+
+	useEffect(() => {
+		handleScroll();
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
 		};
-
-		window.addEventListener("scroll", onScroll);
-
-		return () => window.removeEventListener("scroll", onScroll);
-	}, [isScrollingDown, isScrollingUp]);
+	}, []);
 
 	return (
 		<>
-			{/* <div
-				className={c("mode", {
-					"mode--is-visible": visible,
-				})}
-				ref={mode}
-			>
-				<small
-					className={c("mode--is-selected", {
-						"mode--at-page-top": atPageTop,
-					})}
-				>
-					Light
-				</small>
-				<small
-					className={c({
-						"mode--at-page-top": atPageTop,
-					})}
-				>
-					Dark
-				</small>
-			</div> */}
 			<header
 				ref={header}
 				className={c("viewport--max-width header", {
-					// "header--is-expanded": expanded,
+					"header--is-expanded": expanded,
 				})}
 			>
 				<nav className="top-navbar">
-					<menu ref={landscapeMenu}>
-						<ol>
-							{/* {projects.map((item, i) => {
-								return (
-									<li key={i}>
-										<a href={item.id}>{item.name}</a>
-									</li>
-								);
-							})} */}
-							<li>
-								<small>This portfolio is a WIP.</small>
-							</li>
-							<li>
-								<small>
-									<a href="mailto:hello@froes.design?subject=Portfolio Request &body=Hey, Froes, I'd like to see your complete portfolio. (Context encouraged.)">
-										Complete portfolio available upon request{"\u2009"}
-										{"\u2197"}
-									</a>
-								</small>
-							</li>
-						</ol>
-					</menu>
-
-					<small ref={wordmark} className="wordmark">
-						Froes {"\u00B7"} Design
-					</small>
-
+					<div ref={title} className="title title--is-wordmark">
+						<h1>
+							<span className="froes">Froes</span>
+							<br />
+							<span className="design">Design</span>
+							<span className="s">
+								<span>s</span>
+							</span>
+						</h1>
+					</div>
 					<svg
-						ref={menu}
 						className={c("toggle", {
-							// "toggle--off": expanded,
-							// "toggle-is-visible": expanded,
+							"toggle--off": expanded,
 						})}
-						// onClick={toggleMenu}
+						onClick={toggleMenu}
 						width="2.5ex"
 						height="2.5ex"
 						viewBox="0 0 30 30"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
 					>
-						<line x1="3" y1="15" x2="27" y2="15" />
-						<line x1="15" y1="3" x2="15" y2="27" />
+						<line x1="5" y1="15" x2="25" y2="15" />
+						<line x1="15" y1="5" x2="15" y2="25" />
 					</svg>
 				</nav>
-				{/* <menu className={c("menu", { "menu--is-visible": expanded })}>
+				<menu className={c("menu", { "menu--is-visible": expanded })}>
 					<ol>
 						{projects.map((item, i) => {
 							return (
@@ -163,10 +96,10 @@ const Header = ({ projects }) => {
 							);
 						})}
 					</ol>
-				</menu> */}
+				</menu>
 				<address
 					className={c("contact-info", {
-						// "contact-info--is-visible": expanded,
+						"contact-info--is-visible": expanded,
 					})}
 				>
 					<small>
@@ -175,12 +108,12 @@ const Header = ({ projects }) => {
 							{"\u2197"}
 						</a>
 						<a href="mailto:hello@froes.design">
-							hello@froes.design{"\u2009"}
+							Email{"\u2009"}
 							{"\u2197"}
 						</a>
 					</small>
 					<small>
-						<span>São Paulo,{"\u00A0"}</span>2023
+						<span>São Paulo,{"\u00A0"}</span>2024
 					</small>
 				</address>
 			</header>
