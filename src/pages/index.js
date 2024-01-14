@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import c from "classnames";
 import Slider from "react-slick";
 
-// import Frame from "../components/frame/frame";
 import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
 import PageHeadline from "../components/page-headline/page-headline";
@@ -17,250 +16,177 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const IndexPage = () => {
+	const posterSliderSettings = {
+		arrows: false,
+		autoplay: true,
+		dots: false,
+		draggable: false,
+		infinite: true,
+		pauseOnHover: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		speed: 1,
+		swipe: false,
+	};
+
 	const projects = [
 		{
 			id: "ppt",
-			name: "Designing Perspective",
+			name: "Perspective",
 			description:
 				"An AI-powered app to help you capture all of your moments and build a rich record of your\u00A0life.",
-			tags: ["Visual Design", "Product Design", "Branding"],
+			tags: ["Branding", "Product Design", "Visual Design"],
 			start: "2022",
 			end: "Ongoing",
 		},
 		{
 			id: "bds",
-			name: "Block Design System",
+			name: "Block\u000ADesign\u000ASystem",
 			description:
 				"A conversion-driven landing page design system rooted in continuous\u00A0optimization.",
-			tags: ["Product Design", "Visual Design", "Front-end Development"],
+			tags: ["Front-end", "Product Design", "Visual Design"],
 			start: "2020",
 			end: "2022",
 		},
 		{
 			id: "acr",
-			name: "Rebranding Avenue Code",
+			name: "Avenue Code\u000ABrand Refresh",
 			description:
 				"Refreshing Avenue Code brand with diversity, cohesiveness, and scalability in\u00A0mind.",
-			tags: ["Visual Design", "Branding"],
+			tags: ["Branding", "Visual Design"],
 			start: "2019",
 			end: "2020",
 		},
-		{
-			id: "cdr",
-			name: "Creative Direction",
-			description:
-				"Portfolio and concepts created for the Creative Direction course from Condé Nast College of Fashion &\u00A0Design.",
-			tags: ["Creative Direction", "Visual Design"],
-			start: "2019",
-			end: "ONGOING",
-		},
-		{
-			id: "pst",
-			name: "Poster Collection",
-			description:
-				"Translating inspiring song lyrics into sleek poster\u00A0design.",
-			tags: ["Visual Design"],
-			start: "2019",
-			end: "ONGOING",
-		},
 	];
-
-	const [grayscale, setGrayscale] = useState(true);
-
-	const removeBlendMode = (current) => {
-		if (current !== 0) {
-			setGrayscale(false);
-		} else {
-			setGrayscale(true);
-		}
-	};
-
-	const projectCarouselSettings = {
-		// afterChange: (current) => this.removeBlendMode(current),
-		arrows: true,
-		centerMode: true,
-		centerPadding: "2ex",
-		className: "center",
-		draggable: true,
-		dots: true,
-		easing: "ease-out",
-		infinite: false,
-		slidesToShow: 1.5,
-		// swipeToSlide: true,
-	};
 
 	return (
 		<>
 			<Seo title="Froes designs concepts and visuals for brands, products, and music" />
 			<main>
-				<PageHeadline />
-				<section className="page-subhead">
-					<div className="viewport viewport--max-width">
-						<div className="subhead">
-							<small>
-								Former Head of Design Systems at Instapage and Design Lead at
-								Avenue Code, now Founding Designer at{"\u00A0"}Perspective. 7+
-								years creating captivating, systematic, and detail-oriented user
-								{"\u00A0"}experiences.
-							</small>
-						</div>
-					</div>
-				</section>
 				<Header projects={projects} />
-				<ul className="project-list">
-					<li className="project-list__item">
+				<PageHeadline />
+				<section id="poster-gallery" className="poster-gallery">
+					<div className="section-name">
+						<h2>Posters</h2>
+					</div>
+					<Slider {...posterSliderSettings}>
 						<div className="viewport viewport--max-width">
-							<ProjectDescription
-								durationEnd={projects[0].end}
-								durationStart={projects[0].start}
-								subhead={projects[0].description}
-								title={projects[0].name}
-								tags={projects[0].tags}
-							/>
+							<figure className="poster-slider project-cover">
+								<StaticImage
+									src="../../images/artwork/poster_blue-banisters.jpg"
+									alt="Blue Banisters"
+								/>
+							</figure>
+							<div className="call-to-action">
+								<small>Featuring</small>
+								<small>Poster Name</small>
+								<small>and more.</small>
+							</div>
 						</div>
-						<figure className={c({ "slider--is-grayscale": grayscale })}>
-							<Slider {...projectCarouselSettings}>
-								<div className="cover">
+						<div className="viewport viewport--max-width">
+							<figure className="poster-slider project-cover">
+								<StaticImage
+									src="../../images/artwork/poster_cruel-world.jpg"
+									alt="Cruel World"
+								/>
+							</figure>
+							<div className="call-to-action">
+								<small>Featuring</small>
+								<small>Poster Name</small>
+								<small>and more.</small>
+							</div>
+						</div>
+						<div className="viewport viewport--max-width">
+							<figure className="poster-slider project-cover">
+								<StaticImage
+									src="../../images/artwork/poster_cinnamon-girl.jpg"
+									alt="Cinnamon Girl"
+								/>
+							</figure>
+							<div className="call-to-action">
+								<small>Featuring</small>
+								<small>Poster Name</small>
+								<small>and more.</small>
+							</div>
+						</div>
+						<div className="viewport viewport--max-width">
+							<figure className="poster-slider project-cover">
+								<StaticImage
+									src="../../images/artwork/poster_money-power-glory.jpg"
+									alt="Money Power Glory"
+								/>
+							</figure>
+							<div className="call-to-action">
+								<small>Featuring</small>
+								<small>Poster Name</small>
+								<small>and more.</small>
+							</div>
+						</div>
+						<div className="viewport viewport--max-width">
+							<figure className="poster-slider project-cover">
+								<StaticImage
+									src="../../images/artwork/poster_a-w.jpg"
+									alt="A&W"
+								/>
+							</figure>
+							<div className="call-to-action">
+								<small>Featuring</small>
+								<small>Poster Name</small>
+								<small>and more.</small>
+							</div>
+						</div>
+					</Slider>
+				</section>
+				<section id="design-work">
+					<ul className="project-list">
+						<li className="project-list-item">
+							<div className="viewport viewport--max-width">
+								<div className="project-cover">
 									<h2>{projects[0].name}</h2>
-									<div className="cover__subhead">
-										<small>{projects[0].description}</small>
-										<ol>
-											{projects[0].tags.map((item, i) => {
-												return (
-													<li key={projects[0].name + item}>
-														<small>
-															{item}
-															{i === projects[0].tags.length - 1
-																? ""
-																: " \u00B7"}
-														</small>
-													</li>
-												);
-											})}
-										</ol>
-										<small>
-											{projects[0].start}
-											{"\u2009"}
-											{"\u2e3a"}
-											{"\u2009"}
-											{projects[0].end}
-										</small>
-									</div>
+									<figure></figure>
 								</div>
-								<StaticImage alt="teste" src="../images/mvp/postclick-1.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-2.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-3.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-4.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-6.png" />
-							</Slider>
-						</figure>
-					</li>
-					<li className="project-list__item">
-						<div className="viewport viewport--max-width">
-							<ProjectDescription
-								durationEnd={projects[1].end}
-								durationStart={projects[1].start}
-								subhead={projects[1].description}
-								title={projects[1].name}
-								tags={projects[1].tags}
-							/>
-						</div>
-						<figure className={c({ "slider--is-grayscale": grayscale })}>
-							<Slider {...projectCarouselSettings}>
-								<StaticImage alt="teste" src="../images/mvp/postclick-1.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-2.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-3.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-4.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
-							</Slider>
-						</figure>
-					</li>
-					<li className="project-list__item">
-						<div className="viewport viewport--max-width">
-							<ProjectDescription
-								durationEnd={projects[2].end}
-								durationStart={projects[2].start}
-								subhead={projects[2].description}
-								title={projects[2].name}
-								tags={projects[2].tags}
-							/>
-						</div>
-						<figure className={c({ "slider--is-grayscale": grayscale })}>
-							<Slider {...projectCarouselSettings}>
-								<StaticImage alt="teste" src="../images/mvp/avenuecode-1.png" />
-								<StaticImage alt="teste" src="../images/mvp/avenuecode-2.png" />
-								<StaticImage alt="teste" src="../images/mvp/avenuecode-3.png" />
-								<StaticImage alt="teste" src="../images/mvp/avenuecode-4.png" />
-								<StaticImage alt="teste" src="../images/mvp/avenuecode-5.png" />
-							</Slider>
-						</figure>
-					</li>
-					<li className="project-list__item">
-						<div className="viewport viewport--max-width">
-							<ProjectDescription
-								durationEnd={projects[3].end}
-								durationStart={projects[3].start}
-								subhead={projects[3].description}
-								title={projects[3].name}
-								tags={projects[3].tags}
-							/>
-						</div>
-						<figure className={c({ "slider--is-grayscale": grayscale })}>
-							<Slider {...projectCarouselSettings}>
-								<StaticImage alt="teste" src="../images/mvp/avenuecode-1.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-9.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-4.png" />
-								<StaticImage alt="teste" src="../images/mvp/postclick-5.png" />
-							</Slider>
-						</figure>
-					</li>
-					<li className="project-list__item">
-						<div className="viewport viewport--max-width">
-							<ProjectDescription
-								durationEnd={projects[4].end}
-								durationStart={projects[4].start}
-								subhead={projects[4].description}
-								title={projects[4].name}
-								tags={projects[4].tags}
-							/>
-						</div>
-						<figure className={c({ "slider--is-grayscale": grayscale })}>
-							<Slider {...projectCarouselSettings}>
-								<StaticImage
-									alt="teste"
-									src="../images/mvp/poster-collection-2.png"
+								<ProjectDescription
+									durationEnd={projects[0].end}
+									durationStart={projects[0].start}
+									subhead={projects[0].description}
+									title={projects[0].name}
+									tags={projects[0].tags}
 								/>
-								<StaticImage
-									alt="teste"
-									src="../images/mvp/poster-collection-3.png"
+							</div>
+						</li>
+						<li className="project-list-item">
+							<div className="viewport viewport--max-width">
+								<div className="project-cover">
+									<h2>{projects[1].name}</h2>
+									<figure></figure>
+								</div>
+								<ProjectDescription
+									durationEnd={projects[1].end}
+									durationStart={projects[1].start}
+									subhead={projects[1].description}
+									title={projects[1].name}
+									tags={projects[1].tags}
 								/>
-								<StaticImage
-									alt="teste"
-									src="../images/mvp/poster-collection-4.png"
+							</div>
+						</li>
+						<li className="project-list-item">
+							<div className="viewport viewport--max-width">
+								<div className="project-cover">
+									<h2>{projects[2].name}</h2>
+									<figure></figure>
+								</div>
+								<ProjectDescription
+									durationEnd={projects[2].end}
+									durationStart={projects[2].start}
+									subhead={projects[2].description}
+									title={projects[2].name}
+									tags={projects[2].tags}
 								/>
-								<StaticImage
-									alt="teste"
-									src="../images/mvp/poster-collection-5.png"
-								/>
-							</Slider>
-						</figure>
-					</li>
-					{/* <li className="project-list__item">
-						<PosterCarousel />
-						<div className="viewport viewport--max-width">
-							<ProjectDescription
-								durationEnd={projects[0].end}
-								durationStart={projects[0].start}
-								subhead={projects[0].description}
-								title={projects[0].name}
-								tags={projects[0].tags}
-							/>
-						</div>
-					</li> */}
-				</ul>
-				<section className="about viewport viewport--max-width">
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section id="about" className="about viewport viewport--max-width">
 					<div className="about__headline">
 						<h2 className="display">
 							Froes de{"\u00AD"}signs vis{"\u00AD"}uals for prod{"\u00AD"}ucts,
