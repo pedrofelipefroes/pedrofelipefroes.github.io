@@ -132,6 +132,7 @@
         padding: ss(1) 0;
 
         .title {
+            color: rgb(var(--color-light));
             left: ss(1.5);
             position: fixed;
             top: ss(5.5);
@@ -159,6 +160,8 @@
             }
 
             &--is-wordmark {
+                color: rgb(var(--color-dark));
+
                 .froes::after {
                     left: 0;
                     transform: scale(1.25);

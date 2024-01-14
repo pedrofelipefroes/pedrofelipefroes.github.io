@@ -20,9 +20,6 @@ const PageHeadline = () => {
 						<a href="/#design-work">Design Work</a>
 					</li>
 					<li>
-						<a href="/#courswork">Coursework</a>
-					</li>
-					<li>
 						<a href="/#about">About</a>
 					</li>
 				</ol>
